@@ -186,6 +186,7 @@ function fnRemindAssignees( $wiki_url ) {
 			$date->modify( "+$remind_me_in day" );
 
 			if ( $tg_date-> format( 'F d Y' ) == $date-> format( 'F d Y' ) ) {
+				global $wgLang;
 				while ( $task_assignee = $row[2]->getNextObject() ) {
 					$assignee_username = $task_assignee->getTitle();
 					$assignee_user_name = explode( ":", $assignee_username );
@@ -193,7 +194,7 @@ function fnRemindAssignees( $wiki_url ) {
 
 					$assignee = User::newFromName( $assignee_name );
 					$assignee_mail = new MailAddress( $assignee->getEmail(), $assignee_name );
-					$body = wfMsgExt( 'semantictasks-reminder-message', 'parsemag', $assignee_name, $task_name, $remind_me_in, $link );
+					$body = wfMsgExt( 'semantictasks-reminder-message', 'parsemag', $assignee_name, $task_name, $wgLang->formatNum( $remind_me_in ), $link );
 					$user_mailer->send( $assignee_mail, $sender, $subject, $body );
 				}
 			}
