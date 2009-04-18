@@ -1,26 +1,52 @@
 <?php
+/**Internationalization messages file for SemanticTasks extension
+  *
+  * @addtogroup Extensions
+*/
+
 $messages = array();
+
+/** English (English)
+ * @author Steren Giannini
+ */
 $messages['en'] = array(
-    'newtask' => 'New Task:',
-    'taskupdated' => 'Task Updated:',
-    'assignedtoyou_msg' => "Hello $1,\nThe task \"$2\" has just been assigned to you.\n\n",
-    'updatedtoyou_msg' => "Hello $1,\nThe task \"$2\" has just been updated.\n\n",
-    'reminder' => 'Reminder: ',
-    'reminder-message' => "Hello $1, \nJust to remind you that the task \"$2\" ends in $3 days.\n\n$4",
-    'text-message' => "Here is the Task description:",
-    'diff-message' => "Here are the differences:",
+    'semantictasks-desc' => 'Email notifications for assigned or updated tasks',
+    'semantictasks-newtask' => 'New task:',
+    'semantictasks-taskupdated' => 'Task updated:',
+    'semantictasks-assignedtoyou-msg' => "Hello $1,
+
+The task \"$2\" has just been assigned to you",
+    'semantictasks-updatedtoyou-msg' => "Hello $1,
+
+The task \"$2\" has just been updated.",
+    'semantictasks-reminder' => 'Reminder:',
+    'semantictasks-reminder-message' => "Hello $1,
+
+Just to remind you that the task \"$2\" ends in $3 {{PLURAL:$3|day|days}}.
+
+$4",
+    'semantictasks-text-message' => "Here is the task description:",
+    'semantictasks-diff-message' => "Here are the differences:",
 );
 
-
+/** French (Français)
+ */
 $messages['fr'] = array(
-    'newtask' => 'Nouvelle tâche :',
-    'taskupdated' => 'Tâche mise à jour :',
-    'assignedtoyou_msg' => "Bonjour $1,\nLa tâche \"$2\" vous a été assignée.\n\n",
-    'updatedtoyou_msg' => "Bonjour $1,\nLa tâche \"$2\" a été mise à jour.\n\n",
-    'reminder' => 'Rappel: ',
-    'reminder-message' => "Bonjour $1, \nN'oubliez pas que la tâche \"$2\" se termine dans $3 jours.\n\n$4",
-    'text-message' => "Voici la description de la tâche :",
-    'diff-message' => "Les différences sont listées ci-dessous :",
+    'semantictasks-newtask' => 'Nouvelle tâche :',
+    'semantictasks-taskupdated' => 'Tâche mise à jour :',
+    'semantictasks-assignedtoyou-msg' => "Bonjour $1,
+
+La tâche \"$2\" vous a été assignée.",
+    'semantictasks-updatedtoyou-msg' => "Bonjour $1,
+
+La tâche \"$2\" a été mise à jour.",
+    'semantictasks-reminder' => 'Rappel :',
+    'reminder-message' => "Bonjour $1,
+    
+N'oubliez pas que la tâche \"$2\" se termine dans $3 jours.
+
+$4",
+    'semantictasks-text-message' => "Voici la description de la tâche :",
+    'semantictasks-diff-message' => "Les différences sont listées ci-dessous :",
 );
 
-?>

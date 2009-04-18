@@ -13,9 +13,9 @@ function fnMailAssignees_updated_task( $article, $current_user, $text, $summary,
 		$rev = $article->estimateRevisionCount();
 
 		if( $rev == 1 ) {
-			fnMailAssignees( $article, $current_user, '['.$wgSitename.'] '. wfMsg( 'newtask' ), 'assignedtoyou_msg', /*diff?*/ false, /*Page text*/ true );
+			fnMailAssignees( $article, $current_user, '['.$wgSitename.'] '. wfMsg( 'semantictasks-newtask' ), 'semantictasks-assignedtoyou-msg', /*diff?*/ false, /*Page text*/ true );
 		} else {
-			fnMailAssignees( $article, $current_user, '['.$wgSitename.'] '. wfMsg( 'taskupdated' ), 'updatedtoyou_msg', /*diff?*/ true, /*Page text*/ false );
+			fnMailAssignees( $article, $current_user, '['.$wgSitename.'] '. wfMsg( 'semantictasks-taskupdated' ), 'semantictasks-updatedtoyou-msg', /*diff?*/ true, /*Page text*/ false );
 		}
 	}
 	return TRUE;
@@ -64,10 +64,10 @@ function fnMailNotification( $query_word, $article, $user, $pre_title, $message,
 		$assignee_name = $assignee_user_name[1];
 		$body = wfMsg( $message , $assignee_name , $title ) . $link;
 		if( $display_text ){
-			$body .= "\n \n" . wfMsg( 'text-message' ) . "\n" . $article->getContent() ;
+			$body .= "\n \n" . wfMsg( 'semantictasks-text-message' ) . "\n" . $article->getContent() ;
 		}
 		if( $display_diff){
-			$body .= "\n \n" . wfMsg( 'diff-message' ) . "\n" . st_generateDiffBody_txt( $title );
+			$body .= "\n \n" . wfMsg( 'semantictasks-diff-message' ) . "\n" . st_generateDiffBody_txt( $title );
 		}
 
 		//TEST: uncomment this for test mode (Writes body in testFile)
@@ -172,7 +172,7 @@ function fnRemindAssignees( $wiki_url ) {
 
 	while ( $row = $results->getNext() ) {
 		$task_name = $row[0]->getNextObject()->getTitle();
-		$subject = '[' . $wgSitename . '] ' . wfMsg( 'reminder' ) . $task_name;
+		$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-reminder' ) . $task_name;
 		//The following doesn't work, maybe because we use a cron job.
 		//$link = $task_name->escapeFullURL();
 		//So let's do it manually
@@ -194,7 +194,7 @@ function fnRemindAssignees( $wiki_url ) {
 
 					$assignee = User::newFromName( $assignee_name );
 					$assignee_mail = new MailAddress( $assignee->getEmail(), $assignee_name );
-					$body = wfMsg('reminder-message', $assignee_name, $task_name, $remind_me_in, $link );
+					$body = wfMsgExt( 'semantictasks-reminder-message', 'parsemag', $assignee_name, $task_name, $remind_me_in, $link );
 					$user_mailer->send( $assignee_mail, $sender, $subject, $body );
 				}
 			}
@@ -220,4 +220,3 @@ function st_WriteTestFile( $stringData ) {
 	fwrite( $fh, $stringData );
 	fclose( $fh );
 }
-?>
