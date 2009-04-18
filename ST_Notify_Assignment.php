@@ -3,19 +3,19 @@
 # Licensed under the GNU GPLv2 (or later).
 function fnMailAssignees_updated_task( $article, $current_user, $text, $summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision ) {
 	if ( !$minoredit ) {
-		//i18n
+		// i18n
 		wfLoadExtensionMessages( 'SemanticTasks' );
 
-		//Grab the wiki name
+		// Grab the wiki name
 		global $wgSitename;
 
-		//Get the revision count to determine if new article
+		// Get the revision count to determine if new article
 		$rev = $article->estimateRevisionCount();
 
-		if( $rev == 1 ) {
-			fnMailAssignees( $article, $current_user, '['.$wgSitename.'] '. wfMsg( 'semantictasks-newtask' ), 'semantictasks-assignedtoyou-msg', /*diff?*/ false, /*Page text*/ true );
+		if ( $rev == 1 ) {
+			fnMailAssignees( $article, $current_user, '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-newtask' ), 'semantictasks-assignedtoyou-msg', /*diff?*/ false, /*Page text*/ true );
 		} else {
-			fnMailAssignees( $article, $current_user, '['.$wgSitename.'] '. wfMsg( 'semantictasks-taskupdated' ), 'semantictasks-updatedtoyou-msg', /*diff?*/ true, /*Page text*/ false );
+			fnMailAssignees( $article, $current_user, '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-taskupdated' ), 'semantictasks-updatedtoyou-msg', /*diff?*/ true, /*Page text*/ false );
 		}
 	}
 	return TRUE;
@@ -24,7 +24,7 @@ function fnMailAssignees_updated_task( $article, $current_user, $text, $summary,
 function fnMailAssignees( $article, $user, $pre_title, $message, $display_diff, $display_text ) {
 	$title = $article->getTitle();
 
-	//Send notifications to assignees and ccs
+	// Send notifications to assignees and ccs
 	fnMailNotification( 'Assigned to', $article, $user, $pre_title, $message, $display_diff, $display_text );
 	fnMailNotification( 'Carbon copy', $article, $user, $pre_title, $message, $display_diff, $display_text );
 	return TRUE;
@@ -37,18 +37,18 @@ function fnMailAssignees( $article, $user, $pre_title, $message, $display_diff, 
 function fnMailNotification( $query_word, $article, $user, $pre_title, $message, $display_diff, $display_text ) {
 	$title = $article->getTitle();
 
-	//get the result of the query "[[$title]][[$query_word::+]]"
+	// get the result of the query "[[$title]][[$query_word::+]]"
 	$properties_to_display = array();
 	$properties_to_display[0] = $query_word;
 	$results = st_get_query_results( "[[$title]][[$query_word::+]]", $properties_to_display, false );
 
-	//In theory, there is only one row
+	// In theory, there is only one row
 	while ( $row = $results->getNext() ) {
 		$task_assignees = $row[0];
 	}
 
-	//If not any row, do nothing
-	if( empty( $task_assignees ) ) {
+	// If not any row, do nothing
+	if ( empty( $task_assignees ) ) {
 		return FALSE;
 	}
 
@@ -63,18 +63,18 @@ function fnMailNotification( $query_word, $article, $user, $pre_title, $message,
 		$assignee_user_name = explode( ":", $assignee_username );
 		$assignee_name = $assignee_user_name[1];
 		$body = wfMsg( $message , $assignee_name , $title ) . $link;
-		if( $display_text ){
+		if ( $display_text ) {
 			$body .= "\n \n" . wfMsg( 'semantictasks-text-message' ) . "\n" . $article->getContent() ;
 		}
-		if( $display_diff){
+		if ( $display_diff ) {
 			$body .= "\n \n" . wfMsg( 'semantictasks-diff-message' ) . "\n" . st_generateDiffBody_txt( $title );
 		}
 
-		//TEST: uncomment this for test mode (Writes body in testFile)
-		//st_WriteTestFile( $body );
+		// TEST: uncomment this for test mode (Writes body in testFile)
+		// st_WriteTestFile( $body );
 
 		$assignee = User::newFromName( $assignee_name );
-		//if assignee is the current user, do nothing
+		// if assignee is the current user, do nothing
 		if ( $assignee->getID() != $user->getID() ) {
 			$assignee_mail = new MailAddress( $assignee->getEmail(), $assignee_name );
 			$user_mailer->send( $assignee_mail, $from, $subject, $body );
@@ -92,16 +92,16 @@ function fnMailNotification( $query_word, $article, $user, $pre_title, $message,
 function st_generateDiffBody_txt( $title ) {
 	$revision = Revision::newFromTitle( $title, 0 );
 	$diff = new DifferenceEngine( $title, $revision->getId(), 'prev' );
-	//The getDiffBody() method generates html, so let's generate the txt diff manualy:
+	// The getDiffBody() method generates html, so let's generate the txt diff manualy:
 		global $wgContLang;
 		$diff->loadText();
 		$otext = str_replace( "\r\n", "\n", $diff->mOldtext );
 		$ntext = str_replace( "\r\n", "\n", $diff->mNewtext );
 		$ota = explode( "\n", $wgContLang->segmentForDiff( $otext ) );
 		$nta = explode( "\n", $wgContLang->segmentForDiff( $ntext ) );
-		//We use here the php diff engine included in MediaWiki
+		// We use here the php diff engine included in MediaWiki
 		$diffs = new Diff( $ota, $nta );
-		//And we ask for a txt formatted diff
+		// And we ask for a txt formatted diff
 		$formatter = new UnifiedDiffFormatter();
 		$diff_text = $wgContLang->unsegmentForDiff( $formatter->format( $diffs ) );
 	return $diff_text;
@@ -116,10 +116,10 @@ function st_generateDiffBody_txt( $title ) {
 * @return TODO
 */
 function st_get_query_results( $query_string, $properties_to_display, $display_title ) {
-	//i18n
+	// i18n
 	wfLoadExtensionMessages( 'SemanticTasks' );
 
-	//We use the Semantic Media Wiki Processor
+	// We use the Semantic Media Wiki Processor
 	global $smwgIP;
 	include_once( $smwgIP . "/includes/SMW_QueryProcessor.php" );
 
@@ -129,14 +129,14 @@ function st_get_query_results( $query_string, $properties_to_display, $display_t
 	$printlabel = "";
 	$printouts = array();
 
-	//add the page name to the printouts
-	if( $display_title ) {
+	// add the page name to the printouts
+	if ( $display_title ) {
 		$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_THIS, $printlabel );
 		array_push( $printouts, $to_push );
 	}
 
-	//Push the properties to display in the printout array.
-	foreach( $properties_to_display as $property ) {
+	// Push the properties to display in the printout array.
+	foreach ( $properties_to_display as $property ) {
 		if ( class_exists( 'SMWPropertyValue' ) ) { // SMW 1.4
 			$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $printlabel, SMWPropertyValue::makeProperty( $property ) );
 		} else {
@@ -151,7 +151,6 @@ function st_get_query_results( $query_string, $properties_to_display, $display_t
 	return $results;
 }
 
-
 function fnRemindAssignees( $wiki_url ) {
 	global $wgSitename, $wgServer;
 
@@ -164,7 +163,7 @@ function fnRemindAssignees( $wiki_url ) {
 	$properties_to_display = array( 'Reminder at', 'Assigned to', 'Target date' );
 
 	$results = st_get_query_results( $query_string, $properties_to_display, true );
-	if( empty( $results ) ) {
+	if ( empty( $results ) ) {
 		return FALSE;
 	}
 
@@ -173,9 +172,9 @@ function fnRemindAssignees( $wiki_url ) {
 	while ( $row = $results->getNext() ) {
 		$task_name = $row[0]->getNextObject()->getTitle();
 		$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-reminder' ) . $task_name;
-		//The following doesn't work, maybe because we use a cron job.
-		//$link = $task_name->escapeFullURL();
-		//So let's do it manually
+		// The following doesn't work, maybe because we use a cron job.
+		// $link = $task_name->escapeFullURL();
+		// So let's do it manually
 		$link = $wiki_url . $task_name->getPartialURL();
 
 		$target_date = $row[3]->getNextObject();
@@ -186,7 +185,7 @@ function fnRemindAssignees( $wiki_url ) {
 			$date = new DateTime( $today );
 			$date->modify( "+$remind_me_in day" );
 
-			if( $tg_date-> format( 'F d Y' ) == $date-> format( 'F d Y' ) ) {
+			if ( $tg_date-> format( 'F d Y' ) == $date-> format( 'F d Y' ) ) {
 				while ( $task_assignee = $row[2]->getNextObject() ) {
 					$assignee_username = $task_assignee->getTitle();
 					$assignee_user_name = explode( ":", $assignee_username );
