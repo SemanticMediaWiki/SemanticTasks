@@ -18,11 +18,12 @@ $stIP = $IP . '/extensions/SemanticTasks';
 
 #Informations
 $wgExtensionCredits['parserhook'][] = array(
-       'name' => 'SemanticTasks',
-       'author' =>'Steren Giannini', 
-       'url' => 'http://www.creativecommons.org', 
-       'description' => 'Email notifications for assigned or updated tasks.'
-       );
+	'name' => 'SemanticTasks',
+	'author' =>'Steren Giannini', 
+	'version' => '1.1',
+	'url' => 'http://www.creativecommons.org', 
+	'description' => 'Email notifications for assigned or updated tasks.'
+	);
 
 //Do st_SetupExtension after the mediawiki setup, AND after SemanticMediaWiki setup
 $wgExtensionFunctions[] = 'st_SetupExtension';
@@ -31,6 +32,6 @@ $wgExtensionFunctions[] = 'st_SetupExtension';
 $wgExtensionMessagesFiles['SemanticTasks'] = dirname( __FILE__ ) . '/SemanticTasks.i18n.php';
 
 // ST_Notify_Assignment.php
-require_once($stIP . "/ST_Notify_Assignment.php");
+require_once( $stIP . "/ST_Notify_Assignment.php" );
 
 ?>
