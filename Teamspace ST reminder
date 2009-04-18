@@ -1,0 +1,18 @@
+Here are things to add to the current teamspace structure :
+
+* Create Property:Reminder at"
+    [[Has type::Type:Integer]]
+
+
+*In the Template:Task
+    = Reminders =
+    '''Reminder at:''' {{ #if: {{{reminder|}}} | {{#arraymap:{{{reminder}}}|,|x|[[Reminder at::x]]}} | 0 }}
+
+
+*In the Form:Task 
+    __NOTOC__
+
+and
+
+    = Reminders =
+        <p><strong>Remind me </strong> {{{field|reminder|default=20,15,7,3}}} days before Target date</p>
