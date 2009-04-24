@@ -205,7 +205,7 @@ $messages['hsb'] = array(
 	'semantictasks-desc' => 'E-mejlowe zdźělenja za připokazane abo zaktualizowane nadawki',
 	'semantictasks-newtask' => 'Nowy nadawk:',
 	'semantictasks-taskupdated' => 'Nadawk zaktualizowany:',
-	'semantictasks-assignedtoyou-msg' => 'Halo $2,
+	'semantictasks-assignedtoyou-msg' => 'Halo $1,
 
 nadawk "$2" bu ći runje připokazany',
 	'semantictasks-updatedtoyou-msg' => 'Halo $1,
