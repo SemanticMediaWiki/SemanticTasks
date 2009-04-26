@@ -129,6 +129,29 @@ $4',
 	'semantictasks-diff-message' => 'How su rozdźěle:',
 );
 
+/** Spanish (Español)
+ * @author Crazymadlover
+ */
+$messages['es'] = array(
+	'semantictasks-desc' => 'Notificaciones por correo electrónico para tareas asignadas o actualizadas',
+	'semantictasks-newtask' => 'Nueva tarea:',
+	'semantictasks-taskupdated' => 'Tarea actualizada:',
+	'semantictasks-assignedtoyou-msg' => 'Hola $1,
+
+La tarea "$2" acaba de haberte sido asignada',
+	'semantictasks-updatedtoyou-msg' => 'Hola $1,
+
+La tarea "$2" acaba de haber sido actualizada.',
+	'semantictasks-reminder' => 'Recordador:',
+	'semantictasks-reminder-message' => 'Hola $1,
+
+Sólo para recordarte que la tarea "$2" finaliza en $3 {{PLURAL:$3|día|días}}.
+
+$4',
+	'semantictasks-text-message' => 'Aquí está la descripción de la tarea:',
+	'semantictasks-diff-message' => 'Aquí están las diferencias:',
+);
+
 /** French (Français)
  * @author IAlex
  */
@@ -369,6 +392,52 @@ Przypominamy, że na realizację zadania „$2” {{PLURAL:$3|pozostał|pozosta�
 $4',
 	'semantictasks-text-message' => 'Poniżej znajduje się opis zadania:',
 	'semantictasks-diff-message' => 'Różnice:',
+);
+
+/** Portuguese (Português)
+ * @author Waldir
+ */
+$messages['pt'] = array(
+	'semantictasks-desc' => 'Notificações por email de tarefas atribuídas ou atualizadas',
+	'semantictasks-newtask' => 'Nova tarefa:',
+	'semantictasks-taskupdated' => 'Tarefa atualizada:',
+	'semantictasks-assignedtoyou-msg' => 'Olá $1,
+
+A tarefa "$2" acaba de lhe ser atribuída',
+	'semantictasks-updatedtoyou-msg' => 'Olá $1,
+
+A tarefa "$2" acaba de ser atualizada.',
+	'semantictasks-reminder' => 'Lembrete:',
+	'semantictasks-reminder-message' => 'Olá $1,
+
+Só para lembrar que a tarefa "$2" acaba em $3 {{PLURAL:$3|dia|dias}}.
+
+$4',
+	'semantictasks-text-message' => 'Aqui está a descrição da tarefa:',
+	'semantictasks-diff-message' => 'Aqui estão as diferenças:',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Waldir
+ */
+$messages['pt-br'] = array(
+	'semantictasks-desc' => 'Notificações por email de tarefas atribuídas ou atualizadas',
+	'semantictasks-newtask' => 'Nova tarefa:',
+	'semantictasks-taskupdated' => 'Tarefa atualizada:',
+	'semantictasks-assignedtoyou-msg' => 'Olá $1,
+
+A tarefa "$2" acaba de lhe ser atribuída',
+	'semantictasks-updatedtoyou-msg' => 'Olá $1,
+
+A tarefa "$2" acaba de ser atualizada.',
+	'semantictasks-reminder' => 'Lembrete:',
+	'semantictasks-reminder-message' => 'Olá $1,
+
+Só para lembrar que a tarefa "$2" acaba em $3 {{PLURAL:$3|dia|dias}}.
+
+$4',
+	'semantictasks-text-message' => 'Aqui está a descrição da tarefa:',
+	'semantictasks-diff-message' => 'Aqui estão as diferenças:',
 );
 
 /** Slovak (Slovenčina)
