@@ -18,6 +18,7 @@ $stIP = $IP . '/extensions/SemanticTasks';
 
 # Informations
 $wgExtensionCredits['parserhook'][] = array(
+	'path' => __FILE__,
 	'name' => 'SemanticTasks',
 	'author' => 'Steren Giannini',
 	'version' => '1.1.1',
