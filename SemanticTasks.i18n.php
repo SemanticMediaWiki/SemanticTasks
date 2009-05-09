@@ -168,7 +168,7 @@ La tâche "$2" a été mise à jour.',
 	'semantictasks-reminder' => 'Rappel :',
 	'semantictasks-reminder-message' => 'Bonjour $1,
 
-Nous vous rappelons que la tâche « $1 » se termine dans $3 {{PLURAL:$3|jour|jours}}.
+Nous vous rappelons que la tâche « $2 » se termine dans $3 {{PLURAL:$3|jour|jours}}.
 
 $4',
 	'semantictasks-text-message' => 'Voici la description de la tâche :',
@@ -364,7 +364,7 @@ Lo prètzfach "$2" es estat mes a jorn.',
 	'semantictasks-reminder' => 'Rampèl :',
 	'semantictasks-reminder-message' => "Bonjorn $1,
 
-Vos rapelam que lo prètzfach « $1 » s'acaba dins $3 {{PLURAL:$3|jorn|jorns}}.
+Vos rapelam que lo prètzfach « $2 » s'acaba dins $3 {{PLURAL:$3|jorn|jorns}}.
 
 $4",
 	'semantictasks-text-message' => 'Vaquí la descripcion del prètzfach :',
