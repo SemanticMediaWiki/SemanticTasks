@@ -153,6 +153,7 @@ $4',
 );
 
 /** French (Français)
+ * @author Crochet.david
  * @author IAlex
  */
 $messages['fr'] = array(
@@ -168,7 +169,7 @@ La tâche "$2" a été mise à jour.',
 	'semantictasks-reminder' => 'Rappel :',
 	'semantictasks-reminder-message' => 'Bonjour $1,
 
-Nous vous rappelons que la tâche « $2 » se termine dans $3 {{PLURAL:$3|jour|jours}}.
+Nous vous rappelons que la tâche « $2 » se termine dans $3 jour{{PLURAL:$3||s}}.
 
 $4',
 	'semantictasks-text-message' => 'Voici la description de la tâche :',
