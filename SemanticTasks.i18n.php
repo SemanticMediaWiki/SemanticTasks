@@ -349,6 +349,29 @@ $4',
 	'semantictasks-diff-message' => 'Hieronder worden de verschillen weergegeven:',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Nghtwlkr
+ */
+$messages['no'] = array(
+	'semantictasks-desc' => 'Meldinger via e-post om tildelte eller oppdaterte oppgaver',
+	'semantictasks-newtask' => 'Ny oppgave:',
+	'semantictasks-taskupdated' => 'Oppgave oppdatert:',
+	'semantictasks-assignedtoyou-msg' => 'Hei $1,
+
+Oppgaven «$2» har nettopp blitt tildelt deg',
+	'semantictasks-updatedtoyou-msg' => 'Hei $1,
+
+Oppgaven «$2» har nettopp blitt oppdatert.',
+	'semantictasks-reminder' => 'Påminnelse:',
+	'semantictasks-reminder-message' => 'Hei $1,
+
+Minner deg bare på at oppgaven «$2» ender om {{PLURAL:$3|én dag|$3 dager}}.
+
+$4',
+	'semantictasks-text-message' => 'Her er oppgavebeskrivelsen:',
+	'semantictasks-diff-message' => 'Her er forskjellene:',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */
