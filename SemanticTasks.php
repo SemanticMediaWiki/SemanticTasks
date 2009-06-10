@@ -1,19 +1,16 @@
 <?php
 
+if ( !defined( 'MEDIAWIKI' ) ) {
+    echo "Not a valid entry point";
+    exit( 1 );
+}
+
 #
 # This is the path to your installation of SemanticTasks as
 # seen from the web. Change it if required ($wgScriptPath is the
 # path to the base directory of your wiki). No final slash.
 # #
 $stScriptPath = $wgScriptPath . '/extensions/SemanticTasks';
-#
-
-#
-# This is the path to your installation of SemanticTasks as
-# seen on your local filesystem. Used against some PHP file path
-# issues.
-#
-$stIP = $IP . '/extensions/SemanticTasks';
 #
 
 # Informations
@@ -36,4 +33,4 @@ $wgExtensionMessagesFiles['SemanticTasks'] = dirname( __FILE__ ) . '/SemanticTas
 
 // FIXME: Use $wgAutoloadClasses
 // ST_Notify_Assignment.php
-require_once( $stIP . "/ST_Notify_Assignment.php" );
+require_once( dirname( __FILE__ ) . "/ST_Notify_Assignment.php" );

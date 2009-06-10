@@ -8,8 +8,7 @@ require_once( "$IP/maintenance/commandLine.inc" );
 global $smwgIP;
 require_once( $smwgIP . '/includes/SMW_Factbox.php' );
 
-global $stIP;
-require_once( $stIP . '/ST_Notify_Assignment.php' );
+require_once( dirname(__FILE__) . '/ST_Notify_Assignment.php' );
 
 // Let's send reminders
 fnRemindAssignees( 'http://teamspace.creativecommons.org/' );
