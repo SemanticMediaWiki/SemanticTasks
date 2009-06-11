@@ -464,6 +464,14 @@ $4',
 	'semantictasks-diff-message' => 'Aqui estão as diferenças:',
 );
 
+/** Russian (Русский)
+ * @author Ferrer
+ */
+$messages['ru'] = array(
+	'semantictasks-newtask' => 'Новая задача:',
+	'semantictasks-taskupdated' => 'Задача обновлена:',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */
