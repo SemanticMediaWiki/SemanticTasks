@@ -468,8 +468,12 @@ $4',
  * @author Ferrer
  */
 $messages['ru'] = array(
+	'semantictasks-desc' => 'Уведомления по электронной почте о принятых или обновлённых задачах',
 	'semantictasks-newtask' => 'Новая задача:',
 	'semantictasks-taskupdated' => 'Задача обновлена:',
+	'semantictasks-reminder' => 'Напоминание:',
+	'semantictasks-text-message' => 'Здесь описание задачи:',
+	'semantictasks-diff-message' => 'Здесь различия:',
 );
 
 /** Slovak (Slovenčina)
