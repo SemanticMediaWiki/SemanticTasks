@@ -471,7 +471,18 @@ $messages['ru'] = array(
 	'semantictasks-desc' => 'Уведомления по электронной почте о принятых или обновлённых задачах',
 	'semantictasks-newtask' => 'Новая задача:',
 	'semantictasks-taskupdated' => 'Задача обновлена:',
+	'semantictasks-assignedtoyou-msg' => 'Здравствуйте, $1,
+
+Задача «$2» была только что отправлена вам',
+	'semantictasks-updatedtoyou-msg' => 'Здравствуйте, $1,
+
+Задача «$2» только что была обновлена.',
 	'semantictasks-reminder' => 'Напоминание:',
+	'semantictasks-reminder-message' => 'Здравствуйте, $1,
+
+Напоминаем, что задача «$2» завершается через $3 {{PLURAL:$3|день|дня|дней}}.
+
+$4',
 	'semantictasks-text-message' => 'Здесь описание задачи:',
 	'semantictasks-diff-message' => 'Здесь различия:',
 );
