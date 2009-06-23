@@ -38,6 +38,7 @@ $messages['qqq'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
  */
 $messages['ar'] = array(
 	'semantictasks-desc' => 'إخطارات بالبريد الإلكتروني للمهام الموكولة أو المحدثة',
@@ -52,7 +53,7 @@ $messages['ar'] = array(
 	'semantictasks-reminder' => 'تذكرة:',
 	'semantictasks-reminder-message' => 'مرحبا $1،
 
-فقط لتذكيرك أن المهمة "$2" تنتهي خلال $3 {{PLURAL:$3|يوم|يوم}}.
+فقط أذكرك أن المهمة "$2" تنتهي في غضون {{PLURAL:$3||يوم واحد|يومين|$3 أيام|$3 يومًا|$3 يوم}}.
 
 $4',
 	'semantictasks-text-message' => 'هنا وصف المهمة:',
@@ -466,19 +467,20 @@ $4',
 
 /** Russian (Русский)
  * @author Ferrer
+ * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'semantictasks-desc' => 'Уведомления по электронной почте о принятых или обновлённых задачах',
 	'semantictasks-newtask' => 'Новая задача:',
 	'semantictasks-taskupdated' => 'Задача обновлена:',
-	'semantictasks-assignedtoyou-msg' => 'Здравствуйте, $1,
+	'semantictasks-assignedtoyou-msg' => 'Здравствуйте, $1.
 
-Задача «$2» была только что отправлена вам',
-	'semantictasks-updatedtoyou-msg' => 'Здравствуйте, $1,
+Вам была только что определена задача «$2»',
+	'semantictasks-updatedtoyou-msg' => 'Здравствуйте, $1.
 
 Задача «$2» только что была обновлена.',
 	'semantictasks-reminder' => 'Напоминание:',
-	'semantictasks-reminder-message' => 'Здравствуйте, $1,
+	'semantictasks-reminder-message' => 'Здравствуйте, $1.
 
 Напоминаем, что задача «$2» завершается через $3 {{PLURAL:$3|день|дня|дней}}.
 
