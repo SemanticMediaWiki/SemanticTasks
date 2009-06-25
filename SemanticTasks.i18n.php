@@ -269,6 +269,29 @@ $4',
 	'semantictasks-diff-message' => 'Ecce le differentias:',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
+ */
+$messages['id'] = array(
+	'semantictasks-desc' => 'Pemberitahuan lewat surel untuk tugas yang diberikan atau yang dimutakhirkan',
+	'semantictasks-newtask' => 'Tugas baru:',
+	'semantictasks-taskupdated' => 'Tugas yang dimutakhirkan:',
+	'semantictasks-assignedtoyou-msg' => 'Halo $1,
+
+Tugas "$2" baru saja diberikan kepada Anda',
+	'semantictasks-updatedtoyou-msg' => 'Halo $1,
+
+Tugas "$2" baru saja dimutakhirkan.',
+	'semantictasks-reminder' => 'Pengingat:',
+	'semantictasks-reminder-message' => 'Halo $1,
+
+Hanya mengingatkan Anda bahwa tugas "$2" berakhir dalam $3 {{PLURAL:$3|hari|hari}}.
+
+$4',
+	'semantictasks-text-message' => 'Berikut ini keterangan tugas tersebut:',
+	'semantictasks-diff-message' => 'Berikut ini adalah perubahannya:',
+);
+
 /** Japanese (日本語)
  * @author Fryed-peach
  */
