@@ -61,10 +61,11 @@ $4',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
  * @author Jim-by
  */
 $messages['be-tarask'] = array(
-	'semantictasks-desc' => 'Электроннае паведамленьне аб даданьні ці абнаўленьні заданьняў',
+	'semantictasks-desc' => 'Паведамленьне па электроннай пошце пра даданьне альбо абнаўленьне заданьняў',
 	'semantictasks-newtask' => 'Новае заданьне:',
 	'semantictasks-taskupdated' => 'Заданьне абноўлена:',
 	'semantictasks-assignedtoyou-msg' => 'Вітаем $1,
@@ -76,11 +77,34 @@ $messages['be-tarask'] = array(
 	'semantictasks-reminder' => 'Напамін:',
 	'semantictasks-reminder-message' => 'Вітаем $1,
 
-Напамінаем Вам, што тырмін выкананьня заданьня «$2» скончыцца праз $3 {{PLURAL:$3|дзень|дні|дзён}}.
+Нагадваем Вам, што тэрмін выкананьня заданьня «$2» скончыцца праз $3 {{PLURAL:$3|дзень|дні|дзён}}.
 
 $4',
-	'semantictasks-text-message' => 'Тут знаходзіцца апісаньне заданьня:',
+	'semantictasks-text-message' => 'Апісаньне заданьня:',
 	'semantictasks-diff-message' => 'Розьніца:',
+);
+
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'semantictasks-desc' => 'E-mail obavještenja za dodijeljene ili ažurirane zadatke',
+	'semantictasks-newtask' => 'Novi zadatak:',
+	'semantictasks-taskupdated' => 'Zadatak ažuriran:',
+	'semantictasks-assignedtoyou-msg' => 'Zdravo $1,
+
+Zadatak "$2" je upravo dodijeljen Vama',
+	'semantictasks-updatedtoyou-msg' => 'Zdravo $1,
+
+Zadatak "$2" je upravo ažuriran.',
+	'semantictasks-reminder' => 'Podsjetnik:',
+	'semantictasks-reminder-message' => 'Zdravo $1,
+
+Da Vas podsjetimo da zadatak "$2" završava za $3 {{PLURAL:$3|dan|dana}}.
+
+$4',
+	'semantictasks-text-message' => 'Ovdje je opis zadatka:',
+	'semantictasks-diff-message' => 'Ovdje su razlike:',
 );
 
 /** German (Deutsch)
@@ -343,6 +367,7 @@ $4',
  * @author Robby
  */
 $messages['lb'] = array(
+	'semantictasks-desc' => 'E-Mail Message fir geännert oder nei zougedeelten Aufgaben',
 	'semantictasks-newtask' => 'Nei Aufgab:',
 	'semantictasks-taskupdated' => 'Aufgab aktualiséiert:',
 	'semantictasks-reminder' => 'Erënnerung:',
@@ -371,6 +396,24 @@ Dit is een herinnering aan de taak "$2" die een eindddatum heeft over $3 {{PLURA
 $4',
 	'semantictasks-text-message' => 'Hieronder staat een beschrijving van de taak:',
 	'semantictasks-diff-message' => 'Hieronder worden de verschillen weergegeven:',
+);
+
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Gunnernett
+ */
+$messages['nn'] = array(
+	'semantictasks-desc' => 'Meldingar via e-post om tildelte eller oppdaterte oppgåver',
+	'semantictasks-newtask' => 'Ny oppgåve:',
+	'semantictasks-taskupdated' => 'Oppgåva oppdatert:',
+	'semantictasks-assignedtoyou-msg' => 'Hallo $1,
+
+Oppgåva «$2» har nett vorten gjeve til deg',
+	'semantictasks-updatedtoyou-msg' => 'Hallo $1,
+
+Oppgåva «$2» har nett vorte oppdatert.',
+	'semantictasks-reminder' => 'Påminning:',
+	'semantictasks-text-message' => 'Her er ei skildring av oppgåva:',
+	'semantictasks-diff-message' => 'Her er skilnadane:',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -533,5 +576,29 @@ toto je iba pripomenutie, že úloha „$2“ končí o $3 {{PLURAL:$3|deň|dni|
 $4',
 	'semantictasks-text-message' => 'Toto je popis úlohy:',
 	'semantictasks-diff-message' => 'Toto sú rozdiely:',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ * @author Vinhtantran
+ */
+$messages['vi'] = array(
+	'semantictasks-desc' => 'Thông báo qua thư điện tử khi có nhiệm vụ được giao hoặc cập nhật',
+	'semantictasks-newtask' => 'Công việc mới:',
+	'semantictasks-taskupdated' => 'Công việc được cập nhật:',
+	'semantictasks-assignedtoyou-msg' => 'Xin chào $1,
+
+Nhiệm vụ “$2” vừa được giao cho bạn',
+	'semantictasks-updatedtoyou-msg' => 'Xin chào $1,
+
+Nhiệm vụ “$2” vừa mới được cập nhật.',
+	'semantictasks-reminder' => 'Lời nhắc:',
+	'semantictasks-reminder-message' => 'Xin chào $1,
+
+Thư này chỉ để nhắc bạn rằng nhiệm vụ “$2” sẽ kết thúc trong $3 {{PLURAL:$3|ngày|ngày}} nữa.
+
+$4',
+	'semantictasks-text-message' => 'Miêu tả công việc:',
+	'semantictasks-diff-message' => 'Các khác biệt:',
 );
 
