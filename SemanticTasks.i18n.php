@@ -247,6 +247,30 @@ $4',
 	'semantictasks-diff-message' => 'Do sin d Unterschid:',
 );
 
+/** Hebrew (עברית)
+ * @author Rotemliss
+ * @author YaronSh
+ */
+$messages['he'] = array(
+	'semantictasks-desc' => 'שליחת הודעות דוא"ל על משימות שהוקצו או שעודכנו',
+	'semantictasks-newtask' => 'משימה חדשה:',
+	'semantictasks-taskupdated' => 'משימה עודכנה:',
+	'semantictasks-assignedtoyou-msg' => 'שלום $1,
+
+המשימה "$2" הוקצתה לך הרגע',
+	'semantictasks-updatedtoyou-msg' => 'שלום $1,
+
+המשימה "$2" עודכנה הרגע.',
+	'semantictasks-reminder' => 'תזכורת:',
+	'semantictasks-reminder-message' => 'שלום $1,
+
+רק רצינו להזכיר לך שהמשימה "$2" מסתיימת בעוד {{PLURAL:$3|יום|$3 ימים|יומיים}}.
+
+$4',
+	'semantictasks-text-message' => 'להלן תיאור המשימה:',
+	'semantictasks-diff-message' => 'להלן ההבדלים:',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
