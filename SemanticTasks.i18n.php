@@ -177,6 +177,19 @@ $4',
 	'semantictasks-diff-message' => 'Aquí están las diferencias:',
 );
 
+/** Finnish (Suomi)
+ * @author Str4nd
+ */
+$messages['fi'] = array(
+	'semantictasks-newtask' => 'Uusi tehtävä',
+	'semantictasks-assignedtoyou-msg' => 'Hei $1,
+
+Tehtävä ”$2” on juuri osoitettu sinulle.',
+	'semantictasks-updatedtoyou-msg' => 'Hei $1,
+
+Tehtävä ”$2” on juuri päivitetty.',
+);
+
 /** French (Français)
  * @author Crochet.david
  * @author IAlex
