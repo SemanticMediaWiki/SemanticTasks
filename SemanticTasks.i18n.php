@@ -154,6 +154,13 @@ $4',
 	'semantictasks-diff-message' => 'How su rozdźěle:',
 );
 
+/** Greek (Ελληνικά)
+ * @author ZaDiak
+ */
+$messages['el'] = array(
+	'semantictasks-newtask' => 'Νέα εργασία:',
+);
+
 /** Spanish (Español)
  * @author Crazymadlover
  */
@@ -182,12 +189,14 @@ $4',
  */
 $messages['fi'] = array(
 	'semantictasks-newtask' => 'Uusi tehtävä',
+	'semantictasks-taskupdated' => 'Tehtävä päivitetty:',
 	'semantictasks-assignedtoyou-msg' => 'Hei $1,
 
 Tehtävä ”$2” on juuri osoitettu sinulle.',
 	'semantictasks-updatedtoyou-msg' => 'Hei $1,
 
 Tehtävä ”$2” on juuri päivitetty.',
+	'semantictasks-reminder' => 'Muistutus:',
 );
 
 /** French (Français)
@@ -568,6 +577,14 @@ $4',
 	'semantictasks-diff-message' => 'Aqui estão as diferenças:',
 );
 
+/** Romanian (Română)
+ * @author Firilacroco
+ */
+$messages['ro'] = array(
+	'semantictasks-newtask' => 'Sarcină nouă:',
+	'semantictasks-taskupdated' => 'Sarcină actualizată:',
+);
+
 /** Russian (Русский)
  * @author Ferrer
  * @author Александр Сигачёв
@@ -613,6 +630,14 @@ toto je iba pripomenutie, že úloha „$2“ končí o $3 {{PLURAL:$3|deň|dni|
 $4',
 	'semantictasks-text-message' => 'Toto je popis úlohy:',
 	'semantictasks-diff-message' => 'Toto sú rozdiely:',
+);
+
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'semantictasks-text-message' => 'Ovde je opis zadatka:',
+	'semantictasks-diff-message' => 'Ovde su razlike:',
 );
 
 /** Vietnamese (Tiếng Việt)
