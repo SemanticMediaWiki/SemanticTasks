@@ -159,6 +159,9 @@ $4',
  */
 $messages['el'] = array(
 	'semantictasks-newtask' => 'Νέα εργασία:',
+	'semantictasks-taskupdated' => 'Η εργασία ενημερώθηκε:',
+	'semantictasks-reminder' => 'Υπενθύμιση:',
+	'semantictasks-diff-message' => 'Εδώ είναι οι διαφορές:',
 );
 
 /** Spanish (Español)
@@ -579,10 +582,21 @@ $4',
 
 /** Romanian (Română)
  * @author Firilacroco
+ * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
 	'semantictasks-newtask' => 'Sarcină nouă:',
 	'semantictasks-taskupdated' => 'Sarcină actualizată:',
+	'semantictasks-assignedtoyou-msg' => 'Bună $1,
+
+Sarcina "$2" tocmai ţi-a fost atribuită',
+	'semantictasks-reminder-message' => 'Bună $1,
+
+Doar reamintim faptul că sarcina "$2" se termină peste $3 {{PLURAL:$3|zi|zile}}.
+
+$4',
+	'semantictasks-text-message' => 'Aceasta este descrierea sarcinii:',
+	'semantictasks-diff-message' => 'Acestea sunt diferenţele:',
 );
 
 /** Russian (Русский)
@@ -638,6 +652,30 @@ $4',
 $messages['sr-el'] = array(
 	'semantictasks-text-message' => 'Ovde je opis zadatka:',
 	'semantictasks-diff-message' => 'Ovde su razlike:',
+);
+
+/** Swedish (Svenska)
+ * @author Fluff
+ */
+$messages['sv'] = array(
+	'semantictasks-desc' => 'E-postmeddelanden för tilldelade eller uppdaterade uppgifter',
+	'semantictasks-newtask' => 'Ny uppgift:',
+	'semantictasks-taskupdated' => 'Uppgiften uppdaterad:',
+	'semantictasks-assignedtoyou-msg' => 'Hej $1,
+
+Uppgiften "$2" har just tilldelats till dig',
+	'semantictasks-updatedtoyou-msg' => 'Hej $1,
+
+Uppgiften "$2" har precis uppdaterats.',
+	'semantictasks-reminder' => 'Påminnelse:',
+	'semantictasks-reminder-message' => 'Hej $1,
+
+
+Ett meddelande för att påminna dig om uppgiften "$2" som slutar om {{PLURAL:$3|en dag|$3 dagar}}.
+
+$4',
+	'semantictasks-text-message' => 'Här är uppgiftsbeskrivningen:',
+	'semantictasks-diff-message' => 'Här är skillnaden:',
 );
 
 /** Vietnamese (Tiếng Việt)
