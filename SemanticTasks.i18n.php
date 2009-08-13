@@ -142,6 +142,15 @@ $4',
 	'semantictasks-diff-message' => 'Die Unterschiede oder Änderungen sind:',
 );
 
+/** German (formal address) (Deutsch (Sie-Form))
+ * @author Imre
+ */
+$messages['de-formal'] = array(
+	'semantictasks-assignedtoyou-msg' => 'Hallo $1,
+
+die Aufgabe „$2“ wurde Ihnen soeben zugewiesen.',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
