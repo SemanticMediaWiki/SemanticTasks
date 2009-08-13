@@ -107,6 +107,17 @@ $4',
 	'semantictasks-diff-message' => 'Ovdje su razlike:',
 );
 
+/** Catalan (Català)
+ * @author Paucabot
+ */
+$messages['ca'] = array(
+	'semantictasks-newtask' => 'Nova tasca:',
+	'semantictasks-taskupdated' => 'Tasca actualitzada:',
+	'semantictasks-reminder' => 'Recordatori:',
+	'semantictasks-text-message' => 'Aquí hi ha una descripció de la tasca:',
+	'semantictasks-diff-message' => 'Aquí hi ha les diferències:',
+);
+
 /** German (Deutsch)
  * @author Als-Holder
  * @author Purodha
