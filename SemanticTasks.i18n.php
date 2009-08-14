@@ -208,9 +208,11 @@ $4',
 );
 
 /** Finnish (Suomi)
+ * @author Cimon Avaro
  * @author Str4nd
  */
 $messages['fi'] = array(
+	'semantictasks-desc' => 'Sähköposti ilmoitukset jollekulle osoitetuista tai päivitetyistä tehtävistä',
 	'semantictasks-newtask' => 'Uusi tehtävä',
 	'semantictasks-taskupdated' => 'Tehtävä päivitetty:',
 	'semantictasks-assignedtoyou-msg' => 'Hei $1,
@@ -220,6 +222,8 @@ Tehtävä ”$2” on juuri osoitettu sinulle.',
 
 Tehtävä ”$2” on juuri päivitetty.',
 	'semantictasks-reminder' => 'Muistutus:',
+	'semantictasks-text-message' => 'Tehtävän kuvaus on tälläinen:',
+	'semantictasks-diff-message' => 'Nämä ovat eroavaisuudet:',
 );
 
 /** French (Français)
