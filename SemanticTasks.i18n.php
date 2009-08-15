@@ -181,6 +181,7 @@ $messages['el'] = array(
 	'semantictasks-newtask' => 'Νέα εργασία:',
 	'semantictasks-taskupdated' => 'Η εργασία ενημερώθηκε:',
 	'semantictasks-reminder' => 'Υπενθύμιση:',
+	'semantictasks-text-message' => 'Εδώ είναι η περιγραφή της εργασίας:',
 	'semantictasks-diff-message' => 'Εδώ είναι οι διαφορές:',
 );
 
@@ -209,10 +210,11 @@ $4',
 
 /** Finnish (Suomi)
  * @author Cimon Avaro
+ * @author Crt
  * @author Str4nd
  */
 $messages['fi'] = array(
-	'semantictasks-desc' => 'Sähköposti ilmoitukset jollekulle osoitetuista tai päivitetyistä tehtävistä',
+	'semantictasks-desc' => 'Sähköposti-ilmoitukset osoitetuista tai päivitetyistä tehtävistä',
 	'semantictasks-newtask' => 'Uusi tehtävä',
 	'semantictasks-taskupdated' => 'Tehtävä päivitetty:',
 	'semantictasks-assignedtoyou-msg' => 'Hei $1,
