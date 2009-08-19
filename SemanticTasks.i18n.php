@@ -185,6 +185,16 @@ $messages['el'] = array(
 	'semantictasks-diff-message' => 'Εδώ είναι οι διαφορές:',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'semantictasks-newtask' => 'Nova tasko:',
+	'semantictasks-taskupdated' => 'Takso ĝisdatigita:',
+	'semantictasks-reminder' => 'Memorigilo:',
+	'semantictasks-diff-message' => 'Jen la malsamaĵoj:',
+);
+
 /** Spanish (Español)
  * @author Crazymadlover
  */
