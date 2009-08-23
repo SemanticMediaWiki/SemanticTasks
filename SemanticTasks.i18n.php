@@ -30,10 +30,11 @@ $4",
 );
 
 /** Message documentation (Message documentation)
+ * @author Fryed-peach
  * @author Purodha
  */
 $messages['qqq'] = array(
-	'semantictasks-desc' => 'Short description of this extension, shown on [[Special:Version]]. Do not translate or change links.',
+	'semantictasks-desc' => '{{desc}}',
 );
 
 /** Arabic (العربية)
@@ -682,7 +683,15 @@ $4',
 	'semantictasks-diff-message' => 'Toto sú rozdiely:',
 );
 
-/** latinica (latinica)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Михајло Анђелковић
+ */
+$messages['sr-ec'] = array(
+	'semantictasks-text-message' => 'Овде је опис задатка:',
+	'semantictasks-diff-message' => 'Овде су разлике:',
+);
+
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(
