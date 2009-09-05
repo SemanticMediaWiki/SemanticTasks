@@ -571,6 +571,28 @@ $4',
 	'semantictasks-diff-message' => 'Różnice:',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'semantictasks-newtask' => 'Neuv travaj:',
+	'semantictasks-taskupdated' => 'Travaj modificà:',
+	'semantictasks-assignedtoyou-msg' => 'Cerea $1,
+
+Ël travaj "$2" a l\'é stàit pen-e asignà a ti',
+	'semantictasks-updatedtoyou-msg' => 'Cerea $1,
+
+Ël travaj "$2" a l\'é pen-e stàit modificà.',
+	'semantictasks-reminder' => 'Da arcordé:',
+	'semantictasks-reminder-message' => 'Cerea $1,
+
+Mach për arcordete che ël travaj "$2" a finiss an $3 {{PLURAL:$3|di|di}}.
+
+$4',
+	'semantictasks-text-message' => 'Sì a-i é na descrission dël travaj:',
+	'semantictasks-diff-message' => 'Sì a-i son le diferense:',
+);
+
 /** Portuguese (Português)
  * @author Waldir
  */
