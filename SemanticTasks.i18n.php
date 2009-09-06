@@ -575,6 +575,7 @@ $4',
  * @author Dragonòt
  */
 $messages['pms'] = array(
+	'semantictasks-desc' => 'Notìfiche e-mail për travaj assignà o modificà',
 	'semantictasks-newtask' => 'Neuv travaj:',
 	'semantictasks-taskupdated' => 'Travaj modificà:',
 	'semantictasks-assignedtoyou-msg' => 'Cerea $1,
