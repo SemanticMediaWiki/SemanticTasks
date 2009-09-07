@@ -746,6 +746,13 @@ $4',
 	'semantictasks-diff-message' => 'Här är skillnaden:',
 );
 
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'semantictasks-newtask' => 'కొత్త పని:',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  * @author Vinhtantran
