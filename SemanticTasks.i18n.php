@@ -356,6 +356,19 @@ $4',
 	'semantictasks-diff-message' => 'Tu su rozdźěle:',
 );
 
+/** Hungarian (Magyar)
+ * @author Glanthor Reviol
+ */
+$messages['hu'] = array(
+	'semantictasks-desc' => 'E-mail figyelmeztetések a kijelölt és frissített feladatokhoz',
+	'semantictasks-newtask' => 'Új feladat:',
+	'semantictasks-taskupdated' => 'Frissített feladat:',
+	'semantictasks-updatedtoyou-msg' => 'Szia $1,
+
+a „$2” feladat frissítve lett.',
+	'semantictasks-text-message' => 'A feladat leírása:',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */
