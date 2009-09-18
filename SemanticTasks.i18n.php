@@ -363,10 +363,20 @@ $messages['hu'] = array(
 	'semantictasks-desc' => 'E-mail figyelmeztetések a kijelölt és frissített feladatokhoz',
 	'semantictasks-newtask' => 'Új feladat:',
 	'semantictasks-taskupdated' => 'Frissített feladat:',
+	'semantictasks-assignedtoyou-msg' => 'Szia $1,
+
+megkaptad a(z) „$2” feladatot.',
 	'semantictasks-updatedtoyou-msg' => 'Szia $1,
 
 a „$2” feladat frissítve lett.',
+	'semantictasks-reminder' => 'Emlékeztető:',
+	'semantictasks-reminder-message' => 'Szia $1!
+
+Ez egy emlékeztető, hogy a „$2” feladat határideje {{PLURAL:$3|egy|$3}} nap múlva lejár.
+
+$4',
 	'semantictasks-text-message' => 'A feladat leírása:',
+	'semantictasks-diff-message' => 'Ez a felhasználó korábban blokkot kapott, és a naplóbejegyzés el lett rejtve. Az elrejtési napló alább látható tájékoztatásként:',
 );
 
 /** Interlingua (Interlingua)
