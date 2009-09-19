@@ -235,8 +235,8 @@ Tehtävä ”$2” on juuri osoitettu sinulle.',
 
 Tehtävä ”$2” on juuri päivitetty.',
 	'semantictasks-reminder' => 'Muistutus:',
-	'semantictasks-text-message' => 'Tehtävän kuvaus on tälläinen:',
-	'semantictasks-diff-message' => 'Nämä ovat eroavaisuudet:',
+	'semantictasks-text-message' => 'Tehtävän kuvaus:',
+	'semantictasks-diff-message' => 'Tässä ovat eroavaisuudet:',
 );
 
 /** French (Français)
