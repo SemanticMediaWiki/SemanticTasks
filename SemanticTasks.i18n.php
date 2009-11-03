@@ -85,6 +85,13 @@ $4',
 	'semantictasks-diff-message' => 'Розьніца:',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fohanno
+ */
+$messages['br'] = array(
+	'semantictasks-diff-message' => "Setu amañ ar c'hemmoù :",
+);
+
 /** Bosnian (Bosanski)
  * @author CERminator
  */
