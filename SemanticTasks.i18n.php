@@ -89,6 +89,7 @@ $4',
  * @author Fohanno
  */
 $messages['br'] = array(
+	'semantictasks-reminder' => "Derc'hel soñj :",
 	'semantictasks-diff-message' => "Setu amañ ar c'hemmoù :",
 );
 
