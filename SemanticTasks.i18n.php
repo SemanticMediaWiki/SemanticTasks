@@ -681,6 +681,9 @@ $messages['ro'] = array(
 	'semantictasks-assignedtoyou-msg' => 'Bună $1,
 
 Sarcina "$2" tocmai ţi-a fost atribuită',
+	'semantictasks-updatedtoyou-msg' => 'Bună, $1,
+
+Sarcina "$2" tocmai a fost actualizată.',
 	'semantictasks-reminder-message' => 'Bună $1,
 
 Doar reamintim faptul că sarcina "$2" se termină peste $3 {{PLURAL:$3|zi|zile}}.
