@@ -87,9 +87,26 @@ $4',
 
 /** Breton (Brezhoneg)
  * @author Fohanno
+ * @author Fulup
  */
 $messages['br'] = array(
+	'semantictasks-desc' => 'Kemennadenn dre bostel evit an trevelloù deverket pe hizivaet',
+	'semantictasks-newtask' => 'Trevell nevez :',
+	'semantictasks-taskupdated' => 'Hizivaet an trevell :',
+	'semantictasks-assignedtoyou-msg' => 'Demat $1,
+
+Deverket eo bet an trevell "$2" deoc\'h.',
+	'semantictasks-updatedtoyou-msg' => 'Demat $1,
+
+Hizivaet eo bet an trevell "$2".',
 	'semantictasks-reminder' => "Derc'hel soñj :",
+	'semantictasks-reminder-message' => 'Demat $1,
+
+Un tamm gerig da zegas da soñj deoc\'h e vo echuet an trevell "$2" a-benn $3 {{PLURAL:$3|deiz|deiz}}.
+
+
+$4',
+	'semantictasks-text-message' => 'Setu aze deskrivadenn an trevell :',
 	'semantictasks-diff-message' => "Setu amañ ar c'hemmoù :",
 );
 
