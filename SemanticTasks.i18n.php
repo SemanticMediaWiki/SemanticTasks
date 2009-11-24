@@ -509,6 +509,29 @@ $messages['lb'] = array(
 	'semantictasks-diff-message' => "Hei sinn d'Ënnerscheeder:",
 );
 
+/** Macedonian (Македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'semantictasks-desc' => 'Известувања по е-пошта за доделени или обновени задачи',
+	'semantictasks-newtask' => 'Нова задача:',
+	'semantictasks-taskupdated' => 'Задачата е обновена:',
+	'semantictasks-assignedtoyou-msg' => 'Здраво $1,
+
+Штотуку ви беше доделена задачата „$2“',
+	'semantictasks-updatedtoyou-msg' => 'Здраво $1,
+
+Задачата „$2“ штотуку беше обновена.',
+	'semantictasks-reminder' => 'Потсетување:',
+	'semantictasks-reminder-message' => 'Здраво $1,
+
+Би сакале да ве потсетиме дека задачата „$2“ завршува за $3 {{PLURAL:$3|ден|дена}}.
+
+$4',
+	'semantictasks-text-message' => 'Еве опис на задачата:',
+	'semantictasks-diff-message' => 'Еве ги разликите:',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
