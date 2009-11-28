@@ -666,6 +666,7 @@ $4',
 );
 
 /** Portuguese (Português)
+ * @author Hamilton Abreu
  * @author Waldir
  */
 $messages['pt'] = array(
@@ -678,7 +679,7 @@ A tarefa "$2" acaba de lhe ser atribuída',
 	'semantictasks-updatedtoyou-msg' => 'Olá $1,
 
 A tarefa "$2" acaba de ser atualizada.',
-	'semantictasks-reminder' => 'Lembrete:',
+	'semantictasks-reminder' => 'Nota:',
 	'semantictasks-reminder-message' => 'Olá $1,
 
 Só para lembrar que a tarefa "$2" acaba em $3 {{PLURAL:$3|dia|dias}}.
