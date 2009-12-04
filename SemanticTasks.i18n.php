@@ -670,15 +670,15 @@ $4',
  * @author Waldir
  */
 $messages['pt'] = array(
-	'semantictasks-desc' => 'Notificações por email de tarefas atribuídas ou atualizadas',
+	'semantictasks-desc' => 'Notificações por correio electrónico das tarefas atribuídas ou actualizadas',
 	'semantictasks-newtask' => 'Nova tarefa:',
-	'semantictasks-taskupdated' => 'Tarefa atualizada:',
+	'semantictasks-taskupdated' => 'Tarefa actualizada:',
 	'semantictasks-assignedtoyou-msg' => 'Olá $1,
 
 A tarefa "$2" acaba de lhe ser atribuída',
 	'semantictasks-updatedtoyou-msg' => 'Olá $1,
 
-A tarefa "$2" acaba de ser atualizada.',
+A tarefa "$2" acaba de ser actualizada.',
 	'semantictasks-reminder' => 'Nota:',
 	'semantictasks-reminder-message' => 'Olá $1,
 
