@@ -825,7 +825,16 @@ $4',
  * @author Veeven
  */
 $messages['te'] = array(
+	'semantictasks-desc' => 'అప్పగించిన లేదా తాజాకరించిన పనుల యొక్క ఈ-మెయిలు గమనింపులు',
 	'semantictasks-newtask' => 'కొత్త పని:',
+	'semantictasks-taskupdated' => 'పనిని తాజాకరించారు:',
+	'semantictasks-assignedtoyou-msg' => 'హలో $1,
+
+"$2" పనిని ఇప్పుడే మీకు అప్పగించారు',
+	'semantictasks-updatedtoyou-msg' => 'హలో $1, 
+
+"$2" పనిని ఇప్పుడే తాజాకరించారు.',
+	'semantictasks-text-message' => 'పని వివరణ ఇదిగో:',
 );
 
 /** Vietnamese (Tiếng Việt)
