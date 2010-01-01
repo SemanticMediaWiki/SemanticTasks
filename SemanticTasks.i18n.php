@@ -837,6 +837,17 @@ $messages['te'] = array(
 	'semantictasks-text-message' => 'పని వివరణ ఇదిగో:',
 );
 
+/** Turkish (Türkçe)
+ * @author Vito Genovese
+ */
+$messages['tr'] = array(
+	'semantictasks-newtask' => 'Yeni görev:',
+	'semantictasks-taskupdated' => 'Görev güncellendi:',
+	'semantictasks-reminder' => 'Hatırlatma:',
+	'semantictasks-text-message' => 'Görev tanımı şu şekildedir:',
+	'semantictasks-diff-message' => 'Farklılıklar şu şekildedir:',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  * @author Vinhtantran
