@@ -8,9 +8,9 @@ require_once( "$IP/maintenance/commandLine.inc" );
 global $smwgIP;
 require_once( $smwgIP . '/includes/SMW_Factbox.php' );
 
-require_once( dirname(__FILE__) . '/ST_Notify_Assignment.php' );
+require_once( dirname(__FILE__) . '/SemanticTasks.classes.php' );
 
 // Let's send reminders
-fnRemindAssignees( 'http://teamspace.creativecommons.org/' );
+SemanticTasksMailer::remindAssignees( 'http://teamspace.creativecommons.org/' );
 
 print( "ST check for reminders\n" );
