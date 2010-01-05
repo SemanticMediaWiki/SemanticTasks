@@ -6,13 +6,13 @@ Notes on installing Semantic tasks can be found in the file INSTALL.
 
 == Credits ==
 
-Semantic Tasks was written by Steren Giannini for CreativeCommons.
+Semantic Tasks was created by Steren Giannini for Creative Commons.
 
 == Manual ==
 
 * Notification emails are sent when a page is saved. The system looks for the [[Assigned to::*]] and the [[Carbon copy::*]] property.
 
-* Reminders emails. The system looks for the [[Reminder at::*]] and the [[Target date::*]] property. It then send reminders to the assignees.
+* Reminder emails. The system looks for the [[Reminder at::*]] and the [[Target date::*]] property. It then send reminders to the assignees.
 You must run a cron job once a day to execute the reminder script:
     * edit your crontab file: 
         $ crontab -e
