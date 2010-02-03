@@ -450,6 +450,13 @@ $4',
 	'semantictasks-diff-message' => 'Berikut ini adalah perubahannya:',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'semantictasks-reminder' => 'Ihe eji chetá:',
+);
+
 /** Japanese (日本語)
  * @author Fryed-peach
  */
