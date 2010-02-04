@@ -454,6 +454,9 @@ $4',
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'semantictasks-assignedtoyou-msg' => "Kedu $1,
+
+Ozí ''$2'' a gbakutala gi",
 	'semantictasks-reminder' => 'Ihe eji chetá:',
 );
 
