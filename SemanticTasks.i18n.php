@@ -14,15 +14,15 @@ $messages['en'] = array(
 	'semantictasks-newtask' => 'New task:',
 	'semantictasks-taskassigned' => 'Task assigned:',
 	'semantictasks-taskupdated' => 'Task updated:',
-	'semantictasks-newtask-msg' => "The task \"$1\" has just been created.",
-	'semantictasks-assignedtoyou-msg' => "The task \"$1\" has just been assigned to you.",
-	'semantictasks-updatedtoyou-msg' => "The task \"$1\" has just been updated.",
+	'semantictasks-newtask-msg' => 'The task "$1" has just been created.',
+	'semantictasks-assignedtoyou-msg' => 'The task "$1" has just been assigned to you.',
+	'semantictasks-updatedtoyou-msg' => 'The task "$1" has just been updated.',
 	'semantictasks-reminder' => 'Reminder:',
-	'semantictasks-reminder-message' => "Just to remind you that the task \"$1\" ends in $2 {{PLURAL:$2|day|days}}.
+	'semantictasks-reminder-message2' => "Just to remind you that the task \"$1\" ends in $2 {{PLURAL:$2|day|days}}.
 
 $3",
-	'semantictasks-text-message' => "Here is the task description:",
-	'semantictasks-diff-message' => "Here are the differences:",
+	'semantictasks-text-message' => 'Here is the task description:',
+	'semantictasks-diff-message' => 'Here are the differences:',
 );
 
 /** Message documentation (Message documentation)

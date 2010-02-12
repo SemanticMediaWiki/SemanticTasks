@@ -333,7 +333,7 @@ class SemanticTasksMailer {
 
 						$assignee = User::newFromName( $assignee_name );
 						$assignee_mail = new MailAddress( $assignee->getEmail(), $assignee_name );
-						$body = wfMsgExt( 'semantictasks-reminder-message', 'parsemag', $task_name, $wgLang->formatNum( $remind_me_in ), $link );
+						$body = wfMsgExt( 'semantictasks-reminder-message2', 'parsemag', $task_name, $wgLang->formatNum( $remind_me_in ), $link );
 						$user_mailer->send( $assignee_mail, $sender, $subject, $body );
 					}
 				}
