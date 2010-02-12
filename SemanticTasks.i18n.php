@@ -41,18 +41,12 @@ $messages['ar'] = array(
 	'semantictasks-desc' => 'إخطارات بالبريد الإلكتروني للمهام الموكولة أو المحدثة',
 	'semantictasks-newtask' => 'مهمة جديدة:',
 	'semantictasks-taskupdated' => 'المهمة تم تحديثها:',
-	'semantictasks-assignedtoyou-msg' => 'مرحبا $1،
-
-المهمة "$2" تم إيكالها حالا إليك',
-	'semantictasks-updatedtoyou-msg' => 'مرحبا $1،
-
-المهمة "$2" تم تحديثها حالا.',
+	'semantictasks-assignedtoyou-msg2' => 'المهمة "$1" تم إيكالها حالا إليك',
+	'semantictasks-updatedtoyou-msg2' => 'المهمة "$1" تم تحديثها حالا.',
 	'semantictasks-reminder' => 'تذكرة:',
-	'semantictasks-reminder-message' => 'مرحبا $1،
+	'semantictasks-reminder-message2' => 'فقط أذكرك أن المهمة "$1" تنتهي في غضون {{PLURAL:$2||يوم واحد|يومين|$2 أيام|$2 يومًا|$2 يوم}}.
 
-فقط أذكرك أن المهمة "$2" تنتهي في غضون {{PLURAL:$3||يوم واحد|يومين|$3 أيام|$3 يومًا|$3 يوم}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'هنا وصف المهمة:',
 	'semantictasks-diff-message' => 'هنا الفروقات:',
 );
@@ -290,19 +284,15 @@ $4',
 $messages['gl'] = array(
 	'semantictasks-desc' => 'Notificacións por correo electrónico para as tarefas asignadas ou actualizadas',
 	'semantictasks-newtask' => 'Nova tarefa:',
+	'semantictasks-taskassigned' => 'Tarefa asignada:',
 	'semantictasks-taskupdated' => 'Tarefa actualizada:',
-	'semantictasks-assignedtoyou-msg' => 'Ola $1:
-
-A tarefa "$2" acaba de serlle asignada',
-	'semantictasks-updatedtoyou-msg' => 'Ola $1:
-
-A tarefa "$2" acaba de ser actualizada.',
+	'semantictasks-newtask-msg' => 'A tarefa "$1" acaba de ser creada.',
+	'semantictasks-assignedtoyou-msg2' => 'A tarefa "$1" acaba de serlle asignada.',
+	'semantictasks-updatedtoyou-msg2' => 'A tarefa "$1" acaba de ser actualizada.',
 	'semantictasks-reminder' => 'Recordatorio:',
-	'semantictasks-reminder-message' => 'Ola $1:
+	'semantictasks-reminder-message2' => 'Só é para lembrarlle que a tarefa "$1" remata {{PLURAL:$2|nun día|en $2 días}}.
 
-Só é para lembrarlle que a tarefa "$2" remata {{PLURAL:$3|nun día|en $3 días}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Aquí está a descrición da tarefa:',
 	'semantictasks-diff-message' => 'Aquí están as diferenzas:',
 );
@@ -338,18 +328,12 @@ $messages['he'] = array(
 	'semantictasks-desc' => 'שליחת הודעות דוא"ל על משימות שהוקצו או שעודכנו',
 	'semantictasks-newtask' => 'משימה חדשה:',
 	'semantictasks-taskupdated' => 'משימה עודכנה:',
-	'semantictasks-assignedtoyou-msg' => 'שלום $1,
-
-המשימה "$2" הוקצתה לך הרגע',
-	'semantictasks-updatedtoyou-msg' => 'שלום $1,
-
-המשימה "$2" עודכנה הרגע.',
+	'semantictasks-assignedtoyou-msg2' => 'המשימה "$1" הוקצתה לך הרגע',
+	'semantictasks-updatedtoyou-msg2' => 'המשימה "$1" עודכנה הרגע.',
 	'semantictasks-reminder' => 'תזכורת:',
-	'semantictasks-reminder-message' => 'שלום $1,
+	'semantictasks-reminder-message2' => 'רק רצינו להזכיר לך שהמשימה "$1" מסתיימת בעוד {{PLURAL:$2|יום|$2 ימים|יומיים}}.
 
-רק רצינו להזכיר לך שהמשימה "$2" מסתיימת בעוד {{PLURAL:$3|יום|$3 ימים|יומיים}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'להלן תיאור המשימה:',
 	'semantictasks-diff-message' => 'להלן ההבדלים:',
 );
@@ -361,18 +345,12 @@ $messages['hsb'] = array(
 	'semantictasks-desc' => 'E-mejlowe zdźělenja za připokazane abo zaktualizowane nadawki',
 	'semantictasks-newtask' => 'Nowy nadawk:',
 	'semantictasks-taskupdated' => 'Nadawk zaktualizowany:',
-	'semantictasks-assignedtoyou-msg' => 'Halo $1,
-
-nadawk "$2" bu ći runje připokazany',
-	'semantictasks-updatedtoyou-msg' => 'Halo $1,
-
-nadawk "$2" bu runje zaktualizowany',
+	'semantictasks-assignedtoyou-msg2' => 'Nadawk "$1" bu ći runje připokazany',
+	'semantictasks-updatedtoyou-msg2' => 'Nadawk "$1" bu runje zaktualizowany',
 	'semantictasks-reminder' => 'Dopomnjeće:',
-	'semantictasks-reminder-message' => 'Halo $1,
+	'semantictasks-reminder-message2' => 'Je to jenož dopomnjeće, zo nadawk "$1" so za $2 {{PLURAL:|dźeń|dnjej|dny|dnjow}} skónči.
 
-je to jenož dopomnjeće, zo nadawk "$2" so za $3 {{PLURAL:|dźeń|dnjej|dny|dnjow}} skónči.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Tu je wopisanje nadawka:',
 	'semantictasks-diff-message' => 'Tu su rozdźěle:',
 );
@@ -384,18 +362,12 @@ $messages['hu'] = array(
 	'semantictasks-desc' => 'E-mail figyelmeztetések a kijelölt és frissített feladatokhoz',
 	'semantictasks-newtask' => 'Új feladat:',
 	'semantictasks-taskupdated' => 'Frissített feladat:',
-	'semantictasks-assignedtoyou-msg' => 'Szia $1,
-
-megkaptad a(z) „$2” feladatot.',
-	'semantictasks-updatedtoyou-msg' => 'Szia $1,
-
-a „$2” feladat frissítve lett.',
+	'semantictasks-assignedtoyou-msg2' => 'Megkaptad a(z) „$1” feladatot.',
+	'semantictasks-updatedtoyou-msg2' => 'A „$1” feladat frissítve lett.',
 	'semantictasks-reminder' => 'Emlékeztető:',
-	'semantictasks-reminder-message' => 'Szia $1!
+	'semantictasks-reminder-message2' => 'Ez egy emlékeztető, hogy a „$1” feladat határideje {{PLURAL:$2|egy|$2}} nap múlva lejár.
 
-Ez egy emlékeztető, hogy a „$2” feladat határideje {{PLURAL:$3|egy|$3}} nap múlva lejár.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'A feladat leírása:',
 	'semantictasks-diff-message' => 'Ez a felhasználó korábban blokkot kapott, és a naplóbejegyzés el lett rejtve. Az elrejtési napló alább látható tájékoztatásként:',
 );
@@ -406,19 +378,15 @@ $4',
 $messages['ia'] = array(
 	'semantictasks-desc' => 'Notificationes per e-mail pro cargas assignate o actualisate',
 	'semantictasks-newtask' => 'Nove carga:',
+	'semantictasks-taskassigned' => 'Carga assignate:',
 	'semantictasks-taskupdated' => 'Carga actualisate:',
-	'semantictasks-assignedtoyou-msg' => 'Salute $1,
-
-Le carga "$2" ha justo essite asignate a te',
-	'semantictasks-updatedtoyou-msg' => 'Salute $1,
-
-Le carga "$2" ha justo essite actualisate.',
+	'semantictasks-newtask-msg' => 'Le carga "$1" ha justo essite create.',
+	'semantictasks-assignedtoyou-msg2' => 'Le carga "$1" ha justo essite asignate a te',
+	'semantictasks-updatedtoyou-msg2' => 'Le carga "$1" ha justo essite actualisate.',
 	'semantictasks-reminder' => 'Rememoration:',
-	'semantictasks-reminder-message' => 'Salute $1,
+	'semantictasks-reminder-message2' => 'Isto es pro rememorar te que le carga "$1" essera terminate in $2 {{PLURAL:$2|die|dies}}.
 
-Isto es pro rememorar te que le carga "$2" essera terminate in $3 {{PLURAL:$3|die|dies}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Ecce le description del carga:',
 	'semantictasks-diff-message' => 'Ecce le differentias:',
 );
@@ -430,18 +398,12 @@ $messages['id'] = array(
 	'semantictasks-desc' => 'Pemberitahuan lewat surel untuk tugas yang diberikan atau yang dimutakhirkan',
 	'semantictasks-newtask' => 'Tugas baru:',
 	'semantictasks-taskupdated' => 'Tugas yang dimutakhirkan:',
-	'semantictasks-assignedtoyou-msg' => 'Halo $1,
-
-Tugas "$2" baru saja diberikan kepada Anda',
-	'semantictasks-updatedtoyou-msg' => 'Halo $1,
-
-Tugas "$2" baru saja dimutakhirkan.',
+	'semantictasks-assignedtoyou-msg2' => 'Tugas "$1" baru saja diberikan kepada Anda',
+	'semantictasks-updatedtoyou-msg2' => 'Tugas "$1" baru saja dimutakhirkan.',
 	'semantictasks-reminder' => 'Pengingat:',
-	'semantictasks-reminder-message' => 'Halo $1,
+	'semantictasks-reminder-message2' => 'Hanya mengingatkan Anda bahwa tugas "$1" berakhir dalam $2 {{PLURAL:$2|hari|hari}}.
 
-Hanya mengingatkan Anda bahwa tugas "$2" berakhir dalam $3 {{PLURAL:$3|hari|hari}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Berikut ini keterangan tugas tersebut:',
 	'semantictasks-diff-message' => 'Berikut ini adalah perubahannya:',
 );
@@ -453,18 +415,12 @@ $messages['ja'] = array(
 	'semantictasks-desc' => '課題の割り当てや更新を電子メールで通知する',
 	'semantictasks-newtask' => '新規課題:',
 	'semantictasks-taskupdated' => '課題の更新:',
-	'semantictasks-assignedtoyou-msg' => 'こんにちは、$1 さん。
-
-課題「$2」があなたに割り当てられました。',
-	'semantictasks-updatedtoyou-msg' => 'こんにちは、$1 さん。
-
-課題「$2」が更新されました。',
+	'semantictasks-assignedtoyou-msg2' => '課題「$1」があなたに割り当てられました。',
+	'semantictasks-updatedtoyou-msg2' => '課題「$1」が更新されました。',
 	'semantictasks-reminder' => 'リマインダー:',
-	'semantictasks-reminder-message' => 'こんにちは、$1 さん。
+	'semantictasks-reminder-message2' => '課題「$1」は $2{{PLURAL:$2|日|日間}}で締め切りを迎えることをお知らせします。
 
-課題「$2」は $3{{PLURAL:$3|日|日間}}で締め切りを迎えることをお知らせします。
-
-$4',
+$3',
 	'semantictasks-text-message' => '課題の説明:',
 	'semantictasks-diff-message' => '変更:',
 );
@@ -476,19 +432,13 @@ $messages['ksh'] = array(
 	'semantictasks-desc' => 'Donn <i lang="en">e-mails</i> verschecke för zohjedeilte udder veränderte Aufjabe.',
 	'semantictasks-newtask' => 'Neu Aufjab:',
 	'semantictasks-taskupdated' => 'Aufjab op ene neue Shtand jebraat:',
-	'semantictasks-assignedtoyou-msg' => 'Dach $1,
-
-Do häs äävens de Aufjab „$2“
+	'semantictasks-assignedtoyou-msg2' => 'Do häs äävens de Aufjab „$1“
 zojedeilt krääje. Et es jez de Dinge, alsu maach jet domet!',
-	'semantictasks-updatedtoyou-msg' => 'Dach $1,
-
-de Aufjab „$2“ es jraad op ene neue Shtand jebraat woode.',
+	'semantictasks-updatedtoyou-msg2' => 'De Aufjab „$1“ es jraad op ene neue Shtand jebraat woode.',
 	'semantictasks-reminder' => 'Äennerung:',
-	'semantictasks-reminder-message' => 'Dach $1,
+	'semantictasks-reminder-message2' => 'Bloß ens drop Opjemerk: De Aufjab „$1“ es en {{PLURAL:$2|enem Daach|$2 Dääsh|winnijer wi enem Daach}} eröm.
 
-Bloß ens drop Opjemerk: De Aufjab „$2“ es en {{PLURAL:$3|enem Daach|$3 Dääsh|winnijer wi enem Daach}} eröm.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Esu es de Aufjab beschrevve:',
 	'semantictasks-diff-message' => 'Hee sin de Ungerscheide:',
 );
@@ -512,18 +462,12 @@ $messages['mk'] = array(
 	'semantictasks-desc' => 'Известувања по е-пошта за доделени или обновени задачи',
 	'semantictasks-newtask' => 'Нова задача:',
 	'semantictasks-taskupdated' => 'Задачата е обновена:',
-	'semantictasks-assignedtoyou-msg' => 'Здраво $1,
-
-Штотуку ви беше доделена задачата „$2“',
-	'semantictasks-updatedtoyou-msg' => 'Здраво $1,
-
-Задачата „$2“ штотуку беше обновена.',
+	'semantictasks-assignedtoyou-msg2' => 'Штотуку ви беше доделена задачата „$1“',
+	'semantictasks-updatedtoyou-msg2' => 'Задачата „$1“ штотуку беше обновена.',
 	'semantictasks-reminder' => 'Потсетување:',
-	'semantictasks-reminder-message' => 'Здраво $1,
+	'semantictasks-reminder-message2' => 'Би сакале да ве потсетиме дека задачата „$1“ завршува за $2 {{PLURAL:$2|ден|дена}}.
 
-Би сакале да ве потсетиме дека задачата „$2“ завршува за $3 {{PLURAL:$3|ден|дена}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Еве опис на задачата:',
 	'semantictasks-diff-message' => 'Еве ги разликите:',
 );
@@ -535,18 +479,12 @@ $messages['nl'] = array(
 	'semantictasks-desc' => 'E-mailberichten voor toegewezen of bijgewerkte taken',
 	'semantictasks-newtask' => 'Nieuwe taak:',
 	'semantictasks-taskupdated' => 'Taak bijgewerkt:',
-	'semantictasks-assignedtoyou-msg' => 'Hallo $1,
-
-De taak "$2" is aan u toegewezen.',
-	'semantictasks-updatedtoyou-msg' => 'Hallo $1,
-
-De taak "$2" is bijgewerkt.',
+	'semantictasks-assignedtoyou-msg2' => 'De taak "$1" is aan u toegewezen.',
+	'semantictasks-updatedtoyou-msg2' => 'De taak "$1" is bijgewerkt.',
 	'semantictasks-reminder' => 'Herinnering:',
-	'semantictasks-reminder-message' => 'Hallo $1,
+	'semantictasks-reminder-message2' => 'Dit is een herinnering aan de taak "$1" die een eindddatum heeft over $2 {{PLURAL:$2|dag|dagen}}.
 
-Dit is een herinnering aan de taak "$2" die een eindddatum heeft over $3 {{PLURAL:$3|dag|dagen}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Hieronder staat een beschrijving van de taak:',
 	'semantictasks-diff-message' => 'Hieronder worden de verschillen weergegeven:',
 );
@@ -576,18 +514,12 @@ $messages['no'] = array(
 	'semantictasks-desc' => 'Meldinger via e-post om tildelte eller oppdaterte oppgaver',
 	'semantictasks-newtask' => 'Ny oppgave:',
 	'semantictasks-taskupdated' => 'Oppgave oppdatert:',
-	'semantictasks-assignedtoyou-msg' => 'Hei $1,
-
-Oppgaven «$2» har nettopp blitt tildelt deg',
-	'semantictasks-updatedtoyou-msg' => 'Hei $1,
-
-Oppgaven «$2» har nettopp blitt oppdatert.',
+	'semantictasks-assignedtoyou-msg2' => 'Oppgaven «$1» har nettopp blitt tildelt deg',
+	'semantictasks-updatedtoyou-msg2' => 'Oppgaven «$1» har nettopp blitt oppdatert.',
 	'semantictasks-reminder' => 'Påminnelse:',
-	'semantictasks-reminder-message' => 'Hei $1,
+	'semantictasks-reminder-message2' => 'Minner deg bare på at oppgaven «$1» ender om {{PLURAL:$2|én dag|$2 dager}}.
 
-Minner deg bare på at oppgaven «$2» ender om {{PLURAL:$3|én dag|$3 dager}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Her er oppgavebeskrivelsen:',
 	'semantictasks-diff-message' => 'Her er forskjellene:',
 );
@@ -599,18 +531,12 @@ $messages['oc'] = array(
 	'semantictasks-desc' => 'Notificacions per corrièr electronic pels prètzfaches assignats o meses a jorn',
 	'semantictasks-newtask' => 'Prètzfach novèl :',
 	'semantictasks-taskupdated' => 'Prètzfach mes a jorn :',
-	'semantictasks-assignedtoyou-msg' => 'Bonjorn $1,
-
-Lo prètzfach "$2" vos es estat assignat.',
-	'semantictasks-updatedtoyou-msg' => 'Bonjorn $1,
-
-Lo prètzfach "$2" es estat mes a jorn.',
+	'semantictasks-assignedtoyou-msg2' => 'Lo prètzfach "$1" vos es estat assignat.',
+	'semantictasks-updatedtoyou-msg2' => 'Lo prètzfach "$1" es estat mes a jorn.',
 	'semantictasks-reminder' => 'Rampèl :',
-	'semantictasks-reminder-message' => "Bonjorn $1,
+	'semantictasks-reminder-message2' => "Vos rapelam que lo prètzfach « $1 » s'acaba dins $2 {{PLURAL:$2|jorn|jorns}}.
 
-Vos rapelam que lo prètzfach « $2 » s'acaba dins $3 {{PLURAL:$3|jorn|jorns}}.
-
-$4",
+$3",
 	'semantictasks-text-message' => 'Vaquí la descripcion del prètzfach :',
 	'semantictasks-diff-message' => 'Las diferéncias son listadas çaijós :',
 );
@@ -622,18 +548,12 @@ $messages['pl'] = array(
 	'semantictasks-desc' => 'Powiadomienie e-mailem o przypisaniu lub aktualizacji zadań',
 	'semantictasks-newtask' => 'Nowe zadanie:',
 	'semantictasks-taskupdated' => 'Zadanie zaktualizowane:',
-	'semantictasks-assignedtoyou-msg' => 'Witaj $1,
-
-Przydzielono Ci zadanie „$2”',
-	'semantictasks-updatedtoyou-msg' => 'Witaj $1,
-
-Zadanie „$2” zostało zaktualizowane.',
+	'semantictasks-assignedtoyou-msg2' => 'Przydzielono Ci zadanie „$1”',
+	'semantictasks-updatedtoyou-msg2' => 'Zadanie „$1” zostało zaktualizowane.',
 	'semantictasks-reminder' => 'Przypomnienie:',
-	'semantictasks-reminder-message' => 'Witaj $1,
+	'semantictasks-reminder-message2' => 'Przypominamy, że na realizację zadania „$1” {{PLURAL:$2|pozostał|pozostało}} $2 {{PLURAL:$2|dzień|dni}}.
 
-Przypominamy, że na realizację zadania „$2” {{PLURAL:$3|pozostał|pozostało}} $3 {{PLURAL:$3|dzień|dni}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Poniżej znajduje się opis zadania:',
 	'semantictasks-diff-message' => 'Różnice:',
 );
@@ -645,18 +565,12 @@ $messages['pms'] = array(
 	'semantictasks-desc' => 'Notìfiche e-mail për travaj assignà o modificà',
 	'semantictasks-newtask' => 'Neuv travaj:',
 	'semantictasks-taskupdated' => 'Travaj modificà:',
-	'semantictasks-assignedtoyou-msg' => 'Cerea $1,
-
-Ël travaj "$2" a l\'é stàit pen-e asignà a ti',
-	'semantictasks-updatedtoyou-msg' => 'Cerea $1,
-
-Ël travaj "$2" a l\'é pen-e stàit modificà.',
+	'semantictasks-assignedtoyou-msg2' => 'Ël travaj "$1" a l\'é stàit pen-e asignà a ti',
+	'semantictasks-updatedtoyou-msg2' => 'Ël travaj "$1" a l\'é pen-e stàit modificà.',
 	'semantictasks-reminder' => 'Da arcordé:',
-	'semantictasks-reminder-message' => 'Cerea $1,
+	'semantictasks-reminder-message2' => 'Mach për arcordete che ël travaj "$1" a finiss an $2 {{PLURAL:$2|di|di}}.
 
-Mach për arcordete che ël travaj "$2" a finiss an $3 {{PLURAL:$3|di|di}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Sì a-i é na descrission dël travaj:',
 	'semantictasks-diff-message' => 'Sì a-i son le diferense:',
 );
@@ -669,18 +583,12 @@ $messages['pt'] = array(
 	'semantictasks-desc' => 'Notificações por correio electrónico das tarefas atribuídas ou actualizadas',
 	'semantictasks-newtask' => 'Nova tarefa:',
 	'semantictasks-taskupdated' => 'Tarefa actualizada:',
-	'semantictasks-assignedtoyou-msg' => 'Olá $1,
-
-A tarefa "$2" acaba de lhe ser atribuída',
-	'semantictasks-updatedtoyou-msg' => 'Olá $1,
-
-A tarefa "$2" acaba de ser actualizada.',
+	'semantictasks-assignedtoyou-msg2' => 'A tarefa "$1" acaba de lhe ser atribuída',
+	'semantictasks-updatedtoyou-msg2' => 'A tarefa "$1" acaba de ser actualizada.',
 	'semantictasks-reminder' => 'Nota:',
-	'semantictasks-reminder-message' => 'Olá $1,
+	'semantictasks-reminder-message2' => 'Só para lembrar que a tarefa "$1" acaba em $2 {{PLURAL:$2|dia|dias}}.
 
-Só para lembrar que a tarefa "$2" acaba em $3 {{PLURAL:$3|dia|dias}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Aqui está a descrição da tarefa:',
 	'semantictasks-diff-message' => 'Aqui estão as diferenças:',
 );
@@ -692,18 +600,12 @@ $messages['pt-br'] = array(
 	'semantictasks-desc' => 'Notificações por email de tarefas atribuídas ou atualizadas',
 	'semantictasks-newtask' => 'Nova tarefa:',
 	'semantictasks-taskupdated' => 'Tarefa atualizada:',
-	'semantictasks-assignedtoyou-msg' => 'Olá $1,
-
-A tarefa "$2" acaba de lhe ser atribuída',
-	'semantictasks-updatedtoyou-msg' => 'Olá $1,
-
-A tarefa "$2" acaba de ser atualizada.',
+	'semantictasks-assignedtoyou-msg2' => 'A tarefa "$1" acaba de lhe ser atribuída',
+	'semantictasks-updatedtoyou-msg2' => 'A tarefa "$1" acaba de ser atualizada.',
 	'semantictasks-reminder' => 'Lembrete:',
-	'semantictasks-reminder-message' => 'Olá $1,
+	'semantictasks-reminder-message2' => 'Só para lembrar que a tarefa "$1" acaba em $2 {{PLURAL:$2|dia|dias}}.
 
-Só para lembrar que a tarefa "$2" acaba em $3 {{PLURAL:$3|dia|dias}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Aqui está a descrição da tarefa:',
 	'semantictasks-diff-message' => 'Aqui estão as diferenças:',
 );
@@ -715,17 +617,11 @@ $4',
 $messages['ro'] = array(
 	'semantictasks-newtask' => 'Sarcină nouă:',
 	'semantictasks-taskupdated' => 'Sarcină actualizată:',
-	'semantictasks-assignedtoyou-msg' => 'Bună $1,
+	'semantictasks-assignedtoyou-msg2' => 'Sarcina "$1" tocmai ţi-a fost atribuită',
+	'semantictasks-updatedtoyou-msg2' => 'Sarcina "$1" tocmai a fost actualizată.',
+	'semantictasks-reminder-message2' => 'Doar reamintim faptul că sarcina "$1" se termină peste $2 {{PLURAL:$2|zi|zile}}.
 
-Sarcina "$2" tocmai ţi-a fost atribuită',
-	'semantictasks-updatedtoyou-msg' => 'Bună, $1,
-
-Sarcina "$2" tocmai a fost actualizată.',
-	'semantictasks-reminder-message' => 'Bună $1,
-
-Doar reamintim faptul că sarcina "$2" se termină peste $3 {{PLURAL:$3|zi|zile}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Aceasta este descrierea sarcinii:',
 	'semantictasks-diff-message' => 'Acestea sunt diferenţele:',
 );
@@ -738,18 +634,12 @@ $messages['ru'] = array(
 	'semantictasks-desc' => 'Уведомления по электронной почте о принятых или обновлённых задачах',
 	'semantictasks-newtask' => 'Новая задача:',
 	'semantictasks-taskupdated' => 'Задача обновлена:',
-	'semantictasks-assignedtoyou-msg' => 'Здравствуйте, $1.
-
-Вам была только что определена задача «$2»',
-	'semantictasks-updatedtoyou-msg' => 'Здравствуйте, $1.
-
-Задача «$2» только что была обновлена.',
+	'semantictasks-assignedtoyou-msg2' => 'Вам была только что определена задача «$1»',
+	'semantictasks-updatedtoyou-msg2' => 'Задача «$1» только что была обновлена.',
 	'semantictasks-reminder' => 'Напоминание:',
-	'semantictasks-reminder-message' => 'Здравствуйте, $1.
+	'semantictasks-reminder-message2' => 'Напоминаем, что задача «$1» завершается через $2 {{PLURAL:$2|день|дня|дней}}.
 
-Напоминаем, что задача «$2» завершается через $3 {{PLURAL:$3|день|дня|дней}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Здесь описание задачи:',
 	'semantictasks-diff-message' => 'Здесь различия:',
 );
@@ -761,18 +651,12 @@ $messages['sk'] = array(
 	'semantictasks-desc' => 'Upozornenia emailom na pridelené a aktualizované úlohy',
 	'semantictasks-newtask' => 'Nová úloha:',
 	'semantictasks-taskupdated' => 'Aktualizovaná úloha:',
-	'semantictasks-assignedtoyou-msg' => 'Dobrý deň $1,
-
-práve vám bola pridelená úloha „$2“.',
-	'semantictasks-updatedtoyou-msg' => 'Dobrý deň $1,
-
-práve bola aktualizovaná úloha „$2“.',
+	'semantictasks-assignedtoyou-msg2' => 'Práve vám bola pridelená úloha „$1“.',
+	'semantictasks-updatedtoyou-msg2' => 'Práve bola aktualizovaná úloha „$1“.',
 	'semantictasks-reminder' => 'Pripomienka:',
-	'semantictasks-reminder-message' => 'Dobrý deň $1,
+	'semantictasks-reminder-message2' => 'Toto je iba pripomenutie, že úloha „$1“ končí o $2 {{PLURAL:$2|deň|dni|dní}}.
 
-toto je iba pripomenutie, že úloha „$2“ končí o $3 {{PLURAL:$3|deň|dni|dní}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Toto je popis úlohy:',
 	'semantictasks-diff-message' => 'Toto sú rozdiely:',
 );
@@ -800,19 +684,12 @@ $messages['sv'] = array(
 	'semantictasks-desc' => 'E-postmeddelanden för tilldelade eller uppdaterade uppgifter',
 	'semantictasks-newtask' => 'Ny uppgift:',
 	'semantictasks-taskupdated' => 'Uppgiften uppdaterad:',
-	'semantictasks-assignedtoyou-msg' => 'Hej $1,
-
-Uppgiften "$2" har just tilldelats till dig',
-	'semantictasks-updatedtoyou-msg' => 'Hej $1,
-
-Uppgiften "$2" har precis uppdaterats.',
+	'semantictasks-assignedtoyou-msg2' => 'Uppgiften "$1" har just tilldelats till dig',
+	'semantictasks-updatedtoyou-msg2' => 'Uppgiften "$1" har precis uppdaterats.',
 	'semantictasks-reminder' => 'Påminnelse:',
-	'semantictasks-reminder-message' => 'Hej $1,
+	'semantictasks-reminder-message2' => 'Ett meddelande för att påminna dig om uppgiften "$1" som slutar om {{PLURAL:$2|en dag|$2 dagar}}.
 
-
-Ett meddelande för att påminna dig om uppgiften "$2" som slutar om {{PLURAL:$3|en dag|$3 dagar}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Här är uppgiftsbeskrivningen:',
 	'semantictasks-diff-message' => 'Här är skillnaden:',
 );
@@ -852,18 +729,12 @@ $messages['vi'] = array(
 	'semantictasks-desc' => 'Thông báo qua thư điện tử khi có nhiệm vụ được giao hoặc cập nhật',
 	'semantictasks-newtask' => 'Công việc mới:',
 	'semantictasks-taskupdated' => 'Công việc được cập nhật:',
-	'semantictasks-assignedtoyou-msg' => 'Xin chào $1,
-
-Nhiệm vụ “$2” vừa được giao cho bạn',
-	'semantictasks-updatedtoyou-msg' => 'Xin chào $1,
-
-Nhiệm vụ “$2” vừa mới được cập nhật.',
+	'semantictasks-assignedtoyou-msg2' => 'Nhiệm vụ “$1” vừa được giao cho bạn',
+	'semantictasks-updatedtoyou-msg2' => 'Nhiệm vụ “$1” vừa mới được cập nhật.',
 	'semantictasks-reminder' => 'Lời nhắc:',
-	'semantictasks-reminder-message' => 'Xin chào $1,
+	'semantictasks-reminder-message2' => 'Thư này chỉ để nhắc bạn rằng nhiệm vụ “$1” sẽ kết thúc trong $2 {{PLURAL:$2|ngày|ngày}} nữa.
 
-Thư này chỉ để nhắc bạn rằng nhiệm vụ “$2” sẽ kết thúc trong $3 {{PLURAL:$3|ngày|ngày}} nữa.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Miêu tả công việc:',
 	'semantictasks-diff-message' => 'Các khác biệt:',
 );
