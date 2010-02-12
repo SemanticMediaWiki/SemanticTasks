@@ -15,8 +15,8 @@ $messages['en'] = array(
 	'semantictasks-taskassigned' => 'Task assigned:',
 	'semantictasks-taskupdated' => 'Task updated:',
 	'semantictasks-newtask-msg' => 'The task "$1" has just been created.',
-	'semantictasks-assignedtoyou-msg' => 'The task "$1" has just been assigned to you.',
-	'semantictasks-updatedtoyou-msg' => 'The task "$1" has just been updated.',
+	'semantictasks-assignedtoyou-msg2' => 'The task "$1" has just been assigned to you.',
+	'semantictasks-updatedtoyou-msg2' => 'The task "$1" has just been updated.',
 	'semantictasks-reminder' => 'Reminder:',
 	'semantictasks-reminder-message2' => "Just to remind you that the task \"$1\" ends in $2 {{PLURAL:$2|day|days}}.
 

@@ -206,13 +206,13 @@ class SemanticTasksMailer {
 				$body .= "\n \n" . wfMsg( 'semantictasks-text-message' ) . "\n" . $text;
 			} else if ( $status == UPDATE ) {
 				$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-taskupdated' ) . ' ' . $title_text;
-				$message = 'semantictasks-updatedtoyou-msg';
+				$message = 'semantictasks-updatedtoyou-msg2';
 				$body = wfMsg( $message , $title_text ) . " " . $link;
 				$body .= "\n \n" . wfMsg( 'semantictasks-diff-message' ) . "\n" . self::generateDiffBodyTxt( $title );
 			} else {
 				//status == ASSIGNED
 				$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-taskassigned' ) . ' ' . $title_text;
-				$message = 'semantictasks-assignedtoyou-msg';
+				$message = 'semantictasks-assignedtoyou-msg2';
 				$body = wfMsg( $message , $title_text ) . " " . $link;
 				$body .= "\n \n" . wfMsg( 'semantictasks-text-message' ) . "\n" . $text;
 			}
