@@ -12,19 +12,15 @@ $messages = array();
 $messages['en'] = array(
 	'semantictasks-desc' => 'E-mail notifications for assigned or updated tasks',
 	'semantictasks-newtask' => 'New task:',
+	'semantictasks-taskassigned' => 'Task assigned:',
 	'semantictasks-taskupdated' => 'Task updated:',
-	'semantictasks-assignedtoyou-msg' => "Hello $1,
-
-The task \"$2\" has just been assigned to you",
-	'semantictasks-updatedtoyou-msg' => "Hello $1,
-
-The task \"$2\" has just been updated.",
+	'semantictasks-newtask-msg' => "The task \"$1\" has just been created.",
+	'semantictasks-assignedtoyou-msg' => "The task \"$1\" has just been assigned to you.",
+	'semantictasks-updatedtoyou-msg' => "The task \"$1\" has just been updated.",
 	'semantictasks-reminder' => 'Reminder:',
-	'semantictasks-reminder-message' => "Hello $1,
+	'semantictasks-reminder-message' => "Just to remind you that the task \"$1\" ends in $2 {{PLURAL:$2|day|days}}.
 
-Just to remind you that the task \"$2\" ends in $3 {{PLURAL:$3|day|days}}.
-
-$4",
+$3",
 	'semantictasks-text-message' => "Here is the task description:",
 	'semantictasks-diff-message' => "Here are the differences:",
 );
@@ -448,16 +444,6 @@ Hanya mengingatkan Anda bahwa tugas "$2" berakhir dalam $3 {{PLURAL:$3|hari|hari
 $4',
 	'semantictasks-text-message' => 'Berikut ini keterangan tugas tersebut:',
 	'semantictasks-diff-message' => 'Berikut ini adalah perubahannya:',
-);
-
-/** Igbo (Igbo)
- * @author Ukabia
- */
-$messages['ig'] = array(
-	'semantictasks-assignedtoyou-msg' => "Kedu $1,
-
-Ozí ''$2'' a gbakutala gi",
-	'semantictasks-reminder' => 'Ihe eji chetá:',
 );
 
 /** Japanese (日本語)

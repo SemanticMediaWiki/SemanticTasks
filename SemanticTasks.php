@@ -17,8 +17,8 @@ $stScriptPath = $wgScriptPath . '/extensions/SemanticTasks';
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'SemanticTasks',
-	'author' => 'Steren Giannini',
-	'version' => '1.2',
+	'author' => 'Steren Giannini, Ryan Lane',
+	'version' => '1.3',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Semantic_Tasks',
 	'description' => 'E-mail notifications for assigned or updated tasks',
 	'descriptionmsg' => 'semantictasks-desc',
@@ -37,5 +37,6 @@ $wgAutoloadClasses['SemanticTasksMailer'] = $dir . 'SemanticTasks.classes.php';
 function SemanticTasksSetupExtension() {
         global $wgHooks;
         $wgHooks['ArticleSaveComplete'][] = 'SemanticTasksMailer::mailAssigneesUpdatedTask';
+	$wgHooks['ArticleSave'][] = 'SemanticTasksMailer::findOldValues';
         return true;
 }
