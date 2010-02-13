@@ -213,23 +213,19 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Translationista
  */
 $messages['es'] = array(
 	'semantictasks-desc' => 'Notificaciones por correo electrónico para tareas asignadas o actualizadas',
 	'semantictasks-newtask' => 'Nueva tarea:',
+	'semantictasks-taskassigned' => 'Tarea asignada:',
 	'semantictasks-taskupdated' => 'Tarea actualizada:',
-	'semantictasks-assignedtoyou-msg' => 'Hola $1,
-
-La tarea "$2" acaba de haberte sido asignada',
-	'semantictasks-updatedtoyou-msg' => 'Hola $1,
-
-La tarea "$2" acaba de haber sido actualizada.',
+	'semantictasks-assignedtoyou-msg2' => 'La tarea "$1" acaba de haberte sido asignada',
+	'semantictasks-updatedtoyou-msg2' => 'La tarea "$1" acaba de haber sido actualizada.',
 	'semantictasks-reminder' => 'Recordador:',
-	'semantictasks-reminder-message' => 'Hola $1,
+	'semantictasks-reminder-message2' => 'Sólo para recordarte que la tarea "$1" finaliza en $2 {{PLURAL:$2|día|días}}.
 
-Sólo para recordarte que la tarea "$2" finaliza en $3 {{PLURAL:$3|día|días}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Aquí está la descripción de la tarea:',
 	'semantictasks-diff-message' => 'Aquí están las diferencias:',
 );
@@ -261,19 +257,15 @@ Tehtävä ”$2” on juuri päivitetty.',
 $messages['fr'] = array(
 	'semantictasks-desc' => 'Notifications par courriel pour les tâches assignées ou mises à jour',
 	'semantictasks-newtask' => 'Nouvelle tâche :',
+	'semantictasks-taskassigned' => 'Tâche assignée :',
 	'semantictasks-taskupdated' => 'Tâche mise à jour :',
-	'semantictasks-assignedtoyou-msg' => 'Bonjour $1,
-
-La tâche "$2" vous a été assignée.',
-	'semantictasks-updatedtoyou-msg' => 'Bonjour $1,
-
-La tâche "$2" a été mise à jour.',
+	'semantictasks-newtask-msg' => "La tâche « $1 » vient d'être créée.",
+	'semantictasks-assignedtoyou-msg2' => 'La tâche "$1" vous a été assignée.',
+	'semantictasks-updatedtoyou-msg2' => 'La tâche "$1" a été mise à jour.',
 	'semantictasks-reminder' => 'Rappel :',
-	'semantictasks-reminder-message' => 'Bonjour $1,
+	'semantictasks-reminder-message2' => 'Nous vous rappelons que la tâche « $1 » se termine dans $2 jour{{PLURAL:$2||s}}.
 
-Nous vous rappelons que la tâche « $2 » se termine dans $3 jour{{PLURAL:$3||s}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Voici la description de la tâche :',
 	'semantictasks-diff-message' => 'Les différences sont listées ci-dessous :',
 );
@@ -461,7 +453,9 @@ $messages['lb'] = array(
 $messages['mk'] = array(
 	'semantictasks-desc' => 'Известувања по е-пошта за доделени или обновени задачи',
 	'semantictasks-newtask' => 'Нова задача:',
+	'semantictasks-taskassigned' => 'Доделена задача:',
 	'semantictasks-taskupdated' => 'Задачата е обновена:',
+	'semantictasks-newtask-msg' => 'Штотуку е создадена задачата „$1“.',
 	'semantictasks-assignedtoyou-msg2' => 'Штотуку ви беше доделена задачата „$1“',
 	'semantictasks-updatedtoyou-msg2' => 'Задачата „$1“ штотуку беше обновена.',
 	'semantictasks-reminder' => 'Потсетување:',
@@ -478,7 +472,9 @@ $3',
 $messages['nl'] = array(
 	'semantictasks-desc' => 'E-mailberichten voor toegewezen of bijgewerkte taken',
 	'semantictasks-newtask' => 'Nieuwe taak:',
+	'semantictasks-taskassigned' => 'Taak toegewezen:',
 	'semantictasks-taskupdated' => 'Taak bijgewerkt:',
+	'semantictasks-newtask-msg' => 'De taak "$1" is aangemaakt.',
 	'semantictasks-assignedtoyou-msg2' => 'De taak "$1" is aan u toegewezen.',
 	'semantictasks-updatedtoyou-msg2' => 'De taak "$1" is bijgewerkt.',
 	'semantictasks-reminder' => 'Herinnering:',
@@ -564,7 +560,9 @@ $3',
 $messages['pms'] = array(
 	'semantictasks-desc' => 'Notìfiche e-mail për travaj assignà o modificà',
 	'semantictasks-newtask' => 'Neuv travaj:',
+	'semantictasks-taskassigned' => 'Atività assignà:',
 	'semantictasks-taskupdated' => 'Travaj modificà:',
+	'semantictasks-newtask-msg' => 'L\'atività "$1" a l\'é pen-e stàita creà.',
 	'semantictasks-assignedtoyou-msg2' => 'Ël travaj "$1" a l\'é stàit pen-e asignà a ti',
 	'semantictasks-updatedtoyou-msg2' => 'Ël travaj "$1" a l\'é pen-e stàit modificà.',
 	'semantictasks-reminder' => 'Da arcordé:',
