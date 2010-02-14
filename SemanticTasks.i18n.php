@@ -58,19 +58,15 @@ $3',
 $messages['be-tarask'] = array(
 	'semantictasks-desc' => 'Паведамленьне па электроннай пошце пра даданьне альбо абнаўленьне заданьняў',
 	'semantictasks-newtask' => 'Новае заданьне:',
+	'semantictasks-taskassigned' => 'Прызначанае заданьне:',
 	'semantictasks-taskupdated' => 'Заданьне абноўлена:',
-	'semantictasks-assignedtoyou-msg' => 'Вітаем $1,
-
-Вам толькі што было прызначана заданьне «$2»',
-	'semantictasks-updatedtoyou-msg' => 'Вітаем $1,
-
-Заданьне «$2» толькі што было абноўлена.',
+	'semantictasks-newtask-msg' => 'Заданьне «$1» было толькі што створана.',
+	'semantictasks-assignedtoyou-msg2' => 'Вам толькі што было прызначана заданьне «$1»',
+	'semantictasks-updatedtoyou-msg2' => 'Заданьне «$1» толькі што было абноўлена.',
 	'semantictasks-reminder' => 'Напамін:',
-	'semantictasks-reminder-message' => 'Вітаем $1,
+	'semantictasks-reminder-message2' => 'Нагадваем Вам, што тэрмін выкананьня заданьня «$1» скончыцца праз $2 {{PLURAL:$2|дзень|дні|дзён}}.
 
-Нагадваем Вам, што тэрмін выкананьня заданьня «$2» скончыцца праз $3 {{PLURAL:$3|дзень|дні|дзён}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Апісаньне заданьня:',
 	'semantictasks-diff-message' => 'Розьніца:',
 );
@@ -295,19 +291,15 @@ $3',
 $messages['gsw'] = array(
 	'semantictasks-desc' => 'Benochrichtigunge per E-Mail bi veränderte oder nej zuegwisene Ufgabe',
 	'semantictasks-newtask' => 'Neji Ufgab:',
+	'semantictasks-taskassigned' => 'Ufgab zuegwise:',
 	'semantictasks-taskupdated' => 'Ufgab aktualisiert:',
-	'semantictasks-assignedtoyou-msg' => 'Sali $1,
-
-d Ufgab „$2“ isch Dir grad zuegwise wore.',
-	'semantictasks-updatedtoyou-msg' => 'Sali $1,
-
-d Ufgab „$2“ isch grad aktualisiert wore.',
+	'semantictasks-newtask-msg' => 'D Ufgab „$1“ isch grad erscht aagleit wore.',
+	'semantictasks-assignedtoyou-msg2' => 'D Ufgab „$1“ isch Dir grad zuegwise wore.',
+	'semantictasks-updatedtoyou-msg2' => 'D Ufgab „$1“ isch grad aktualisiert wore.',
 	'semantictasks-reminder' => 'Erinnerig:',
-	'semantictasks-reminder-message' => 'Sali $1,
+	'semantictasks-reminder-message2' => 'Des isch nume ne Erinnerig, ass d Ufgab „$1“ in {{PLURAL:$2|eim Tag|$2 Täg}} ufhert.
 
-des isch nume ne Erinnerig, ass d Ufgab „$2“ in {{PLURAL:$3|eim Tag|$3 Täg}} ufhert.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Do isch d Ufgabebschryybig:',
 	'semantictasks-diff-message' => 'Do sin d Unterschid:',
 );
@@ -631,7 +623,9 @@ $3',
 $messages['ru'] = array(
 	'semantictasks-desc' => 'Уведомления по электронной почте о принятых или обновлённых задачах',
 	'semantictasks-newtask' => 'Новая задача:',
+	'semantictasks-taskassigned' => 'Установленная задача:',
 	'semantictasks-taskupdated' => 'Задача обновлена:',
+	'semantictasks-newtask-msg' => 'Задача «$1» была только что создана.',
 	'semantictasks-assignedtoyou-msg2' => 'Вам была только что определена задача «$1»',
 	'semantictasks-updatedtoyou-msg2' => 'Задача «$1» только что была обновлена.',
 	'semantictasks-reminder' => 'Напоминание:',
