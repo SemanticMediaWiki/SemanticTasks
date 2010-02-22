@@ -20,7 +20,6 @@ $wgExtensionCredits['parserhook'][] = array(
 	'author' => 'Steren Giannini, Ryan Lane',
 	'version' => '1.3',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Semantic_Tasks',
-	'description' => 'E-mail notifications for assigned or updated tasks',
 	'descriptionmsg' => 'semantictasks-desc',
 );
 
