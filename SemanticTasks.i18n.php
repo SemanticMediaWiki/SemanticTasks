@@ -257,7 +257,9 @@ $messages['fr'] = array(
 	'semantictasks-newtask' => 'Nouvelle tâche :',
 	'semantictasks-taskassigned' => 'Tâche assignée :',
 	'semantictasks-taskupdated' => 'Tâche mise à jour :',
+	'semantictasks-taskclosed' => 'Tâche fermée :',
 	'semantictasks-newtask-msg' => "La tâche « $1 » vient d'être créée.",
+	'semantictasks-taskclosed-msg' => "La tâche « $1 » vient d'être fermée.",
 	'semantictasks-assignedtoyou-msg2' => 'La tâche "$1" vous a été assignée.',
 	'semantictasks-updatedtoyou-msg2' => 'La tâche "$1" a été mise à jour.',
 	'semantictasks-reminder' => 'Rappel :',
@@ -276,7 +278,9 @@ $messages['gl'] = array(
 	'semantictasks-newtask' => 'Nova tarefa:',
 	'semantictasks-taskassigned' => 'Tarefa asignada:',
 	'semantictasks-taskupdated' => 'Tarefa actualizada:',
+	'semantictasks-taskclosed' => 'Tarefa pechada:',
 	'semantictasks-newtask-msg' => 'A tarefa "$1" acaba de ser creada.',
+	'semantictasks-taskclosed-msg' => 'A tarefa "$1" acaba de ser pechada.',
 	'semantictasks-assignedtoyou-msg2' => 'A tarefa "$1" acaba de serlle asignada.',
 	'semantictasks-updatedtoyou-msg2' => 'A tarefa "$1" acaba de ser actualizada.',
 	'semantictasks-reminder' => 'Recordatorio:',
@@ -295,7 +299,9 @@ $messages['gsw'] = array(
 	'semantictasks-newtask' => 'Neji Ufgab:',
 	'semantictasks-taskassigned' => 'Ufgab zuegwise:',
 	'semantictasks-taskupdated' => 'Ufgab aktualisiert:',
+	'semantictasks-taskclosed' => 'Ufgab zuegmacht:',
 	'semantictasks-newtask-msg' => 'D Ufgab „$1“ isch grad erscht aagleit wore.',
+	'semantictasks-taskclosed-msg' => 'D Ufgab „$1“ isch grad zuegmcht woe.',
 	'semantictasks-assignedtoyou-msg2' => 'D Ufgab „$1“ isch Dir grad zuegwise wore.',
 	'semantictasks-updatedtoyou-msg2' => 'D Ufgab „$1“ isch grad aktualisiert wore.',
 	'semantictasks-reminder' => 'Erinnerig:',
@@ -366,8 +372,10 @@ $messages['ia'] = array(
 	'semantictasks-newtask' => 'Nove carga:',
 	'semantictasks-taskassigned' => 'Carga assignate:',
 	'semantictasks-taskupdated' => 'Carga actualisate:',
+	'semantictasks-taskclosed' => 'Carga claudite:',
 	'semantictasks-newtask-msg' => 'Le carga "$1" ha justo essite create.',
-	'semantictasks-assignedtoyou-msg2' => 'Le carga "$1" ha justo essite asignate a te',
+	'semantictasks-taskclosed-msg' => 'Le carga "$1" ha justo essite claudite.',
+	'semantictasks-assignedtoyou-msg2' => 'Le carga "$1" ha justo essite assignate a te.',
 	'semantictasks-updatedtoyou-msg2' => 'Le carga "$1" ha justo essite actualisate.',
 	'semantictasks-reminder' => 'Rememoration:',
 	'semantictasks-reminder-message2' => 'Isto es pro rememorar te que le carga "$1" essera terminate in $2 {{PLURAL:$2|die|dies}}.
@@ -522,7 +530,9 @@ $3',
 $messages['oc'] = array(
 	'semantictasks-desc' => 'Notificacions per corrièr electronic pels prètzfaches assignats o meses a jorn',
 	'semantictasks-newtask' => 'Prètzfach novèl :',
+	'semantictasks-taskassigned' => 'Prètzfach assignat :',
 	'semantictasks-taskupdated' => 'Prètzfach mes a jorn :',
+	'semantictasks-newtask-msg' => "Lo prètzfach « $1 » ven d'èsser creat.",
 	'semantictasks-assignedtoyou-msg2' => 'Lo prètzfach "$1" vos es estat assignat.',
 	'semantictasks-updatedtoyou-msg2' => 'Lo prètzfach "$1" es estat mes a jorn.',
 	'semantictasks-reminder' => 'Rampèl :',
@@ -551,6 +561,7 @@ $3',
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
@@ -558,7 +569,9 @@ $messages['pms'] = array(
 	'semantictasks-newtask' => 'Neuv travaj:',
 	'semantictasks-taskassigned' => 'Atività assignà:',
 	'semantictasks-taskupdated' => 'Travaj modificà:',
+	'semantictasks-taskclosed' => 'Travaj livrà:',
 	'semantictasks-newtask-msg' => 'L\'atività "$1" a l\'é pen-e stàita creà.',
+	'semantictasks-taskclosed-msg' => 'Ël travaj "$1" a l\'é pen-a stàit livrà.',
 	'semantictasks-assignedtoyou-msg2' => 'Ël travaj "$1" a l\'é stàit pen-e asignà a ti',
 	'semantictasks-updatedtoyou-msg2' => 'Ël travaj "$1" a l\'é pen-e stàit modificà.',
 	'semantictasks-reminder' => 'Da arcordé:',
