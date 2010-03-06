@@ -173,19 +173,17 @@ die Aufgabe „$2“ wurde Ihnen soeben zugewiesen.',
 $messages['dsb'] = array(
 	'semantictasks-desc' => 'E-mailowe zdźělenja za pśipokazane abo zaktualizěrowane nadawki',
 	'semantictasks-newtask' => 'Nowy nadawk:',
+	'semantictasks-taskassigned' => 'Nadawk pśipokazany:',
 	'semantictasks-taskupdated' => 'Nadawk zaktualizěrowany:',
-	'semantictasks-assignedtoyou-msg' => 'Helo $1,
-
-nadawk "$2" jo se śi rowno pśipokazał',
-	'semantictasks-updatedtoyou-msg' => 'Halo $1,
-
-nadawk "$2" jo se rowno zaktualizěrował',
+	'semantictasks-taskclosed' => 'Nadawk dokóńcony:',
+	'semantictasks-newtask-msg' => 'Nadawk "$1" jo se rowno napórał.',
+	'semantictasks-taskclosed-msg' => 'Nadawk "$1" jo se rowno dokóńcył.',
+	'semantictasks-assignedtoyou-msg2' => 'Nadawk "$1" jo se śi rowno pśipokazał',
+	'semantictasks-updatedtoyou-msg2' => 'Nadawk "$1" jo se rowno zaktualizěrował',
 	'semantictasks-reminder' => 'Dopomnjeśe:',
-	'semantictasks-reminder-message' => 'Helo $1,
+	'semantictasks-reminder-message2' => 'To jo jano dopomnjeśe, až nadawk "$1" skóńcyjo se za $2 {{PLURAL:$2|źeń|dnja|dny|dnjow}}.
 
-to jo jano dopomnjeśe, až nadawk "$2" skóńcyjo se za $3 {{PLURAL:$3|źeń|dnja|dny|dnjow}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'How jo wopisanje nadawka:',
 	'semantictasks-diff-message' => 'How su rozdźěle:',
 );
@@ -338,7 +336,11 @@ $3',
 $messages['hsb'] = array(
 	'semantictasks-desc' => 'E-mejlowe zdźělenja za připokazane abo zaktualizowane nadawki',
 	'semantictasks-newtask' => 'Nowy nadawk:',
+	'semantictasks-taskassigned' => 'Nadawk připokazany:',
 	'semantictasks-taskupdated' => 'Nadawk zaktualizowany:',
+	'semantictasks-taskclosed' => 'Nadawk zakónčeny:',
+	'semantictasks-newtask-msg' => 'Nadawk "$1" je so runje wutworił.',
+	'semantictasks-taskclosed-msg' => 'Nadawk "$1" je so runje zakónčił.',
 	'semantictasks-assignedtoyou-msg2' => 'Nadawk "$1" bu ći runje připokazany',
 	'semantictasks-updatedtoyou-msg2' => 'Nadawk "$1" bu runje zaktualizowany',
 	'semantictasks-reminder' => 'Dopomnjeće:',
