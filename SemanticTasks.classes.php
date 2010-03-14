@@ -1,10 +1,10 @@
 <?php
 
-//constants for message type
-define("NEWTASK", 0);
-define("UPDATE", 1);
-define("ASSIGNED", 2);
-define("CLOSED", 3);
+// constants for message type
+define( "NEWTASK", 0 );
+define( "UPDATE", 1 );
+define( "ASSIGNED", 2 );
+define( "CLOSED", 3 );
 
 /**
  * This class handles the creation and sending of notification emails.
@@ -231,11 +231,11 @@ class SemanticTasksMailer {
 		foreach ( $assignees as $assignee_name ) {
 			$assignee = User::newFromName( $assignee_name );
 			// if assignee is the current user, do nothing
-			#if ( $assignee->getID() != $user->getID() ) {
+			# if ( $assignee->getID() != $user->getID() ) {
 				$assignee_mail = new MailAddress( $assignee->getEmail(), $assignee_name );
 				array_push( $assignee_arr, $assignee_mail );
 				self::printDebug( $assignee_name );
-			#}
+			# }
 		}
 
 		return $assignee_arr;
@@ -271,7 +271,7 @@ class SemanticTasksMailer {
 				$body = wfMsg( $message , $title_text ) . " " . $link;
 				$body .= "\n \n" . wfMsg( 'semantictasks-text-message' ) . "\n" . $text;
 			} else {
-				//status == ASSIGNED
+				// status == ASSIGNED
 				$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-taskassigned' ) . ' ' . $title_text;
 				$message = 'semantictasks-assignedtoyou-msg2';
 				$body = wfMsg( $message , $title_text ) . " " . $link;
