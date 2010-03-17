@@ -83,6 +83,7 @@ $3',
 $messages['br'] = array(
 	'semantictasks-desc' => 'Kemennadenn dre bostel evit an trevelloù deverket pe hizivaet',
 	'semantictasks-newtask' => 'Trevell nevez :',
+	'semantictasks-taskassigned' => 'Trevell roet :',
 	'semantictasks-taskupdated' => 'Hizivaet an trevell :',
 	'semantictasks-taskclosed' => 'Trevell serret :',
 	'semantictasks-newtask-msg' => 'O paouez bezañ krouet eo an trevell "$1".',
