@@ -253,6 +253,7 @@ Tehtävä ”$2” on juuri päivitetty.',
 /** French (Français)
  * @author Crochet.david
  * @author IAlex
+ * @author Urhixidur
  */
 $messages['fr'] = array(
 	'semantictasks-desc' => 'Notifications par courriel pour les tâches assignées ou mises à jour',
@@ -262,8 +263,8 @@ $messages['fr'] = array(
 	'semantictasks-taskclosed' => 'Tâche fermée :',
 	'semantictasks-newtask-msg' => "La tâche « $1 » vient d'être créée.",
 	'semantictasks-taskclosed-msg' => "La tâche « $1 » vient d'être fermée.",
-	'semantictasks-assignedtoyou-msg2' => 'La tâche "$1" vous a été assignée.',
-	'semantictasks-updatedtoyou-msg2' => 'La tâche "$1" a été mise à jour.',
+	'semantictasks-assignedtoyou-msg2' => 'La tâche « $1 » vous a été assignée.',
+	'semantictasks-updatedtoyou-msg2' => 'La tâche « $1 » a été mise à jour.',
 	'semantictasks-reminder' => 'Rappel :',
 	'semantictasks-reminder-message2' => 'Nous vous rappelons que la tâche « $1 » se termine dans $2 jour{{PLURAL:$2||s}}.
 
