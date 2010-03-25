@@ -321,7 +321,7 @@ class SemanticTasksMailer {
 
 		// We use the Semantic MediaWiki Processor
 		global $smwgIP;
-		include_once( $smwgIP . "/includes/SMW_QueryProcessor.php" );
+		include_once( $smwgIP . "includes/SMW_QueryProcessor.php" );
 
 		$params = array();
 		$inline = true;
