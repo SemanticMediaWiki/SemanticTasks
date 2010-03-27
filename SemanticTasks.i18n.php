@@ -705,11 +705,14 @@ $messages['sr-el'] = array(
 
 /** Swedish (Svenska)
  * @author Fluff
+ * @author Per
  */
 $messages['sv'] = array(
 	'semantictasks-desc' => 'E-postmeddelanden för tilldelade eller uppdaterade uppgifter',
 	'semantictasks-newtask' => 'Ny uppgift:',
 	'semantictasks-taskupdated' => 'Uppgiften uppdaterad:',
+	'semantictasks-taskclosed' => 'Uppgiften avslutad:',
+	'semantictasks-newtask-msg' => 'Uppgiften "$1" har just skapats.',
 	'semantictasks-assignedtoyou-msg2' => 'Uppgiften "$1" har just tilldelats till dig',
 	'semantictasks-updatedtoyou-msg2' => 'Uppgiften "$1" har precis uppdaterats.',
 	'semantictasks-reminder' => 'Påminnelse:',
