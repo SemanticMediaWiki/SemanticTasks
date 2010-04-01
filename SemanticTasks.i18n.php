@@ -601,6 +601,13 @@ $3',
 	'semantictasks-diff-message' => 'Sì a-i son le diferense:',
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'semantictasks-newtask' => 'نوې دنده:',
+);
+
 /** Portuguese (Português)
  * @author Hamilton Abreu
  * @author Waldir
