@@ -415,11 +415,15 @@ $3',
 
 /** Japanese (日本語)
  * @author Fryed-peach
+ * @author Hosiryuhosi
+ * @author Naohiro19
  */
 $messages['ja'] = array(
 	'semantictasks-desc' => '課題の割り当てや更新を電子メールで通知する',
 	'semantictasks-newtask' => '新規課題:',
+	'semantictasks-taskassigned' => 'タスクを割り当てる',
 	'semantictasks-taskupdated' => '課題の更新:',
+	'semantictasks-taskclosed' => '終了したタスク:',
 	'semantictasks-assignedtoyou-msg2' => '課題「$1」があなたに割り当てられました。',
 	'semantictasks-updatedtoyou-msg2' => '課題「$1」が更新されました。',
 	'semantictasks-reminder' => 'リマインダー:',
