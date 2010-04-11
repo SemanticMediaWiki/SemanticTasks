@@ -140,19 +140,17 @@ $messages['ca'] = array(
 $messages['de'] = array(
 	'semantictasks-desc' => 'Benachrichtigungen per E-Mail bei veränderten oder neu zugewiesenen Aufgaben',
 	'semantictasks-newtask' => 'Neue Aufgabe:',
+	'semantictasks-taskassigned' => 'Aufgabe zugewiesen:',
 	'semantictasks-taskupdated' => 'Aufgabe aktualisiert:',
-	'semantictasks-assignedtoyou-msg' => 'Hallo $1,
-
-die Aufgabe „$2“ wurde dir soeben zugewiesen.',
-	'semantictasks-updatedtoyou-msg' => 'Hallo $1,
-
-die Aufgabe „$2“ wurde soeben aktualisiert.',
+	'semantictasks-taskclosed' => 'Aufgabe geschlossen:',
+	'semantictasks-newtask-msg' => 'Die Aufgabe „$1“ wurde soeben erstellt.',
+	'semantictasks-taskclosed-msg' => 'Die Aufgabe „$1“ wurde soeben abgeschlossen.',
+	'semantictasks-assignedtoyou-msg2' => 'die Aufgabe „$1“ wurde dir soeben zugewiesen.',
+	'semantictasks-updatedtoyou-msg2' => 'Die Aufgabe „$1“ wurde soeben aktualisiert.',
 	'semantictasks-reminder' => 'Erinnerung:',
-	'semantictasks-reminder-message' => 'Hallo $1,
+	'semantictasks-reminder-message2' => 'Dies ist nur eine Erinnerung, dass die Aufgabe „$1“ in {{PLURAL:$2|einem Tag|$2 Tagen}} endet.
 
-dies ist nur eine Erinnerung, dass die Aufgabe „$2“ in {{PLURAL:$3|einem Tag|$3 Tagen}} endet.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Dies ist die Aufgabenbeschreibung:',
 	'semantictasks-diff-message' => 'Die Unterschiede oder Änderungen sind:',
 );
@@ -414,6 +412,7 @@ $3',
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author Fryed-peach
  * @author Hosiryuhosi
  * @author Naohiro19
@@ -424,6 +423,8 @@ $messages['ja'] = array(
 	'semantictasks-taskassigned' => 'タスクを割り当てる',
 	'semantictasks-taskupdated' => '課題の更新:',
 	'semantictasks-taskclosed' => '終了したタスク:',
+	'semantictasks-newtask-msg' => '課題 "$1" が作成されました。',
+	'semantictasks-taskclosed-msg' => '課題「$1」が閉じられました。',
 	'semantictasks-assignedtoyou-msg2' => '課題「$1」があなたに割り当てられました。',
 	'semantictasks-updatedtoyou-msg2' => '課題「$1」が更新されました。',
 	'semantictasks-reminder' => 'リマインダー:',
