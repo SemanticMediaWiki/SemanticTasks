@@ -201,6 +201,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'semantictasks-newtask' => 'Nova tasko:',
+	'semantictasks-taskassigned' => 'Tasko donita al:',
 	'semantictasks-taskupdated' => 'Takso ĝisdatigita:',
 	'semantictasks-reminder' => 'Memorigilo:',
 	'semantictasks-diff-message' => 'Jen la malsamaĵoj:',
