@@ -106,18 +106,12 @@ $messages['bs'] = array(
 	'semantictasks-desc' => 'E-mail obavještenja za dodijeljene ili ažurirane zadatke',
 	'semantictasks-newtask' => 'Novi zadatak:',
 	'semantictasks-taskupdated' => 'Zadatak ažuriran:',
-	'semantictasks-assignedtoyou-msg' => 'Zdravo $1,
-
-Zadatak "$2" je upravo dodijeljen Vama',
-	'semantictasks-updatedtoyou-msg' => 'Zdravo $1,
-
-Zadatak "$2" je upravo ažuriran.',
+	'semantictasks-assignedtoyou-msg2' => 'Zadatak "$1" je upravo dodijeljen Vama',
+	'semantictasks-updatedtoyou-msg2' => 'Zadatak "$1" je upravo ažuriran.',
 	'semantictasks-reminder' => 'Podsjetnik:',
-	'semantictasks-reminder-message' => 'Zdravo $1,
+	'semantictasks-reminder-message2' => 'Da Vas podsjetimo da zadatak "$1" završava za $2 {{PLURAL:$2|dan|dana}}.
 
-Da Vas podsjetimo da zadatak "$2" završava za $3 {{PLURAL:$3|dan|dana}}.
-
-$4',
+$3',
 	'semantictasks-text-message' => 'Ovdje je opis zadatka:',
 	'semantictasks-diff-message' => 'Ovdje su razlike:',
 );
@@ -159,9 +153,7 @@ $3',
  * @author Imre
  */
 $messages['de-formal'] = array(
-	'semantictasks-assignedtoyou-msg' => 'Hallo $1,
-
-die Aufgabe „$2“ wurde Ihnen soeben zugewiesen.',
+	'semantictasks-assignedtoyou-msg2' => 'Die Aufgabe „$1“ wurde Ihnen soeben zugewiesen.',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -238,12 +230,8 @@ $messages['fi'] = array(
 	'semantictasks-desc' => 'Sähköposti-ilmoitukset osoitetuista tai päivitetyistä tehtävistä',
 	'semantictasks-newtask' => 'Uusi tehtävä',
 	'semantictasks-taskupdated' => 'Tehtävä päivitetty:',
-	'semantictasks-assignedtoyou-msg' => 'Hei $1,
-
-Tehtävä ”$2” on juuri osoitettu sinulle.',
-	'semantictasks-updatedtoyou-msg' => 'Hei $1,
-
-Tehtävä ”$2” on juuri päivitetty.',
+	'semantictasks-assignedtoyou-msg2' => 'Tehtävä ”$1” on juuri osoitettu sinulle.',
+	'semantictasks-updatedtoyou-msg2' => 'Tehtävä ”$1” on juuri päivitetty.',
 	'semantictasks-reminder' => 'Muistutus:',
 	'semantictasks-text-message' => 'Tehtävän kuvaus:',
 	'semantictasks-diff-message' => 'Tässä ovat eroavaisuudet:',
@@ -412,6 +400,14 @@ $3',
 	'semantictasks-diff-message' => 'Berikut ini adalah perubahannya:',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'semantictasks-assignedtoyou-msg2' => "Ozí ''$1'' a gbakutala gi",
+	'semantictasks-reminder' => 'Ihe eji chetá:',
+);
+
 /** Japanese (日本語)
  * @author Aotake
  * @author Fryed-peach
@@ -436,7 +432,7 @@ $3',
 	'semantictasks-diff-message' => '変更:',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -515,12 +511,8 @@ $messages['nn'] = array(
 	'semantictasks-desc' => 'Meldingar via e-post om tildelte eller oppdaterte oppgåver',
 	'semantictasks-newtask' => 'Ny oppgåve:',
 	'semantictasks-taskupdated' => 'Oppgåva oppdatert:',
-	'semantictasks-assignedtoyou-msg' => 'Hallo $1,
-
-Oppgåva «$2» har nett vorten gjeve til deg',
-	'semantictasks-updatedtoyou-msg' => 'Hallo $1,
-
-Oppgåva «$2» har nett vorte oppdatert.',
+	'semantictasks-assignedtoyou-msg2' => 'Oppgåva «$1» har nett vorten gjeve til deg',
+	'semantictasks-updatedtoyou-msg2' => 'Oppgåva «$1» har nett vorte oppdatert.',
 	'semantictasks-reminder' => 'Påminning:',
 	'semantictasks-text-message' => 'Her er ei skildring av oppgåva:',
 	'semantictasks-diff-message' => 'Her er skilnadane:',
@@ -751,12 +743,8 @@ $messages['te'] = array(
 	'semantictasks-desc' => 'అప్పగించిన లేదా తాజాకరించిన పనుల యొక్క ఈ-మెయిలు గమనింపులు',
 	'semantictasks-newtask' => 'కొత్త పని:',
 	'semantictasks-taskupdated' => 'పనిని తాజాకరించారు:',
-	'semantictasks-assignedtoyou-msg' => 'హలో $1,
-
-"$2" పనిని ఇప్పుడే మీకు అప్పగించారు',
-	'semantictasks-updatedtoyou-msg' => 'హలో $1, 
-
-"$2" పనిని ఇప్పుడే తాజాకరించారు.',
+	'semantictasks-assignedtoyou-msg2' => '"$1" పనిని ఇప్పుడే మీకు అప్పగించారు',
+	'semantictasks-updatedtoyou-msg2' => '"$1" పనిని ఇప్పుడే తాజాకరించారు.',
 	'semantictasks-text-message' => 'పని వివరణ ఇదిగో:',
 );
 
