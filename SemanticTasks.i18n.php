@@ -118,11 +118,22 @@ $3',
 
 /** Catalan (Català)
  * @author Paucabot
+ * @author Toniher
  */
 $messages['ca'] = array(
+	'semantictasks-desc' => 'Notificacions de correu electrònic de les tasques assignades o actualitzades',
 	'semantictasks-newtask' => 'Nova tasca:',
+	'semantictasks-taskassigned' => 'Tasca assignada:',
 	'semantictasks-taskupdated' => 'Tasca actualitzada:',
+	'semantictasks-taskclosed' => 'Tasca tancada:',
+	'semantictasks-newtask-msg' => "S'acaba de crear la tasca «$1».",
+	'semantictasks-taskclosed-msg' => "S'acaba de tancar la tasca «$1».",
+	'semantictasks-assignedtoyou-msg2' => "Se us acaba d'assignar la tasca «$1».",
+	'semantictasks-updatedtoyou-msg2' => "S'acaba d'actualitzar la tasca «$1».",
 	'semantictasks-reminder' => 'Recordatori:',
+	'semantictasks-reminder-message2' => 'Només recordar-vos que la tasca «$1» acaba en $2 {{PLURAL:$2|dia|dies}}.
+
+$3',
 	'semantictasks-text-message' => 'Aquí hi ha una descripció de la tasca:',
 	'semantictasks-diff-message' => 'Aquí hi ha les diferències:',
 );
