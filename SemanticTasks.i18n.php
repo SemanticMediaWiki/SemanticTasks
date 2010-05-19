@@ -663,13 +663,13 @@ $3',
 $messages['ro'] = array(
 	'semantictasks-newtask' => 'Sarcină nouă:',
 	'semantictasks-taskupdated' => 'Sarcină actualizată:',
-	'semantictasks-assignedtoyou-msg2' => 'Sarcina "$1" tocmai ţi-a fost atribuită',
+	'semantictasks-assignedtoyou-msg2' => 'Sarcina "$1" tocmai ți-a fost atribuită',
 	'semantictasks-updatedtoyou-msg2' => 'Sarcina "$1" tocmai a fost actualizată.',
 	'semantictasks-reminder-message2' => 'Doar reamintim faptul că sarcina "$1" se termină peste $2 {{PLURAL:$2|zi|zile}}.
 
 $3',
 	'semantictasks-text-message' => 'Aceasta este descrierea sarcinii:',
-	'semantictasks-diff-message' => 'Acestea sunt diferenţele:',
+	'semantictasks-diff-message' => 'Acestea sunt diferențele:',
 );
 
 /** Russian (Русский)
