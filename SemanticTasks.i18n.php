@@ -759,6 +759,27 @@ $messages['te'] = array(
 	'semantictasks-text-message' => 'పని వివరణ ఇదిగో:',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'semantictasks-desc' => 'Patalastas sa pamamagitan ng e-liham para sa mga gawaing itinalaga o isinapanahon',
+	'semantictasks-newtask' => 'Bagong gawain:',
+	'semantictasks-taskassigned' => 'Itinalagang gawain:',
+	'semantictasks-taskupdated' => 'Isinapanahong gawain:',
+	'semantictasks-taskclosed' => 'Naisarang gawain:',
+	'semantictasks-newtask-msg' => 'Kalilikha pa lamang ng gawaing "$1".',
+	'semantictasks-taskclosed-msg' => 'Naisara na ang gawaing "$1".',
+	'semantictasks-assignedtoyou-msg2' => 'Katatalaga pa lamang sa iyo ng gawaing "$1".',
+	'semantictasks-updatedtoyou-msg2' => 'Kasasapanahon lamang ng gawaing "$1".',
+	'semantictasks-reminder' => 'Paalala:',
+	'semantictasks-reminder-message2' => 'Paalala lamang sa iyo na ang gawaing "$1" ay magtatapos na sa loob ng $2 {{PLURAL:$2|araw|mga araw}}.
+
+$3',
+	'semantictasks-text-message' => 'Narito ang paglalarawan ng gawain:',
+	'semantictasks-diff-message' => 'Narito ang mga pagkakaiba:',
+);
+
 /** Turkish (Türkçe)
  * @author Vito Genovese
  */
