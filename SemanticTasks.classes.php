@@ -248,9 +248,6 @@ class SemanticTasksMailer {
 		global $wgSitename;
 
 		if ( !empty( $assignees ) ) {
-			// i18n
-			wfLoadExtensionMessages( 'SemanticTasks' );
-
 			$title_text = $title->getText();
 			$from = new MailAddress( $user->getEmail(), $user->getName() );
 			$link = $title->escapeFullURL();
@@ -316,9 +313,6 @@ class SemanticTasksMailer {
 	 * @return TODO
 	 */
 	function getQueryResults( $query_string, $properties_to_display, $display_title ) {
-		// i18n
-		wfLoadExtensionMessages( 'SemanticTasks' );
-
 		// We use the Semantic MediaWiki Processor
 		global $smwgIP;
 		include_once( $smwgIP . "includes/SMW_QueryProcessor.php" );
