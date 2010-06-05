@@ -715,6 +715,10 @@ $3',
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
+	'semantictasks-newtask' => 'Нови задатак:',
+	'semantictasks-taskassigned' => 'Задатак додељен:',
+	'semantictasks-taskupdated' => 'Задатак ажуриран:',
+	'semantictasks-taskclosed' => 'Задатак затворен:',
 	'semantictasks-text-message' => 'Овде је опис задатка:',
 	'semantictasks-diff-message' => 'Овде су разлике:',
 );
