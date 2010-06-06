@@ -1,8 +1,10 @@
 <?php
-/**Internationalization messages file for SemanticTasks extension
-  *
-  * @addtogroup Extensions
-*/
+/**
+ * Internationalization messages file for SemanticTasks extension
+ *
+ * @file
+ * @ingroup Extensions
+ */
 
 $messages = array();
 
