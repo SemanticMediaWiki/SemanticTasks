@@ -577,7 +577,7 @@ $3",
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'semantictasks-desc' => 'Powiadomienie e-mailem o przypisaniu lub aktualizacji zadań',
+	'semantictasks-desc' => 'Powiadomienie e‐mailem o przypisaniu lub aktualizacji zadań',
 	'semantictasks-newtask' => 'Nowe zadanie:',
 	'semantictasks-taskupdated' => 'Zadanie zaktualizowane:',
 	'semantictasks-assignedtoyou-msg2' => 'Przydzielono Ci zadanie „$1”',
