@@ -729,6 +729,10 @@ $messages['sr-ec'] = array(
  * @author Michaello
  */
 $messages['sr-el'] = array(
+	'semantictasks-newtask' => 'Novi zadatak:',
+	'semantictasks-taskassigned' => 'Zadatak dodeljen:',
+	'semantictasks-taskupdated' => 'Zadatak ažuriran:',
+	'semantictasks-taskclosed' => 'Zadatak zatvoren:',
 	'semantictasks-text-message' => 'Ovde je opis zadatka:',
 	'semantictasks-diff-message' => 'Ovde su razlike:',
 );
