@@ -1,8 +1,13 @@
 <?php
 
 if ( !defined( 'MEDIAWIKI' ) ) {
-    echo "Not a valid entry point";
-    exit( 1 );
+	echo "Not a valid entry point";
+	exit( 1 );
+}
+
+if ( !defined( 'SMW_VERSION' ) ) {
+       echo "This extension requires Semantic MediaWiki to be installed.";
+       exit( 1 );
 }
 
 #
@@ -18,7 +23,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'SemanticTasks',
 	'author' => 'Steren Giannini, Ryan Lane',
-	'version' => '1.3',
+	'version' => '1.4',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Semantic_Tasks',
 	'descriptionmsg' => 'semantictasks-desc',
 );
@@ -34,8 +39,8 @@ $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['SemanticTasksMailer'] = $dir . 'SemanticTasks.classes.php';
 
 function SemanticTasksSetupExtension() {
-        global $wgHooks;
-        $wgHooks['ArticleSaveComplete'][] = 'SemanticTasksMailer::mailAssigneesUpdatedTask';
+	global $wgHooks;
+	$wgHooks['ArticleSaveComplete'][] = 'SemanticTasksMailer::mailAssigneesUpdatedTask';
 	$wgHooks['ArticleSave'][] = 'SemanticTasksMailer::findOldValues';
-        return true;
+	return true;
 }

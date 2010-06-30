@@ -1,5 +1,15 @@
 <?php
 
+if ( !defined( 'MEDIAWIKI' ) ) {
+       echo "Not a valid entry point";
+       exit( 1 );
+}
+
+if ( !defined( 'SMW_VERSION' ) ) {
+       echo "This extension requires Semantic MediaWiki to be installed.";
+       exit( 1 );
+}
+
 // constants for message type
 define( "NEWTASK", 0 );
 define( "UPDATE", 1 );
@@ -15,7 +25,7 @@ class SemanticTasksMailer {
 
 	function findOldValues( &$article, &$user, &$text, &$summary, $minor, $watch, $sectionanchor, &$flags ) {
 		$title = $article->getTitle();
-		$title_text = $title->getText();
+		$title_text = $title->getFullText();
 
 		$assignees = self::getAssignees( 'Assigned to', $title_text, $user );
 		$status = self::getStatus( 'Status', $title_text, $user );
@@ -60,7 +70,8 @@ class SemanticTasksMailer {
 		self::printDebug( "Saved task status: " . self::$task_status );
 
 		$title = $article->getTitle();
-		$title_text = $title->getText();
+		$title_text = $title->getPrefixedText();
+		self::printDebug( "Title text: $title_text" );
 
 		$assignees_to_task = array();
 		$current_assignees = self::getAssignees( 'Assigned to', $title_text, $user );
@@ -251,7 +262,7 @@ class SemanticTasksMailer {
 			// i18n
 			wfLoadExtensionMessages( 'SemanticTasks' );
 
-			$title_text = $title->getText();
+			$title_text = $title->getFullText();
 			$from = new MailAddress( $user->getEmail(), $user->getName() );
 			$link = $title->escapeFullURL();
 
@@ -320,8 +331,10 @@ class SemanticTasksMailer {
 		wfLoadExtensionMessages( 'SemanticTasks' );
 
 		// We use the Semantic MediaWiki Processor
+		// $smwgIP is defined by Semantic MediaWiki, and we don't allow
+		// this file to be sourced unless Semantic MediaWiki is included.
 		global $smwgIP;
-		include_once( $smwgIP . "includes/SMW_QueryProcessor.php" );
+		include_once( $smwgIP . "/includes/SMW_QueryProcessor.php" );
 
 		$params = array();
 		$inline = true;

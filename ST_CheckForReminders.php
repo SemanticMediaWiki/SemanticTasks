@@ -6,7 +6,7 @@ $IP = realpath( dirname( __FILE__ ) . "/../.." );
 require_once( "$IP/maintenance/commandLine.inc" );
 
 global $smwgIP;
-require_once( $smwgIP . 'includes/SMW_Factbox.php' );
+require_once( $smwgIP . '/includes/SMW_Factbox.php' );
 
 require_once( dirname( __FILE__ ) . '/SemanticTasks.classes.php' );
 
