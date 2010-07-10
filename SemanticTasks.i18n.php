@@ -642,12 +642,17 @@ $3',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
+ * @author Giro720
  * @author Waldir
  */
 $messages['pt-br'] = array(
 	'semantictasks-desc' => 'Notificações por email de tarefas atribuídas ou atualizadas',
 	'semantictasks-newtask' => 'Nova tarefa:',
+	'semantictasks-taskassigned' => 'Tarefa atribuída:',
 	'semantictasks-taskupdated' => 'Tarefa atualizada:',
+	'semantictasks-taskclosed' => 'Tarefa fechada:',
+	'semantictasks-newtask-msg' => 'A tarefa "$1" acaba de ser criada.',
+	'semantictasks-taskclosed-msg' => 'A tarefa "$1" acaba de ser fechada.',
 	'semantictasks-assignedtoyou-msg2' => 'A tarefa "$1" acaba de lhe ser atribuída',
 	'semantictasks-updatedtoyou-msg2' => 'A tarefa "$1" acaba de ser atualizada.',
 	'semantictasks-reminder' => 'Lembrete:',
