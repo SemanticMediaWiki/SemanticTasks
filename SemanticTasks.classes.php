@@ -65,7 +65,7 @@ class SemanticTasksMailer {
 		return true;
 	}
 
-	function mailAssignees( $article, $text, $user, $status ) {
+	static function mailAssignees( $article, $text, $user, $status ) {
 		self::printDebug( "Saved assignees:", self::$task_assignees );
 		self::printDebug( "Saved task status: " . self::$task_status );
 
@@ -125,7 +125,7 @@ class SemanticTasksMailer {
 	 * Returns an array of properties based on $query_word
 	 * @param $query_word String: the property that designate the users to notify.
 	 */
-	function getAssignees( $query_word, $title_text, $user ) {
+	static function getAssignees( $query_word, $title_text, $user ) {
 		// Array of assignees to return
 		$assignee_arr = array();
 
@@ -158,7 +158,7 @@ class SemanticTasksMailer {
 	 * Returns an array of properties based on $query_word
 	 * @param $query_word String: the property that designate the users to notify.
 	 */
-	function getStatus( $query_word, $title_text, $user ) {
+	static function getStatus( $query_word, $title_text, $user ) {
 		// Array of assignees to return
 		$assignee_arr = array();
 
@@ -237,7 +237,7 @@ class SemanticTasksMailer {
 		return $assignee_arr;
 	}
 
-	function getAssigneeAddresses( $assignees ) {
+	static function getAssigneeAddresses( $assignees ) {
 		$assignee_arr = array();
 		foreach ( $assignees as $assignee_name ) {
 			$assignee = User::newFromName( $assignee_name );
@@ -326,7 +326,7 @@ class SemanticTasksMailer {
 	 * @param $display_title Boolean : add the page title in the result
 	 * @return TODO
 	 */
-	function getQueryResults( $query_string, $properties_to_display, $display_title ) {
+	static function getQueryResults( $query_string, $properties_to_display, $display_title ) {
 		// i18n
 		wfLoadExtensionMessages( 'SemanticTasks' );
 
@@ -424,7 +424,7 @@ class SemanticTasksMailer {
 	 * @param string $debugVal
 	 * @access private
 	 */
-	function printDebug( $debugText, $debugArr = null ) {
+	static function printDebug( $debugText, $debugArr = null ) {
 		global $wgSemanticTasksDebug;
 
 		if ( $wgSemanticTasksDebug ) {
