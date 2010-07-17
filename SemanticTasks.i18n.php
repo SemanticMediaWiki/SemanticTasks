@@ -701,6 +701,13 @@ $3',
 	'semantictasks-diff-message' => 'Здесь различия:',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'semantictasks-newtask' => 'Нова задача:',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */
