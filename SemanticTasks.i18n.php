@@ -398,11 +398,16 @@ $3',
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Farras
  */
 $messages['id'] = array(
 	'semantictasks-desc' => 'Pemberitahuan lewat surel untuk tugas yang diberikan atau yang dimutakhirkan',
 	'semantictasks-newtask' => 'Tugas baru:',
+	'semantictasks-taskassigned' => 'Tugas diberikan:',
 	'semantictasks-taskupdated' => 'Tugas yang dimutakhirkan:',
+	'semantictasks-taskclosed' => 'Tugas ditutup:',
+	'semantictasks-newtask-msg' => 'Tugas "$1" baru saja dibuat.',
+	'semantictasks-taskclosed-msg' => 'Tugas "$1" baru saja ditutup.',
 	'semantictasks-assignedtoyou-msg2' => 'Tugas "$1" baru saja diberikan kepada Anda',
 	'semantictasks-updatedtoyou-msg2' => 'Tugas "$1" baru saja dimutakhirkan.',
 	'semantictasks-reminder' => 'Pengingat:',
