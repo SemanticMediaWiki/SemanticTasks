@@ -19,7 +19,7 @@ $stScriptPath = $wgScriptPath . '/extensions/SemanticTasks';
 #
 
 # Informations
-$wgExtensionCredits['parserhook'][] = array(
+$wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'SemanticTasks',
 	'author' => 'Steren Giannini, Ryan Lane',
