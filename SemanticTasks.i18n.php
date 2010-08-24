@@ -142,10 +142,11 @@ $3',
 
 /** German (Deutsch)
  * @author Als-Holder
+ * @author Kghbln
  * @author Purodha
  */
 $messages['de'] = array(
-	'semantictasks-desc' => 'Benachrichtigungen per E-Mail bei veränderten oder neu zugewiesenen Aufgaben',
+	'semantictasks-desc' => 'Ermöglicht E-Mail-Benachrichtigungen für neu zugewiesene oder geänderte Aufgaben',
 	'semantictasks-newtask' => 'Neue Aufgabe:',
 	'semantictasks-taskassigned' => 'Aufgabe zugewiesen:',
 	'semantictasks-taskupdated' => 'Aufgabe aktualisiert:',
