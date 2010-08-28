@@ -274,6 +274,17 @@ $3',
 	'semantictasks-diff-message' => 'Les différences sont listées ci-dessous :',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'semantictasks-newtask' => 'Travâly novél :',
+	'semantictasks-taskassigned' => 'Travâly assignê :',
+	'semantictasks-taskupdated' => 'Travâly betâ a jorn :',
+	'semantictasks-taskclosed' => 'Travâly cllôs :',
+	'semantictasks-reminder' => 'Rapèl :',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
