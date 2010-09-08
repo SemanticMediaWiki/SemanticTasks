@@ -144,6 +144,11 @@ $3',
 	'semantictasks-diff-message' => 'Aquí hi ha les diferències:',
 );
 
+/** Czech (Česky) */
+$messages['cs'] = array(
+	'semantictasks-reminder' => 'Upozornění:',
+);
+
 /** German (Deutsch)
  * @author Als-Holder
  * @author Kghbln
