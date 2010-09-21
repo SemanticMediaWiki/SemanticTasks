@@ -727,7 +727,7 @@ $3',
 	'semantictasks-diff-message' => 'Здесь различия:',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
