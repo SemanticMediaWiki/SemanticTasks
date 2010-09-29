@@ -365,7 +365,7 @@ class SemanticTasksMailer {
 	}
 
 	function remindAssignees( $wiki_url ) {
-		global $wgSitename, $wgServer;
+		global $wgSitename, $wgServer, $wgNoReplyAddress;
 
 		$user_mailer = new UserMailer();
 
@@ -380,7 +380,7 @@ class SemanticTasksMailer {
 			return FALSE;
 		}
 
-		$sender = new MailAddress( "no-reply@$wgServerName", "$wgSitename" );
+		$sender = new MailAddress( $wgNoReplyAddress, $wgSitename );
 
 		while ( $row = $results->getNext() ) {
 			$task_name = $row[0]->getNextObject()->getTitle();
