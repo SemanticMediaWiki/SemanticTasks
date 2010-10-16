@@ -604,15 +604,19 @@ $3",
  */
 $messages['pl'] = array(
 	'semantictasks-desc' => 'Powiadomienie e‐mailem o przypisaniu lub aktualizacji zadań',
-	'semantictasks-newtask' => 'Nowe zadanie:',
-	'semantictasks-taskupdated' => 'Zadanie zaktualizowane:',
+	'semantictasks-newtask' => 'Nowe zadanie',
+	'semantictasks-taskassigned' => 'Zadanie przydzielone',
+	'semantictasks-taskupdated' => 'Zadanie zaktualizowane',
+	'semantictasks-taskclosed' => 'Zadanie zamknięte',
+	'semantictasks-newtask-msg' => 'Zadanie „$1” zostało utworzone.',
+	'semantictasks-taskclosed-msg' => 'Zadanie „$1” zostało usunięte.',
 	'semantictasks-assignedtoyou-msg2' => 'Przydzielono Ci zadanie „$1”',
 	'semantictasks-updatedtoyou-msg2' => 'Zadanie „$1” zostało zaktualizowane.',
-	'semantictasks-reminder' => 'Przypomnienie:',
+	'semantictasks-reminder' => 'Przypomnienie',
 	'semantictasks-reminder-message2' => 'Przypominamy, że na realizację zadania „$1” {{PLURAL:$2|pozostał|pozostało}} $2 {{PLURAL:$2|dzień|dni}}.
 
 $3',
-	'semantictasks-text-message' => 'Poniżej znajduje się opis zadania:',
+	'semantictasks-text-message' => 'Poniżej znajduje się opis zadania.',
 	'semantictasks-diff-message' => 'Różnice:',
 );
 
