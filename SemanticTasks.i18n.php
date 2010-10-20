@@ -843,6 +843,15 @@ $messages['tr'] = array(
 	'semantictasks-diff-message' => 'Farklılıklar şu şekildedir:',
 );
 
+/** Ukrainian (Українська)
+ * @author Тест
+ */
+$messages['uk'] = array(
+	'semantictasks-newtask' => 'Нова завдання:',
+	'semantictasks-taskupdated' => 'Завдання оновлено:',
+	'semantictasks-taskclosed' => 'Завдання закрито:',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  * @author Vinhtantran
