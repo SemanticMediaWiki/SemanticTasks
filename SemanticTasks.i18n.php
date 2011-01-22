@@ -55,7 +55,7 @@ $3',
 	'semantictasks-diff-message' => 'هنا الفروقات:',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -172,7 +172,7 @@ $3',
 	'semantictasks-diff-message' => 'Die Unterschiede oder Änderungen sind:',
 );
 
-/** German (formal address) (Deutsch (Sie-Form))
+/** German (formal address) (‪Deutsch (Sie-Form)‬)
  * @author Imre
  */
 $messages['de-formal'] = array(
@@ -755,7 +755,7 @@ $3',
 	'semantictasks-diff-message' => 'Toto sú rozdiely:',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -767,7 +767,7 @@ $messages['sr-ec'] = array(
 	'semantictasks-diff-message' => 'Овде су разлике:',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
