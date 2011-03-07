@@ -337,13 +337,18 @@ $3',
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author Rotemliss
  * @author YaronSh
  */
 $messages['he'] = array(
 	'semantictasks-desc' => 'שליחת הודעות דוא"ל על משימות שהוקצו או שעודכנו',
 	'semantictasks-newtask' => 'משימה חדשה:',
+	'semantictasks-taskassigned' => 'המשימה הוקצתה:',
 	'semantictasks-taskupdated' => 'משימה עודכנה:',
+	'semantictasks-taskclosed' => 'המשימה נסגרה:',
+	'semantictasks-newtask-msg' => 'המשימה "$1" נוצרה זה עתה.',
+	'semantictasks-taskclosed-msg' => 'המשימה "$1" נסגרה זה עתה.',
 	'semantictasks-assignedtoyou-msg2' => 'המשימה "$1" הוקצתה לך הרגע',
 	'semantictasks-updatedtoyou-msg2' => 'המשימה "$1" עודכנה הרגע.',
 	'semantictasks-reminder' => 'תזכורת:',
