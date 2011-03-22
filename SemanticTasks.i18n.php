@@ -482,11 +482,15 @@ $3',
 $messages['ksh'] = array(
 	'semantictasks-desc' => 'Donn <i lang="en">e-mails</i> verschecke för zohjedeilte udder veränderte Aufjabe.',
 	'semantictasks-newtask' => 'Neu Aufjab:',
+	'semantictasks-taskassigned' => 'Aufjab zohjedeijlt:',
 	'semantictasks-taskupdated' => 'Aufjab op ene neue Shtand jebraat:',
+	'semantictasks-taskclosed' => 'Aufjab afjeschloße:',
+	'semantictasks-newtask-msg' => 'De Aufjab „$1“ es jraad neu enjereschdt woode.',
+	'semantictasks-taskclosed-msg' => 'De Aufjab „$1“ es jraad afjeschloße woode.',
 	'semantictasks-assignedtoyou-msg2' => 'Do häs äävens de Aufjab „$1“
 zojedeilt krääje. Et es jez de Dinge, alsu maach jet domet!',
 	'semantictasks-updatedtoyou-msg2' => 'De Aufjab „$1“ es jraad op ene neue Shtand jebraat woode.',
-	'semantictasks-reminder' => 'Äennerung:',
+	'semantictasks-reminder' => 'Ä-ennerung:',
 	'semantictasks-reminder-message2' => 'Bloß ens drop Opjemerk: De Aufjab „$1“ es en {{PLURAL:$2|enem Daach|$2 Dääsh|winnijer wi enem Daach}} eröm.
 
 $3',
