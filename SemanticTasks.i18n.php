@@ -77,6 +77,13 @@ $3',
 	'semantictasks-diff-message' => 'Розьніца:',
 );
 
+/** Bengali (বাংলা)
+ * @author Wikitanvir
+ */
+$messages['bn'] = array(
+	'semantictasks-newtask' => 'নতুন কাজ:',
+);
+
 /** Breton (Brezhoneg)
  * @author Fohanno
  * @author Fulup
