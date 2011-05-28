@@ -298,7 +298,13 @@ $messages['frp'] = array(
 	'semantictasks-taskassigned' => 'Travâly assignê :',
 	'semantictasks-taskupdated' => 'Travâly betâ a jorn :',
 	'semantictasks-taskclosed' => 'Travâly cllôs :',
+	'semantictasks-newtask-msg' => 'Lo travâly « $1 » vint d’étre fêt.',
+	'semantictasks-taskclosed-msg' => 'Lo travâly « $1 » vint d’étre cllôs.',
+	'semantictasks-assignedtoyou-msg2' => 'Lo travâly « $1 » vos at étâ assignê.',
+	'semantictasks-updatedtoyou-msg2' => 'Lo travâly « $1 » at étâ betâ a jorn.',
 	'semantictasks-reminder' => 'Rapèl :',
+	'semantictasks-text-message' => 'Vê-que la dèscripcion du travâly :',
+	'semantictasks-diff-message' => 'Les difèrences sont listâs ce-desot :',
 );
 
 /** Galician (Galego)
