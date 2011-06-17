@@ -271,12 +271,12 @@ class SemanticTasksMailer {
 				$message = 'semantictasks-newtask-msg';
 				$body = wfMsg( $message , $title_text ) . " " . $link;
 				$body .= "\n \n" . wfMsg( 'semantictasks-text-message' ) . "\n" . $text;
-			} else if ( $status == UPDATE ) {
+			} elseif ( $status == UPDATE ) {
 				$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-taskupdated' ) . ' ' . $title_text;
 				$message = 'semantictasks-updatedtoyou-msg2';
 				$body = wfMsg( $message , $title_text ) . " " . $link;
 				$body .= "\n \n" . wfMsg( 'semantictasks-diff-message' ) . "\n" . self::generateDiffBodyTxt( $title );
-			} else if ( $status == CLOSED ) {
+			} elseif ( $status == CLOSED ) {
 				$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-taskclosed' ) . ' ' . $title_text;
 				$message = 'semantictasks-taskclosed-msg';
 				$body = wfMsg( $message , $title_text ) . " " . $link;
