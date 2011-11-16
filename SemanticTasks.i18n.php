@@ -580,6 +580,7 @@ $messages['nn'] = array(
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Event
  * @author Nghtwlkr
  */
 $messages['no'] = array(
@@ -593,7 +594,7 @@ $messages['no'] = array(
 	'semantictasks-assignedtoyou-msg2' => 'Oppgaven «$1» har nettopp blitt tildelt deg',
 	'semantictasks-updatedtoyou-msg2' => 'Oppgaven «$1» har nettopp blitt oppdatert.',
 	'semantictasks-reminder' => 'Påminnelse:',
-	'semantictasks-reminder-message2' => 'Minner deg bare på at oppgaven «$1» ender om {{PLURAL:$2|én dag|$2 dager}}.
+	'semantictasks-reminder-message2' => 'Minner deg bare på at oppgaven «$1» avsluttes om {{PLURAL:$2|én dag|$2 dager}}.
 
 $3',
 	'semantictasks-text-message' => 'Her er oppgavebeskrivelsen:',
