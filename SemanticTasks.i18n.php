@@ -778,7 +778,7 @@ $3',
 	'semantictasks-diff-message' => 'Toto sú rozdiely:',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -790,7 +790,7 @@ $messages['sr-ec'] = array(
 	'semantictasks-diff-message' => 'Овде су разлике:',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
