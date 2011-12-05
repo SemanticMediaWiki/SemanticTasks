@@ -517,8 +517,17 @@ $3',
 $messages['lb'] = array(
 	'semantictasks-desc' => 'E-Mail Message fir geännert oder nei zougedeelten Aufgaben',
 	'semantictasks-newtask' => 'Nei Aufgab:',
+	'semantictasks-taskassigned' => 'Aufgab zougedeelt:',
 	'semantictasks-taskupdated' => 'Aufgab aktualiséiert:',
+	'semantictasks-taskclosed' => 'Aufgab ofgeschloss:',
+	'semantictasks-newtask-msg' => 'D\'Aufgab "$1" gouf elo grad ugeluecht.',
+	'semantictasks-taskclosed-msg' => 'D\'Aufgab "$1" gouf elo grad ofgeschloss.',
+	'semantictasks-assignedtoyou-msg2' => 'D\'Aufgab "$1" gouf Iech elo grad zougedeelt.',
+	'semantictasks-updatedtoyou-msg2' => 'D\'Aufgab "$1" gouf elo grad aktualiséiert.',
 	'semantictasks-reminder' => 'Erënnerung:',
+	'semantictasks-reminder-message2' => 'Dëst ass fir Iech drun ze erënneren datt d\'Aufgab "$1" an $2 {{PLURAL:$2|Dag|Deeg}} eriwwer ass.
+
+$3',
 	'semantictasks-text-message' => "Hei ass d'Beschreiwung vun der Aufgab:",
 	'semantictasks-diff-message' => "Hei sinn d'Ënnerscheeder:",
 );
