@@ -1,29 +1,30 @@
 <?php
 
 if ( !defined( 'MEDIAWIKI' ) ) {
-       echo "Not a valid entry point";
+       echo 'Not a valid entry point';
        exit( 1 );
 }
 
 if ( !defined( 'SMW_VERSION' ) ) {
-       echo "This extension requires Semantic MediaWiki to be installed.";
+       echo 'This extension requires Semantic MediaWiki to be installed.';
        exit( 1 );
 }
 
 // constants for message type
-define( "NEWTASK", 0 );
-define( "UPDATE", 1 );
-define( "ASSIGNED", 2 );
-define( "CLOSED", 3 );
+define( 'NEWTASK', 0 );
+define( 'UPDATE', 1 );
+define( 'ASSIGNED', 2 );
+define( 'CLOSED', 3 );
 
 /**
  * This class handles the creation and sending of notification emails.
  */
 class SemanticTasksMailer {
+	
 	private static $task_assignees;
 	private static $task_status;
 
-	function findOldValues( &$article, &$user, &$text, &$summary, $minor, $watch, $sectionanchor, &$flags ) {
+	public static function findOldValues( &$article, &$user, &$text, &$summary, $minor, $watch, $sectionanchor, &$flags ) {
 		$title = $article->getTitle();
 		$title_text = $title->getFullText();
 
@@ -44,8 +45,7 @@ class SemanticTasksMailer {
 		return true;
 	}
 
-
-	function mailAssigneesUpdatedTask( $article, $current_user, $text, $summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision ) {
+	public static function mailAssigneesUpdatedTask( $article, $current_user, $text, $summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision ) {
 		if ( !$minoredit ) {
 			// Get the revision count to determine if new article
 			$rev = $article->estimateRevisionCount();
@@ -259,9 +259,6 @@ class SemanticTasksMailer {
 		global $wgSitename;
 
 		if ( !empty( $assignees ) ) {
-			// i18n
-			wfLoadExtensionMessages( 'SemanticTasks' );
-
 			$title_text = $title->getFullText();
 			$from = new MailAddress( $user->getEmail(), $user->getName() );
 			$link = $title->escapeFullURL();
@@ -327,9 +324,6 @@ class SemanticTasksMailer {
 	 * @return TODO
 	 */
 	static function getQueryResults( $query_string, $properties_to_display, $display_title ) {
-		// i18n
-		wfLoadExtensionMessages( 'SemanticTasks' );
-
 		// We use the Semantic MediaWiki Processor
 		// $smwgIP is defined by Semantic MediaWiki, and we don't allow
 		// this file to be sourced unless Semantic MediaWiki is included.
@@ -358,6 +352,11 @@ class SemanticTasksMailer {
 			array_push( $printouts, $to_push );
 		}
 
+		if ( version_compare( SMW_VERSION, '1.6.1', '>' ) ) {
+			SMWQueryProcessor::addThisPrintout( $printouts, $params );
+			$params = SMWQueryProcessor::getProcessedParams( $params, $printouts );
+		}
+		
 		$query = SMWQueryProcessor::createQuery( $query_string, $params, $inline, $format, $printouts );
 		$results = smwfGetStore()->getQueryResult( $query );
 
@@ -429,11 +428,12 @@ class SemanticTasksMailer {
 
 		if ( $wgSemanticTasksDebug ) {
 			if ( isset( $debugArr ) ) {
-				$text = $debugText . " " . implode( "::", $debugArr );
+				$text = $debugText . ' ' . implode( '::', $debugArr );
 				wfDebugLog( 'semantic-tasks', $text, false );
 			} else {
 				wfDebugLog( 'semantic-tasks', $debugText, false );
 			}
 		}
 	}
+	
 }
