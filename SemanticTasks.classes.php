@@ -332,7 +332,6 @@ class SemanticTasksMailer {
 
 		$params = array();
 		$inline = true;
-		$format = 'auto';
 		$printlabel = "";
 		$printouts = array();
 
@@ -355,6 +354,10 @@ class SemanticTasksMailer {
 		if ( version_compare( SMW_VERSION, '1.6.1', '>' ) ) {
 			SMWQueryProcessor::addThisPrintout( $printouts, $params );
 			$params = SMWQueryProcessor::getProcessedParams( $params, $printouts );
+			$format = null;
+		}
+		else {
+			$format = 'auto';
 		}
 		
 		$query = SMWQueryProcessor::createQuery( $query_string, $params, $inline, $format, $printouts );
