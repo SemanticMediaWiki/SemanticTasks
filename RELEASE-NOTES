@@ -5,13 +5,13 @@ Latest version of the release notes: http://svn.wikimedia.org/viewvc/mediawiki/t
 
 
 
-=== Version 0.4.1 ===
+=== Version 1.4.1 ===
 2011-12-06
 
 * Added support for Semantic MediaWiki 1.7 and later.
 * Dropped support for MediaWiki 1.15.x and earlier.
 
-=== Version 0.4 ===
+=== Version 1.4 ===
 June 2010
 
 * Fixed bug that caused notifications to fail in non-main namespaces.

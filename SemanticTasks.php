@@ -19,7 +19,7 @@ $stScriptPath = $wgScriptPath . '/extensions/SemanticTasks';
 #
 
 # Extension credits
-$wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'parserhook'][] = array(
+$wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other'][] = array(
 	'path' => __FILE__,
 	'name' => 'SemanticTasks',
 	'author' => array(
