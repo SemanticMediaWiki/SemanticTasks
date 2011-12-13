@@ -28,7 +28,7 @@ $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other']
 		'[http://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]'
 	),
 	'version' => '1.4.1',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:Semantic_Tasks',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Tasks',
 	'descriptionmsg' => 'semantictasks-desc',
 );
 
