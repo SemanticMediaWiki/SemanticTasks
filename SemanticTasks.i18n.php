@@ -592,7 +592,7 @@ $messages['nn'] = array(
  * @author Event
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'semantictasks-desc' => 'Meldinger via e-post om tildelte eller oppdaterte oppgaver',
 	'semantictasks-newtask' => 'Ny oppgave:',
 	'semantictasks-taskassigned' => 'Oppgave tildelt:',
