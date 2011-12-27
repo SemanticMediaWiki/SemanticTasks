@@ -47,16 +47,8 @@ class SemanticTasksMailer {
 
 	public static function mailAssigneesUpdatedTask( $article, $current_user, $text, $summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision ) {
 		if ( !$minoredit ) {
-			// Get the revision count to determine if new article
-			$rev = $article->estimateRevisionCount();
-
-			if ( $rev == 1 ) {
-				$title = $article->getTitle();
-				if ( $title->isTalkPage() ) {
-					$status = UPDATE;
-				} else {
-					$status = NEWTASK;
-				}
+			if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
+				$status = NEWTASK;
 			} else {
 				$status = UPDATE;
 			}
