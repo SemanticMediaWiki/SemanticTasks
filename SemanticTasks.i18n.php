@@ -164,15 +164,15 @@ $messages['cs'] = array(
 $messages['de'] = array(
 	'semantictasks-desc' => 'Ermöglicht E-Mail-Benachrichtigungen für neu zugewiesene oder geänderte Aufgaben',
 	'semantictasks-newtask' => 'Neue Aufgabe:',
-	'semantictasks-taskassigned' => 'Aufgabe zugewiesen:',
-	'semantictasks-taskupdated' => 'Aufgabe aktualisiert:',
-	'semantictasks-taskclosed' => 'Aufgabe geschlossen:',
+	'semantictasks-taskassigned' => 'Zugewiesene Aufgabe:',
+	'semantictasks-taskupdated' => 'Aktualisierte Aufgabe:',
+	'semantictasks-taskclosed' => 'Abgeschlossene Aufgabe:',
 	'semantictasks-newtask-msg' => 'Die Aufgabe „$1“ wurde soeben erstellt.',
 	'semantictasks-taskclosed-msg' => 'Die Aufgabe „$1“ wurde soeben abgeschlossen.',
 	'semantictasks-assignedtoyou-msg2' => 'die Aufgabe „$1“ wurde dir soeben zugewiesen.',
 	'semantictasks-updatedtoyou-msg2' => 'Die Aufgabe „$1“ wurde soeben aktualisiert.',
 	'semantictasks-reminder' => 'Erinnerung:',
-	'semantictasks-reminder-message2' => 'Dies ist nur eine Erinnerung, dass die Aufgabe „$1“ in {{PLURAL:$2|einem Tag|$2 Tagen}} endet.
+	'semantictasks-reminder-message2' => 'Dies ist eine Erinnerung an die Aufgabe „$1“, die {{PLURAL:$2|bis morgen|in den kommenden $2 Tagen}} beendet werden soll.
 
 $3',
 	'semantictasks-text-message' => 'Dies ist die Aufgabenbeschreibung:',
@@ -553,6 +553,28 @@ $3',
 	'semantictasks-diff-message' => 'Еве ги разликите:',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Event
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'semantictasks-desc' => 'Meldinger via e-post om tildelte eller oppdaterte oppgaver',
+	'semantictasks-newtask' => 'Ny oppgave:',
+	'semantictasks-taskassigned' => 'Oppgave tildelt:',
+	'semantictasks-taskupdated' => 'Oppgave oppdatert:',
+	'semantictasks-taskclosed' => 'Oppgave lukket:',
+	'semantictasks-newtask-msg' => 'Oppgaven «$1» har nettopp blitt opprettet.',
+	'semantictasks-taskclosed-msg' => 'Oppgaven «$1» har nettopp blitt lukket.',
+	'semantictasks-assignedtoyou-msg2' => 'Oppgaven «$1» har nettopp blitt tildelt deg',
+	'semantictasks-updatedtoyou-msg2' => 'Oppgaven «$1» har nettopp blitt oppdatert.',
+	'semantictasks-reminder' => 'Påminnelse:',
+	'semantictasks-reminder-message2' => 'Minner deg bare på at oppgaven «$1» avsluttes om {{PLURAL:$2|én dag|$2 dager}}.
+
+$3',
+	'semantictasks-text-message' => 'Her er oppgavebeskrivelsen:',
+	'semantictasks-diff-message' => 'Her er forskjellene:',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -586,28 +608,6 @@ $messages['nn'] = array(
 	'semantictasks-reminder' => 'Påminning:',
 	'semantictasks-text-message' => 'Her er ei skildring av oppgåva:',
 	'semantictasks-diff-message' => 'Her er skilnadane:',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Event
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'semantictasks-desc' => 'Meldinger via e-post om tildelte eller oppdaterte oppgaver',
-	'semantictasks-newtask' => 'Ny oppgave:',
-	'semantictasks-taskassigned' => 'Oppgave tildelt:',
-	'semantictasks-taskupdated' => 'Oppgave oppdatert:',
-	'semantictasks-taskclosed' => 'Oppgave lukket:',
-	'semantictasks-newtask-msg' => 'Oppgaven «$1» har nettopp blitt opprettet.',
-	'semantictasks-taskclosed-msg' => 'Oppgaven «$1» har nettopp blitt lukket.',
-	'semantictasks-assignedtoyou-msg2' => 'Oppgaven «$1» har nettopp blitt tildelt deg',
-	'semantictasks-updatedtoyou-msg2' => 'Oppgaven «$1» har nettopp blitt oppdatert.',
-	'semantictasks-reminder' => 'Påminnelse:',
-	'semantictasks-reminder-message2' => 'Minner deg bare på at oppgaven «$1» avsluttes om {{PLURAL:$2|én dag|$2 dager}}.
-
-$3',
-	'semantictasks-text-message' => 'Her er oppgavebeskrivelsen:',
-	'semantictasks-diff-message' => 'Her er forskjellene:',
 );
 
 /** Occitan (Occitan)
