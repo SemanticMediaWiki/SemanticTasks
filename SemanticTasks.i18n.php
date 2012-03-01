@@ -902,3 +902,24 @@ $3',
 	'semantictasks-diff-message' => 'Các khác biệt:',
 );
 
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Linforest
+ */
+$messages['zh-hans'] = array(
+	'semantictasks-desc' => '关于已分配任务或已更新任务的电子邮件通知',
+	'semantictasks-newtask' => '新任务：',
+	'semantictasks-taskassigned' => '已分配的任务：',
+	'semantictasks-taskupdated' => '已更新的任务：',
+	'semantictasks-taskclosed' => '已完结的任务：',
+	'semantictasks-newtask-msg' => '已创建任务"$1"。',
+	'semantictasks-taskclosed-msg' => '任务"$1"已刚刚完结。',
+	'semantictasks-assignedtoyou-msg2' => '已刚刚向您分配了任务"$1"。',
+	'semantictasks-updatedtoyou-msg2' => '任务"$1"已刚刚更新。',
+	'semantictasks-reminder' => '提醒：',
+	'semantictasks-reminder-message2' => '只是要提醒您，任务"$1"将在$2{{PLURAL:$2|天|天}}内结束。
+
+$3',
+	'semantictasks-text-message' => '这里是任务说明：',
+	'semantictasks-diff-message' => '这些是差异之处：',
+);
+
