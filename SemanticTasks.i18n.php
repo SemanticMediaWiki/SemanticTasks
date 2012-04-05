@@ -465,6 +465,27 @@ $messages['ig'] = array(
 	'semantictasks-reminder' => 'Ihe eji chetá:',
 );
 
+/** Italian (Italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'semantictasks-desc' => 'Notifiche tramite posta elettronica per le attività assegnate o aggiornate',
+	'semantictasks-newtask' => 'Nuova attività:',
+	'semantictasks-taskassigned' => 'Attività assegnata:',
+	'semantictasks-taskupdated' => 'Attività aggiornata:',
+	'semantictasks-taskclosed' => 'Attività chiusa:',
+	'semantictasks-newtask-msg' => 'L\'attività "$1" è stata appena creata.',
+	'semantictasks-taskclosed-msg' => 'L\'attività "$1" è stata appena chiusa.',
+	'semantictasks-assignedtoyou-msg2' => 'L\'attività "$1" è stata appena assegnata a te.',
+	'semantictasks-updatedtoyou-msg2' => 'L\'attività "$1" è stata appena aggiornata.',
+	'semantictasks-reminder' => 'Promemoria:',
+	'semantictasks-reminder-message2' => 'Solo per ricordarti che l\'attività "$1" termina fra $2 {{PLURAL:$2|giorno|giorni}}.
+
+$3',
+	'semantictasks-text-message' => "Qui c'è la descrizione dell'attività:",
+	'semantictasks-diff-message' => 'Qui ci sono le differenze:',
+);
+
 /** Japanese (日本語)
  * @author Aotake
  * @author Fryed-peach
