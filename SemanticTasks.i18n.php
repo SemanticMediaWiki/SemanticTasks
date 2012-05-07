@@ -491,9 +491,10 @@ $3',
  * @author Fryed-peach
  * @author Hosiryuhosi
  * @author Naohiro19
+ * @author Shirayuki
  */
 $messages['ja'] = array(
-	'semantictasks-desc' => '課題の割り当てや更新を電子メールで通知する',
+	'semantictasks-desc' => '課題の割り当てや更新をメールで通知する',
 	'semantictasks-newtask' => '新規課題:',
 	'semantictasks-taskassigned' => 'タスクを割り当てる',
 	'semantictasks-taskupdated' => '課題の更新:',
