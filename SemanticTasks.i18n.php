@@ -84,7 +84,7 @@ $messages['bn'] = array(
 	'semantictasks-newtask' => 'নতুন কাজ:',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fohanno
  * @author Fulup
  * @author Y-M D
@@ -108,7 +108,7 @@ $3',
 	'semantictasks-diff-message' => "Setu amañ ar c'hemmoù :",
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -129,7 +129,7 @@ $3',
 	'semantictasks-diff-message' => 'Ovdje su razlike:',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Paucabot
  * @author Toniher
  */
@@ -151,7 +151,7 @@ $3',
 	'semantictasks-diff-message' => 'Aquí hi ha les diferències:',
 );
 
-/** Czech (Česky) */
+/** Czech (česky) */
 $messages['cs'] = array(
 	'semantictasks-reminder' => 'Upozornění:',
 );
@@ -229,7 +229,7 @@ $messages['eo'] = array(
 	'semantictasks-diff-message' => 'Jen la malsamaĵoj:',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Translationista
  */
@@ -251,7 +251,7 @@ $3',
 	'semantictasks-diff-message' => 'Aquí están las diferencias:',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Str4nd
@@ -267,7 +267,7 @@ $messages['fi'] = array(
 	'semantictasks-diff-message' => 'Tässä ovat eroavaisuudet:',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author IAlex
  * @author Urhixidur
@@ -290,7 +290,7 @@ $3',
 	'semantictasks-diff-message' => 'Les différences sont listées ci-dessous :',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -393,7 +393,7 @@ $3',
 	'semantictasks-diff-message' => 'Tu su rozdźěle:',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Glanthor Reviol
  */
 $messages['hu'] = array(
@@ -414,7 +414,7 @@ $3',
 	'semantictasks-diff-message' => 'Ez a felhasználó korábban blokkot kapott, és a naplóbejegyzés el lett rejtve. Az elrejtési napló alább látható tájékoztatásként:',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -465,7 +465,7 @@ $messages['ig'] = array(
 	'semantictasks-reminder' => 'Ihe eji chetá:',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  */
 $messages['it'] = array(
@@ -554,7 +554,7 @@ $3',
 	'semantictasks-diff-message' => "Hei sinn d'Ënnerscheeder:",
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -618,7 +618,7 @@ $3',
 	'semantictasks-diff-message' => 'Hieronder worden de verschillen weergegeven:',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Gunnernett
  */
 $messages['nn'] = array(
@@ -632,7 +632,7 @@ $messages['nn'] = array(
 	'semantictasks-diff-message' => 'Her er skilnadane:',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -653,7 +653,7 @@ $3",
 	'semantictasks-diff-message' => 'Las diferéncias son listadas çaijós :',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Sp5uhe
  */
 $messages['pl'] = array(
@@ -703,7 +703,7 @@ $messages['ps'] = array(
 	'semantictasks-newtask' => 'نوې دنده:',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  * @author Waldir
  */
@@ -725,7 +725,7 @@ $3',
 	'semantictasks-diff-message' => 'Aqui estão as diferenças:',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Giro720
  * @author Waldir
  */
@@ -747,7 +747,7 @@ $3',
 	'semantictasks-diff-message' => 'Aqui estão as diferenças:',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Firilacroco
  * @author KlaudiuMihaila
  */
@@ -763,7 +763,7 @@ $3',
 	'semantictasks-diff-message' => 'Acestea sunt diferențele:',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ferrer
  * @author Александр Сигачёв
  */
@@ -792,7 +792,7 @@ $messages['rue'] = array(
 	'semantictasks-newtask' => 'Нова задача:',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -809,7 +809,7 @@ $3',
 	'semantictasks-diff-message' => 'Toto sú rozdiely:',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -821,7 +821,7 @@ $messages['sr-ec'] = array(
 	'semantictasks-diff-message' => 'Овде су разлике:',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -833,7 +833,7 @@ $messages['sr-el'] = array(
 	'semantictasks-diff-message' => 'Ovde su razlike:',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Fluff
  * @author Per
  */
@@ -897,7 +897,7 @@ $messages['tr'] = array(
 	'semantictasks-diff-message' => 'Farklılıklar şu şekildedir:',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Тест
  */
 $messages['uk'] = array(
@@ -924,7 +924,7 @@ $3',
 	'semantictasks-diff-message' => 'Các khác biệt:',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Linforest
  */
 $messages['zh-hans'] = array(
