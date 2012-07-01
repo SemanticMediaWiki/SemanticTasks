@@ -55,7 +55,7 @@ $3',
 	'semantictasks-diff-message' => 'هنا الفروقات:',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -186,7 +186,7 @@ $messages['de-formal'] = array(
 	'semantictasks-assignedtoyou-msg2' => 'Die Aufgabe „$1“ wurde Ihnen soeben zugewiesen.',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -307,7 +307,7 @@ $messages['frp'] = array(
 	'semantictasks-diff-message' => 'Les difèrences sont listâs ce-desot :',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -372,7 +372,7 @@ $3',
 	'semantictasks-diff-message' => 'להלן ההבדלים:',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -785,7 +785,7 @@ $3',
 	'semantictasks-diff-message' => 'Здесь различия:',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
