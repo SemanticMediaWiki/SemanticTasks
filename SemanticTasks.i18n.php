@@ -575,7 +575,7 @@ $3',
 	'semantictasks-diff-message' => 'Еве ги разликите:',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Event
  * @author Nghtwlkr
  */
