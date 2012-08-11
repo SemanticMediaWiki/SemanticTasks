@@ -511,6 +511,13 @@ $3',
 	'semantictasks-diff-message' => '変更:',
 );
 
+/** Georgian (ქართული)
+ * @author David1010
+ */
+$messages['ka'] = array(
+	'semantictasks-reminder' => 'შეხსენება:',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
