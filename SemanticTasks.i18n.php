@@ -799,6 +799,13 @@ $messages['rue'] = array(
 	'semantictasks-newtask' => 'Нова задача:',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'semantictasks-newtask' => 'නව කාර්යය:',
+);
+
 /** Slovak (slovenčina)
  * @author Helix84
  */
@@ -858,6 +865,13 @@ $messages['sv'] = array(
 $3',
 	'semantictasks-text-message' => 'Här är uppgiftsbeskrivningen:',
 	'semantictasks-diff-message' => 'Här är skillnaden:',
+);
+
+/** Tamil (தமிழ்)
+ * @author Karthi.dr
+ */
+$messages['ta'] = array(
+	'semantictasks-reminder' => 'நினைவூட்டி:',
 );
 
 /** Telugu (తెలుగు)
