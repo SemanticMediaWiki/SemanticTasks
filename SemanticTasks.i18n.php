@@ -869,8 +869,17 @@ $3',
 
 /** Tamil (தமிழ்)
  * @author Karthi.dr
+ * @author Shanmugamp7
  */
 $messages['ta'] = array(
+	'semantictasks-newtask' => 'புதிய பணி:',
+	'semantictasks-taskassigned' => 'பணி ஒதுக்கப்பட்டது:',
+	'semantictasks-taskupdated' => 'பணி புதுப்பிக்கப்பட்டது:',
+	'semantictasks-taskclosed' => 'பணி மூடப்பட்டது:',
+	'semantictasks-newtask-msg' => 'பணி "$1" தற்போது உருவாக்கப்பட்டுள்ளது.',
+	'semantictasks-taskclosed-msg' => 'பணி "$1" தற்போது மூடப்பட்டுள்ளது.',
+	'semantictasks-assignedtoyou-msg2' => 'பணி "$1" தற்போது உங்களுக்கு ஒதுக்கப்பட்டுள்ளது.',
+	'semantictasks-updatedtoyou-msg2' => 'பணி "$1" தற்போது புதுப்பிக்க்கப்பட்டுள்ளது.',
 	'semantictasks-reminder' => 'நினைவூட்டி:',
 );
 
