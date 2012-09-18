@@ -365,7 +365,7 @@ $messages['he'] = array(
 	'semantictasks-assignedtoyou-msg2' => 'המשימה "$1" הוקצתה לך הרגע',
 	'semantictasks-updatedtoyou-msg2' => 'המשימה "$1" עודכנה הרגע.',
 	'semantictasks-reminder' => 'תזכורת:',
-	'semantictasks-reminder-message2' => 'רק רצינו להזכיר לך שהמשימה "$1" מסתיימת בעוד {{PLURAL:$2|יום|$2 ימים|יומיים}}.
+	'semantictasks-reminder-message2' => 'רק רצינו להזכיר לך שהמשימה "$1" מסתיימת בעוד {{PLURAL:$2|יום|יומיים|$2 ימים}}.
 
 $3',
 	'semantictasks-text-message' => 'להלן תיאור המשימה:',
