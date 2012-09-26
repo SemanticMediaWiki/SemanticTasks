@@ -975,3 +975,22 @@ $3',
 	'semantictasks-diff-message' => '这些是差异之处：',
 );
 
+/** Traditional Chinese (中文（繁體）‎) */
+$messages['zh-hant'] = array(
+	'semantictasks-desc' => '關於已分配任務或已更新任務的電子郵件通知',
+	'semantictasks-newtask' => '新任務：',
+	'semantictasks-taskassigned' => '已分配的任務：',
+	'semantictasks-taskupdated' => '已更新的任務：',
+	'semantictasks-taskclosed' => '已完結的任務：',
+	'semantictasks-newtask-msg' => '已創建任務"$1"。',
+	'semantictasks-taskclosed-msg' => '任務"$1"已剛剛完結。',
+	'semantictasks-assignedtoyou-msg2' => '已剛剛向您分配了任務"$1"。',
+	'semantictasks-updatedtoyou-msg2' => '任務"$1"已剛剛更新。',
+	'semantictasks-reminder' => '提醒：',
+	'semantictasks-reminder-message2' => '只是要提醒您，任務"$1"將在$2{{PLURAL:$2|天|天}}內結束。
+
+$3',
+	'semantictasks-text-message' => '這裡是任務說明：',
+	'semantictasks-diff-message' => '這些是差異之處：',
+);
+
