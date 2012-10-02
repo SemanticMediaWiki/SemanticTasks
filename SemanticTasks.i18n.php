@@ -55,7 +55,7 @@ $3',
 	'semantictasks-diff-message' => 'هنا الفروقات:',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -179,7 +179,7 @@ $3',
 	'semantictasks-diff-message' => 'Die Unterschiede oder Änderungen sind:',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Imre
  */
 $messages['de-formal'] = array(
@@ -582,7 +582,7 @@ $3',
 	'semantictasks-diff-message' => 'Еве ги разликите:',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Event
  * @author Nghtwlkr
  */
@@ -625,7 +625,7 @@ $3',
 	'semantictasks-diff-message' => 'Hieronder worden de verschillen weergegeven:',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Gunnernett
  */
 $messages['nn'] = array(
@@ -823,7 +823,7 @@ $3',
 	'semantictasks-diff-message' => 'Toto sú rozdiely:',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -835,7 +835,7 @@ $messages['sr-ec'] = array(
 	'semantictasks-diff-message' => 'Овде су разлике:',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -954,7 +954,7 @@ $3',
 	'semantictasks-diff-message' => 'Các khác biệt:',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Linforest
  */
 $messages['zh-hans'] = array(
