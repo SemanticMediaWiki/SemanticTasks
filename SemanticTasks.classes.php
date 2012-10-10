@@ -133,14 +133,12 @@ class SemanticTasksMailer {
 
 		// If not any row, do nothing
 		if ( !empty( $task_assignees ) ) {
-			while ( $task_assignee = $task_assignees->getNextObject() ) {
-				$assignee_name = $task_assignee->getTitle();
-				$assignee_name = $assignee_name->getText();
-				$assignee_name = explode( ":", $assignee_name );
-				$assignee_name = $assignee_name[0];
+			// since title is not displayed, 'Assigned to' value will be first value
+			$assignee_name = $task_assignees->getNextText( SMW_OUTPUT_WIKI );
+			$assignee_name = explode( ":", $assignee_name );
+			$assignee_name = $assignee_name[1];
 
-				array_push( $assignee_arr, $assignee_name );
-			}
+			array_push( $assignee_arr, $assignee_name );
 		}
 
 		return $assignee_arr;
@@ -329,22 +327,25 @@ class SemanticTasksMailer {
 
 		// add the page name to the printouts
 		if ( $display_title ) {
-			$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_THIS, $printlabel );
-			array_push( $printouts, $to_push );
+			if( version_compare( SMW_VERSION, '1.7', '>' ) ) {
+				SMWQueryProcessor::addThisPrintout( $printouts, $params );
+			} else {
+				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_THIS, $printlabel );
+				array_push( $printouts, $to_push );
+			}
 		}
 
 		// Push the properties to display in the printout array.
 		foreach ( $properties_to_display as $property ) {
 			if ( class_exists( 'SMWPropertyValue' ) ) { // SMW 1.4
-				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $printlabel, SMWPropertyValue::makeProperty( $property ) );
+				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property, SMWPropertyValue::makeUserProperty( $property ) );
 			} else {
-				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $printlabel, Title::newFromText( $property, SMW_NS_PROPERTY ) );
+				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property, Title::newFromText( $property, SMW_NS_PROPERTY ) );
 			}
 			array_push( $printouts, $to_push );
 		}
 
 		if ( version_compare( SMW_VERSION, '1.6.1', '>' ) ) {
-			SMWQueryProcessor::addThisPrintout( $printouts, $params );
 			$params = SMWQueryProcessor::getProcessedParams( $params, $printouts );
 			$format = null;
 		}
