@@ -151,7 +151,8 @@ $3',
 	'semantictasks-diff-message' => 'Aquí hi ha les diferències:',
 );
 
-/** Czech (česky) */
+/** Czech (česky)
+ */
 $messages['cs'] = array(
 	'semantictasks-reminder' => 'Upozornění:',
 );
@@ -978,7 +979,8 @@ $3',
 	'semantictasks-diff-message' => '这些是差异之处：',
 );
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）‎)
+ */
 $messages['zh-hant'] = array(
 	'semantictasks-desc' => '關於已分配任務或已更新任務的電子郵件通知',
 	'semantictasks-newtask' => '新任務：',
@@ -996,4 +998,3 @@ $3',
 	'semantictasks-text-message' => '這裡是任務說明：',
 	'semantictasks-diff-message' => '這些是差異之處：',
 );
-
