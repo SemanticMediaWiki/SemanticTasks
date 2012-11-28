@@ -255,15 +255,21 @@ $3',
 /** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
+ * @author Nedergard
  * @author Str4nd
  */
 $messages['fi'] = array(
 	'semantictasks-desc' => 'Sähköposti-ilmoitukset osoitetuista tai päivitetyistä tehtävistä',
 	'semantictasks-newtask' => 'Uusi tehtävä',
+	'semantictasks-taskassigned' => 'Kohdistettu tehtävä:',
 	'semantictasks-taskupdated' => 'Tehtävä päivitetty:',
+	'semantictasks-newtask-msg' => 'Tehtävä " $1 " on juuri luotu.',
 	'semantictasks-assignedtoyou-msg2' => 'Tehtävä ”$1” on juuri osoitettu sinulle.',
 	'semantictasks-updatedtoyou-msg2' => 'Tehtävä ”$1” on juuri päivitetty.',
 	'semantictasks-reminder' => 'Muistutus:',
+	'semantictasks-reminder-message2' => 'Muistutus: tehtävän "$1" on oltava valmis $2 {{PLURAL:$2|päivän}} päästä.
+
+$3',
 	'semantictasks-text-message' => 'Tehtävän kuvaus:',
 	'semantictasks-diff-message' => 'Tässä ovat eroavaisuudet:',
 );
