@@ -940,12 +940,17 @@ $messages['tr'] = array(
 );
 
 /** Ukrainian (українська)
+ * @author Steve.rusyn
  * @author Тест
  */
 $messages['uk'] = array(
 	'semantictasks-newtask' => 'Нова завдання:',
+	'semantictasks-taskassigned' => 'Призначене завдання:',
 	'semantictasks-taskupdated' => 'Завдання оновлено:',
 	'semantictasks-taskclosed' => 'Завдання закрито:',
+	'semantictasks-newtask-msg' => 'Завдання "$1" тільки що було створене.',
+	'semantictasks-updatedtoyou-msg2' => 'Завдання "$1" тільки що було оновлене.',
+	'semantictasks-reminder' => 'Нагадування:',
 );
 
 /** Vietnamese (Tiếng Việt)
