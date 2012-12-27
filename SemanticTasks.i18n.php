@@ -152,8 +152,13 @@ $3',
 );
 
 /** Czech (česky)
+ * @author Vks
  */
 $messages['cs'] = array(
+	'semantictasks-newtask' => 'Nový úkol:',
+	'semantictasks-taskassigned' => 'Úkol přiřazen:',
+	'semantictasks-taskupdated' => 'Úkol změněn:',
+	'semantictasks-taskclosed' => 'Úkol uzavřen:',
 	'semantictasks-reminder' => 'Upozornění:',
 );
 
@@ -944,13 +949,18 @@ $messages['tr'] = array(
  * @author Тест
  */
 $messages['uk'] = array(
+	'semantictasks-desc' => 'Сповіщення електронною поштою про визначені чи оновлені завдання.',
 	'semantictasks-newtask' => 'Нова завдання:',
 	'semantictasks-taskassigned' => 'Призначене завдання:',
 	'semantictasks-taskupdated' => 'Завдання оновлено:',
 	'semantictasks-taskclosed' => 'Завдання закрито:',
 	'semantictasks-newtask-msg' => 'Завдання "$1" тільки що було створене.',
+	'semantictasks-taskclosed-msg' => 'Завдання "$1" тільки що було закрите.',
+	'semantictasks-assignedtoyou-msg2' => 'Для Вас тільки що було визначене завдання "$1".',
 	'semantictasks-updatedtoyou-msg2' => 'Завдання "$1" тільки що було оновлене.',
 	'semantictasks-reminder' => 'Нагадування:',
+	'semantictasks-text-message' => 'Ось опис завдання:',
+	'semantictasks-diff-message' => 'Тут відмінності:',
 );
 
 /** Vietnamese (Tiếng Việt)
