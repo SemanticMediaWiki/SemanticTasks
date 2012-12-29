@@ -784,6 +784,13 @@ $3',
 	'semantictasks-diff-message' => 'Acestea sunt diferențele:',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'semantictasks-newtask' => 'Combite nuève:',
+);
+
 /** Russian (русский)
  * @author Ferrer
  * @author Александр Сигачёв
@@ -818,6 +825,10 @@ $messages['rue'] = array(
  */
 $messages['si'] = array(
 	'semantictasks-newtask' => 'නව කාර්යය:',
+	'semantictasks-taskassigned' => 'කාර්යය පවරා ඇත:',
+	'semantictasks-taskupdated' => 'කාර්යය යාවත්කාලීන කර ඇත:',
+	'semantictasks-taskclosed' => 'කාර්යය වසා දමා ඇත:',
+	'semantictasks-reminder' => 'මතක්කිරීම:',
 );
 
 /** Slovak (slovenčina)
