@@ -829,6 +829,8 @@ $messages['si'] = array(
 	'semantictasks-taskupdated' => 'කාර්යය යාවත්කාලීන කර ඇත:',
 	'semantictasks-taskclosed' => 'කාර්යය වසා දමා ඇත:',
 	'semantictasks-reminder' => 'මතක්කිරීම:',
+	'semantictasks-text-message' => 'මෙන්න කාර්යයේ විස්තරය:',
+	'semantictasks-diff-message' => 'මෙන්න වෙනස්කම්:',
 );
 
 /** Slovak (slovenčina)
