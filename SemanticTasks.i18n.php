@@ -771,12 +771,15 @@ $3',
 /** Romanian (română)
  * @author Firilacroco
  * @author KlaudiuMihaila
+ * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'semantictasks-newtask' => 'Sarcină nouă:',
+	'semantictasks-taskassigned' => 'Sarcină alocată:',
 	'semantictasks-taskupdated' => 'Sarcină actualizată:',
 	'semantictasks-assignedtoyou-msg2' => 'Sarcina "$1" tocmai ți-a fost atribuită',
 	'semantictasks-updatedtoyou-msg2' => 'Sarcina "$1" tocmai a fost actualizată.',
+	'semantictasks-reminder' => 'Memento:',
 	'semantictasks-reminder-message2' => 'Doar reamintim faptul că sarcina "$1" se termină peste $2 {{PLURAL:$2|zi|zile}}.
 
 $3',
@@ -824,10 +827,15 @@ $messages['rue'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'semantictasks-desc' => 'පැවරූ සහ යාවත්කාලීන කෙරූ කාර්යයන් සඳහා විද්‍යුත්-තැපැල් නිවේදන',
 	'semantictasks-newtask' => 'නව කාර්යය:',
 	'semantictasks-taskassigned' => 'කාර්යය පවරා ඇත:',
 	'semantictasks-taskupdated' => 'කාර්යය යාවත්කාලීන කර ඇත:',
 	'semantictasks-taskclosed' => 'කාර්යය වසා දමා ඇත:',
+	'semantictasks-newtask-msg' => '"$1" කාර්ය දැන් තනන ලදී.',
+	'semantictasks-taskclosed-msg' => '"$1" කාර්ය දැන් වසන ලදී.',
+	'semantictasks-assignedtoyou-msg2' => '"$1" කාර්ය ඔබට දැන් පවරන ලදී.',
+	'semantictasks-updatedtoyou-msg2' => '"$1" කාර්ය දැන් යාවත්කාලීන කරන ලදී.',
 	'semantictasks-reminder' => 'මතක්කිරීම:',
 	'semantictasks-text-message' => 'මෙන්න කාර්යයේ විස්තරය:',
 	'semantictasks-diff-message' => 'මෙන්න වෙනස්කම්:',
