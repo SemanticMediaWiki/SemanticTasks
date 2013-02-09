@@ -529,7 +529,16 @@ $3',
  * @author David1010
  */
 $messages['ka'] = array(
+	'semantictasks-newtask' => 'ახალი დავალება:',
+	'semantictasks-taskassigned' => 'დაყენებული დავალება:',
+	'semantictasks-taskupdated' => 'დავალება განახლდა:',
+	'semantictasks-taskclosed' => 'დავალება დახურულია:',
+	'semantictasks-newtask-msg' => 'დავალება „$1“ ახლახანს შეიქმნა.',
+	'semantictasks-taskclosed-msg' => 'დავალება „$1“ ახლახანს დაიხურა.',
+	'semantictasks-updatedtoyou-msg2' => 'დავალება „$1“ ახლახანს განახლდა.',
 	'semantictasks-reminder' => 'შეხსენება:',
+	'semantictasks-text-message' => 'აქ არის დავალების აღწერა:',
+	'semantictasks-diff-message' => 'აქ არის განსხვავებები:',
 );
 
 /** Colognian (Ripoarisch)
