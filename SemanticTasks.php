@@ -24,8 +24,7 @@ $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other']
 	'name' => 'SemanticTasks',
 	'author' => array(
 		'Steren Giannini',
-		'Ryan Lane',
-		'[http://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]'
+		'Ryan Lane'
 	),
 	'version' => '1.4.1',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Tasks',
