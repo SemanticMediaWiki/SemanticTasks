@@ -32,9 +32,10 @@ $3",
 /** Message documentation (Message documentation)
  * @author Fryed-peach
  * @author Purodha
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'semantictasks-desc' => '{{desc}}',
+	'semantictasks-desc' => '{{desc|name=Semantic Tasks|url=http://www.mediawiki.org/wiki/Extension:Semantic_Tasks}}',
 );
 
 /** Arabic (العربية)
