@@ -36,6 +36,46 @@ $3",
  */
 $messages['qqq'] = array(
 	'semantictasks-desc' => '{{desc|name=Semantic Tasks|url=http://www.mediawiki.org/wiki/Extension:Semantic_Tasks}}',
+	'semantictasks-newtask-msg' => 'Used as notification mail body.
+
+Parameters:
+* $1 - task name
+
+This message is followed by {{msg-mw|semantictasks-text-message}}.
+
+The subject for this mail is SITENAME + {{msg-mw|semantictasks-newtask}} + task name.',
+	'semantictasks-taskclosed-msg' => 'Used as notification mail body.
+
+Parameters:
+* $1 - task name
+
+This message is followed by {{msg-mw|semantictasks-text-message}}.
+
+The subject for this mail is SITENAME + {{msg-mw|semantictasks-taskclosed}} + task name.',
+	'semantictasks-assignedtoyou-msg2' => 'Used as notification mail body.
+
+Parameters:
+* $1 - task name
+
+This message is followed by {{msg-mw|semantictasks-text-message}}.
+
+The subject for this mail is SITENAME + {{msg-mw|semantictasks-taskassigned}} + task name.',
+	'semantictasks-updatedtoyou-msg2' => 'Used as notification mail body.
+
+Parameters:
+* $1 - task name
+
+This message is followed by {{msg-mw|semantictasks-diff-message}}.
+
+The subject for this mail is SITENAME + {{msg-mw|semantictasks-taskupdated}} + task name.',
+	'semantictasks-reminder-message2' => 'Used as reminder mail body.
+
+The subject for this mail is SITENAME + {{msg-mw|semantictasks-reminder}} + task name.
+
+Parameters:
+* $1 - task name
+* $2 - number of days
+* $3 - a link to the task',
 );
 
 /** Arabic (العربية)
@@ -511,9 +551,9 @@ $3',
 $messages['ja'] = array(
 	'semantictasks-desc' => '課題の割り当てや更新をメールで通知する',
 	'semantictasks-newtask' => '新規課題:',
-	'semantictasks-taskassigned' => 'タスクを割り当てる',
-	'semantictasks-taskupdated' => '課題の更新:',
-	'semantictasks-taskclosed' => '終了したタスク:',
+	'semantictasks-taskassigned' => '割り当てられた課題:',
+	'semantictasks-taskupdated' => '更新された課題:',
+	'semantictasks-taskclosed' => '終了した課題:',
 	'semantictasks-newtask-msg' => '課題「$1」が作成されました。',
 	'semantictasks-taskclosed-msg' => '課題「$1」が閉じられました。',
 	'semantictasks-assignedtoyou-msg2' => '課題「$1」があなたに割り当てられました。',
@@ -523,7 +563,7 @@ $messages['ja'] = array(
 
 $3',
 	'semantictasks-text-message' => '課題の説明:',
-	'semantictasks-diff-message' => '変更:',
+	'semantictasks-diff-message' => '変更内容:',
 );
 
 /** Georgian (ქართული)
