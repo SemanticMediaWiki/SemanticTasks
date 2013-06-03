@@ -646,7 +646,7 @@ $3',
 	'semantictasks-diff-message' => 'Еве ги разликите:',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Event
  * @author Nghtwlkr
  */
@@ -689,7 +689,7 @@ $3',
 	'semantictasks-diff-message' => 'Hieronder worden de verschillen weergegeven:',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Gunnernett
  */
 $messages['nn'] = array(
