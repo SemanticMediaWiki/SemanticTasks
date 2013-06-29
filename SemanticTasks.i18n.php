@@ -68,6 +68,7 @@ Parameters:
 This message is followed by {{msg-mw|semantictasks-diff-message}}.
 
 The subject for this mail is SITENAME + {{msg-mw|semantictasks-taskupdated}} + task name.',
+	'semantictasks-reminder' => '{{Identical|Reminder}}',
 	'semantictasks-reminder-message2' => 'Used as reminder mail body.
 
 The subject for this mail is SITENAME + {{msg-mw|semantictasks-reminder}} + task name.
