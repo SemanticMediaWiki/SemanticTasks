@@ -798,18 +798,19 @@ $messages['ps'] = array(
 
 /** Portuguese (português)
  * @author Hamilton Abreu
+ * @author Luckas
  * @author Waldir
  */
 $messages['pt'] = array(
-	'semantictasks-desc' => 'Notificações por correio electrónico das tarefas atribuídas ou actualizadas',
+	'semantictasks-desc' => 'Notificações por correio eletrónico das tarefas atribuídas ou atualizadas',
 	'semantictasks-newtask' => 'Nova tarefa:',
 	'semantictasks-taskassigned' => 'Tarefa atribuída:',
-	'semantictasks-taskupdated' => 'Tarefa actualizada:',
+	'semantictasks-taskupdated' => 'Tarefa atualizada:',
 	'semantictasks-taskclosed' => 'Tarefa fechada:',
 	'semantictasks-newtask-msg' => 'A tarefa "$1" acaba de ser criada.',
 	'semantictasks-taskclosed-msg' => 'A tarefa "$1" acaba de ser fechada.',
 	'semantictasks-assignedtoyou-msg2' => 'A tarefa "$1" acaba de lhe ser atribuída',
-	'semantictasks-updatedtoyou-msg2' => 'A tarefa "$1" acaba de ser actualizada.',
+	'semantictasks-updatedtoyou-msg2' => 'A tarefa "$1" acaba de ser atualizada.',
 	'semantictasks-reminder' => 'Nota:',
 	'semantictasks-reminder-message2' => 'Só para lembrar que a tarefa "$1" acaba em $2 {{PLURAL:$2|dia|dias}}.
 
