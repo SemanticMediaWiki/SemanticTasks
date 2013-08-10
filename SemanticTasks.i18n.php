@@ -1053,7 +1053,9 @@ $messages['tr'] = array(
 );
 
 /** Ukrainian (українська)
+ * @author Andriykopanytsia
  * @author Steve.rusyn
+ * @author SteveR
  * @author Тест
  */
 $messages['uk'] = array(
@@ -1067,6 +1069,9 @@ $messages['uk'] = array(
 	'semantictasks-assignedtoyou-msg2' => 'Для Вас тільки що було визначене завдання "$1".',
 	'semantictasks-updatedtoyou-msg2' => 'Завдання "$1" тільки що було оновлене.',
 	'semantictasks-reminder' => 'Нагадування:',
+	'semantictasks-reminder-message2' => 'Просто нагадуємо вам, що завдання „$1“ завершується через $2   {{PLURAL:$2|день|дні|днів}}.
+
+$3',
 	'semantictasks-text-message' => 'Ось опис завдання:',
 	'semantictasks-diff-message' => 'Тут відмінності:',
 );
