@@ -12,7 +12,7 @@ $messages = array();
  * @author Steren Giannini
  */
 $messages['en'] = array(
-	'semantictasks-desc' => 'E-mail notifications for assigned or updated tasks',
+	'semantictasks-desc' => 'Email notifications for assigned or updated tasks',
 	'semantictasks-newtask' => 'New task:',
 	'semantictasks-taskassigned' => 'Task assigned:',
 	'semantictasks-taskupdated' => 'Task updated:',
