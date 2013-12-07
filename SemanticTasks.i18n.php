@@ -214,7 +214,7 @@ $3',
 	'semantictasks-diff-message' => 'Aquí hi ha les diferències:',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Vks
  */
 $messages['cs'] = array(
