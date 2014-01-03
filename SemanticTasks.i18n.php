@@ -896,9 +896,9 @@ $messages['ru'] = array(
 	'semantictasks-assignedtoyou-msg2' => 'Вам была только что определена задача «$1»',
 	'semantictasks-updatedtoyou-msg2' => 'Задача «$1» только что была обновлена.',
 	'semantictasks-reminder' => 'Напоминание:',
-	'semantictasks-reminder-message2' => 'Напоминаем, что задача «$1» завершается через $2 {{PLURAL:$2|день|дня|дней}}.
+	'semantictasks-reminder-message2' => 'Напоминаем, что задача «$1» завершается через $2 {{PLURAL:$2|день|дней|дня}}.
 
-$3',
+$3', # Fuzzy
 	'semantictasks-text-message' => 'Здесь описание задачи:',
 	'semantictasks-diff-message' => 'Здесь различия:',
 );
