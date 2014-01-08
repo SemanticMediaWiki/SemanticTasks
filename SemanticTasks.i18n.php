@@ -883,6 +883,7 @@ $3',
 
 /** Russian (русский)
  * @author Ferrer
+ * @author Kaganer
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -898,7 +899,7 @@ $messages['ru'] = array(
 	'semantictasks-reminder' => 'Напоминание:',
 	'semantictasks-reminder-message2' => 'Напоминаем, что задача «$1» завершается через $2 {{PLURAL:$2|день|дней|дня}}.
 
-$3', # Fuzzy
+$3',
 	'semantictasks-text-message' => 'Здесь описание задачи:',
 	'semantictasks-diff-message' => 'Здесь различия:',
 );
