@@ -604,6 +604,24 @@ $messages['ka'] = array(
 	'semantictasks-diff-message' => 'აქ არის განსხვავებები:',
 );
 
+/** Korean (한국어)
+ * @author Priviet
+ */
+$messages['ko'] = array(
+	'semantictasks-desc' => '할당되거나 업데이트된 작업에 대한 이메일 알림',
+	'semantictasks-newtask' => '새 작업:',
+	'semantictasks-taskassigned' => '할당된 작업:',
+	'semantictasks-taskupdated' => '업데이트 된 작업:',
+	'semantictasks-taskclosed' => '닫힌 작업:',
+	'semantictasks-newtask-msg' => '"$1" 작업이 방금 만들어졌습니다.',
+	'semantictasks-taskclosed-msg' => '"$1" 작업이 방금 닫혔습니다.',
+	'semantictasks-assignedtoyou-msg2' => '"$1" 작업이 당신에게 할당됐습니다.',
+	'semantictasks-updatedtoyou-msg2' => '"$1" 작업이 방금 업데이트됐습니다.',
+	'semantictasks-reminder' => '알림:',
+	'semantictasks-text-message' => '작업 설명은 다음과 같습니다:',
+	'semantictasks-diff-message' => '차이는 다음과 같습니다:',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
