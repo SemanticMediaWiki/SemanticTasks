@@ -618,6 +618,9 @@ $messages['ko'] = array(
 	'semantictasks-assignedtoyou-msg2' => '"$1" 작업이 당신에게 할당됐습니다.',
 	'semantictasks-updatedtoyou-msg2' => '"$1" 작업이 방금 업데이트됐습니다.',
 	'semantictasks-reminder' => '알림:',
+	'semantictasks-reminder-message2' => '{{PLURAL:$2|$2일}}에 "$1" 작업이 끝난다는 것을 알립니다.
+
+$3',
 	'semantictasks-text-message' => '작업 설명은 다음과 같습니다:',
 	'semantictasks-diff-message' => '차이는 다음과 같습니다:',
 );
