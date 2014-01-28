@@ -320,6 +320,23 @@ $3',
 	'semantictasks-diff-message' => 'Aquí están las diferencias:',
 );
 
+/** Persian (فارسی)
+ * @author Armin1392
+ */
+$messages['fa'] = array(
+	'semantictasks-newtask' => 'وظیفهٔ جدید:',
+	'semantictasks-taskassigned' => 'وظیفهٔ اختصاص داده شده:',
+	'semantictasks-taskupdated' => 'وظیفه به روز رسانی شده:',
+	'semantictasks-taskclosed' => 'وظیفه بسته شده:',
+	'semantictasks-newtask-msg' => 'وظیفهٔ "$1"  ایجاد شده‌است.',
+	'semantictasks-taskclosed-msg' => 'وظیفهٔ "$1" بسته شده‌است.',
+	'semantictasks-assignedtoyou-msg2' => 'وظیفهٔ "$1" به شما اختصاص داده شده‌است.',
+	'semantictasks-updatedtoyou-msg2' => 'وظیفهٔ "$1" به روز رسانی شده‌است.',
+	'semantictasks-reminder' => 'یادآوری:',
+	'semantictasks-text-message' => 'توصیف وظیفه این است:',
+	'semantictasks-diff-message' => 'تفاوت‌ها این است:',
+);
+
 /** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
