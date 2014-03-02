@@ -324,6 +324,7 @@ $3',
  * @author Armin1392
  */
 $messages['fa'] = array(
+	'semantictasks-desc' => 'اعلان‌های رایانامه برای وظایف گماشته شده یا به روز شده',
 	'semantictasks-newtask' => 'وظیفهٔ جدید:',
 	'semantictasks-taskassigned' => 'وظیفهٔ اختصاص داده شده:',
 	'semantictasks-taskupdated' => 'وظیفه به روز رسانی شده:',
@@ -333,6 +334,8 @@ $messages['fa'] = array(
 	'semantictasks-assignedtoyou-msg2' => 'وظیفهٔ "$1" به شما اختصاص داده شده‌است.',
 	'semantictasks-updatedtoyou-msg2' => 'وظیفهٔ "$1" به روز رسانی شده‌است.',
 	'semantictasks-reminder' => 'یادآوری:',
+	'semantictasks-reminder-message2' => 'فقط برای یادآوری شما که وظیفه "$1" در $2 {{PLURAL:$2| روز|روزها}} به پایان می رسد.
+ $3',
 	'semantictasks-text-message' => 'توصیف وظیفه این است:',
 	'semantictasks-diff-message' => 'تفاوت‌ها این است:',
 );
