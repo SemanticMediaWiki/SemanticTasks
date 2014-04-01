@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Joetaras"
+        ]
+    },
+    "semantictasks-desc": "Notifiche email pe le combite assegnate o aggiornate",
+    "semantictasks-newtask": "Combite nuève:",
+    "semantictasks-taskassigned": "Combite assegnate:",
+    "semantictasks-taskupdated": "COmbite aggiornate:",
+    "semantictasks-taskclosed": "Combite achiuse:",
+    "semantictasks-newtask-msg": "'U combite \"$1\" ha state ccrejate.",
+    "semantictasks-taskclosed-msg": "'U Combite \"$1\" ha state achiuse.",
+    "semantictasks-assignedtoyou-msg2": "'U combite \"$1\" ha state assegnate a te.",
+    "semantictasks-updatedtoyou-msg2": "'U combite \"$1\" ha state aggiornate.",
+    "semantictasks-reminder": "Arrecuèrdeme:",
+    "semantictasks-reminder-message2": "Te vulè arrecurdave ca 'u combite \"$1\" spiccie jndr'à $2 {{PLURAL:$2|sciurne}}.\n\n$3",
+    "semantictasks-text-message": "Aqquà stè 'a descrizione d'u combite:",
+    "semantictasks-diff-message": "Aqquà stonne le differenze:"
+}

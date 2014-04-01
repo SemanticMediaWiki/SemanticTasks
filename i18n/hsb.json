@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michawiki"
+        ]
+    },
+    "semantictasks-desc": "E-mejlowe zdźělenja za připokazane abo zaktualizowane nadawki",
+    "semantictasks-newtask": "Nowy nadawk:",
+    "semantictasks-taskassigned": "Nadawk připokazany:",
+    "semantictasks-taskupdated": "Nadawk zaktualizowany:",
+    "semantictasks-taskclosed": "Nadawk zakónčeny:",
+    "semantictasks-newtask-msg": "Nadawk \"$1\" je so runje wutworił.",
+    "semantictasks-taskclosed-msg": "Nadawk \"$1\" je so runje zakónčił.",
+    "semantictasks-assignedtoyou-msg2": "Nadawk \"$1\" bu ći runje připokazany",
+    "semantictasks-updatedtoyou-msg2": "Nadawk \"$1\" bu runje zaktualizowany",
+    "semantictasks-reminder": "Dopomnjeće:",
+    "semantictasks-reminder-message2": "Je to jenož dopomnjeće, zo nadawk \"$1\" so za $2 {{PLURAL:|dźeń|dnjej|dny|dnjow}} skónči.\n\n$3",
+    "semantictasks-text-message": "Tu je wopisanje nadawka:",
+    "semantictasks-diff-message": "Tu su rozdźěle:"
+}

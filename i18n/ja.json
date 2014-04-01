@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aotake",
+            "Fryed-peach",
+            "Hosiryuhosi",
+            "Naohiro19",
+            "Shirayuki"
+        ]
+    },
+    "semantictasks-desc": "課題の割り当てや更新をメールで通知する",
+    "semantictasks-newtask": "新規課題:",
+    "semantictasks-taskassigned": "割り当てられた課題:",
+    "semantictasks-taskupdated": "更新された課題:",
+    "semantictasks-taskclosed": "終了した課題:",
+    "semantictasks-newtask-msg": "課題「$1」が作成されました。",
+    "semantictasks-taskclosed-msg": "課題「$1」が閉じられました。",
+    "semantictasks-assignedtoyou-msg2": "課題「$1」があなたに割り当てられました。",
+    "semantictasks-updatedtoyou-msg2": "課題「$1」が更新されました。",
+    "semantictasks-reminder": "リマインダー:",
+    "semantictasks-reminder-message2": "課題「$1」は $2{{PLURAL:$2|日|日間}}で締め切りを迎えることをお知らせします。\n\n$3",
+    "semantictasks-text-message": "課題の説明:",
+    "semantictasks-diff-message": "変更内容:"
+}

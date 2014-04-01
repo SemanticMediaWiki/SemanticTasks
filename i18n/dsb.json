@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michawiki"
+        ]
+    },
+    "semantictasks-desc": "E-mailowe zdźělenja za pśipokazane abo zaktualizěrowane nadawki",
+    "semantictasks-newtask": "Nowy nadawk:",
+    "semantictasks-taskassigned": "Nadawk pśipokazany:",
+    "semantictasks-taskupdated": "Nadawk zaktualizěrowany:",
+    "semantictasks-taskclosed": "Nadawk dokóńcony:",
+    "semantictasks-newtask-msg": "Nadawk \"$1\" jo se rowno napórał.",
+    "semantictasks-taskclosed-msg": "Nadawk \"$1\" jo se rowno dokóńcył.",
+    "semantictasks-assignedtoyou-msg2": "Nadawk \"$1\" jo se śi rowno pśipokazał",
+    "semantictasks-updatedtoyou-msg2": "Nadawk \"$1\" jo se rowno zaktualizěrował",
+    "semantictasks-reminder": "Dopomnjeśe:",
+    "semantictasks-reminder-message2": "To jo jano dopomnjeśe, až nadawk \"$1\" skóńcyjo se za $2 {{PLURAL:$2|źeń|dnja|dny|dnjow}}.\n\n$3",
+    "semantictasks-text-message": "How jo wopisanje nadawka:",
+    "semantictasks-diff-message": "How su rozdźěle:"
+}

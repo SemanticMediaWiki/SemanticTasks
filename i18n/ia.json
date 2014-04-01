@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "McDutchie"
+        ]
+    },
+    "semantictasks-desc": "Notificationes per e-mail pro cargas assignate o actualisate",
+    "semantictasks-newtask": "Nove carga:",
+    "semantictasks-taskassigned": "Carga assignate:",
+    "semantictasks-taskupdated": "Carga actualisate:",
+    "semantictasks-taskclosed": "Carga claudite:",
+    "semantictasks-newtask-msg": "Le carga \"$1\" ha justo essite create.",
+    "semantictasks-taskclosed-msg": "Le carga \"$1\" ha justo essite claudite.",
+    "semantictasks-assignedtoyou-msg2": "Le carga \"$1\" ha justo essite assignate a te.",
+    "semantictasks-updatedtoyou-msg2": "Le carga \"$1\" ha justo essite actualisate.",
+    "semantictasks-reminder": "Rememoration:",
+    "semantictasks-reminder-message2": "Isto es pro rememorar te que le carga \"$1\" essera terminate in $2 {{PLURAL:$2|die|dies}}.\n\n$3",
+    "semantictasks-text-message": "Ecce le description del carga:",
+    "semantictasks-diff-message": "Ecce le differentias:"
+}

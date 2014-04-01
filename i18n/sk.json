@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Helix84"
+        ]
+    },
+    "semantictasks-desc": "Upozornenia emailom na pridelené a aktualizované úlohy",
+    "semantictasks-newtask": "Nová úloha:",
+    "semantictasks-taskupdated": "Aktualizovaná úloha:",
+    "semantictasks-assignedtoyou-msg2": "Práve vám bola pridelená úloha „$1“.",
+    "semantictasks-updatedtoyou-msg2": "Práve bola aktualizovaná úloha „$1“.",
+    "semantictasks-reminder": "Pripomienka:",
+    "semantictasks-reminder-message2": "Toto je iba pripomenutie, že úloha „$1“ končí o $2 {{PLURAL:$2|deň|dni|dní}}.\n\n$3",
+    "semantictasks-text-message": "Toto je popis úlohy:",
+    "semantictasks-diff-message": "Toto sú rozdiely:"
+}

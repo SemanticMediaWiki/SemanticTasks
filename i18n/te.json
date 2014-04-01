@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Veeven"
+        ]
+    },
+    "semantictasks-desc": "అప్పగించిన లేదా తాజాకరించిన పనుల యొక్క ఈ-మెయిలు గమనింపులు",
+    "semantictasks-newtask": "కొత్త పని:",
+    "semantictasks-taskupdated": "పనిని తాజాకరించారు:",
+    "semantictasks-assignedtoyou-msg2": "\"$1\" పనిని ఇప్పుడే మీకు అప్పగించారు",
+    "semantictasks-updatedtoyou-msg2": "\"$1\" పనిని ఇప్పుడే తాజాకరించారు.",
+    "semantictasks-text-message": "పని వివరణ ఇదిగో:"
+}

@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Fluff",
+            "Martinwiss",
+            "Per"
+        ]
+    },
+    "semantictasks-desc": "E-postmeddelanden för tilldelade eller uppdaterade uppgifter",
+    "semantictasks-newtask": "Ny uppgift:",
+    "semantictasks-taskassigned": "Uppgift tilldelad:",
+    "semantictasks-taskupdated": "Uppgiften uppdaterad:",
+    "semantictasks-taskclosed": "Uppgiften avslutad:",
+    "semantictasks-newtask-msg": "Uppgiften \"$1\" har just skapats.",
+    "semantictasks-taskclosed-msg": "Uppgiften \"$1\" har precis slutförts.",
+    "semantictasks-assignedtoyou-msg2": "Uppgiften \"$1\" har just tilldelats till dig",
+    "semantictasks-updatedtoyou-msg2": "Uppgiften \"$1\" har precis uppdaterats.",
+    "semantictasks-reminder": "Påminnelse:",
+    "semantictasks-reminder-message2": "Ett meddelande för att påminna dig om uppgiften \"$1\" som slutar om {{PLURAL:$2|en dag|$2 dagar}}.\n\n$3",
+    "semantictasks-text-message": "Här är uppgiftsbeskrivningen:",
+    "semantictasks-diff-message": "Här är skillnaden:"
+}

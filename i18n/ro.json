@@ -1,0 +1,18 @@
+{
+    "@metadata": {
+        "authors": [
+            "Firilacroco",
+            "KlaudiuMihaila",
+            "Stelistcristi"
+        ]
+    },
+    "semantictasks-newtask": "Sarcină nouă:",
+    "semantictasks-taskassigned": "Sarcină alocată:",
+    "semantictasks-taskupdated": "Sarcină actualizată:",
+    "semantictasks-assignedtoyou-msg2": "Sarcina \"$1\" tocmai ți-a fost atribuită",
+    "semantictasks-updatedtoyou-msg2": "Sarcina \"$1\" tocmai a fost actualizată.",
+    "semantictasks-reminder": "Memento:",
+    "semantictasks-reminder-message2": "Doar reamintim faptul că sarcina \"$1\" se termină peste $2 {{PLURAL:$2|zi|zile}}.\n\n$3",
+    "semantictasks-text-message": "Aceasta este descrierea sarcinii:",
+    "semantictasks-diff-message": "Acestea sunt diferențele:"
+}

@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Gunnernett"
+        ]
+    },
+    "semantictasks-desc": "Meldingar via e-post om tildelte eller oppdaterte oppgåver",
+    "semantictasks-newtask": "Ny oppgåve:",
+    "semantictasks-taskupdated": "Oppgåva oppdatert:",
+    "semantictasks-assignedtoyou-msg2": "Oppgåva «$1» har nett vorten gjeve til deg",
+    "semantictasks-updatedtoyou-msg2": "Oppgåva «$1» har nett vorte oppdatert.",
+    "semantictasks-reminder": "Påminning:",
+    "semantictasks-text-message": "Her er ei skildring av oppgåva:",
+    "semantictasks-diff-message": "Her er skilnadane:"
+}

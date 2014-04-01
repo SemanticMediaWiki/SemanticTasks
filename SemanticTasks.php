@@ -26,12 +26,13 @@ $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other']
 		'Steren Giannini',
 		'Ryan Lane'
 	),
-	'version' => '1.4.1',
+	'version' => '1.5.0',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Tasks',
 	'descriptionmsg' => 'semantictasks-desc',
 );
 
 // i18n
+$wgMessagesDirs['SemanticTasks'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['SemanticTasks'] = dirname( __FILE__ ) . '/SemanticTasks.i18n.php';
 
 // Autoloading

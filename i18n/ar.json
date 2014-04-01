@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Meno25",
+            "OsamaK"
+        ]
+    },
+    "semantictasks-desc": "إخطارات بالبريد الإلكتروني للمهام الموكولة أو المحدثة",
+    "semantictasks-newtask": "مهمة جديدة:",
+    "semantictasks-taskupdated": "المهمة تم تحديثها:",
+    "semantictasks-assignedtoyou-msg2": "المهمة \"$1\" تم إيكالها حالا إليك",
+    "semantictasks-updatedtoyou-msg2": "المهمة \"$1\" تم تحديثها حالا.",
+    "semantictasks-reminder": "تذكرة:",
+    "semantictasks-reminder-message2": "فقط أذكرك أن المهمة \"$1\" تنتهي في غضون {{PLURAL:$2||يوم واحد|يومين|$2 أيام|$2 يومًا|$2 يوم}}.\n\n$3",
+    "semantictasks-text-message": "هنا وصف المهمة:",
+    "semantictasks-diff-message": "هنا الفروقات:"
+}

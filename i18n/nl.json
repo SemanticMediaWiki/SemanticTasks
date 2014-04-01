@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Siebrand"
+        ]
+    },
+    "semantictasks-desc": "E-mailberichten voor toegewezen of bijgewerkte taken",
+    "semantictasks-newtask": "Nieuwe taak:",
+    "semantictasks-taskassigned": "Taak toegewezen:",
+    "semantictasks-taskupdated": "Taak bijgewerkt:",
+    "semantictasks-taskclosed": "Taak gesloten:",
+    "semantictasks-newtask-msg": "De taak \"$1\" is aangemaakt.",
+    "semantictasks-taskclosed-msg": "De taak \"$1\" is zojuist gesloten.",
+    "semantictasks-assignedtoyou-msg2": "De taak \"$1\" is aan u toegewezen.",
+    "semantictasks-updatedtoyou-msg2": "De taak \"$1\" is bijgewerkt.",
+    "semantictasks-reminder": "Herinnering:",
+    "semantictasks-reminder-message2": "Dit is een herinnering aan de taak \"$1\" die een eindddatum heeft over $2 {{PLURAL:$2|dag|dagen}}.\n\n$3",
+    "semantictasks-text-message": "Hieronder staat een beschrijving van de taak:",
+    "semantictasks-diff-message": "Hieronder worden de verschillen weergegeven:"
+}

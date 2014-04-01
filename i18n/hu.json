@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Glanthor Reviol"
+        ]
+    },
+    "semantictasks-desc": "E-mail figyelmeztetések a kijelölt és frissített feladatokhoz",
+    "semantictasks-newtask": "Új feladat:",
+    "semantictasks-taskassigned": "Feladat kiosztva:",
+    "semantictasks-taskupdated": "Frissített feladat:",
+    "semantictasks-taskclosed": "Feladat lezárva:",
+    "semantictasks-newtask-msg": "A(z) „$1” feladat éppen létrehozva.",
+    "semantictasks-taskclosed-msg": "A(z) „$1” feladat éppen le lett zárva.",
+    "semantictasks-assignedtoyou-msg2": "Megkaptad a(z) „$1” feladatot.",
+    "semantictasks-updatedtoyou-msg2": "A „$1” feladat frissítve lett.",
+    "semantictasks-reminder": "Emlékeztető:",
+    "semantictasks-reminder-message2": "Ez egy emlékeztető, hogy a „$1” feladat határideje {{PLURAL:$2|egy|$2}} nap múlva lejár.\n\n$3",
+    "semantictasks-text-message": "A feladat leírása:",
+    "semantictasks-diff-message": "Ez a felhasználó korábban blokkot kapott, és a naplóbejegyzés el lett rejtve. Az elrejtési napló alább látható tájékoztatásként:"
+}

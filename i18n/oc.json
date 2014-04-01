@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cedric31"
+        ]
+    },
+    "semantictasks-desc": "Notificacions per corrièr electronic pels prètzfaches assignats o meses a jorn",
+    "semantictasks-newtask": "Prètzfach novèl :",
+    "semantictasks-taskassigned": "Prètzfach assignat :",
+    "semantictasks-taskupdated": "Prètzfach mes a jorn :",
+    "semantictasks-taskclosed": "Prètzfach tampat :",
+    "semantictasks-newtask-msg": "Lo prètzfach « $1 » ven d'èsser creat.",
+    "semantictasks-taskclosed-msg": "Lo prètzfach « $1 » ven d'èsser tampat.",
+    "semantictasks-assignedtoyou-msg2": "Lo prètzfach \"$1\" vos es estat assignat.",
+    "semantictasks-updatedtoyou-msg2": "Lo prètzfach \"$1\" es estat mes a jorn.",
+    "semantictasks-reminder": "Rampèl :",
+    "semantictasks-reminder-message2": "Vos rapelam que lo prètzfach « $1 » s'acaba dins $2 {{PLURAL:$2|jorn|jorns}}.\n\n$3",
+    "semantictasks-text-message": "Vaquí la descripcion del prètzfach :",
+    "semantictasks-diff-message": "Las diferéncias son listadas çaijós :"
+}

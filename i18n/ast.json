@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Xuacu"
+        ]
+    },
+    "semantictasks-desc": "Avisos per corréu electrónicu de les xeres encargaes o anovaes",
+    "semantictasks-newtask": "Nueva xera:",
+    "semantictasks-taskassigned": "Xera encargada:",
+    "semantictasks-taskupdated": "Xera anovada:",
+    "semantictasks-taskclosed": "Xera zarrada:",
+    "semantictasks-newtask-msg": "Acaba de crease la xera \"$1\".",
+    "semantictasks-taskclosed-msg": "Acaba de zarrase la xera \"$1\".",
+    "semantictasks-assignedtoyou-msg2": "Acaba d'encargasete la xera \"$1\".",
+    "semantictasks-updatedtoyou-msg2": "Acaba d'anovase la xera \"$1\".",
+    "semantictasks-reminder": "Recordatoriu:",
+    "semantictasks-reminder-message2": "Sólo pa recordate que la xera \"$1\" fina en $2 {{PLURAL:$2|día|díes}}.\n\n$3",
+    "semantictasks-text-message": "Equí ta la descripción de la xera:",
+    "semantictasks-diff-message": "Equí tan les diferencies:"
+}
