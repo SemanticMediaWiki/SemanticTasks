@@ -1,22 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "Fohanno",
-            "Fulup",
-            "Y-M D"
-        ]
-    },
-    "semantictasks-desc": "Kemennadenn dre bostel evit an trevelloù deverket pe hizivaet",
-    "semantictasks-newtask": "Trevell nevez :",
-    "semantictasks-taskassigned": "Trevell roet :",
-    "semantictasks-taskupdated": "Hizivaet an trevell :",
-    "semantictasks-taskclosed": "Trevell serret :",
-    "semantictasks-newtask-msg": "O paouez bezañ krouet eo an trevell \"$1\".",
-    "semantictasks-taskclosed-msg": "O paouez bezañ serret eo an trevell \"$1\".",
-    "semantictasks-assignedtoyou-msg2": "Deverket eo bet an trevell \"$1\" deoc'h.",
-    "semantictasks-updatedtoyou-msg2": "Hizivaet eo bet an trevell \"$1\".",
-    "semantictasks-reminder": "Derc'hel soñj :",
-    "semantictasks-reminder-message2": "Un tamm gerig da zegas da soñj deoc'h e vo echuet an trevell \"$1\" a-benn $2 {{PLURAL:$2|deiz|deiz}}.\n\n\n$3",
-    "semantictasks-text-message": "Setu aze deskrivadenn an trevell :",
-    "semantictasks-diff-message": "Setu amañ ar c'hemmoù :"
+	"@metadata": {
+		"authors": [
+			"Fohanno",
+			"Fulup",
+			"Y-M D"
+		]
+	},
+	"semantictasks-desc": "Kemennadenn dre bostel evit an trevelloù deverket pe hizivaet",
+	"semantictasks-newtask": "Trevell nevez :",
+	"semantictasks-taskassigned": "Trevell roet :",
+	"semantictasks-taskupdated": "Hizivaet an trevell :",
+	"semantictasks-taskclosed": "Trevell serret :",
+	"semantictasks-newtask-msg": "O paouez bezañ krouet eo an trevell \"$1\".",
+	"semantictasks-taskclosed-msg": "O paouez bezañ serret eo an trevell \"$1\".",
+	"semantictasks-assignedtoyou-msg2": "Deverket eo bet an trevell \"$1\" deoc'h.",
+	"semantictasks-updatedtoyou-msg2": "Hizivaet eo bet an trevell \"$1\".",
+	"semantictasks-reminder": "Derc'hel soñj :",
+	"semantictasks-reminder-message2": "Un tamm gerig da zegas da soñj deoc'h e vo echuet an trevell \"$1\" a-benn $2 {{PLURAL:$2|deiz|deiz}}.\n\n\n$3",
+	"semantictasks-text-message": "Setu aze deskrivadenn an trevell :",
+	"semantictasks-diff-message": "Setu amañ ar c'hemmoù :"
 }

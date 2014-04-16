@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Vito Genovese"
-        ]
-    },
-    "semantictasks-newtask": "Yeni görev:",
-    "semantictasks-taskupdated": "Görev güncellendi:",
-    "semantictasks-reminder": "Hatırlatma:",
-    "semantictasks-text-message": "Görev tanımı şu şekildedir:",
-    "semantictasks-diff-message": "Farklılıklar şu şekildedir:"
+	"@metadata": {
+		"authors": [
+			"Vito Genovese"
+		]
+	},
+	"semantictasks-newtask": "Yeni görev:",
+	"semantictasks-taskupdated": "Görev güncellendi:",
+	"semantictasks-reminder": "Hatırlatma:",
+	"semantictasks-text-message": "Görev tanımı şu şekildedir:",
+	"semantictasks-diff-message": "Farklılıklar şu şekildedir:"
 }

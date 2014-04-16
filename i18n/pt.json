@@ -1,22 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "Hamilton Abreu",
-            "Luckas",
-            "Waldir"
-        ]
-    },
-    "semantictasks-desc": "Notificações por correio eletrónico das tarefas atribuídas ou atualizadas",
-    "semantictasks-newtask": "Nova tarefa:",
-    "semantictasks-taskassigned": "Tarefa atribuída:",
-    "semantictasks-taskupdated": "Tarefa atualizada:",
-    "semantictasks-taskclosed": "Tarefa fechada:",
-    "semantictasks-newtask-msg": "A tarefa \"$1\" acaba de ser criada.",
-    "semantictasks-taskclosed-msg": "A tarefa \"$1\" acaba de ser fechada.",
-    "semantictasks-assignedtoyou-msg2": "A tarefa \"$1\" acaba de lhe ser atribuída",
-    "semantictasks-updatedtoyou-msg2": "A tarefa \"$1\" acaba de ser atualizada.",
-    "semantictasks-reminder": "Nota:",
-    "semantictasks-reminder-message2": "Só para lembrar que a tarefa \"$1\" acaba em $2 {{PLURAL:$2|dia|dias}}.\n\n$3",
-    "semantictasks-text-message": "Aqui está a descrição da tarefa:",
-    "semantictasks-diff-message": "Aqui estão as diferenças:"
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu",
+			"Luckas",
+			"Waldir"
+		]
+	},
+	"semantictasks-desc": "Notificações por correio eletrónico das tarefas atribuídas ou atualizadas",
+	"semantictasks-newtask": "Nova tarefa:",
+	"semantictasks-taskassigned": "Tarefa atribuída:",
+	"semantictasks-taskupdated": "Tarefa atualizada:",
+	"semantictasks-taskclosed": "Tarefa fechada:",
+	"semantictasks-newtask-msg": "A tarefa \"$1\" acaba de ser criada.",
+	"semantictasks-taskclosed-msg": "A tarefa \"$1\" acaba de ser fechada.",
+	"semantictasks-assignedtoyou-msg2": "A tarefa \"$1\" acaba de lhe ser atribuída",
+	"semantictasks-updatedtoyou-msg2": "A tarefa \"$1\" acaba de ser atualizada.",
+	"semantictasks-reminder": "Nota:",
+	"semantictasks-reminder-message2": "Só para lembrar que a tarefa \"$1\" acaba em $2 {{PLURAL:$2|dia|dias}}.\n\n$3",
+	"semantictasks-text-message": "Aqui está a descrição da tarefa:",
+	"semantictasks-diff-message": "Aqui estão as diferenças:"
 }

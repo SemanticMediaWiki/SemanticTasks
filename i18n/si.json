@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "semantictasks-desc": "පැවරූ සහ යාවත්කාලීන කෙරූ කාර්යයන් සඳහා විද්‍යුත්-තැපැල් නිවේදන",
-    "semantictasks-newtask": "නව කාර්යය:",
-    "semantictasks-taskassigned": "කාර්යය පවරා ඇත:",
-    "semantictasks-taskupdated": "කාර්යය යාවත්කාලීන කර ඇත:",
-    "semantictasks-taskclosed": "කාර්යය වසා දමා ඇත:",
-    "semantictasks-newtask-msg": "\"$1\" කාර්ය දැන් තනන ලදී.",
-    "semantictasks-taskclosed-msg": "\"$1\" කාර්ය දැන් වසන ලදී.",
-    "semantictasks-assignedtoyou-msg2": "\"$1\" කාර්ය ඔබට දැන් පවරන ලදී.",
-    "semantictasks-updatedtoyou-msg2": "\"$1\" කාර්ය දැන් යාවත්කාලීන කරන ලදී.",
-    "semantictasks-reminder": "මතක්කිරීම:",
-    "semantictasks-text-message": "මෙන්න කාර්යයේ විස්තරය:",
-    "semantictasks-diff-message": "මෙන්න වෙනස්කම්:"
+	"@metadata": {
+		"authors": [
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"semantictasks-desc": "පැවරූ සහ යාවත්කාලීන කෙරූ කාර්යයන් සඳහා විද්‍යුත්-තැපැල් නිවේදන",
+	"semantictasks-newtask": "නව කාර්යය:",
+	"semantictasks-taskassigned": "කාර්යය පවරා ඇත:",
+	"semantictasks-taskupdated": "කාර්යය යාවත්කාලීන කර ඇත:",
+	"semantictasks-taskclosed": "කාර්යය වසා දමා ඇත:",
+	"semantictasks-newtask-msg": "\"$1\" කාර්ය දැන් තනන ලදී.",
+	"semantictasks-taskclosed-msg": "\"$1\" කාර්ය දැන් වසන ලදී.",
+	"semantictasks-assignedtoyou-msg2": "\"$1\" කාර්ය ඔබට දැන් පවරන ලදී.",
+	"semantictasks-updatedtoyou-msg2": "\"$1\" කාර්ය දැන් යාවත්කාලීන කරන ලදී.",
+	"semantictasks-reminder": "මතක්කිරීම:",
+	"semantictasks-text-message": "මෙන්න කාර්යයේ විස්තරය:",
+	"semantictasks-diff-message": "මෙන්න වෙනස්කම්:"
 }

@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Vks"
-        ]
-    },
-    "semantictasks-newtask": "Nový úkol:",
-    "semantictasks-taskassigned": "Úkol přiřazen:",
-    "semantictasks-taskupdated": "Úkol změněn:",
-    "semantictasks-taskclosed": "Úkol uzavřen:",
-    "semantictasks-reminder": "Upozornění:"
+	"@metadata": {
+		"authors": [
+			"Vks"
+		]
+	},
+	"semantictasks-newtask": "Nový úkol:",
+	"semantictasks-taskassigned": "Úkol přiřazen:",
+	"semantictasks-taskupdated": "Úkol změněn:",
+	"semantictasks-taskclosed": "Úkol uzavřen:",
+	"semantictasks-reminder": "Upozornění:"
 }

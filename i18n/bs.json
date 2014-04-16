@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "CERminator"
-        ]
-    },
-    "semantictasks-desc": "E-mail obavještenja za dodijeljene ili ažurirane zadatke",
-    "semantictasks-newtask": "Novi zadatak:",
-    "semantictasks-taskassigned": "Zadatak dodijeljen:",
-    "semantictasks-taskupdated": "Zadatak ažuriran:",
-    "semantictasks-taskclosed": "Zadatak zatvoren:",
-    "semantictasks-newtask-msg": "Zadatak \"$1\" je upravo napravljen.",
-    "semantictasks-taskclosed-msg": "Zadatak \"$1\" je upravo zatvoren.",
-    "semantictasks-assignedtoyou-msg2": "Zadatak \"$1\" je upravo dodijeljen Vama",
-    "semantictasks-updatedtoyou-msg2": "Zadatak \"$1\" je upravo ažuriran.",
-    "semantictasks-reminder": "Podsjetnik:",
-    "semantictasks-reminder-message2": "Da Vas podsjetimo da zadatak \"$1\" završava za $2 {{PLURAL:$2|dan|dana}}.\n\n$3",
-    "semantictasks-text-message": "Ovdje je opis zadatka:",
-    "semantictasks-diff-message": "Ovdje su razlike:"
+	"@metadata": {
+		"authors": [
+			"CERminator"
+		]
+	},
+	"semantictasks-desc": "E-mail obavještenja za dodijeljene ili ažurirane zadatke",
+	"semantictasks-newtask": "Novi zadatak:",
+	"semantictasks-taskassigned": "Zadatak dodijeljen:",
+	"semantictasks-taskupdated": "Zadatak ažuriran:",
+	"semantictasks-taskclosed": "Zadatak zatvoren:",
+	"semantictasks-newtask-msg": "Zadatak \"$1\" je upravo napravljen.",
+	"semantictasks-taskclosed-msg": "Zadatak \"$1\" je upravo zatvoren.",
+	"semantictasks-assignedtoyou-msg2": "Zadatak \"$1\" je upravo dodijeljen Vama",
+	"semantictasks-updatedtoyou-msg2": "Zadatak \"$1\" je upravo ažuriran.",
+	"semantictasks-reminder": "Podsjetnik:",
+	"semantictasks-reminder-message2": "Da Vas podsjetimo da zadatak \"$1\" završava za $2 {{PLURAL:$2|dan|dana}}.\n\n$3",
+	"semantictasks-text-message": "Ovdje je opis zadatka:",
+	"semantictasks-diff-message": "Ovdje su razlike:"
 }

@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "Event",
-            "Nghtwlkr"
-        ]
-    },
-    "semantictasks-desc": "Meldinger via e-post om tildelte eller oppdaterte oppgaver",
-    "semantictasks-newtask": "Ny oppgave:",
-    "semantictasks-taskassigned": "Oppgave tildelt:",
-    "semantictasks-taskupdated": "Oppgave oppdatert:",
-    "semantictasks-taskclosed": "Oppgave lukket:",
-    "semantictasks-newtask-msg": "Oppgaven «$1» har nettopp blitt opprettet.",
-    "semantictasks-taskclosed-msg": "Oppgaven «$1» har nettopp blitt lukket.",
-    "semantictasks-assignedtoyou-msg2": "Oppgaven «$1» har nettopp blitt tildelt deg",
-    "semantictasks-updatedtoyou-msg2": "Oppgaven «$1» har nettopp blitt oppdatert.",
-    "semantictasks-reminder": "Påminnelse:",
-    "semantictasks-reminder-message2": "Minner deg bare på at oppgaven «$1» avsluttes om {{PLURAL:$2|én dag|$2 dager}}.\n\n$3",
-    "semantictasks-text-message": "Her er oppgavebeskrivelsen:",
-    "semantictasks-diff-message": "Her er forskjellene:"
+	"@metadata": {
+		"authors": [
+			"Event",
+			"Nghtwlkr"
+		]
+	},
+	"semantictasks-desc": "Meldinger via e-post om tildelte eller oppdaterte oppgaver",
+	"semantictasks-newtask": "Ny oppgave:",
+	"semantictasks-taskassigned": "Oppgave tildelt:",
+	"semantictasks-taskupdated": "Oppgave oppdatert:",
+	"semantictasks-taskclosed": "Oppgave lukket:",
+	"semantictasks-newtask-msg": "Oppgaven «$1» har nettopp blitt opprettet.",
+	"semantictasks-taskclosed-msg": "Oppgaven «$1» har nettopp blitt lukket.",
+	"semantictasks-assignedtoyou-msg2": "Oppgaven «$1» har nettopp blitt tildelt deg",
+	"semantictasks-updatedtoyou-msg2": "Oppgaven «$1» har nettopp blitt oppdatert.",
+	"semantictasks-reminder": "Påminnelse:",
+	"semantictasks-reminder-message2": "Minner deg bare på at oppgaven «$1» avsluttes om {{PLURAL:$2|én dag|$2 dager}}.\n\n$3",
+	"semantictasks-text-message": "Her er oppgavebeskrivelsen:",
+	"semantictasks-diff-message": "Her er forskjellene:"
 }

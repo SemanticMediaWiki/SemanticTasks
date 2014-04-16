@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ukabia"
-        ]
-    },
-    "semantictasks-assignedtoyou-msg2": "Ozí ''$1'' a gbakutala gi",
-    "semantictasks-reminder": "Ihe eji chetá:"
+	"@metadata": {
+		"authors": [
+			"Ukabia"
+		]
+	},
+	"semantictasks-assignedtoyou-msg2": "Ozí ''$1'' a gbakutala gi",
+	"semantictasks-reminder": "Ihe eji chetá:"
 }

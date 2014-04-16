@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "Fryed-peach",
-            "Purodha",
-            "Shirayuki"
-        ]
-    },
-    "semantictasks-desc": "{{desc|name=Semantic Tasks|url=http://www.mediawiki.org/wiki/Extension:Semantic_Tasks}}",
-    "semantictasks-newtask-msg": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-text-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-newtask}} + task name.",
-    "semantictasks-taskclosed-msg": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-text-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-taskclosed}} + task name.",
-    "semantictasks-assignedtoyou-msg2": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-text-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-taskassigned}} + task name.",
-    "semantictasks-updatedtoyou-msg2": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-diff-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-taskupdated}} + task name.",
-    "semantictasks-reminder": "{{Identical|Reminder}}",
-    "semantictasks-reminder-message2": "Used as reminder mail body.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-reminder}} + task name.\n\nParameters:\n* $1 - task name\n* $2 - number of days\n* $3 - a link to the task"
+	"@metadata": {
+		"authors": [
+			"Fryed-peach",
+			"Purodha",
+			"Shirayuki"
+		]
+	},
+	"semantictasks-desc": "{{desc|name=Semantic Tasks|url=http://www.mediawiki.org/wiki/Extension:Semantic_Tasks}}",
+	"semantictasks-newtask-msg": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-text-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-newtask}} + task name.",
+	"semantictasks-taskclosed-msg": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-text-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-taskclosed}} + task name.",
+	"semantictasks-assignedtoyou-msg2": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-text-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-taskassigned}} + task name.",
+	"semantictasks-updatedtoyou-msg2": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-diff-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-taskupdated}} + task name.",
+	"semantictasks-reminder": "{{Identical|Reminder}}",
+	"semantictasks-reminder-message2": "Used as reminder mail body.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-reminder}} + task name.\n\nParameters:\n* $1 - task name\n* $2 - number of days\n* $3 - a link to the task"
 }

@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bjankuloski06"
-        ]
-    },
-    "semantictasks-desc": "Известувања по е-пошта за доделени или обновени задачи",
-    "semantictasks-newtask": "Нова задача:",
-    "semantictasks-taskassigned": "Доделена задача:",
-    "semantictasks-taskupdated": "Задачата е обновена:",
-    "semantictasks-taskclosed": "Затворена задача:",
-    "semantictasks-newtask-msg": "Штотуку е создадена задачата „$1“.",
-    "semantictasks-taskclosed-msg": "Задачата „$1“ штотуку се затвори.",
-    "semantictasks-assignedtoyou-msg2": "Штотуку ви беше доделена задачата „$1“",
-    "semantictasks-updatedtoyou-msg2": "Задачата „$1“ штотуку беше обновена.",
-    "semantictasks-reminder": "Потсетување:",
-    "semantictasks-reminder-message2": "Би сакале да ве потсетиме дека задачата „$1“ завршува за $2 {{PLURAL:$2|ден|дена}}.\n\n$3",
-    "semantictasks-text-message": "Еве опис на задачата:",
-    "semantictasks-diff-message": "Еве ги разликите:"
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"semantictasks-desc": "Известувања по е-пошта за доделени или обновени задачи",
+	"semantictasks-newtask": "Нова задача:",
+	"semantictasks-taskassigned": "Доделена задача:",
+	"semantictasks-taskupdated": "Задачата е обновена:",
+	"semantictasks-taskclosed": "Затворена задача:",
+	"semantictasks-newtask-msg": "Штотуку е создадена задачата „$1“.",
+	"semantictasks-taskclosed-msg": "Задачата „$1“ штотуку се затвори.",
+	"semantictasks-assignedtoyou-msg2": "Штотуку ви беше доделена задачата „$1“",
+	"semantictasks-updatedtoyou-msg2": "Задачата „$1“ штотуку беше обновена.",
+	"semantictasks-reminder": "Потсетување:",
+	"semantictasks-reminder-message2": "Би сакале да ве потсетиме дека задачата „$1“ завршува за $2 {{PLURAL:$2|ден|дена}}.\n\n$3",
+	"semantictasks-text-message": "Еве опис на задачата:",
+	"semantictasks-diff-message": "Еве ги разликите:"
 }

@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "Borichèt",
-            "Dragonòt"
-        ]
-    },
-    "semantictasks-desc": "Notìfiche e-mail për travaj assignà o modificà",
-    "semantictasks-newtask": "Neuv travaj:",
-    "semantictasks-taskassigned": "Atività assignà:",
-    "semantictasks-taskupdated": "Travaj modificà:",
-    "semantictasks-taskclosed": "Travaj livrà:",
-    "semantictasks-newtask-msg": "L'atività \"$1\" a l'é pen-e stàita creà.",
-    "semantictasks-taskclosed-msg": "Ël travaj \"$1\" a l'é pen-a stàit livrà.",
-    "semantictasks-assignedtoyou-msg2": "Ël travaj \"$1\" a l'é stàit pen-e asignà a ti",
-    "semantictasks-updatedtoyou-msg2": "Ël travaj \"$1\" a l'é pen-e stàit modificà.",
-    "semantictasks-reminder": "Da arcordé:",
-    "semantictasks-reminder-message2": "Mach për arcordete che ël travaj \"$1\" a finiss an $2 {{PLURAL:$2|di|di}}.\n\n$3",
-    "semantictasks-text-message": "Sì a-i é na descrission dël travaj:",
-    "semantictasks-diff-message": "Sì a-i son le diferense:"
+	"@metadata": {
+		"authors": [
+			"Borichèt",
+			"Dragonòt"
+		]
+	},
+	"semantictasks-desc": "Notìfiche e-mail për travaj assignà o modificà",
+	"semantictasks-newtask": "Neuv travaj:",
+	"semantictasks-taskassigned": "Atività assignà:",
+	"semantictasks-taskupdated": "Travaj modificà:",
+	"semantictasks-taskclosed": "Travaj livrà:",
+	"semantictasks-newtask-msg": "L'atività \"$1\" a l'é pen-e stàita creà.",
+	"semantictasks-taskclosed-msg": "Ël travaj \"$1\" a l'é pen-a stàit livrà.",
+	"semantictasks-assignedtoyou-msg2": "Ël travaj \"$1\" a l'é stàit pen-e asignà a ti",
+	"semantictasks-updatedtoyou-msg2": "Ël travaj \"$1\" a l'é pen-e stàit modificà.",
+	"semantictasks-reminder": "Da arcordé:",
+	"semantictasks-reminder-message2": "Mach për arcordete che ël travaj \"$1\" a finiss an $2 {{PLURAL:$2|di|di}}.\n\n$3",
+	"semantictasks-text-message": "Sì a-i é na descrission dël travaj:",
+	"semantictasks-diff-message": "Sì a-i son le diferense:"
 }

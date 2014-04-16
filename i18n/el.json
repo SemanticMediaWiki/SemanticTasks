@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "ZaDiak"
-        ]
-    },
-    "semantictasks-newtask": "Νέα εργασία:",
-    "semantictasks-taskupdated": "Η εργασία ενημερώθηκε:",
-    "semantictasks-reminder": "Υπενθύμιση:",
-    "semantictasks-text-message": "Εδώ είναι η περιγραφή της εργασίας:",
-    "semantictasks-diff-message": "Εδώ είναι οι διαφορές:"
+	"@metadata": {
+		"authors": [
+			"ZaDiak"
+		]
+	},
+	"semantictasks-newtask": "Νέα εργασία:",
+	"semantictasks-taskupdated": "Η εργασία ενημερώθηκε:",
+	"semantictasks-reminder": "Υπενθύμιση:",
+	"semantictasks-text-message": "Εδώ είναι η περιγραφή της εργασίας:",
+	"semantictasks-diff-message": "Εδώ είναι οι διαφορές:"
 }

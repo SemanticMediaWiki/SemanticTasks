@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Yekrats"
-        ]
-    },
-    "semantictasks-newtask": "Nova tasko:",
-    "semantictasks-taskassigned": "Tasko donita al:",
-    "semantictasks-taskupdated": "Takso ĝisdatigita:",
-    "semantictasks-reminder": "Memorigilo:",
-    "semantictasks-diff-message": "Jen la malsamaĵoj:"
+	"@metadata": {
+		"authors": [
+			"Yekrats"
+		]
+	},
+	"semantictasks-newtask": "Nova tasko:",
+	"semantictasks-taskassigned": "Tasko donita al:",
+	"semantictasks-taskupdated": "Takso ĝisdatigita:",
+	"semantictasks-reminder": "Memorigilo:",
+	"semantictasks-diff-message": "Jen la malsamaĵoj:"
 }
