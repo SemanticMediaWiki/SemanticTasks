@@ -251,7 +251,7 @@ class SemanticTasksMailer {
 		if ( !empty( $assignees ) ) {
 			$title_text = $title->getFullText();
 			$from = new MailAddress( $user->getEmail(), $user->getName() );
-			$link = $title->escapeFullURL();
+			$link = htmlspecialchars( $title->getFullURL() );
 
 			if ( $status == NEWTASK ) {
 				$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-newtask' ) . ' ' . $title_text;
@@ -381,7 +381,7 @@ class SemanticTasksMailer {
 			$task_name = $row[0]->getNextObject()->getTitle();
 			$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-reminder' ) . $task_name;
 			// The following doesn't work, maybe because we use a cron job.
-			// $link = $task_name->escapeFullURL();
+			// $link = $task_name->getFullURL();
 			// So let's do it manually
 			$link = $wiki_url . $task_name->getPartialURL();
 
