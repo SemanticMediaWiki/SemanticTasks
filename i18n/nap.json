@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"C.R."
+		]
+	},
+	"semantictasks-desc": "Mmasciate pe' bbia d' 'a posta e-mail pe l'attività assegnate o aghiurnate",
+	"semantictasks-newtask": "Fatica nnova:",
+	"semantictasks-taskassigned": "Fatica assegnata:",
+	"semantictasks-taskupdated": "Fatica agghiurnata:",
+	"semantictasks-taskclosed": "Fatica nchiusa:",
+	"semantictasks-newtask-msg": "'A fatica \"$1\" è stata criata mò mò.",
+	"semantictasks-taskclosed-msg": "'A fatica \"$1\" è stata nchiusa mò mò.",
+	"semantictasks-assignedtoyou-msg2": "'A fatica \"$1\" è assegnata a tte mò mò.",
+	"semantictasks-updatedtoyou-msg2": "'A fatica \"$1\" è stata aghiurnata mò mò.",
+	"semantictasks-reminder": "Arricuòrdate:",
+	"semantictasks-reminder-message2": "Sulamente pe' t'arricurdà c' 'a fatica \"$1\" fernisce int'a $2 {{PLURAL:$2|juorno|juorne}}.\n\n$3",
+	"semantictasks-text-message": "Ccà sta 'a descrizziona d' 'a fatica:",
+	"semantictasks-diff-message": "Ccà stanno 'e differenze:"
+}

@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Armin1392"
+			"Armin1392",
+			"Alirezaaa"
 		]
 	},
 	"semantictasks-desc": "اعلان‌های رایانامه برای وظایف گماشته شده یا به روز شده",
-	"semantictasks-newtask": "وظیفهٔ جدید:",
+	"semantictasks-newtask": "وظیفهٔ تازه:",
 	"semantictasks-taskassigned": "وظیفهٔ اختصاص داده شده:",
 	"semantictasks-taskupdated": "وظیفه به روز رسانی شده:",
 	"semantictasks-taskclosed": "وظیفه بسته شده:",
