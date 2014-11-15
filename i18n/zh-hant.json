@@ -1,11 +1,15 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"LNDDYL"
+		]
+	},
 	"semantictasks-desc": "關於已分配任務或已更新任務的電子郵件通知",
 	"semantictasks-newtask": "新任務：",
 	"semantictasks-taskassigned": "已分配的任務：",
 	"semantictasks-taskupdated": "已更新的任務：",
 	"semantictasks-taskclosed": "已完結的任務：",
-	"semantictasks-newtask-msg": "已創建任務\"$1\"。",
+	"semantictasks-newtask-msg": "已建立任務 \"$1\"。",
 	"semantictasks-taskclosed-msg": "任務\"$1\"已剛剛完結。",
 	"semantictasks-assignedtoyou-msg2": "已剛剛向您分配了任務\"$1\"。",
 	"semantictasks-updatedtoyou-msg2": "任務\"$1\"已剛剛更新。",
