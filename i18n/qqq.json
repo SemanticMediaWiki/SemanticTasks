@@ -3,10 +3,11 @@
 		"authors": [
 			"Fryed-peach",
 			"Purodha",
-			"Shirayuki"
+			"Shirayuki",
+			"Umherirrender"
 		]
 	},
-	"semantictasks-desc": "{{desc|name=Semantic Tasks|url=http://www.mediawiki.org/wiki/Extension:Semantic_Tasks}}",
+	"semantictasks-desc": "{{desc|name=Semantic Tasks|url=https://www.mediawiki.org/wiki/Extension:Semantic_Tasks}}",
 	"semantictasks-newtask-msg": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-text-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-newtask}} + task name.",
 	"semantictasks-taskclosed-msg": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-text-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-taskclosed}} + task name.",
 	"semantictasks-assignedtoyou-msg2": "Used as notification mail body.\n\nParameters:\n* $1 - task name\n\nThis message is followed by {{msg-mw|semantictasks-text-message}}.\n\nThe subject for this mail is SITENAME + {{msg-mw|semantictasks-taskassigned}} + task name.",
