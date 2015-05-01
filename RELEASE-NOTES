@@ -3,7 +3,12 @@ These are the release notes for the Semantic Tasks extension.
 Extension page on mediawiki.org: https://www.mediawiki.org/wiki/Extension:Semantic_Tasks
 Latest version of the release notes: http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/SemanticTasks/RELEASE-NOTES?view=co
 
+=== Version 1.6.0 ===
+2015-4-09
 
+* Made compatible with MediaWiki 1.24.
+* Removed deprecated code.
+* Added option to notify users when unassigned from a task.
 
 === Version 1.4.1 ===
 2011-12-06

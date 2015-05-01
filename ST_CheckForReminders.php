@@ -2,21 +2,19 @@
 # (C) 2008 Steren Giannini
 # Licensed under the GNU GPLv2 (or later).
 
-$IP = realpath( dirname( __FILE__ ) . "/../.." );
-require_once( "$IP/maintenance/commandLine.inc" );
+$IP = getenv( 'MW_INSTALL_PATH' ) !== false ? getenv( 'MW_INSTALL_PATH' ) : __DIR__ . '/../..';
+require_once $IP . "/maintenance/maintenance.php";
 
-global $smwgIP;
-require_once( $smwgIP . '/includes/SMW_Factbox.php' );
+class CheckForReminders extends Maintenance {
 
-require_once( dirname( __FILE__ ) . '/SemanticTasks.classes.php' );
-
-// Let's send reminders
-if ( empty($wgServerNamePath) )
-{
-    print( "ST check for reminders $wgServerNamePath not set." );
-    return 1;
+	public function execute() {
+		require_once __DIR__ . '/SemanticTasks.classes.php';
+		// Let's send reminders
+		SemanticTasksMailer::remindAssignees();
+		print "ST check for reminders\n";
+	}
 }
 
-SemanticTasksMailer::remindAssignees( $wgServerNamePath );
+$maintClass = 'CheckForReminders';
 
-print( "ST check for reminders\n" );
+require_once RUN_MAINTENANCE_IF_MAIN;

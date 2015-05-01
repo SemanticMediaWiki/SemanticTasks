@@ -1,13 +1,13 @@
 <?php
 
 if ( !defined( 'MEDIAWIKI' ) ) {
-       echo 'Not a valid entry point';
-       exit( 1 );
+	echo 'Not a valid entry point';
+	exit( 1 );
 }
 
 if ( !defined( 'SMW_VERSION' ) ) {
-       echo 'This extension requires Semantic MediaWiki to be installed.';
-       exit( 1 );
+	echo 'This extension requires Semantic MediaWiki to be installed.';
+	exit( 1 );
 }
 
 // constants for message type
@@ -15,16 +15,24 @@ define( 'NEWTASK', 0 );
 define( 'UPDATE', 1 );
 define( 'ASSIGNED', 2 );
 define( 'CLOSED', 3 );
+define( 'UNASSIGNED', 4 );
 
 /**
  * This class handles the creation and sending of notification emails.
  */
 class SemanticTasksMailer {
-	
+
 	private static $task_assignees;
 	private static $task_status;
 
-	public static function findOldValues( &$article, &$user, &$text, &$summary, $minor, $watch, $sectionanchor, &$flags ) {
+	/**
+	 * Store previous values from the article being saved
+	 *
+	 * @param WikiPage $article
+	 * @param User $user
+	 * @return boolean
+	 */
+	public static function findOldValues( WikiPage &$article, User &$user ) {
 		$title = $article->getTitle();
 		$title_text = $title->getFullText();
 
@@ -32,7 +40,7 @@ class SemanticTasksMailer {
 		$status = self::getStatus( 'Status', $title_text, $user );
 
 		self::printDebug( "Old assignees: ", $assignees );
-		self::printDebug( "Old status: " , $status );
+		self::printDebug( "Old status: ", $status );
 
 		self::$task_assignees = $assignees;
 
@@ -45,7 +53,21 @@ class SemanticTasksMailer {
 		return true;
 	}
 
-	public static function mailAssigneesUpdatedTask( $article, $current_user, $text, $summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision ) {
+	/**
+	 * Mails the assignees when the task is modified
+	 *
+	 * @param WikiPage $article
+	 * @param User $current_user
+	 * @param string $text
+	 * @param string $summary Unused
+	 * @param string $minoredit
+	 * @param null $watchthis Unused
+	 * @param null $sectionanchor Unused
+	 * @param $flags
+	 * @return boolean
+	 */
+	public static function mailAssigneesUpdatedTask( WikiPage $article, User $current_user, $text,
+		$summary, $minoredit, $watchthis, $sectionanchor, $flags ) {
 		if ( !$minoredit ) {
 			if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
 				$status = NEWTASK;
@@ -57,24 +79,37 @@ class SemanticTasksMailer {
 		return true;
 	}
 
-	static function mailAssignees( $article, $text, $user, $status ) {
+	/**
+	 *
+	 * @global boolean $wgSemanticTasksNotifyIfUnassigned
+	 * @param WikiPage $article
+	 * @param Content $content
+	 * @param User $user
+	 * @param integer $status
+	 * @return boolean
+	 */
+	static function mailAssignees( WikiPage $article, Content $content, User $user, $status ) {
 		self::printDebug( "Saved assignees:", self::$task_assignees );
 		self::printDebug( "Saved task status: " . self::$task_status );
 
+		$text = ContentHandler::getContentText( $content );
 		$title = $article->getTitle();
 		$title_text = $title->getPrefixedText();
 		self::printDebug( "Title text: $title_text" );
 
-		$assignees_to_task = array();
 		$current_assignees = self::getAssignees( 'Assigned to', $title_text, $user );
 
 		self::printDebug( "Previous assignees: ", self::$task_assignees );
 		self::printDebug( "New assignees: ", $current_assignees );
 
-		foreach ( $current_assignees as $assignee ) {
-			if ( !in_array( $assignee, self::$task_assignees ) ) {
-				array_push( $assignees_to_task, $assignee );
-			}
+		$assignees_to_task = array_diff( $current_assignees, self::$task_assignees );
+
+		// Notify those unassigned from this task
+		global $wgSemanticTasksNotifyIfUnassigned;
+		if ( $wgSemanticTasksNotifyIfUnassigned ) {
+			$unassignees_from_task = array_diff( self::$task_assignees, $current_assignees );
+			$unassignees_from_task = self::getAssigneeAddresses( $unassignees_from_task );
+			self::mailNotification( $unassignees_from_task, $text, $title, $user, UNASSIGNED );
 		}
 
 		self::printDebug( "Assignees to task: ", $assignees_to_task );
@@ -115,16 +150,20 @@ class SemanticTasksMailer {
 
 	/**
 	 * Returns an array of properties based on $query_word
-	 * @param $query_word String: the property that designate the users to notify.
+	 *
+	 * @param string $query_word The property that designate the users to notify.
+	 * @param string $title_text
+	 * @param $user Unused
+	 * @return array
 	 */
 	static function getAssignees( $query_word, $title_text, $user ) {
 		// Array of assignees to return
 		$assignee_arr = array();
 
 		// get the result of the query "[[$title]][[$query_word::+]]"
-		$properties_to_display = array();
-		$properties_to_display[0] = $query_word;
-		$results = self::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display, false );
+		$properties_to_display = array( $query_word );
+		$results = self::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display,
+				false );
 
 		// In theory, there is only one row
 		while ( $row = $results->getNext() ) {
@@ -135,6 +174,7 @@ class SemanticTasksMailer {
 		if ( !empty( $task_assignees ) ) {
 			// since title is not displayed, 'Assigned to' value will be first value
 			$assignee_name = $task_assignees->getNextText( SMW_OUTPUT_WIKI );
+			/** @todo Create User object */
 			$assignee_name = explode( ":", $assignee_name );
 			$assignee_name = $assignee_name[1];
 
@@ -146,7 +186,11 @@ class SemanticTasksMailer {
 
 	/**
 	 * Returns an array of properties based on $query_word
-	 * @param $query_word String: the property that designate the users to notify.
+	 *
+	 * @param string $query_word The property that designate the users to notify.
+	 * @param string $title_text
+	 * @param $user Unused
+	 * @return array
 	 */
 	static function getStatus( $query_word, $title_text, $user ) {
 		// Array of assignees to return
@@ -155,7 +199,8 @@ class SemanticTasksMailer {
 		// get the result of the query "[[$title]][[$query_word::+]]"
 		$properties_to_display = array();
 		$properties_to_display[0] = $query_word;
-		$results = self::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display, false );
+		$results = self::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display,
+				false );
 
 		// In theory, there is only one row
 		while ( $row = $results->getNext() ) {
@@ -176,18 +221,22 @@ class SemanticTasksMailer {
 	}
 
 	/**
-	/**
 	 * Returns an array of assignees based on $query_word
-	 * @param $query_word String: the property that designate the users to notify.
+	 *
+	 * @param string $query_word The property that designate the users to notify.
+	 * @param string $title_text
+	 * @param $user Unused
+	 * @return array
 	 */
-	function getGroupAssignees( $query_word, $title_text, $user ) {
+	static function getGroupAssignees( $query_word, $title_text, $user ) {
 		// Array of assignees to return
 		$assignee_arr = array();
 
 		// get the result of the query "[[$title]][[$query_word::+]]"
 		$properties_to_display = array();
 		$properties_to_display[0] = $query_word;
-		$results = self::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display, false );
+		$results = self::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display,
+				false );
 
 		// In theory, there is only one row
 		while ( $row = $results->getNext() ) {
@@ -203,7 +252,8 @@ class SemanticTasksMailer {
 				$properties_to_display = array();
 				$properties_to_display[0] = $query_word;
 				self::printDebug( $group_name );
-				$results = self::getQueryResults( "[[$group_name]][[$query_word::+]]", $properties_to_display, false );
+				$results = self::getQueryResults( "[[$group_name]][[$query_word::+]]", $properties_to_display,
+						false );
 
 				// In theory, there is only one row
 				while ( $row = $results->getNext() ) {
@@ -214,6 +264,7 @@ class SemanticTasksMailer {
 					while ( $task_assignee = $task_assignees->getNextObject() ) {
 						$assignee_name = $task_assignee->getTitle();
 						$assignee_name = $assignee_name->getText();
+						/** @todo Create User object */
 						$assignee_name = explode( ":", $assignee_name );
 						$assignee_name = $assignee_name[0];
 
@@ -227,15 +278,21 @@ class SemanticTasksMailer {
 		return $assignee_arr;
 	}
 
-	static function getAssigneeAddresses( $assignees ) {
+	/**
+	 * Get the email addresses of all the assignees
+	 *
+	 * @param array $assignees
+	 * @return array
+	 */
+	static function getAssigneeAddresses( array $assignees ) {
 		$assignee_arr = array();
 		foreach ( $assignees as $assignee_name ) {
 			$assignee = User::newFromName( $assignee_name );
 			// if assignee is the current user, do nothing
 			# if ( $assignee->getID() != $user->getID() ) {
-				$assignee_mail = new MailAddress( $assignee->getEmail(), $assignee_name );
-				array_push( $assignee_arr, $assignee_mail );
-				self::printDebug( $assignee_name );
+			$assignee_mail = new MailAddress( $assignee->getEmail(), $assignee_name );
+			array_push( $assignee_arr, $assignee_mail );
+			self::printDebug( $assignee_name );
 			# }
 		}
 
@@ -244,8 +301,15 @@ class SemanticTasksMailer {
 
 	/**
 	 * Sends mail notifications
+	 *
+	 * @global string $wgSitename
+	 * @param array $assignees
+	 * @param string $text
+	 * @param Title $title
+	 * @param User $user
+	 * @param integer $status
 	 */
-	function mailNotification( $assignees, $text, $title, $user, $status ) {
+	static function mailNotification( array $assignees, $text, Title $title, User $user, $status ) {
 		global $wgSitename;
 
 		if ( !empty( $assignees ) ) {
@@ -253,27 +317,39 @@ class SemanticTasksMailer {
 			$from = new MailAddress( $user->getEmail(), $user->getName() );
 			$link = htmlspecialchars( $title->getFullURL() );
 
+			/** @todo This should probably be refactored */
 			if ( $status == NEWTASK ) {
-				$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-newtask' ) . ' ' . $title_text;
+				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-newtask' ) . ' ' .
+					$title_text;
 				$message = 'semantictasks-newtask-msg';
-				$body = wfMsg( $message , $title_text ) . " " . $link;
-				$body .= "\n \n" . wfMsg( 'semantictasks-text-message' ) . "\n" . $text;
+				$body = wfMessage( $message, $title_text ) . " " . $link;
+				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' ) . "\n" . $text;
 			} elseif ( $status == UPDATE ) {
-				$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-taskupdated' ) . ' ' . $title_text;
+				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskupdated' ) . ' ' .
+					$title_text;
 				$message = 'semantictasks-updatedtoyou-msg2';
-				$body = wfMsg( $message , $title_text ) . " " . $link;
-				$body .= "\n \n" . wfMsg( 'semantictasks-diff-message' ) . "\n" . self::generateDiffBodyTxt( $title );
+				$body = wfMessage( $message, $title_text ) . " " . $link;
+				$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' ) . "\n" .
+					self::generateDiffBodyTxt( $title );
 			} elseif ( $status == CLOSED ) {
-				$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-taskclosed' ) . ' ' . $title_text;
+				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskclosed' ) . ' ' .
+					$title_text;
 				$message = 'semantictasks-taskclosed-msg';
-				$body = wfMsg( $message , $title_text ) . " " . $link;
-				$body .= "\n \n" . wfMsg( 'semantictasks-text-message' ) . "\n" . $text;
+				$body = wfMessage( $message, $title_text ) . " " . $link;
+				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' ) . "\n" . $text;
+			} elseif ( $status == UNASSIGNED ) {
+				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskunassigned' ) . ' ' .
+					$title_text;
+				$message = 'semantictasks-unassignedtoyou-msg2';
+				$body = wfMessage( $message, $title_text ) . " " . $link;
+				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' ) . "\n" . $text;
 			} else {
 				// status == ASSIGNED
-				$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-taskassigned' ) . ' ' . $title_text;
+				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskassigned' ) . ' ' .
+					$title_text;
 				$message = 'semantictasks-assignedtoyou-msg2';
-				$body = wfMsg( $message , $title_text ) . " " . $link;
-				$body .= "\n \n" . wfMsg( 'semantictasks-text-message' ) . "\n" . $text;
+				$body = wfMessage( $message, $title_text ) . " " . $link;
+				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' ) . "\n" . $text;
 			}
 
 			$user_mailer = new UserMailer();
@@ -284,17 +360,22 @@ class SemanticTasksMailer {
 
 	/**
 	 * Generates a diff txt
+	 *
+	 * Code is similar to DifferenceEngine::generateTextDiffBody
 	 * @param Title $title
 	 * @return string
 	 */
-	function generateDiffBodyTxt( $title ) {
+	static function generateDiffBodyTxt( $title ) {
 		$revision = Revision::newFromTitle( $title, 0 );
+		/** @todo The first parameter should be a Context. */
 		$diff = new DifferenceEngine( $title, $revision->getId(), 'prev' );
-		// The getDiffBody() method generates html, so let's generate the txt diff manualy:
+		// The DifferenceEngine::getDiffBody() method generates html,
+		// so let's generate the txt diff manually:
 		global $wgContLang;
 		$diff->loadText();
-		$otext = str_replace( "\r\n", "\n", $diff->mOldtext );
-		$ntext = str_replace( "\r\n", "\n", $diff->mNewtext );
+		$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->mOldContent ) );
+		$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->mNewContent ) );
+
 		$ota = explode( "\n", $wgContLang->segmentForDiff( $otext ) );
 		$nta = explode( "\n", $wgContLang->segmentForDiff( $ntext ) );
 		// We use here the php diff engine included in MediaWiki
@@ -306,20 +387,16 @@ class SemanticTasksMailer {
 	}
 
 	/**
-	 * This function returns to results of a certain query
-	 * Thank you Yaron Koren for advices concerning this code
-	 * @param $query_string String : the query
-	 * @param $properties_to_display array(String): array of property names to display
-	 * @param $display_title Boolean : add the page title in the result
-	 * @return TODO
+	 * This function returns the results of a certain query.
+	 * Thank you Yaron Koren for advice concerning this code.
+	 *
+	 * @param string $query_string The query
+	 * @param array(String) $properties_to_display Array of property names to display
+	 * @param boolean $display_title Add the page title in the result
+	 * @return SMWQueryResult
 	 */
-	static function getQueryResults( $query_string, $properties_to_display, $display_title ) {
+	static function getQueryResults( $query_string, array $properties_to_display, $display_title ) {
 		// We use the Semantic MediaWiki Processor
-		// $smwgIP is defined by Semantic MediaWiki, and we don't allow
-		// this file to be sourced unless Semantic MediaWiki is included.
-		global $smwgIP;
-		include_once( $smwgIP . "/includes/SMW_QueryProcessor.php" );
-
 		$params = array();
 		$inline = true;
 		$printlabel = "";
@@ -327,7 +404,7 @@ class SemanticTasksMailer {
 
 		// add the page name to the printouts
 		if ( $display_title ) {
-			if( version_compare( SMW_VERSION, '1.7', '>' ) ) {
+			if ( version_compare( SMW_VERSION, '1.7', '>' ) ) {
 				SMWQueryProcessor::addThisPrintout( $printouts, $params );
 			} else {
 				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_THIS, $printlabel );
@@ -338,9 +415,11 @@ class SemanticTasksMailer {
 		// Push the properties to display in the printout array.
 		foreach ( $properties_to_display as $property ) {
 			if ( class_exists( 'SMWPropertyValue' ) ) { // SMW 1.4
-				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property, SMWPropertyValue::makeUserProperty( $property ) );
+				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
+					SMWPropertyValue::makeUserProperty( $property ) );
 			} else {
-				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property, Title::newFromText( $property, SMW_NS_PROPERTY ) );
+				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
+					Title::newFromText( $property, SMW_NS_PROPERTY ) );
 			}
 			array_push( $printouts, $to_push );
 		}
@@ -348,75 +427,83 @@ class SemanticTasksMailer {
 		if ( version_compare( SMW_VERSION, '1.6.1', '>' ) ) {
 			$params = SMWQueryProcessor::getProcessedParams( $params, $printouts );
 			$format = null;
-		}
-		else {
+		} else {
 			$format = 'auto';
 		}
-		
+
 		$query = SMWQueryProcessor::createQuery( $query_string, $params, $inline, $format, $printouts );
 		$results = smwfGetStore()->getQueryResult( $query );
 
 		return $results;
 	}
 
-	function remindAssignees( $wiki_url ) {
-		global $wgSitename, $wgServer, $wgNoReplyAddress;
+	/**
+	 * Run by the maintenance script to remind the assignees
+	 *
+	 * @global string $wgSitename
+	 * @global Language $wgLang
+	 * @return boolean
+	 */
+	static function remindAssignees() {
+		global $wgSitename;
 
-		$user_mailer = new UserMailer();
+		# Make this equal to midnight. Rational is that if users set today as the Target date with
+		# reminders set to "0" so that the reminder happens on the deadline, the reminders will go
+		# out even though now it is after the beginning of today and technically past the
+		# target date.
+		$today = wfTimestamp( TS_ISO_8601, strtotime( 'today midnight' ) );
 
-		$t = getdate();
-		$today = date( 'F d Y', $t[0] );
-
-		$query_string = "[[Reminder at::+]][[Status::New||In Progress]][[Target date::> $today]]";
+		# Get tasks where a reminder is called for, whose status is either new or in progress, and
+		# whose target date is in the future.
+		$query_string = "[[Reminder at::+]][[Status::New||In Progress]][[Target date::≥ $today]]";
 		$properties_to_display = array( 'Reminder at', 'Assigned to', 'Target date' );
 
 		$results = self::getQueryResults( $query_string, $properties_to_display, true );
 		if ( empty( $results ) ) {
-			return FALSE;
+			return false;
 		}
-
-		$sender = new MailAddress( $wgNoReplyAddress, $wgSitename );
 
 		while ( $row = $results->getNext() ) {
 			$task_name = $row[0]->getNextObject()->getTitle();
-			$subject = '[' . $wgSitename . '] ' . wfMsg( 'semantictasks-reminder' ) . $task_name;
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-reminder' ) . $task_name;
 			// The following doesn't work, maybe because we use a cron job.
 			// $link = $task_name->getFullURL();
 			// So let's do it manually
-			$link = $wiki_url . $task_name->getPartialURL();
+			//$link = $wiki_url . $task_name->getPartialURL();
+			// You know what? Let's try it again.
+			$link = $task_name->getFullURL();
 
 			$target_date = $row[3]->getNextObject();
 			$tg_date = new DateTime( $target_date->getShortHTMLText() );
 
 			while ( $reminder = $row[1]->getNextObject() ) {
 				$remind_me_in = $reminder->getShortHTMLText();
-				$date = new DateTime( $today );
+				$date = new DateTime( 'today midnight' );
 				$date->modify( "+$remind_me_in day" );
 
-				if ( $tg_date-> format( 'F d Y' ) == $date-> format( 'F d Y' ) ) {
+				if ( $tg_date == $date ) {
 					global $wgLang;
 					while ( $task_assignee = $row[2]->getNextObject() ) {
-						$assignee_username = $task_assignee->getTitle();
-						$assignee_user_name = explode( ":", $assignee_username );
-						$assignee_name = $assignee_user_name[1];
+						$assignee_username = $task_assignee->getTitle()->getText();
+						$assignee = User::newFromName( $assignee_username );
 
-						$assignee = User::newFromName( $assignee_name );
-						$assignee_mail = new MailAddress( $assignee->getEmail(), $assignee_name );
-						$body = wfMsgExt( 'semantictasks-reminder-message2', 'parsemag', $task_name, $wgLang->formatNum( $remind_me_in ), $link );
-						$user_mailer->send( $assignee_mail, $sender, $subject, $body );
+						$body = wfMessage( 'semantictasks-reminder-message2', $task_name,
+							$wgLang->formatNum( $remind_me_in ), $link )->text();
+						$assignee->sendMail( $subject, $body );
 					}
 				}
 			}
 		}
-		return TRUE;
+		return true;
 	}
 
 	/**
 	 * Prints debugging information. $debugText is what you want to print, $debugVal
 	 * is the level at which you want to print the information.
 	 *
+	 * @global boolean $wgSemanticTasksDebug
 	 * @param string $debugText
-	 * @param string $debugVal
+	 * @param string $debugArr
 	 * @access private
 	 */
 	static function printDebug( $debugText, $debugArr = null ) {
@@ -431,5 +518,5 @@ class SemanticTasksMailer {
 			}
 		}
 	}
-	
+
 }

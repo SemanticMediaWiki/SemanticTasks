@@ -10,13 +10,14 @@ if ( !defined( 'SMW_VERSION' ) ) {
 	exit( 1 );
 }
 
-#
 # This is the path to your installation of SemanticTasks as
 # seen from the web. Change it if required ($wgScriptPath is the
-# path to the base directory of your wiki). No final slash.
-# #
+# path to the base directory of your wiki). No final slash. It appears to be unused.
 $stScriptPath = $wgScriptPath . '/extensions/SemanticTasks';
-#
+
+# Set to true to notify users when they are unassigned from a task
+$wgSemanticTasksNotifyIfUnassigned = false;
+
 
 # Extension credits
 $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other'][] = array(
@@ -24,20 +25,21 @@ $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other']
 	'name' => 'SemanticTasks',
 	'author' => array(
 		'Steren Giannini',
-		'Ryan Lane'
+		'Ryan Lane',
+		'Ike Hecht'
 	),
-	'version' => '1.5.0',
+	'version' => '1.6.0',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Tasks',
 	'descriptionmsg' => 'semantictasks-desc',
 );
 
 // i18n
 $wgMessagesDirs['SemanticTasks'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['SemanticTasks'] = dirname( __FILE__ ) . '/SemanticTasks.i18n.php';
+$wgExtensionMessagesFiles['SemanticTasks'] = __DIR__ . '/SemanticTasks.i18n.php';
 
 // Autoloading
-$wgAutoloadClasses['SemanticTasksMailer'] = dirname( __FILE__ ) . '/SemanticTasks.classes.php';
+$wgAutoloadClasses['SemanticTasksMailer'] = __DIR__ . '/SemanticTasks.classes.php';
 
 // Hooks
-$wgHooks['ArticleSaveComplete'][] = 'SemanticTasksMailer::mailAssigneesUpdatedTask';
-$wgHooks['ArticleSave'][] = 'SemanticTasksMailer::findOldValues';
+$wgHooks['PageContentSaveComplete'][] = 'SemanticTasksMailer::mailAssigneesUpdatedTask';
+$wgHooks['PageContentSave'][] = 'SemanticTasksMailer::findOldValues';
