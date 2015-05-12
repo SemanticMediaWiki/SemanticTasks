@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Linforest"
+			"Linforest",
+			"Liuxinyu970226"
 		]
 	},
 	"semantictasks-desc": "关于已分配任务或已更新任务的电子邮件通知",
 	"semantictasks-newtask": "新任务：",
 	"semantictasks-taskassigned": "已分配的任务：",
+	"semantictasks-taskunassigned": "未分配的任务：",
 	"semantictasks-taskupdated": "已更新的任务：",
 	"semantictasks-taskclosed": "已完结的任务：",
 	"semantictasks-newtask-msg": "已创建任务\"$1\"。",
