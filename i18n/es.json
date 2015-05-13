@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Crazymadlover",
-			"Translationista"
+			"Translationista",
+			"Macofe"
 		]
 	},
 	"semantictasks-desc": "Notificaciones por correo electrónico para tareas asignadas o actualizadas",
 	"semantictasks-newtask": "Nueva tarea:",
 	"semantictasks-taskassigned": "Tarea asignada:",
+	"semantictasks-taskunassigned": "Tarea desasignada:",
 	"semantictasks-taskupdated": "Tarea actualizada:",
 	"semantictasks-taskclosed": "Tarea cerrada:",
 	"semantictasks-newtask-msg": "La tarea \"$1\" acaba de ser creada.",
