@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sp5uhe"
+			"Sp5uhe",
+			"Chrumps"
 		]
 	},
 	"semantictasks-desc": "Powiadomienie e‐mailem o przypisaniu lub aktualizacji zadań",
 	"semantictasks-newtask": "Nowe zadanie",
 	"semantictasks-taskassigned": "Zadanie przydzielone",
+	"semantictasks-taskunassigned": "Zadanie nieprzydzielone:",
 	"semantictasks-taskupdated": "Zadanie zaktualizowane",
 	"semantictasks-taskclosed": "Zadanie zamknięte",
 	"semantictasks-newtask-msg": "Zadanie „$1” zostało utworzone.",
