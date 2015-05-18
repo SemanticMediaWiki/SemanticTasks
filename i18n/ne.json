@@ -4,5 +4,6 @@
 			"Nirjal stha"
 		]
 	},
-	"semantictasks-taskunassigned": "बाडफाड नभएको कार्यः"
+	"semantictasks-taskunassigned": "बाडफाड नभएको कार्यः",
+	"semantictasks-unassignedtoyou-msg2": "\"$1\" कार्यबाट तपाईलाई कार्यभार मुक्त गरिएको छ ।"
 }
