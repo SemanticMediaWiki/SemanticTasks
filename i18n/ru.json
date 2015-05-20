@@ -3,12 +3,14 @@
 		"authors": [
 			"Ferrer",
 			"Kaganer",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Дмитрий"
 		]
 	},
 	"semantictasks-desc": "Уведомления по электронной почте о принятых или обновлённых задачах",
 	"semantictasks-newtask": "Новая задача:",
 	"semantictasks-taskassigned": "Установленная задача:",
+	"semantictasks-taskunassigned": "Неназначенные задачи:",
 	"semantictasks-taskupdated": "Задача обновлена:",
 	"semantictasks-taskclosed": "Задача закрыта:",
 	"semantictasks-newtask-msg": "Задача «$1» была только что создана.",
