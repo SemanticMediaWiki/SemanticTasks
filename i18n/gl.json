@@ -1,17 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño"
+			"Toliño",
+			"Elisardojm"
 		]
 	},
 	"semantictasks-desc": "Notificacións por correo electrónico para as tarefas asignadas ou actualizadas",
 	"semantictasks-newtask": "Nova tarefa:",
 	"semantictasks-taskassigned": "Tarefa asignada:",
+	"semantictasks-taskunassigned": "Tarefa desasignada:",
 	"semantictasks-taskupdated": "Tarefa actualizada:",
 	"semantictasks-taskclosed": "Tarefa pechada:",
 	"semantictasks-newtask-msg": "A tarefa \"$1\" acaba de ser creada.",
 	"semantictasks-taskclosed-msg": "A tarefa \"$1\" acaba de ser pechada.",
 	"semantictasks-assignedtoyou-msg2": "A tarefa \"$1\" acaba de serlle asignada.",
+	"semantictasks-unassignedtoyou-msg2": "Vostede foi desasignado da tarefa \"$1\".",
 	"semantictasks-updatedtoyou-msg2": "A tarefa \"$1\" acaba de ser actualizada.",
 	"semantictasks-reminder": "Recordatorio:",
 	"semantictasks-reminder-message2": "Só é para lembrarlle que a tarefa \"$1\" remata {{PLURAL:$2|nun día|en $2 días}}.\n\n$3",
