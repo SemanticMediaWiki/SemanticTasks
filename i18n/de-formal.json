@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Imre"
+			"Imre",
+			"Kghbln"
 		]
 	},
-	"semantictasks-assignedtoyou-msg2": "Die Aufgabe „$1“ wurde Ihnen soeben zugewiesen."
+	"semantictasks-assignedtoyou-msg2": "Die Aufgabe „$1“ wurde Ihnen soeben zugewiesen.",
+	"semantictasks-unassignedtoyou-msg2": "Ihre Zuweisung zu Aufgabe „$1“ wurde soeben entfernt."
 }
