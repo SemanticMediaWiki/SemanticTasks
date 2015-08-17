@@ -4,17 +4,20 @@
 			"Andriykopanytsia",
 			"Steve.rusyn",
 			"SteveR",
-			"Тест"
+			"Тест",
+			"Ата"
 		]
 	},
 	"semantictasks-desc": "Сповіщення електронною поштою про визначені чи оновлені завдання.",
 	"semantictasks-newtask": "Нова завдання:",
 	"semantictasks-taskassigned": "Призначене завдання:",
+	"semantictasks-taskunassigned": "Непризначене завдання:",
 	"semantictasks-taskupdated": "Завдання оновлено:",
 	"semantictasks-taskclosed": "Завдання закрито:",
 	"semantictasks-newtask-msg": "Завдання \"$1\" тільки що було створене.",
 	"semantictasks-taskclosed-msg": "Завдання \"$1\" тільки що було закрите.",
 	"semantictasks-assignedtoyou-msg2": "Для Вас тільки що було визначене завдання \"$1\".",
+	"semantictasks-unassignedtoyou-msg2": "Ви щойно були відписані від завдання «$1».",
 	"semantictasks-updatedtoyou-msg2": "Завдання \"$1\" тільки що було оновлене.",
 	"semantictasks-reminder": "Нагадування:",
 	"semantictasks-reminder-message2": "Просто нагадуємо вам, що завдання „$1“ завершується через $2   {{PLURAL:$2|день|дні|днів}}.\n\n$3",
