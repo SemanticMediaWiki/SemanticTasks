@@ -1,22 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "Steren Giannini"
-        ]
-    },
-    "semantictasks-desc": "Email notifications for assigned or updated tasks",
-    "semantictasks-newtask": "New task:",
-    "semantictasks-taskassigned": "Task assigned:",
-    "semantictasks-taskunassigned": "Task unassigned:",
-    "semantictasks-taskupdated": "Task updated:",
-    "semantictasks-taskclosed": "Task closed:",
-    "semantictasks-newtask-msg": "The task \"$1\" has just been created.",
-    "semantictasks-taskclosed-msg": "The task \"$1\" has just been closed.",
-    "semantictasks-assignedtoyou-msg2": "The task \"$1\" has just been assigned to you.",
-    "semantictasks-unassignedtoyou-msg2": "You have just been unassigned from the task \"$1\".",
-    "semantictasks-updatedtoyou-msg2": "The task \"$1\" has just been updated.",
-    "semantictasks-reminder": "Reminder:",
-    "semantictasks-reminder-message2": "Just to remind you that the task \"$1\" ends in $2 {{PLURAL:$2|day|days}}.\n\n$3",
-    "semantictasks-text-message": "Here is the task description:",
-    "semantictasks-diff-message": "Here are the differences:"
+	"@metadata": {
+		"authors": [
+			"Steren Giannini"
+		]
+	},
+	"semantictasks-desc": "Email notifications for assigned or updated tasks",
+	"semantictasks-newtask": "New task:",
+	"semantictasks-taskassigned": "Task assigned:",
+	"semantictasks-taskunassigned": "Task unassigned:",
+	"semantictasks-taskupdated": "Task updated:",
+	"semantictasks-taskclosed": "Task closed:",
+	"semantictasks-newtask-msg": "The task \"$1\" has just been created.",
+	"semantictasks-taskclosed-msg": "The task \"$1\" has just been closed.",
+	"semantictasks-assignedtoyou-msg2": "The task \"$1\" has just been assigned to you.",
+	"semantictasks-unassignedtoyou-msg2": "You have just been unassigned from the task \"$1\".",
+	"semantictasks-updatedtoyou-msg2": "The task \"$1\" has just been updated.",
+	"semantictasks-reminder": "Reminder:",
+	"semantictasks-reminder-message2": "Just to remind you that the task \"$1\" ends in $2 {{PLURAL:$2|day|days}}.\n\n$3",
+	"semantictasks-text-message": "Here is the task description:",
+	"semantictasks-diff-message": "Here are the differences:"
 }
