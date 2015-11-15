@@ -11,7 +11,7 @@
 	"semantictasks-assignedtoyou-msg2": "Nhiệm vụ “$1” vừa được giao cho bạn",
 	"semantictasks-updatedtoyou-msg2": "Nhiệm vụ “$1” vừa mới được cập nhật.",
 	"semantictasks-reminder": "Lời nhắc:",
-	"semantictasks-reminder-message2": "Thư này chỉ để nhắc bạn rằng nhiệm vụ “$1” sẽ kết thúc trong $2 {{PLURAL:$2|ngày|ngày}} nữa.\n\n$3",
+	"semantictasks-reminder-message2": "Thư này chỉ để nhắc bạn rằng nhiệm vụ “$1” sẽ kết thúc trong $2 ngày nữa.\n\n$3",
 	"semantictasks-text-message": "Miêu tả công việc:",
 	"semantictasks-diff-message": "Các khác biệt:"
 }
