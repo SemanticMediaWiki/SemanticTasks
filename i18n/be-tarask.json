@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"EugeneZelenko",
-			"Jim-by"
+			"Jim-by",
+			"Red Winged Duck"
 		]
 	},
 	"semantictasks-desc": "Паведамленьне па электроннай пошце пра даданьне альбо абнаўленьне заданьняў",
 	"semantictasks-newtask": "Новае заданьне:",
 	"semantictasks-taskassigned": "Прызначанае заданьне:",
+	"semantictasks-taskunassigned": "Задача зьнятая:",
 	"semantictasks-taskupdated": "Заданьне абноўлена:",
 	"semantictasks-taskclosed": "Заданьне скончанае:",
 	"semantictasks-newtask-msg": "Заданьне «$1» было толькі што створана.",
