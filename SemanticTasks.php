@@ -31,6 +31,7 @@ $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other']
 	'version' => '1.6.0',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Tasks',
 	'descriptionmsg' => 'semantictasks-desc',
+	'license-name' => 'GPL-2.0+'
 );
 
 // i18n
