@@ -176,6 +176,11 @@ class SemanticTasksMailer {
 			$assignee_name = $task_assignees->getNextText( SMW_OUTPUT_WIKI );
 			/** @todo Create User object */
 			$assignee_name = explode( ":", $assignee_name );
+
+			if ( !isset( $assignee_name[1] ) ) {
+				return array();
+			}
+
 			$assignee_name = $assignee_name[1];
 
 			array_push( $assignee_arr, $assignee_name );
