@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Priviet"
+			"Priviet",
+			"Ykhwong"
 		]
 	},
 	"semantictasks-desc": "할당되거나 업데이트된 작업에 대한 이메일 알림",
 	"semantictasks-newtask": "새 작업:",
 	"semantictasks-taskassigned": "할당된 작업:",
-	"semantictasks-taskupdated": "업데이트 된 작업:",
+	"semantictasks-taskupdated": "업데이트된 작업:",
 	"semantictasks-taskclosed": "닫힌 작업:",
 	"semantictasks-newtask-msg": "\"$1\" 작업이 방금 만들어졌습니다.",
 	"semantictasks-taskclosed-msg": "\"$1\" 작업이 방금 닫혔습니다.",
