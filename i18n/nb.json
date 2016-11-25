@@ -2,17 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Event",
-			"Nghtwlkr"
+			"Nghtwlkr",
+			"Jon Harald Søby"
 		]
 	},
 	"semantictasks-desc": "Meldinger via e-post om tildelte eller oppdaterte oppgaver",
 	"semantictasks-newtask": "Ny oppgave:",
 	"semantictasks-taskassigned": "Oppgave tildelt:",
+	"semantictasks-taskunassigned": "Oppgave fjernet:",
 	"semantictasks-taskupdated": "Oppgave oppdatert:",
 	"semantictasks-taskclosed": "Oppgave lukket:",
 	"semantictasks-newtask-msg": "Oppgaven «$1» har nettopp blitt opprettet.",
 	"semantictasks-taskclosed-msg": "Oppgaven «$1» har nettopp blitt lukket.",
 	"semantictasks-assignedtoyou-msg2": "Oppgaven «$1» har nettopp blitt tildelt deg",
+	"semantictasks-unassignedtoyou-msg2": "Du har blitt fjernet fra oppgaven «$1».",
 	"semantictasks-updatedtoyou-msg2": "Oppgaven «$1» har nettopp blitt oppdatert.",
 	"semantictasks-reminder": "Påminnelse:",
 	"semantictasks-reminder-message2": "Minner deg bare på at oppgaven «$1» avsluttes om {{PLURAL:$2|én dag|$2 dager}}.\n\n$3",
