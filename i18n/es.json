@@ -3,7 +3,9 @@
 		"authors": [
 			"Crazymadlover",
 			"Translationista",
-			"Macofe"
+			"Macofe",
+			"Dgstranz",
+			"Indiralena"
 		]
 	},
 	"semantictasks-desc": "Notificaciones por correo electrónico para tareas asignadas o actualizadas",
@@ -15,6 +17,7 @@
 	"semantictasks-newtask-msg": "La tarea \"$1\" acaba de ser creada.",
 	"semantictasks-taskclosed-msg": "La tarea \"$1\" acaba de ser cerrada.",
 	"semantictasks-assignedtoyou-msg2": "La tarea \"$1\" acaba de haberte sido asignada",
+	"semantictasks-unassignedtoyou-msg2": "Se te acaba de desasignar de la tarea «$1».",
 	"semantictasks-updatedtoyou-msg2": "La tarea \"$1\" acaba de haber sido actualizada.",
 	"semantictasks-reminder": "Recordador:",
 	"semantictasks-reminder-message2": "Sólo para recordarte que la tarea \"$1\" finaliza en $2 {{PLURAL:$2|día|días}}.\n\n$3",
