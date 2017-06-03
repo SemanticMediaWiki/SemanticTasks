@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Paucabot",
-			"Toniher"
+			"Toniher",
+			"Fitoschido"
 		]
 	},
 	"semantictasks-desc": "Notificacions de correu electrònic de les tasques assignades o actualitzades",
-	"semantictasks-newtask": "Nova tasca:",
+	"semantictasks-newtask": "Tasca nova:",
 	"semantictasks-taskassigned": "Tasca assignada:",
 	"semantictasks-taskupdated": "Tasca actualitzada:",
 	"semantictasks-taskclosed": "Tasca tancada:",
