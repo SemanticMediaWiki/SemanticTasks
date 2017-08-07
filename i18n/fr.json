@@ -15,7 +15,7 @@
 	"semantictasks-taskclosed": "Tâche fermée :",
 	"semantictasks-newtask-msg": "La tâche « $1 » vient d’être créée.",
 	"semantictasks-taskclosed-msg": "La tâche « $1 » vient d’être fermée.",
-	"semantictasks-assignedtoyou-msg2": "La tâche « $1 » vous a été assignée.",
+	"semantictasks-assignedtoyou-msg2": "La tâche « $1 » vient de vous être assignée.",
 	"semantictasks-unassignedtoyou-msg2": "Vous venez d'être désassigné de la tâche \"$1\".",
 	"semantictasks-updatedtoyou-msg2": "La tâche « $1 » a été mise à jour.",
 	"semantictasks-reminder": "Rappel :",
