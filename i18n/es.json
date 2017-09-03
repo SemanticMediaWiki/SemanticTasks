@@ -5,7 +5,8 @@
 			"Translationista",
 			"Macofe",
 			"Dgstranz",
-			"Indiralena"
+			"Indiralena",
+			"Fitoschido"
 		]
 	},
 	"semantictasks-desc": "Notificaciones por correo electrónico para tareas asignadas o actualizadas",
@@ -20,7 +21,7 @@
 	"semantictasks-unassignedtoyou-msg2": "Se te acaba de desasignar de la tarea «$1».",
 	"semantictasks-updatedtoyou-msg2": "La tarea \"$1\" acaba de haber sido actualizada.",
 	"semantictasks-reminder": "Recordador:",
-	"semantictasks-reminder-message2": "Sólo para recordarte que la tarea \"$1\" finaliza en $2 {{PLURAL:$2|día|días}}.\n\n$3",
+	"semantictasks-reminder-message2": "Nos gustaría recordarte que la tarea «$1» finaliza en $2 {{PLURAL:$2|día|días}}.\n\n$3",
 	"semantictasks-text-message": "Aquí está la descripción de la tarea:",
 	"semantictasks-diff-message": "Aquí están las diferencias:"
 }
