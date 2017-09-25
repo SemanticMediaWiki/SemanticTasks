@@ -12,14 +12,16 @@ module.exports = function ( grunt ) {
 			all: [
 				'**/*.js',
 				'!node_modules/**',
-				'!vendor/**'
+				'!vendor/**',
+				'!extensions/**'
 			]
 		},
 		jsonlint: {
 			all: [
 				'**/*.json',
 				'!node_modules/**',
-				'!vendor/**'
+				'!vendor/**',
+				'!extensions/**'
 			]
 		}
 	} );
