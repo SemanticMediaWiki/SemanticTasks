@@ -31,7 +31,7 @@ $wgExtensionCredits['semantic'][] = array(
 	'version' => '1.7.0',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Tasks',
 	'descriptionmsg' => 'semantictasks-desc',
-	'license-name' => 'GPL-2.0+'
+	'license-name' => 'GPL-2.0-or-later'
 );
 
 // Register extension messages and other localisation.
