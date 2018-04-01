@@ -2,13 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Meno25",
-			"OsamaK"
+			"OsamaK",
+			"ديفيد"
 		]
 	},
 	"semantictasks-desc": "إخطارات بالبريد الإلكتروني للمهام الموكولة أو المحدثة",
 	"semantictasks-newtask": "مهمة جديدة:",
+	"semantictasks-taskassigned": "المهمة الموكلة:",
+	"semantictasks-taskunassigned": "المهمة غير المعينة:",
 	"semantictasks-taskupdated": "المهمة تم تحديثها:",
+	"semantictasks-taskclosed": "المهمة المغلقة:",
+	"semantictasks-newtask-msg": "تم إنشاء المهمة \"$1\" للتو.",
+	"semantictasks-taskclosed-msg": "تم إغلاق المهمة \"$1\".",
 	"semantictasks-assignedtoyou-msg2": "المهمة \"$1\" تم إيكالها حالا إليك",
+	"semantictasks-unassignedtoyou-msg2": "لقد تم إلغاء تعيينك للتو من المهمة \"$1\".",
 	"semantictasks-updatedtoyou-msg2": "المهمة \"$1\" تم تحديثها حالا.",
 	"semantictasks-reminder": "تذكرة:",
 	"semantictasks-reminder-message2": "فقط أذكرك أن المهمة \"$1\" تنتهي في غضون {{PLURAL:$2||يوم واحد|يومين|$2 أيام|$2 يومًا|$2 يوم}}.\n\n$3",
