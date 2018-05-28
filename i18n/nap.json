@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"C.R."
+			"C.R.",
+			"Ruthven"
 		]
 	},
 	"semantictasks-desc": "Mmasciate pe' bbia d' 'a posta e-mail pe l'attività assegnate o aghiurnate",
@@ -10,11 +11,11 @@
 	"semantictasks-taskunassigned": "Fatica nun assegnata:",
 	"semantictasks-taskupdated": "Fatica agghiurnata:",
 	"semantictasks-taskclosed": "Fatica nchiusa:",
-	"semantictasks-newtask-msg": "'A fatica \"$1\" è stata criata mò mò.",
-	"semantictasks-taskclosed-msg": "'A fatica \"$1\" è stata nchiusa mò mò.",
+	"semantictasks-newtask-msg": "'A fatica \"$1\" è stata criata mo mmo.",
+	"semantictasks-taskclosed-msg": "'A fatica \"$1\" è stata 'nzerrata mo mmo.",
 	"semantictasks-assignedtoyou-msg2": "'A fatica \"$1\" è assegnata a vuje mò mò.",
-	"semantictasks-unassignedtoyou-msg2": "Site stato/a mò mò luvato d' 'o compito \"$1\".",
-	"semantictasks-updatedtoyou-msg2": "'A fatica \"$1\" è stata aghiurnata mò mò.",
+	"semantictasks-unassignedtoyou-msg2": "Site stato/a mo mmo luvato d' 'o compito \"$1\".",
+	"semantictasks-updatedtoyou-msg2": "'A fatica \"$1\" è stata aghiurnata mo.",
 	"semantictasks-reminder": "Arricuòrdate:",
 	"semantictasks-reminder-message2": "Sulamente pe' t'arricurdà c' 'a fatica \"$1\" fernisce int'a $2 {{PLURAL:$2|juorno|juorne}}.\n\n$3",
 	"semantictasks-text-message": "Ccà sta 'a descrizziona d' 'a fatica:",
