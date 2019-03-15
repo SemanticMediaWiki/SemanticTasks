@@ -1,12 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vks"
+			"Vks",
+			"Jaroslav Cerny"
 		]
 	},
+	"semantictasks-desc": "Upozorňovat e-mailem na přiřazené nebo aktualizované úkoly",
 	"semantictasks-newtask": "Nový úkol:",
 	"semantictasks-taskassigned": "Úkol přiřazen:",
+	"semantictasks-taskunassigned": "Úkol nepřiřazen:",
 	"semantictasks-taskupdated": "Úkol změněn:",
 	"semantictasks-taskclosed": "Úkol uzavřen:",
-	"semantictasks-reminder": "Upozornění:"
+	"semantictasks-newtask-msg": "Úkol \"$1\" byl vytvořen.",
+	"semantictasks-taskclosed-msg": "Úkol \"$1\" byl uzavřen.",
+	"semantictasks-assignedtoyou-msg2": "Úkol \"$1\" vám byl přiřazen.",
+	"semantictasks-unassignedtoyou-msg2": "Přiřazení úkolu \"$1\" vám bylo odebráno.",
+	"semantictasks-updatedtoyou-msg2": "Úkol \"$1\" byl aktualizován.",
+	"semantictasks-reminder": "Upozornění:",
+	"semantictasks-reminder-message2": "Upozorňujeme vás, že úkol \"$1\" skončí za $2 {{PLURAL:$2|den|dnů}}.\n\n$3",
+	"semantictasks-text-message": "Zde je popis úkolu:",
+	"semantictasks-diff-message": "Zde jsou rozdíly:"
 }
