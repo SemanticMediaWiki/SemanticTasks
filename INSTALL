@@ -15,7 +15,7 @@ Semantic Tasks requires:
 
 You can get the code directly from Git. It can be obtained via
 
- git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SemanticTasks.git
+ git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/SemanticTasks.git
 
 or use MediaWiki's extension distributor.
 
