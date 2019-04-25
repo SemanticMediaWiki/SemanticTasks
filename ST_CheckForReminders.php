@@ -3,7 +3,7 @@
 # Licensed under the GNU GPLv2 (or later).
 
 $IP = getenv( 'MW_INSTALL_PATH' ) !== false ? getenv( 'MW_INSTALL_PATH' ) : __DIR__ . '/../..';
-require_once $IP . "/maintenance/maintenance.php";
+require_once $IP . "/maintenance/Maintenance.php";
 
 class CheckForReminders extends Maintenance {
 

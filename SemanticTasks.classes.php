@@ -10,6 +10,8 @@ if ( !defined( 'SMW_VERSION' ) ) {
 	exit( 1 );
 }
 
+use SMW\DataValueFactory;
+
 // constants for message type
 define( 'NEWTASK', 0 );
 define( 'UPDATE', 1 );
@@ -421,7 +423,7 @@ class SemanticTasksMailer {
 		foreach ( $properties_to_display as $property ) {
 			if ( class_exists( 'SMWPropertyValue' ) ) { // SMW 1.4
 				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
-					SMWPropertyValue::makeUserProperty( $property ) );
+					DataValueFactory::getInstance()->newPropertyValueByLabel( $property ) );
 			} else {
 				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
 					Title::newFromText( $property, SMW_NS_PROPERTY ) );
