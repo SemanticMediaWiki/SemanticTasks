@@ -415,9 +415,11 @@ class SemanticTasksMailer {
 
 		// Push the properties to display in the printout array.
 		foreach ( $properties_to_display as $property ) {
-			$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
-				DataValueFactory::getInstance()->newPropertyValueByLabel( $property ) );
-      
+			$to_push = new SMWPrintRequest(
+				SMWPrintRequest::PRINT_PROP,
+				$property,
+				DataValueFactory::getInstance()->newPropertyValueByLabel( $property )
+			);
 			array_push( $printouts, $to_push );
 		}
 
