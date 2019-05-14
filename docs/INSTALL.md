@@ -11,7 +11,7 @@ Semantic Tasks requires:
 
 * MediaWiki 1.23 or above
 * PHP 5.3 or above
-* Semantic MediaWiki 1.7 or above
+* Semantic MediaWiki 1.8 or above
 
 ## Download
 
@@ -29,4 +29,3 @@ Once you have downloaded the code, place the `SemanticTasks` directory within yo
 ```php
 # Semantic Tasks
 wfLoadExtension( "SemanticTasks" );
-```
