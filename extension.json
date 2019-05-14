@@ -1,0 +1,32 @@
+{
+	"name": "SemanticTasks",
+	"version": "1.7.0",
+	"author": [
+		"Steren Giannini",
+		"Ryan Lane",
+		"Ike Hecht",
+		"Peter Grassberger",
+		"..."
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:Semantic_Tasks",
+	"descriptionmsg": "semantictasks-desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "semantic",
+	"requires": {
+		"MediaWiki": ">= 1.23"
+	},
+	"MessagesDirs": {
+		"SemanticTasks": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"SemanticTasksMailer": "SemanticTasks.classes.php"
+	},
+	"Hooks": {
+		"PageContentSaveComplete": "SemanticTasksMailer::mailAssigneesUpdatedTask",
+		"PageContentSave": "SemanticTasksMailer::findOldValues"
+	},
+	"load_composer_autoloader": true,
+	"manifest_version": 1
+}
