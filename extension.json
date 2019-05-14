@@ -21,12 +21,12 @@
 			"i18n"
 		]
 	},
+	"callback": "SemanticTasks::initExtension",
+	"ExtensionFunctions": [
+		"SemanticTasks::onExtensionFunction"
+	],
 	"AutoloadClasses": {
-		"SemanticTasksMailer": "SemanticTasks.classes.php"
-	},
-	"Hooks": {
-		"PageContentSaveComplete": "SemanticTasksMailer::mailAssigneesUpdatedTask",
-		"PageContentSave": "SemanticTasksMailer::findOldValues"
+		"SemanticTasksMailer": "SemanticTasksMailer.php"
 	},
 	"load_composer_autoloader": true,
 	"manifest_version": 1

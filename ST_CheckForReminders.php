@@ -8,7 +8,7 @@ require_once $IP . "/maintenance/Maintenance.php";
 class CheckForReminders extends Maintenance {
 
 	public function execute() {
-		require_once __DIR__ . '/SemanticTasks.classes.php';
+		require_once __DIR__ . '/SemanticTasksMailer.php';
 		// Let's send reminders
 		SemanticTasksMailer::remindAssignees();
 		print "ST check for reminders\n";
