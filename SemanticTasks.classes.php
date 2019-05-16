@@ -10,6 +10,8 @@ if ( !defined( 'SMW_VERSION' ) ) {
 	exit( 1 );
 }
 
+use SMW\DataValueFactory;
+
 // constants for message type
 define( 'NEWTASK', 0 );
 define( 'UPDATE', 1 );
@@ -324,37 +326,37 @@ class SemanticTasksMailer {
 
 			/** @todo This should probably be refactored */
 			if ( $status == NEWTASK ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-newtask' ) . ' ' .
+				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-newtask' )->text() . ' ' .
 					$title_text;
 				$message = 'semantictasks-newtask-msg';
-				$body = wfMessage( $message, $title_text ) . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' ) . "\n" . $text;
+				$body = wfMessage( $message, $title_text )->text() . " " . $link;
+				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
 			} elseif ( $status == UPDATE ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskupdated' ) . ' ' .
+				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskupdated' )->text() . ' ' .
 					$title_text;
 				$message = 'semantictasks-updatedtoyou-msg2';
-				$body = wfMessage( $message, $title_text ) . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' ) . "\n" .
+				$body = wfMessage( $message, $title_text )->text() . " " . $link;
+				$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' )->text() . "\n" .
 					self::generateDiffBodyTxt( $title );
 			} elseif ( $status == CLOSED ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskclosed' ) . ' ' .
+				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskclosed' )->text() . ' ' .
 					$title_text;
 				$message = 'semantictasks-taskclosed-msg';
-				$body = wfMessage( $message, $title_text ) . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' ) . "\n" . $text;
+				$body = wfMessage( $message, $title_text )->text() . " " . $link;
+				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
 			} elseif ( $status == UNASSIGNED ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskunassigned' ) . ' ' .
+				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskunassigned' )->text() . ' ' .
 					$title_text;
 				$message = 'semantictasks-unassignedtoyou-msg2';
-				$body = wfMessage( $message, $title_text ) . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' ) . "\n" . $text;
+				$body = wfMessage( $message, $title_text )->text() . " " . $link;
+				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
 			} else {
 				// status == ASSIGNED
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskassigned' ) . ' ' .
+				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskassigned' )->text() . ' ' .
 					$title_text;
 				$message = 'semantictasks-assignedtoyou-msg2';
-				$body = wfMessage( $message, $title_text ) . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' ) . "\n" . $text;
+				$body = wfMessage( $message, $title_text )->text() . " " . $link;
+				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
 			}
 
 			$user_mailer = new UserMailer();
@@ -421,7 +423,7 @@ class SemanticTasksMailer {
 		foreach ( $properties_to_display as $property ) {
 			if ( class_exists( 'SMWPropertyValue' ) ) { // SMW 1.4
 				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
-					SMWPropertyValue::makeUserProperty( $property ) );
+					DataValueFactory::getInstance()->newPropertyValueByLabel( $property ) );
 			} else {
 				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
 					Title::newFromText( $property, SMW_NS_PROPERTY ) );
@@ -470,7 +472,7 @@ class SemanticTasksMailer {
 
 		while ( $row = $results->getNext() ) {
 			$task_name = $row[0]->getNextObject()->getTitle();
-			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-reminder' ) . $task_name;
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-reminder' )->text() . $task_name;
 			// The following doesn't work, maybe because we use a cron job.
 			// $link = $task_name->getFullURL();
 			// So let's do it manually

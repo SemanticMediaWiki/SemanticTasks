@@ -28,5 +28,5 @@ Once you have downloaded the code, place the `SemanticTasks` directory within yo
 
 ```php
 # Semantic Tasks
-require_once "$IP/extensions/SemanticTasks/SemanticTasks.php";
+wfLoadExtension( "SemanticTasks" );
 ```
