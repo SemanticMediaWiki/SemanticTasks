@@ -406,39 +406,24 @@ class SemanticTasksMailer {
 		// We use the Semantic MediaWiki Processor
 		$params = array();
 		$inline = true;
-		$printlabel = "";
 		$printouts = array();
 
 		// add the page name to the printouts
 		if ( $display_title ) {
-			if ( version_compare( SMW_VERSION, '1.7', '>' ) ) {
-				SMWQueryProcessor::addThisPrintout( $printouts, $params );
-			} else {
-				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_THIS, $printlabel );
-				array_push( $printouts, $to_push );
-			}
+			SMWQueryProcessor::addThisPrintout( $printouts, $params );
 		}
 
 		// Push the properties to display in the printout array.
 		foreach ( $properties_to_display as $property ) {
-			if ( class_exists( 'SMWPropertyValue' ) ) { // SMW 1.4
-				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
-					DataValueFactory::getInstance()->newPropertyValueByLabel( $property ) );
-			} else {
-				$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
-					Title::newFromText( $property, SMW_NS_PROPERTY ) );
-			}
+			$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
+				DataValueFactory::getInstance()->newPropertyValueByLabel( $property ) );
+      
 			array_push( $printouts, $to_push );
 		}
 
-		if ( version_compare( SMW_VERSION, '1.6.1', '>' ) ) {
-			$params = SMWQueryProcessor::getProcessedParams( $params, $printouts );
-			$format = null;
-		} else {
-			$format = 'auto';
-		}
+		$params = SMWQueryProcessor::getProcessedParams( $params, $printouts );
 
-		$query = SMWQueryProcessor::createQuery( $query_string, $params, $inline, $format, $printouts );
+		$query = SMWQueryProcessor::createQuery( $query_string, $params, $inline, null, $printouts );
 		$results = smwfGetStore()->getQueryResult( $query );
 
 		return $results;
