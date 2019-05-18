@@ -1,16 +1,15 @@
 <?php
 
-// This is the path to your installation of SemanticTasks as seen from the web.
-// Change it if required ($wgScriptPath is the path to the base directory of
-// your wiki). No final slash. It appears to be unused.
-$stScriptPath = $wgScriptPath . '/extensions/SemanticTasks';
-
-// Set to true to notify users when they are unassigned from a task
-$wgSemanticTasksNotifyIfUnassigned = false;
-
-
+/**
+ * @see https://github.com/SemanticMediaWiki/SemanticTasks
+ *
+ * @defgroup SemanticTasks Semantic Tasks
+ */
 SemanticTasks::load();
 
+/**
+ * @codeCoverageIgnore
+ */
 class SemanticTasks {
 
 	public static function load() {
@@ -19,16 +18,33 @@ class SemanticTasks {
 		}
 	}
 
-	public static function initExtension() {
+	/**
+	 * @since 1.0
+	 * @see https://www.mediawiki.org/wiki/Manual:Extension.json/Schema#callback
+	 */
+	public static function initExtension( $credits = [] ) {
+
+		$version = 'UNKNOWN' ;
+
+		// See https://phabricator.wikimedia.org/T151136
+		if ( isset( $credits['version'] ) ) {
+			$version = $credits['version'];
+		}
+
+		define( 'SEMANTIC_TASKS', $version );
+
 		// Register extension messages and other localisation.
 		$wgMessagesDirs['SemanticTasks'] = __DIR__ . '/i18n';
 
-		// Register extension hooks.
-		$wgHooks['PageContentSaveComplete'][] = 'SemanticTasksMailer::mailAssigneesUpdatedTask';
-		$wgHooks['PageContentSave'][] = 'SemanticTasksMailer::findOldValues';
+		// Set to true to notify users when they are unassigned from a task
+		$wgSemanticTasksNotifyIfUnassigned = false;
 	}
 
+	/**
+	 * @since 1.0
+	 */
 	public static function onExtensionFunction() {
+
 		// Check requirements after LocalSetting.php has been processed
 		if ( !defined( 'SMW_VERSION' ) ) {
 			if ( PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg' ) {
@@ -41,8 +57,9 @@ class SemanticTasks {
 			}
 		}
 
-
-		$hookRegistry = new HookRegistry();
-		$hookRegistry->register();
+		// Register extension hooks.
+		$wgHooks['PageContentSaveComplete'][] = 'SemanticTasksMailer::mailAssigneesUpdatedTask';
+		$wgHooks['PageContentSave'][] = 'SemanticTasksMailer::findOldValues';
 	}
+
 }
