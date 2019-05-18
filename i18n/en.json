@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Steren Giannini"
+			"Kghbln",
+			"Steren Giannini",
+			"Tosfos"
 		]
 	},
-	"semantictasks-desc": "Email notifications for assigned or updated tasks",
+	"semantictasks-desc": "Sends email notifications for assigned or updated tasks",
+	"semantictasks-name": "Semantic Tasks",	
 	"semantictasks-newtask": "New task:",
 	"semantictasks-taskassigned": "Task assigned:",
 	"semantictasks-taskunassigned": "Task unassigned:",
