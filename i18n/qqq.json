@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Fryed-peach",
+			"Kghbln",
 			"Purodha",
 			"Shirayuki",
 			"Umherirrender"
 		]
 	},
 	"semantictasks-desc": "{{desc|name=Semantic Tasks|url=https://www.mediawiki.org/wiki/Extension:Semantic_Tasks}}",
+	"semantictasks-name": "{{notranslate}}\n\nName of the extension as it should be displayed.",
 	"semantictasks-newtask": "Used in a notification mail",
 	"semantictasks-taskassigned": "Used in a notification mail",
 	"semantictasks-taskunassigned": "Used in a notification mail",
