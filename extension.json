@@ -29,5 +29,11 @@
 		"PageContentSave": "SemanticTasksMailer::findOldValues"
 	},
 	"load_composer_autoloader": true,
-	"manifest_version": 1
+	"manifest_version": 1,
+	"config": {
+		"SemanticTasks_AssignedToPropertyName": "Assigned to",
+		"SemanticTasks_CarbonCopyPropertyName": "Carbon copy",
+		"SemanticTasks_TargetDateoPropertyName": "Target date",
+		"SemanticTasks_ReminderAtPropertyName": "Reminder at"		
+	}
 }
