@@ -18,7 +18,7 @@ You must run a cron job once a day to execute the reminder script:
     * edit your crontab file: 
         $ crontab -e
     * add the following line to execute the script every day at 12: 
-        0 12 * * * php extensions/SemanticTasks/ST_CheckForReminders.php
+        0 12 * * * php extensions/SemanticTasks/maintenance/checkForReminders.php
 
 ## Contact
 
