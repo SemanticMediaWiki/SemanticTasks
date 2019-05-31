@@ -27,7 +27,7 @@
 	],
 	"AutoloadClasses": {
 		"SemanticTasks": "SemanticTasks.php",
-		"SemanticTasksMailer": "SemanticTasksMailer.php"
+		"SemanticTasksMailer": "src/SemanticTasksMailer.php"
 	},
 	"load_composer_autoloader": true,
 	"manifest_version": 1
