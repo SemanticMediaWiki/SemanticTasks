@@ -7,11 +7,9 @@ the extension's page on mediawiki.org:
 
 ## Requirements
 
-Semantic Tasks requires:
-
-* MediaWiki 1.23 or above
-* PHP 5.3 or above
-* Semantic MediaWiki 1.8 or above
+ - PHP 5.3 or later
+ - MediaWiki 1.23  or later
+ - Semantic MediaWiki 1.8 or later
 
 ## Download
 
