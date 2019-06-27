@@ -6,7 +6,8 @@
 			"ديفيد"
 		]
 	},
-	"semantictasks-desc": "إخطارات بالبريد الإلكتروني للمهام الموكولة أو المحدثة",
+	"semantictasks-desc": "يرسل إخطارات بالبريد الإلكتروني للمهام الموكولة أو المحدثة",
+	"semantictasks-name": "المهام الدلالية",
 	"semantictasks-newtask": "مهمة جديدة:",
 	"semantictasks-taskassigned": "المهمة الموكلة:",
 	"semantictasks-taskunassigned": "المهمة غير المعينة:",

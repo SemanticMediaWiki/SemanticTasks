@@ -10,6 +10,7 @@
 		]
 	},
 	"semantictasks-desc": "Notificaciones por correo electrónico para tareas asignadas o actualizadas",
+	"semantictasks-name": "Semantic Tasks",
 	"semantictasks-newtask": "Nueva tarea:",
 	"semantictasks-taskassigned": "Tarea asignada:",
 	"semantictasks-taskunassigned": "Tarea desasignada:",
