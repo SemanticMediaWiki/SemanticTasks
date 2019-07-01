@@ -6,10 +6,11 @@
 			"Macofe",
 			"Dgstranz",
 			"Indiralena",
-			"Fitoschido"
+			"Fitoschido",
+			"Anarhistička Maca"
 		]
 	},
-	"semantictasks-desc": "Notificaciones por correo electrónico para tareas asignadas o actualizadas",
+	"semantictasks-desc": "Envíe notificaciones por correo electrónico para tareas asignadas o actualizadas",
 	"semantictasks-name": "Semantic Tasks",
 	"semantictasks-newtask": "Nueva tarea:",
 	"semantictasks-taskassigned": "Tarea asignada:",
