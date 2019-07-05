@@ -4,11 +4,12 @@
 			"Crochet.david",
 			"IAlex",
 			"Urhixidur",
-			"Wladek92"
+			"Wladek92",
+			"Derugon"
 		]
 	},
-	"semantictasks-desc": "Notifications par courriel pour les tâches assignées ou mises à jour",
-	"semantictasks-name": "Tâches Semantic",
+	"semantictasks-desc": "Envoyer des notifications par courriel pour les tâches assignées ou mises-à-jour",
+	"semantictasks-name": "Tâches Sémantiques",
 	"semantictasks-newtask": "Nouvelle tâche :",
 	"semantictasks-taskassigned": "Tâche assignée :",
 	"semantictasks-taskunassigned": "Tâche non assignée :",
