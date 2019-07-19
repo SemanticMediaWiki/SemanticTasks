@@ -19,6 +19,7 @@ class SemanticTasks {
 	}
 
 	/**
+	 * @global boolean $wgSemanticTasksNotifyIfUnassigned
 	 * @since 1.0
 	 * @see https://www.mediawiki.org/wiki/Manual:Extension.json/Schema#callback
 	 */
@@ -37,6 +38,7 @@ class SemanticTasks {
 		$wgMessagesDirs['SemanticTasks'] = __DIR__ . '/i18n';
 
 		// Set to true to notify users when they are unassigned from a task
+		global $wgSemanticTasksNotifyIfUnassigned;
 		$wgSemanticTasksNotifyIfUnassigned = false;
 	}
 
