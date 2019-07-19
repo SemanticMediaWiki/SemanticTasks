@@ -4,7 +4,8 @@
 			"Joetaras"
 		]
 	},
-	"semantictasks-desc": "Notifiche email pe le combite assegnate o aggiornate",
+	"semantictasks-desc": "Manne 'n'email de notifiche pe le combite assegnate o aggiornate",
+	"semantictasks-name": "Attività semandeche",
 	"semantictasks-newtask": "Combite nuève:",
 	"semantictasks-taskassigned": "Combite assegnate:",
 	"semantictasks-taskunassigned": "Combite non assegnate:",

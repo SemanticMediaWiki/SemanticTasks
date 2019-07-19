@@ -5,7 +5,8 @@
 			"Kly"
 		]
 	},
-	"semantictasks-desc": "關於已分配任務或已更新任務的電子郵件通知",
+	"semantictasks-desc": "發送已分配或已更新任務的電子郵件通知",
+	"semantictasks-name": "Semantic Tasks",
 	"semantictasks-newtask": "新任務：",
 	"semantictasks-taskassigned": "已分配的任務：",
 	"semantictasks-taskunassigned": "未分配的任務：",

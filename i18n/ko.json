@@ -6,7 +6,7 @@
 			"아라"
 		]
 	},
-	"semantictasks-desc": "할당되거나 업데이트된 작업에 대한 이메일 알림",
+	"semantictasks-desc": "할당되거나 업데이트된 작업에 대한 이메일을 보냅니다",
 	"semantictasks-newtask": "새 작업:",
 	"semantictasks-taskassigned": "할당된 작업:",
 	"semantictasks-taskunassigned": "할당되지 않은 작업:",
