@@ -52,7 +52,7 @@ $ crontab -e
 ```
 * add the following line to execute the script every day at 12: 
 ```
-0 12 * * * php extensions/SemanticTasks/ST_CheckForReminders.php
+0 12 * * * php extensions/SemanticTasks/maintenance/checkForReminders.php
 ```
 ## Parameters
 ```
