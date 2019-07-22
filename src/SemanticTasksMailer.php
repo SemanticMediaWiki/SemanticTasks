@@ -297,10 +297,10 @@ class SemanticTasksMailer {
 	static function getAssigneeAddresses( array $assignees ) {
 		$assignee_arr = array();
 		foreach ( $assignees as $assignee_name ) {
-			$assignee = User::newFromName( $assignee_name );
+			$assignee = \User::newFromName( $assignee_name );
 			// if assignee is the current user, do nothing
 			# if ( $assignee->getID() != $user->getID() ) {
-			$assignee_mail = new MailAddress( $assignee->getEmail(), $assignee_name );
+			$assignee_mail = new \MailAddress( $assignee->getEmail(), $assignee_name );
 			array_push( $assignee_arr, $assignee_mail );
 			self::printDebug( $assignee_name );
 			# }
@@ -379,26 +379,28 @@ class SemanticTasksMailer {
 	 * Generates a diff txt
 	 *
 	 * Code is similar to DifferenceEngine::generateTextDiffBody
-	 * @param Title $title
+	 * @param \Title $title
 	 * @return string
+	 * @throws \MWException
+	 * @throws \MediaWiki\Diff\ComplexityException
 	 */
-	static function generateDiffBodyTxt( $title ) {
-		$revision = Revision::newFromTitle( $title, 0 );
+	static function generateDiffBodyTxt( \Title $title ) {
+		$revision = \Revision::newFromTitle( $title, 0 );
 		/** @todo The first parameter should be a Context. */
-		$diff = new DifferenceEngine( $title, $revision->getId(), 'prev' );
+		$diff = new \DifferenceEngine( $title, $revision->getId(), 'prev' );
 		// The DifferenceEngine::getDiffBody() method generates html,
 		// so let's generate the txt diff manually:
 		global $wgContLang;
 		$diff->loadText();
-		$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->mOldContent ) );
-		$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->mNewContent ) );
+		$otext = str_replace( "\r\n", "\n", \ContentHandler::getContentText( $diff->mOldContent ) );
+		$ntext = str_replace( "\r\n", "\n", \ContentHandler::getContentText( $diff->mNewContent ) );
 
 		$ota = explode( "\n", $wgContLang->segmentForDiff( $otext ) );
 		$nta = explode( "\n", $wgContLang->segmentForDiff( $ntext ) );
 		// We use here the php diff engine included in MediaWiki
-		$diffs = new Diff( $ota, $nta );
+		$diffs = new \Diff( $ota, $nta );
 		// And we ask for a txt formatted diff
-		$formatter = new UnifiedDiffFormatter();
+		$formatter = new \UnifiedDiffFormatter();
 		$diff_text = $wgContLang->unsegmentForDiff( $formatter->format( $diffs ) );
 		return $diff_text;
 	}
