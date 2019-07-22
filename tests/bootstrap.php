@@ -7,3 +7,6 @@ if ( !is_readable( __DIR__ . '/../vendor/autoload.php' ) ) {
 }
 print sprintf( "\n%-20s%s\n", "Semantic Tasks: ", SEMANTIC_TASKS );
 $autoloader = require __DIR__ . '/../vendor/autoload.php';
+$autoloader->addPsr4( 'ST\\Tests\\', __DIR__ . '/phpunit' );
+$autoloader->addPsr4( 'SMW\\Test\\', __DIR__ . '/../../SemanticMediaWiki/tests/phpunit' );
+$autoloader->addPsr4( 'SMW\\Tests\\', __DIR__ . '/../../SemanticMediaWiki/tests/phpunit' );

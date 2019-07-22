@@ -18,11 +18,11 @@
 		"mediawiki/minus-x": "0.3.1"
 	},
 	"autoload": {
+		"psr-4": {
+			"ST\\": "src/"
+		},
 		"files": [
 			"SemanticTasks.php"
-		],
-		"classmap": [
-			"src/SemanticTasksMailer.php"
 		]
 	},
 	"scripts": {

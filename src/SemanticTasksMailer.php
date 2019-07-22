@@ -1,5 +1,7 @@
 <?php
 
+namespace ST;
+
 if ( !defined( 'MEDIAWIKI' ) ) {
 	echo 'Not a valid entry point';
 	exit( 1 );
@@ -26,15 +28,16 @@ class SemanticTasksMailer {
 
 	private static $task_assignees;
 	private static $task_status;
+	private static $user_mailer;
 
 	/**
 	 * Store previous values from the article being saved
 	 *
-	 * @param WikiPage $article
-	 * @param User $user
+	 * @param \WikiPage $article
+	 * @param \User $user
 	 * @return boolean
 	 */
-	public static function findOldValues( WikiPage &$article, User &$user ) {
+	public static function findOldValues( \WikiPage &$article, \User &$user ) {
 		$title = $article->getTitle();
 		$title_text = $title->getFullText();
 
@@ -58,8 +61,8 @@ class SemanticTasksMailer {
 	/**
 	 * Mails the assignees when the task is modified
 	 *
-	 * @param WikiPage $article
-	 * @param User $current_user
+	 * @param \WikiPage $article
+	 * @param \User $current_user
 	 * @param string $text
 	 * @param string $summary Unused
 	 * @param string $minoredit
@@ -68,7 +71,7 @@ class SemanticTasksMailer {
 	 * @param $flags
 	 * @return boolean
 	 */
-	public static function mailAssigneesUpdatedTask( WikiPage $article, User $current_user, $text,
+	public static function mailAssigneesUpdatedTask( \WikiPage $article, \User $current_user, $text,
 		$summary, $minoredit, $watchthis, $sectionanchor, $flags ) {
 		if ( !$minoredit ) {
 			if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
@@ -84,13 +87,13 @@ class SemanticTasksMailer {
 	/**
 	 *
 	 * @global boolean $wgSemanticTasksNotifyIfUnassigned
-	 * @param WikiPage $article
-	 * @param Content $content
-	 * @param User $user
+	 * @param \WikiPage $article
+	 * @param \Content $content
+	 * @param \User $user
 	 * @param integer $status
 	 * @return boolean
 	 */
-	static function mailAssignees( WikiPage $article, Content $content, User $user, $status ) {
+	static function mailAssignees( \WikiPage $article, \Content $content, \User $user, $status ) {
 		self::printDebug( "Saved assignees:", self::$task_assignees );
 		self::printDebug( "Saved task status: " . self::$task_status );
 
@@ -309,19 +312,20 @@ class SemanticTasksMailer {
 	/**
 	 * Sends mail notifications
 	 *
-	 * @global string $wgSitename
 	 * @param array $assignees
 	 * @param string $text
-	 * @param Title $title
-	 * @param User $user
+	 * @param \Title $title
+	 * @param \User $user
 	 * @param integer $status
+	 * @throws \MWException
+	 * @global string $wgSitename
 	 */
-	static function mailNotification( array $assignees, $text, Title $title, User $user, $status ) {
+	static function mailNotification( array $assignees, $text, \Title $title, \User $user, $status ) {
 		global $wgSitename;
 
 		if ( !empty( $assignees ) ) {
 			$title_text = $title->getFullText();
-			$from = new MailAddress( $user->getEmail(), $user->getName() );
+			$from = new \MailAddress( $user->getEmail(), $user->getName() );
 			$link = htmlspecialchars( $title->getFullURL() );
 
 			/** @todo This should probably be refactored */
@@ -359,10 +363,16 @@ class SemanticTasksMailer {
 				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
 			}
 
-			$user_mailer = new UserMailer();
+			if (!self::$user_mailer) {
+				self::$user_mailer = new \ST\UserMailer(new \UserMailer());
+			}
 
-			$user_mailer->send( $assignees, $from, $subject, $body );
+			self::$user_mailer->send( $assignees, $from, $subject, $body );
 		}
+	}
+
+	static function setUserMailer(\ST\UserMailer $user_mailer) {
+		self::$user_mailer = $user_mailer;
 	}
 
 	/**
