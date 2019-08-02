@@ -1,8 +1,13 @@
 <?php
 namespace ST\Tests;
 
+use MediaWiki\Diff\ComplexityException;
+use ST\Assignees;
 use ST\SemanticTasksMailer;
-use ST\UserMailer;
+use TextContent;
+use Title;
+use User;
+use WikiPage;
 
 /**
  * @covers \ST\Tests
@@ -19,7 +24,7 @@ class SemanticTasksMailerTest extends \PHPUnit_Framework_TestCase {
 
 		$assignees = [ 'someone' ];
 		$text = '';
-		$title = new \Title();
+		$title = new Title();
 		$user = new \User();
 		$status = 0; //ST_NEWTASK
 
@@ -37,4 +42,36 @@ class SemanticTasksMailerTest extends \PHPUnit_Framework_TestCase {
 		$title = new \Title('test');
 		$returnText = SemanticTasksMailer::generateDiffBodyTxt( $title );
 	}*/
+
+	// todo: fix: needs database..
+	/*public function testSaveAssignees() {
+		$title = new Title();
+		$article = new WikiPage( $title );
+		$assignees = new Assignees();
+		$assignees->saveAssignees( $article );
+	}*/
+
+	// todo: add more tests or asserts
+	public function testMailAssigneesUpdatedTaskTrueOnMinorEdit() {
+		$assignees = new Assignees();
+		$title = new Title();
+		$article = new WikiPage($title);
+		$current_user = new User();
+		$text = new TextContent('test TextContent');
+		$summary = ''; // unused
+		$minoredit = true; // or true;
+		$watchthis = null; // unused
+		$sectionanchor = null; // unused
+		$flags = EDIT_NEW; // or other..
+		try {
+			$returnValue = SemanticTasksMailer::mailAssigneesUpdatedTask( $assignees, $article, $current_user, $text, $summary,
+				$minoredit, $watchthis, $sectionanchor, $flags );
+		} catch ( \MWException $e ) {
+
+		} catch ( ComplexityException $e ) {
+
+		}
+
+		$this->assertTrue($returnValue);
+	}
 }
