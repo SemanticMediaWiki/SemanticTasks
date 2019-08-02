@@ -27,4 +27,3 @@ Once you have downloaded the code, place the `SemanticTasks` directory within yo
 ```php
 # Semantic Tasks
 wfLoadExtension( "SemanticTasks" );
-```

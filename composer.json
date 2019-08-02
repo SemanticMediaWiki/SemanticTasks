@@ -22,7 +22,7 @@
 			"SemanticTasks.php"
 		],
 		"classmap": [
-			"SemanticTasks.classes.php"
+			"src/SemanticTasksMailer.php"
 		]
 	},
 	"scripts": {

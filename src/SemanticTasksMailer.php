@@ -13,11 +13,11 @@ if ( !defined( 'SMW_VERSION' ) ) {
 use SMW\DataValueFactory;
 
 // constants for message type
-define( 'NEWTASK', 0 );
-define( 'UPDATE', 1 );
-define( 'ASSIGNED', 2 );
-define( 'CLOSED', 3 );
-define( 'UNASSIGNED', 4 );
+define( 'ST_NEWTASK', 0 );
+define( 'ST_UPDATE', 1 );
+define( 'ST_ASSIGNED', 2 );
+define( 'ST_CLOSED', 3 );
+define( 'ST_UNASSIGNED', 4 );
 
 /**
  * This class handles the creation and sending of notification emails.
@@ -72,9 +72,9 @@ class SemanticTasksMailer {
 		$summary, $minoredit, $watchthis, $sectionanchor, $flags ) {
 		if ( !$minoredit ) {
 			if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
-				$status = NEWTASK;
+				$status = ST_NEWTASK;
 			} else {
-				$status = UPDATE;
+				$status = ST_UPDATE;
 			}
 			self::mailAssignees( $article, $text, $current_user, $status );
 		}
@@ -111,7 +111,7 @@ class SemanticTasksMailer {
 		if ( $wgSemanticTasksNotifyIfUnassigned ) {
 			$unassignees_from_task = array_diff( self::$task_assignees, $current_assignees );
 			$unassignees_from_task = self::getAssigneeAddresses( $unassignees_from_task );
-			self::mailNotification( $unassignees_from_task, $text, $title, $user, UNASSIGNED );
+			self::mailNotification( $unassignees_from_task, $text, $title, $user, ST_UNASSIGNED );
 		}
 
 		self::printDebug( "Assignees to task: ", $assignees_to_task );
@@ -119,10 +119,10 @@ class SemanticTasksMailer {
 		// Send notification of an assigned task to assignees
 		// Treat task as new
 		$assignees_to_task = self::getAssigneeAddresses( $assignees_to_task );
-		self::mailNotification( $assignees_to_task, $text, $title, $user, ASSIGNED );
+		self::mailNotification( $assignees_to_task, $text, $title, $user, ST_ASSIGNED );
 
 		// Only send group notifications on new tasks
-		if ( $status == NEWTASK ) {
+		if ( $status == ST_NEWTASK ) {
 			$groups = self::getGroupAssignees( 'Assigned to group', $title_text, $user );
 		} else {
 			$groups = array();
@@ -136,7 +136,7 @@ class SemanticTasksMailer {
 			$current_task_status = $current_task_status[0];
 			if ( $current_task_status == "Closed" && self::$task_status != "Closed" ) {
 				$close_mailto = self::getAssigneeAddresses( $copies );
-				self::mailNotification( $close_mailto, $text, $title, $user, CLOSED );
+				self::mailNotification( $close_mailto, $text, $title, $user, ST_CLOSED );
 			}
 		}
 
@@ -325,26 +325,26 @@ class SemanticTasksMailer {
 			$link = htmlspecialchars( $title->getFullURL() );
 
 			/** @todo This should probably be refactored */
-			if ( $status == NEWTASK ) {
+			if ( $status == ST_NEWTASK ) {
 				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-newtask' )->text() . ' ' .
 					$title_text;
 				$message = 'semantictasks-newtask-msg';
 				$body = wfMessage( $message, $title_text )->text() . " " . $link;
 				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
-			} elseif ( $status == UPDATE ) {
+			} elseif ( $status == ST_UPDATE ) {
 				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskupdated' )->text() . ' ' .
 					$title_text;
 				$message = 'semantictasks-updatedtoyou-msg2';
 				$body = wfMessage( $message, $title_text )->text() . " " . $link;
 				$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' )->text() . "\n" .
 					self::generateDiffBodyTxt( $title );
-			} elseif ( $status == CLOSED ) {
+			} elseif ( $status == ST_CLOSED ) {
 				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskclosed' )->text() . ' ' .
 					$title_text;
 				$message = 'semantictasks-taskclosed-msg';
 				$body = wfMessage( $message, $title_text )->text() . " " . $link;
 				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
-			} elseif ( $status == UNASSIGNED ) {
+			} elseif ( $status == ST_UNASSIGNED ) {
 				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskunassigned' )->text() . ' ' .
 					$title_text;
 				$message = 'semantictasks-unassignedtoyou-msg2';
@@ -415,9 +415,11 @@ class SemanticTasksMailer {
 
 		// Push the properties to display in the printout array.
 		foreach ( $properties_to_display as $property ) {
-			$to_push = new SMWPrintRequest( SMWPrintRequest::PRINT_PROP, $property,
-				DataValueFactory::getInstance()->newPropertyValueByLabel( $property ) );
-      
+			$to_push = new SMWPrintRequest(
+				SMWPrintRequest::PRINT_PROP,
+				$property,
+				DataValueFactory::getInstance()->newPropertyValueByLabel( $property )
+			);
 			array_push( $printouts, $to_push );
 		}
 
