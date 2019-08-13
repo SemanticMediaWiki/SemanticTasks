@@ -5,7 +5,7 @@ namespace ST;
 use User;
 use WikiPage;
 
-// todo: rename TaskDiff something
+/** @todo: rename TaskDiff something similar */
 class Assignees {
 
 	private $taskAssignees;

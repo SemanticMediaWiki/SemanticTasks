@@ -18,7 +18,7 @@ use WikiPage;
  */
 class SemanticTasksMailerTest extends \PHPUnit_Framework_TestCase {
 
-	// todo: expand tests
+	/** @todo: expand tests */
 	public function testMailNotification() {
 		$userMailerMock = $this->createMock(\ST\UserMailer::class);
 
@@ -37,13 +37,13 @@ class SemanticTasksMailerTest extends \PHPUnit_Framework_TestCase {
 		SemanticTasksMailer::mailNotification( $assignees, $text, $title, $user, $status );
 	}
 
-	// todo: fix: needs database..
+	/** @todo: fix: needs database.. */
 	/*public function testGenerateDiffBodyTxt() {
 		$title = new \Title('test');
 		$returnText = SemanticTasksMailer::generateDiffBodyTxt( $title );
 	}*/
 
-	// todo: fix: needs database..
+	/** @todo: fix: needs database.. */
 	/*public function testSaveAssignees() {
 		$title = new Title();
 		$article = new WikiPage( $title );
@@ -51,7 +51,7 @@ class SemanticTasksMailerTest extends \PHPUnit_Framework_TestCase {
 		$assignees->saveAssignees( $article );
 	}*/
 
-	// todo: add more tests or asserts
+	/** @todo: add more tests or asserts */
 	public function testMailAssigneesUpdatedTaskTrueOnMinorEdit() {
 		$assignees = new Assignees();
 		$title = new Title();
