@@ -5,6 +5,9 @@
  *
  * @defgroup SemanticTasks Semantic Tasks
  */
+
+use ST\SemanticTasksMailer;
+
 SemanticTasks::load();
 
 /**
@@ -59,9 +62,18 @@ class SemanticTasks {
 			}
 		}
 
+		$assignees = new \ST\Assignees();
+
 		// Register extension hooks.
-		$wgHooks['PageContentSaveComplete'][] = 'SemanticTasksMailer::mailAssigneesUpdatedTask';
-		$wgHooks['PageContentSave'][] = 'SemanticTasksMailer::findOldValues';
+		global $wgHooks;
+		$wgHooks['PageContentSave'][] = [ $assignees, 'saveAssignees' ];
+		$wgHooks['PageContentSaveComplete'][] = function(WikiPage $article, User $current_user, $text,
+				$summary, $minoredit, $watchthis, $sectionanchor, $flags) use ($assignees) {
+			SemanticTasksMailer::mailAssigneesUpdatedTask(
+				$assignees, $article, $current_user, $text,
+				$summary, $minoredit, $watchthis, $sectionanchor, $flags
+			);
+		};
 	}
 
 }

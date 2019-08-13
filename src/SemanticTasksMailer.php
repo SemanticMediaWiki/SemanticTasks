@@ -1,5 +1,18 @@
 <?php
 
+namespace ST;
+
+use Content;
+use ContentHandler;
+use Exception;
+use Language;
+use MediaWiki\Diff\ComplexityException;
+use MWException;
+use SMWPrintRequest;
+use Title;
+use User;
+use WikiPage;
+
 if ( !defined( 'MEDIAWIKI' ) ) {
 	echo 'Not a valid entry point';
 	exit( 1 );
@@ -9,8 +22,6 @@ if ( !defined( 'SMW_VERSION' ) ) {
 	echo 'This extension requires Semantic MediaWiki to be installed.';
 	exit( 1 );
 }
-
-use SMW\DataValueFactory;
 
 // constants for message type
 define( 'ST_NEWTASK', 0 );
@@ -24,125 +35,85 @@ define( 'ST_UNASSIGNED', 4 );
  */
 class SemanticTasksMailer {
 
-	private static $task_assignees;
-	private static $task_status;
-
-	/**
-	 * Store previous values from the article being saved
-	 *
-	 * @param WikiPage $article
-	 * @param User $user
-	 * @return boolean
-	 */
-	public static function findOldValues( WikiPage &$article, User &$user ) {
-		$title = $article->getTitle();
-		$title_text = $title->getFullText();
-
-		$assignees = self::getAssignees( 'Assigned to', $title_text, $user );
-		$status = self::getStatus( 'Status', $title_text, $user );
-
-		self::printDebug( "Old assignees: ", $assignees );
-		self::printDebug( "Old status: ", $status );
-
-		self::$task_assignees = $assignees;
-
-		if ( count( $status ) > 0 ) {
-			self::$task_status = $status[0];
-		} else {
-			self::$task_status = "";
-		}
-
-		return true;
-	}
+	private static $user_mailer;
 
 	/**
 	 * Mails the assignees when the task is modified
 	 *
+	 * @param Assignees $assignees
 	 * @param WikiPage $article
 	 * @param User $current_user
-	 * @param string $text
+	 * @param Content $text
 	 * @param string $summary Unused
-	 * @param string $minoredit
+	 * @param bool $minoredit
 	 * @param null $watchthis Unused
 	 * @param null $sectionanchor Unused
 	 * @param $flags
 	 * @return boolean
+	 * @throws ComplexityException
+	 * @throws MWException
 	 */
-	public static function mailAssigneesUpdatedTask( WikiPage $article, User $current_user, $text,
-		$summary, $minoredit, $watchthis, $sectionanchor, $flags ) {
-		if ( !$minoredit ) {
-			if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
-				$status = ST_NEWTASK;
-			} else {
-				$status = ST_UPDATE;
-			}
-			self::mailAssignees( $article, $text, $current_user, $status );
+	public static function mailAssigneesUpdatedTask( Assignees $assignees, WikiPage $article, User $current_user, $text,
+			$summary, $minoredit, $watchthis, $sectionanchor, $flags ) {
+		if ( $minoredit ) {
+			return true;
 		}
-		return true;
+		$status = ST_UPDATE;
+		if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
+			$status = ST_NEWTASK;
+		}
+		return self::mailAssignees( $article, $text, $current_user, $status, $assignees );
 	}
 
 	/**
 	 *
-	 * @global boolean $wgSemanticTasksNotifyIfUnassigned
 	 * @param WikiPage $article
 	 * @param Content $content
 	 * @param User $user
 	 * @param integer $status
+	 * @param Assignees $assignees
 	 * @return boolean
+	 * @throws ComplexityException
+	 * @throws MWException
+	 * @global boolean $wgSemanticTasksNotifyIfUnassigned
 	 */
-	static function mailAssignees( WikiPage $article, Content $content, User $user, $status ) {
-		self::printDebug( "Saved assignees:", self::$task_assignees );
-		self::printDebug( "Saved task status: " . self::$task_status );
-
+	static function mailAssignees( WikiPage $article, Content $content, User $user, $status, Assignees $assignees ) {
 		$text = ContentHandler::getContentText( $content );
 		$title = $article->getTitle();
-		$title_text = $title->getPrefixedText();
-		self::printDebug( "Title text: $title_text" );
-
-		$current_assignees = self::getAssignees( 'Assigned to', $title_text, $user );
-
-		self::printDebug( "Previous assignees: ", self::$task_assignees );
-		self::printDebug( "New assignees: ", $current_assignees );
-
-		$assignees_to_task = array_diff( $current_assignees, self::$task_assignees );
 
 		// Notify those unassigned from this task
 		global $wgSemanticTasksNotifyIfUnassigned;
 		if ( $wgSemanticTasksNotifyIfUnassigned ) {
-			$unassignees_from_task = array_diff( self::$task_assignees, $current_assignees );
-			$unassignees_from_task = self::getAssigneeAddresses( $unassignees_from_task );
-			self::mailNotification( $unassignees_from_task, $text, $title, $user, ST_UNASSIGNED );
+			$removedAssignees = $assignees->getRemovedAssignees( $article );
+			$removedAssignees = $assignees->getAssigneeAddresses( $removedAssignees );
+			self::mailNotification( $removedAssignees, $text, $title, $user, ST_UNASSIGNED );
 		}
-
-		self::printDebug( "Assignees to task: ", $assignees_to_task );
 
 		// Send notification of an assigned task to assignees
 		// Treat task as new
-		$assignees_to_task = self::getAssigneeAddresses( $assignees_to_task );
-		self::mailNotification( $assignees_to_task, $text, $title, $user, ST_ASSIGNED );
+		$newAssignees = $assignees->getNewAssignees( $article );
+		$newAssignees = $assignees->getAssigneeAddresses( $newAssignees );
+		self::mailNotification( $newAssignees, $text, $title, $user, ST_ASSIGNED );
+
+		$copies = $assignees->getCurrentCarbonCopy( $article );
+		$currentStatus = $assignees->getCurrentStatus( $article );
+		$oldStatus = $assignees->getSavedStatus();
+		if ( $currentStatus === "Closed" && $oldStatus !== "Closed" ) {
+			$close_mailto = $assignees->getAssigneeAddresses( $copies );
+			self::mailNotification( $close_mailto, $text, $title, $user, ST_CLOSED );
+		}
+
+		$currentAssignees = $assignees->getCurrentAssignees( $article );
 
 		// Only send group notifications on new tasks
-		if ( $status == ST_NEWTASK ) {
-			$groups = self::getGroupAssignees( 'Assigned to group', $title_text, $user );
-		} else {
-			$groups = array();
+		$groups = array();
+		if ( $status === ST_NEWTASK ) {
+			$groups = $assignees->getGroupAssignees( $article );
 		}
 
-		$copies = self::getAssignees( 'Carbon copy', $title_text, $user );
-
-		$current_task_status = self::getStatus( 'Status', $title_text, $user );
-		self::printDebug( "New status: ", $current_task_status );
-		if ( count( $current_task_status ) > 0 ) {
-			$current_task_status = $current_task_status[0];
-			if ( $current_task_status == "Closed" && self::$task_status != "Closed" ) {
-				$close_mailto = self::getAssigneeAddresses( $copies );
-				self::mailNotification( $close_mailto, $text, $title, $user, ST_CLOSED );
-			}
-		}
-
-		$mailto = array_merge( $current_assignees, $copies, $groups );
+		$mailto = array_merge( $currentAssignees, $copies, $groups );
 		$mailto = array_unique( $mailto );
-		$mailto = self::getAssigneeAddresses( $mailto );
+		$mailto = $assignees->getAssigneeAddresses( $mailto );
 
 		// Send notifications to assignees, ccs, and groups
 		self::mailNotification( $mailto, $text, $title, $user, $status );
@@ -151,218 +122,71 @@ class SemanticTasksMailer {
 	}
 
 	/**
-	 * Returns an array of properties based on $query_word
-	 *
-	 * @param string $query_word The property that designate the users to notify.
-	 * @param string $title_text
-	 * @param $user Unused
-	 * @return array
-	 */
-	static function getAssignees( $query_word, $title_text, $user ) {
-		// Array of assignees to return
-		$assignee_arr = array();
-
-		// get the result of the query "[[$title]][[$query_word::+]]"
-		$properties_to_display = array( $query_word );
-		$results = self::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display,
-				false );
-
-		// In theory, there is only one row
-		while ( $row = $results->getNext() ) {
-			$task_assignees = $row[0];
-		}
-
-		// If not any row, do nothing
-		if ( !empty( $task_assignees ) ) {
-			// since title is not displayed, 'Assigned to' value will be first value
-			$assignee_name = $task_assignees->getNextText( SMW_OUTPUT_WIKI );
-			/** @todo Create User object */
-			$assignee_name = explode( ":", $assignee_name );
-
-			if ( !isset( $assignee_name[1] ) ) {
-				return array();
-			}
-
-			$assignee_name = $assignee_name[1];
-
-			array_push( $assignee_arr, $assignee_name );
-		}
-
-		return $assignee_arr;
-	}
-
-	/**
-	 * Returns an array of properties based on $query_word
-	 *
-	 * @param string $query_word The property that designate the users to notify.
-	 * @param string $title_text
-	 * @param $user Unused
-	 * @return array
-	 */
-	static function getStatus( $query_word, $title_text, $user ) {
-		// Array of assignees to return
-		$assignee_arr = array();
-
-		// get the result of the query "[[$title]][[$query_word::+]]"
-		$properties_to_display = array();
-		$properties_to_display[0] = $query_word;
-		$results = self::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display,
-				false );
-
-		// In theory, there is only one row
-		while ( $row = $results->getNext() ) {
-			$task_assignees = $row[0];
-		}
-
-		// If not any row, do nothing
-		if ( !empty( $task_assignees ) ) {
-			while ( $task_assignee = $task_assignees->getNextObject() ) {
-				$assignee_name = $task_assignee->getWikiValue();
-				$assignee_name = $assignee_name;
-
-				array_push( $assignee_arr, $assignee_name );
-			}
-		}
-
-		return $assignee_arr;
-	}
-
-	/**
-	 * Returns an array of assignees based on $query_word
-	 *
-	 * @param string $query_word The property that designate the users to notify.
-	 * @param string $title_text
-	 * @param $user Unused
-	 * @return array
-	 */
-	static function getGroupAssignees( $query_word, $title_text, $user ) {
-		// Array of assignees to return
-		$assignee_arr = array();
-
-		// get the result of the query "[[$title]][[$query_word::+]]"
-		$properties_to_display = array();
-		$properties_to_display[0] = $query_word;
-		$results = self::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display,
-				false );
-
-		// In theory, there is only one row
-		while ( $row = $results->getNext() ) {
-			$group_assignees = $row[0];
-		}
-
-		// If not any row, do nothing
-		if ( !empty( $group_assignees ) ) {
-			while ( $group_assignee = $group_assignees->getNextObject() ) {
-				$group_assignee = $group_assignee->getTitle();
-				$group_name = $group_assignee->getText();
-				$query_word = "Has assignee";
-				$properties_to_display = array();
-				$properties_to_display[0] = $query_word;
-				self::printDebug( $group_name );
-				$results = self::getQueryResults( "[[$group_name]][[$query_word::+]]", $properties_to_display,
-						false );
-
-				// In theory, there is only one row
-				while ( $row = $results->getNext() ) {
-					$task_assignees = $row[0];
-				}
-
-				if ( !empty( $task_assignees ) ) {
-					while ( $task_assignee = $task_assignees->getNextObject() ) {
-						$assignee_name = $task_assignee->getTitle();
-						$assignee_name = $assignee_name->getText();
-						/** @todo Create User object */
-						$assignee_name = explode( ":", $assignee_name );
-						$assignee_name = $assignee_name[0];
-
-						self::printDebug( "Groupadd: " . $assignee_name );
-						array_push( $assignee_arr, $assignee_name );
-					}
-				}
-			}
-		}
-
-		return $assignee_arr;
-	}
-
-	/**
-	 * Get the email addresses of all the assignees
-	 *
-	 * @param array $assignees
-	 * @return array
-	 */
-	static function getAssigneeAddresses( array $assignees ) {
-		$assignee_arr = array();
-		foreach ( $assignees as $assignee_name ) {
-			$assignee = User::newFromName( $assignee_name );
-			// if assignee is the current user, do nothing
-			# if ( $assignee->getID() != $user->getID() ) {
-			$assignee_mail = new MailAddress( $assignee->getEmail(), $assignee_name );
-			array_push( $assignee_arr, $assignee_mail );
-			self::printDebug( $assignee_name );
-			# }
-		}
-
-		return $assignee_arr;
-	}
-
-	/**
 	 * Sends mail notifications
 	 *
-	 * @global string $wgSitename
 	 * @param array $assignees
 	 * @param string $text
 	 * @param Title $title
 	 * @param User $user
 	 * @param integer $status
+	 * @throws MWException
+	 * @throws ComplexityException
+	 * @global string $wgSitename
 	 */
 	static function mailNotification( array $assignees, $text, Title $title, User $user, $status ) {
 		global $wgSitename;
 
-		if ( !empty( $assignees ) ) {
-			$title_text = $title->getFullText();
-			$from = new MailAddress( $user->getEmail(), $user->getName() );
-			$link = htmlspecialchars( $title->getFullURL() );
-
-			/** @todo This should probably be refactored */
-			if ( $status == ST_NEWTASK ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-newtask' )->text() . ' ' .
-					$title_text;
-				$message = 'semantictasks-newtask-msg';
-				$body = wfMessage( $message, $title_text )->text() . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
-			} elseif ( $status == ST_UPDATE ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskupdated' )->text() . ' ' .
-					$title_text;
-				$message = 'semantictasks-updatedtoyou-msg2';
-				$body = wfMessage( $message, $title_text )->text() . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' )->text() . "\n" .
-					self::generateDiffBodyTxt( $title );
-			} elseif ( $status == ST_CLOSED ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskclosed' )->text() . ' ' .
-					$title_text;
-				$message = 'semantictasks-taskclosed-msg';
-				$body = wfMessage( $message, $title_text )->text() . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
-			} elseif ( $status == ST_UNASSIGNED ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskunassigned' )->text() . ' ' .
-					$title_text;
-				$message = 'semantictasks-unassignedtoyou-msg2';
-				$body = wfMessage( $message, $title_text )->text() . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
-			} else {
-				// status == ASSIGNED
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskassigned' )->text() . ' ' .
-					$title_text;
-				$message = 'semantictasks-assignedtoyou-msg2';
-				$body = wfMessage( $message, $title_text )->text() . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
-			}
-
-			$user_mailer = new UserMailer();
-
-			$user_mailer->send( $assignees, $from, $subject, $body );
+		if ( empty( $assignees ) ) {
+			return;
 		}
+		$title_text = $title->getFullText();
+		$from = new \MailAddress( $user->getEmail(), $user->getName() );
+		$link = htmlspecialchars( $title->getFullURL() );
+
+		/** @todo This should probably be refactored */
+		if ( $status == ST_NEWTASK ) {
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-newtask' )->text() . ' ' .
+				$title_text;
+			$message = 'semantictasks-newtask-msg';
+			$body = wfMessage( $message, $title_text )->text() . " " . $link;
+			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+		} elseif ( $status == ST_UPDATE ) {
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskupdated' )->text() . ' ' .
+				$title_text;
+			$message = 'semantictasks-updatedtoyou-msg2';
+			$body = wfMessage( $message, $title_text )->text() . " " . $link;
+			$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' )->text() . "\n" .
+				self::generateDiffBodyTxt( $title );
+		} elseif ( $status == ST_CLOSED ) {
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskclosed' )->text() . ' ' .
+				$title_text;
+			$message = 'semantictasks-taskclosed-msg';
+			$body = wfMessage( $message, $title_text )->text() . " " . $link;
+			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+		} elseif ( $status == ST_UNASSIGNED ) {
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskunassigned' )->text() . ' ' .
+				$title_text;
+			$message = 'semantictasks-unassignedtoyou-msg2';
+			$body = wfMessage( $message, $title_text )->text() . " " . $link;
+			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+		} else {
+			// status == ASSIGNED
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskassigned' )->text() . ' ' .
+				$title_text;
+			$message = 'semantictasks-assignedtoyou-msg2';
+			$body = wfMessage( $message, $title_text )->text() . " " . $link;
+			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+		}
+
+		if (!self::$user_mailer) {
+			self::$user_mailer = new \ST\UserMailer(new \UserMailer());
+		}
+
+		self::$user_mailer->send( $assignees, $from, $subject, $body );
+	}
+
+	static function setUserMailer(\ST\UserMailer $user_mailer) {
+		self::$user_mailer = $user_mailer;
 	}
 
 	/**
@@ -371,72 +195,37 @@ class SemanticTasksMailer {
 	 * Code is similar to DifferenceEngine::generateTextDiffBody
 	 * @param Title $title
 	 * @return string
+	 * @throws MWException
+	 * @throws ComplexityException
 	 */
-	static function generateDiffBodyTxt( $title ) {
-		$revision = Revision::newFromTitle( $title, 0 );
+	static function generateDiffBodyTxt( Title $title ) {
+		$revision = \Revision::newFromTitle( $title, 0 );
 		/** @todo The first parameter should be a Context. */
-		$diff = new DifferenceEngine( $title, $revision->getId(), 'prev' );
+		$diff = new \DifferenceEngine( $title, $revision->getId(), 'prev' );
 		// The DifferenceEngine::getDiffBody() method generates html,
 		// so let's generate the txt diff manually:
 		global $wgContLang;
 		$diff->loadText();
-		$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->mOldContent ) );
-		$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->mNewContent ) );
+		$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getOldRevision()->getContent( 'main' ) ) );
+		$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getNewRevision()->getContent( 'main' ) ) );
 
 		$ota = explode( "\n", $wgContLang->segmentForDiff( $otext ) );
 		$nta = explode( "\n", $wgContLang->segmentForDiff( $ntext ) );
 		// We use here the php diff engine included in MediaWiki
-		$diffs = new Diff( $ota, $nta );
+		$diffs = new \Diff( $ota, $nta );
 		// And we ask for a txt formatted diff
-		$formatter = new UnifiedDiffFormatter();
+		$formatter = new \UnifiedDiffFormatter();
 		$diff_text = $wgContLang->unsegmentForDiff( $formatter->format( $diffs ) );
 		return $diff_text;
 	}
 
 	/**
-	 * This function returns the results of a certain query.
-	 * Thank you Yaron Koren for advice concerning this code.
-	 *
-	 * @param string $query_string The query
-	 * @param array(String) $properties_to_display Array of property names to display
-	 * @param boolean $display_title Add the page title in the result
-	 * @return SMWQueryResult
-	 */
-	static function getQueryResults( $query_string, array $properties_to_display, $display_title ) {
-		// We use the Semantic MediaWiki Processor
-		$params = array();
-		$inline = true;
-		$printouts = array();
-
-		// add the page name to the printouts
-		if ( $display_title ) {
-			SMWQueryProcessor::addThisPrintout( $printouts, $params );
-		}
-
-		// Push the properties to display in the printout array.
-		foreach ( $properties_to_display as $property ) {
-			$to_push = new SMWPrintRequest(
-				SMWPrintRequest::PRINT_PROP,
-				$property,
-				DataValueFactory::getInstance()->newPropertyValueByLabel( $property )
-			);
-			array_push( $printouts, $to_push );
-		}
-
-		$params = SMWQueryProcessor::getProcessedParams( $params, $printouts );
-
-		$query = SMWQueryProcessor::createQuery( $query_string, $params, $inline, null, $printouts );
-		$results = smwfGetStore()->getQueryResult( $query );
-
-		return $results;
-	}
-
-	/**
 	 * Run by the maintenance script to remind the assignees
 	 *
+	 * @return boolean
+	 * @throws Exception
 	 * @global string $wgSitename
 	 * @global Language $wgLang
-	 * @return boolean
 	 */
 	static function remindAssignees() {
 		global $wgSitename;
@@ -452,7 +241,7 @@ class SemanticTasksMailer {
 		$query_string = "[[Reminder at::+]][[Status::New||In Progress]][[Target date::≥ $today]]";
 		$properties_to_display = array( 'Reminder at', 'Assigned to', 'Target date' );
 
-		$results = self::getQueryResults( $query_string, $properties_to_display, true );
+		$results = Query::getQueryResults( $query_string, $properties_to_display, true );
 		if ( empty( $results ) ) {
 			return false;
 		}
@@ -475,7 +264,7 @@ class SemanticTasksMailer {
 				$date = new DateTime( 'today midnight' );
 				$date->modify( "+$remind_me_in day" );
 
-				if ( $tg_date == $date ) {
+				if ( $tg_date === $date ) {
 					global $wgLang;
 					while ( $task_assignee = $row[2]->getNextObject() ) {
 						$assignee_username = $task_assignee->getTitle()->getText();

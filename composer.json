@@ -10,7 +10,7 @@
 	"homepage": "https://www.mediawiki.org/wiki/Extension:Semantic_Tasks",
 	"license": "GPL-2.0-or-later",
 	"require": {
-		"mediawiki/semantic-media-wiki": ">=1.8",
+		"mediawiki/semantic-media-wiki": ">=1.8"
 	},
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "1.0.0",
@@ -18,11 +18,11 @@
 		"mediawiki/minus-x": "0.3.1"
 	},
 	"autoload": {
+		"psr-4": {
+			"ST\\": "src/"
+		},
 		"files": [
 			"SemanticTasks.php"
-		],
-		"classmap": [
-			"src/SemanticTasksMailer.php"
 		]
 	},
 	"scripts": {
@@ -32,6 +32,7 @@
 		],
 		"fix": [
 			"minus-x fix ."
-		]
+		],
+		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist"
 	}
 }
