@@ -136,52 +136,53 @@ class SemanticTasksMailer {
 	static function mailNotification( array $assignees, $text, Title $title, User $user, $status ) {
 		global $wgSitename;
 
-		if ( !empty( $assignees ) ) {
-			$title_text = $title->getFullText();
-			$from = new \MailAddress( $user->getEmail(), $user->getName() );
-			$link = htmlspecialchars( $title->getFullURL() );
-
-			/** @todo This should probably be refactored */
-			if ( $status == ST_NEWTASK ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-newtask' )->text() . ' ' .
-					$title_text;
-				$message = 'semantictasks-newtask-msg';
-				$body = wfMessage( $message, $title_text )->text() . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
-			} elseif ( $status == ST_UPDATE ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskupdated' )->text() . ' ' .
-					$title_text;
-				$message = 'semantictasks-updatedtoyou-msg2';
-				$body = wfMessage( $message, $title_text )->text() . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' )->text() . "\n" .
-					self::generateDiffBodyTxt( $title );
-			} elseif ( $status == ST_CLOSED ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskclosed' )->text() . ' ' .
-					$title_text;
-				$message = 'semantictasks-taskclosed-msg';
-				$body = wfMessage( $message, $title_text )->text() . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
-			} elseif ( $status == ST_UNASSIGNED ) {
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskunassigned' )->text() . ' ' .
-					$title_text;
-				$message = 'semantictasks-unassignedtoyou-msg2';
-				$body = wfMessage( $message, $title_text )->text() . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
-			} else {
-				// status == ASSIGNED
-				$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskassigned' )->text() . ' ' .
-					$title_text;
-				$message = 'semantictasks-assignedtoyou-msg2';
-				$body = wfMessage( $message, $title_text )->text() . " " . $link;
-				$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
-			}
-
-			if (!self::$user_mailer) {
-				self::$user_mailer = new \ST\UserMailer(new \UserMailer());
-			}
-
-			self::$user_mailer->send( $assignees, $from, $subject, $body );
+		if ( empty( $assignees ) ) {
+			return;
 		}
+		$title_text = $title->getFullText();
+		$from = new \MailAddress( $user->getEmail(), $user->getName() );
+		$link = htmlspecialchars( $title->getFullURL() );
+
+		/** @todo This should probably be refactored */
+		if ( $status == ST_NEWTASK ) {
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-newtask' )->text() . ' ' .
+				$title_text;
+			$message = 'semantictasks-newtask-msg';
+			$body = wfMessage( $message, $title_text )->text() . " " . $link;
+			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+		} elseif ( $status == ST_UPDATE ) {
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskupdated' )->text() . ' ' .
+				$title_text;
+			$message = 'semantictasks-updatedtoyou-msg2';
+			$body = wfMessage( $message, $title_text )->text() . " " . $link;
+			$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' )->text() . "\n" .
+				self::generateDiffBodyTxt( $title );
+		} elseif ( $status == ST_CLOSED ) {
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskclosed' )->text() . ' ' .
+				$title_text;
+			$message = 'semantictasks-taskclosed-msg';
+			$body = wfMessage( $message, $title_text )->text() . " " . $link;
+			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+		} elseif ( $status == ST_UNASSIGNED ) {
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskunassigned' )->text() . ' ' .
+				$title_text;
+			$message = 'semantictasks-unassignedtoyou-msg2';
+			$body = wfMessage( $message, $title_text )->text() . " " . $link;
+			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+		} else {
+			// status == ASSIGNED
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskassigned' )->text() . ' ' .
+				$title_text;
+			$message = 'semantictasks-assignedtoyou-msg2';
+			$body = wfMessage( $message, $title_text )->text() . " " . $link;
+			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+		}
+
+		if (!self::$user_mailer) {
+			self::$user_mailer = new \ST\UserMailer(new \UserMailer());
+		}
+
+		self::$user_mailer->send( $assignees, $from, $subject, $body );
 	}
 
 	static function setUserMailer(\ST\UserMailer $user_mailer) {
