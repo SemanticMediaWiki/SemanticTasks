@@ -30,5 +30,15 @@
 		"SemanticTasksMailer": "src/SemanticTasksMailer.php"
 	},
 	"load_composer_autoloader": true,
-	"manifest_version": 1
+	"manifest_version": 1,
+	"config": {
+		"_prefix": "stg",
+		"PropertyAssignedTo": "Assigned to",
+		"PropertyCarbonCopy": "Carbon copy",
+		"PropertyTargetDate": "Target date",
+		"PropertyReminderAt": "Reminder at",
+		"PropertyStatus": "Status",
+		"PropertyAssignedToGroup": "Assigned to group",
+		"PropertyHasAssignee": "Has assignee"
+	}
 }
