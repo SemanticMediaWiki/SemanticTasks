@@ -89,11 +89,11 @@ class Assignees {
 		$assignee_arr = array();
 
 		// get the result of the query "[[$title]][[$query_word::+]]"
-		$properties_to_display = array();
-		$properties_to_display[0] = $query_word;
+		$properties_to_display = array( $query_word );
 		$results = Query::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display,
 			false );
 
+		$group_assignees = null;
 		// In theory, there is only one row
 		while ( $row = $results->getNext() ) {
 			$group_assignees = $row[0];
@@ -105,11 +105,11 @@ class Assignees {
 				$group_assignee = $group_assignee->getTitle();
 				$group_name = $group_assignee->getText();
 				$query_word = "Has assignee";
-				$properties_to_display = array();
-				$properties_to_display[0] = $query_word;
+				$properties_to_display = array( $query_word );
 				$results = Query::getQueryResults( "[[$group_name]][[$query_word::+]]", $properties_to_display,
 					false );
 
+				$task_assignees = null;
 				// In theory, there is only one row
 				while ( $row = $results->getNext() ) {
 					$task_assignees = $row[0];
@@ -168,6 +168,7 @@ class Assignees {
 		$results = Query::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display,
 			false );
 
+		$task_assignees = null;
 		// In theory, there is only one row
 		while ( $row = $results->getNext() ) {
 			$task_assignees = $row[0];
