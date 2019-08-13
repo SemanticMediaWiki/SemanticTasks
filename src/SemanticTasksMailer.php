@@ -229,6 +229,10 @@ class SemanticTasksMailer {
 	 */
 	static function remindAssignees() {
 		global $wgSitename;
+		global $stgPropertyReminderAt;
+		global $stgPropertyAssignedTo;
+		global $stgPropertyTargetDate;
+		global $stgPropertyStatus;
 
 		# Make this equal to midnight. Rational is that if users set today as the Target date with
 		# reminders set to "0" so that the reminder happens on the deadline, the reminders will go
@@ -238,8 +242,8 @@ class SemanticTasksMailer {
 
 		# Get tasks where a reminder is called for, whose status is either new or in progress, and
 		# whose target date is in the future.
-		$query_string = "[[Reminder at::+]][[Status::New||In Progress]][[Target date::≥ $today]]";
-		$properties_to_display = array( 'Reminder at', 'Assigned to', 'Target date' );
+		$query_string = "[[$stgPropertyReminderAt::+]][[$stgPropertyStatus::New||In Progress]][[$stgPropertyTargetDate::≥ $today]]";
+		$properties_to_display = array( $stgPropertyReminderAt, $stgPropertyAssignedTo, $stgPropertyTargetDate );
 
 		$results = Query::getQueryResults( $query_string, $properties_to_display, true );
 		if ( empty( $results ) ) {

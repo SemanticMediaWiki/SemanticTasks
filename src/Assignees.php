@@ -36,13 +36,15 @@ class Assignees {
 	 * @return array
 	 */
 	public function getCurrentAssignees( WikiPage &$article ) {
+		global $stgPropertyAssignedTo;
 		$titleText = $article->getTitle()->getFullText();
-		return $this->getAssignees( 'Assigned to', $titleText );
+		return $this->getAssignees( $stgPropertyAssignedTo, $titleText );
 	}
 
 	public function getCurrentCarbonCopy( WikiPage &$article ) {
+		global $stgPropertyCarbonCopy;
 		$titleText = $article->getTitle()->getFullText();
-		return $this::getAssignees( 'Carbon copy', $titleText );
+		return $this::getAssignees( $stgPropertyCarbonCopy, $titleText );
 	}
 
 	/**
@@ -50,8 +52,9 @@ class Assignees {
 	 * @return string
 	 */
 	public function getCurrentStatus( WikiPage &$article ) {
+		global $stgPropertyStatus;
 		$titleText = $article->getTitle()->getFullText();
-		$status = $this->getStatus( 'Status', $titleText );
+		$status = $this->getStatus( $stgPropertyStatus, $titleText );
 		$statusString = '';
 		if ( count( $status ) > 0 ) {
 			$statusString = $status[0];
@@ -82,7 +85,10 @@ class Assignees {
 	 * @return array
 	 */
 	public function getGroupAssignees( WikiPage &$article ) {
-		$query_word = 'Assigned to group';
+		global $stgPropertyAssignedToGroup;
+		global $stgPropertyHasAssignee;
+
+		$query_word = $stgPropertyAssignedToGroup;
 		$title_text = $article->getTitle()->getFullText();
 
 		// Array of assignees to return
@@ -104,7 +110,7 @@ class Assignees {
 			while ( $group_assignee = $group_assignees->getNextObject() ) {
 				$group_assignee = $group_assignee->getTitle();
 				$group_name = $group_assignee->getText();
-				$query_word = "Has assignee";
+				$query_word = $stgPropertyHasAssignee;
 				$properties_to_display = array( $query_word );
 				$results = Query::getQueryResults( "[[$group_name]][[$query_word::+]]", $properties_to_display,
 					false );

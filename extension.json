@@ -36,6 +36,9 @@
 		"PropertyAssignedTo": "Assigned to",
 		"PropertyCarbonCopy": "Carbon copy",
 		"PropertyTargetDate": "Target date",
-		"PropertyReminderAt": "Reminder at"		
+		"PropertyReminderAt": "Reminder at",
+		"PropertyStatus": "Status",
+		"PropertyAssignedToGroup": "Assigned to group",
+		"PropertyHasAssignee": "Has assignee"
 	}
 }
