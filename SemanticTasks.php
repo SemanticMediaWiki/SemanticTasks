@@ -69,12 +69,11 @@ class SemanticTasks {
 		$wgHooks['PageContentSave'][] = [ $assignees, 'saveAssignees' ];
 		$wgHooks['PageContentSaveComplete'][] = function(WikiPage $article, User $current_user, $text,
 				$summary, $minoredit, $watchthis, $sectionanchor, $flags) use ($assignees) {
-			error_log('hA?');
 			SemanticTasksMailer::mailAssigneesUpdatedTask(
 				$assignees, $article, $current_user, $text,
 				$summary, $minoredit, $watchthis, $sectionanchor, $flags
 			);
-		}; //[ 'SemanticTasksMailer::mailAssigneesUpdatedTask', $assignees ];
+		};
 	}
 
 }
