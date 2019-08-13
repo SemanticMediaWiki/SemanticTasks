@@ -2,16 +2,16 @@
 # (C) 2008 Steren Giannini
 # Licensed under the GNU GPLv2 (or later).
 
-$IP = getenv( 'MW_INSTALL_PATH' ) !== false ? getenv( 'MW_INSTALL_PATH' ) : __DIR__ . '/../..';
+$IP = getenv( 'MW_INSTALL_PATH' ) !== false ? getenv( 'MW_INSTALL_PATH' ) : __DIR__ . '/../../..';
 require_once $IP . "/maintenance/Maintenance.php";
 
 class CheckForReminders extends Maintenance {
 
 	public function execute() {
-		require_once __DIR__ . '/SemanticTasks.classes.php';
-		// Let's send reminders
-		SemanticTasksMailer::remindAssignees();
-		print "ST check for reminders\n";
+		if ( !$this->isQuiet() ) {
+			print "ST check for reminders\n";
+		}
+		ST\SemanticTasksMailer::remindAssignees();
 	}
 }
 

@@ -5,10 +5,11 @@
 			"Steve.rusyn",
 			"SteveR",
 			"Тест",
-			"Ата"
+			"Ата",
+			"Movses"
 		]
 	},
-	"semantictasks-desc": "Сповіщення електронною поштою про визначені чи оновлені завдання.",
+	"semantictasks-desc": "Надсилає сповіщення електронною поштою про призначені чи оновлені завдання.",
 	"semantictasks-newtask": "Нова завдання:",
 	"semantictasks-taskassigned": "Призначене завдання:",
 	"semantictasks-taskunassigned": "Непризначене завдання:",
@@ -16,7 +17,7 @@
 	"semantictasks-taskclosed": "Завдання закрито:",
 	"semantictasks-newtask-msg": "Завдання \"$1\" тільки що було створене.",
 	"semantictasks-taskclosed-msg": "Завдання \"$1\" тільки що було закрите.",
-	"semantictasks-assignedtoyou-msg2": "Для Вас тільки що було визначене завдання \"$1\".",
+	"semantictasks-assignedtoyou-msg2": "Для Вас тільки що було призначене завдання \"$1\".",
 	"semantictasks-unassignedtoyou-msg2": "Ви щойно були відписані від завдання «$1».",
 	"semantictasks-updatedtoyou-msg2": "Завдання \"$1\" тільки що було оновлене.",
 	"semantictasks-reminder": "Нагадування:",

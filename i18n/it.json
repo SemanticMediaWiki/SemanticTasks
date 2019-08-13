@@ -4,7 +4,7 @@
 			"Beta16"
 		]
 	},
-	"semantictasks-desc": "Notifiche tramite posta elettronica per le attività assegnate o aggiornate",
+	"semantictasks-desc": "Invia email di notifica per le attività assegnate o aggiornate",
 	"semantictasks-newtask": "Nuova attività:",
 	"semantictasks-taskassigned": "Attività assegnata:",
 	"semantictasks-taskupdated": "Attività aggiornata:",

@@ -4,10 +4,12 @@
 			"Hamilton Abreu",
 			"Luckas",
 			"Waldir",
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Waldyrious"
 		]
 	},
-	"semantictasks-desc": "Notificações por correio eletrónico das tarefas atribuídas ou atualizadas",
+	"semantictasks-desc": "Envia notificações por correio eletrónico das tarefas atribuídas ou atualizadas",
+	"semantictasks-name": "Tarefas Semânticas",
 	"semantictasks-newtask": "Nova tarefa:",
 	"semantictasks-taskassigned": "Tarefa atribuída:",
 	"semantictasks-taskunassigned": "Tarefa não atribuída:",
