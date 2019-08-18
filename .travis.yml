@@ -14,7 +14,7 @@ matrix:
       php: 7.0
     - env: DB=mysql; MW=REL1_32; SMW=~3.0@dev
       php: 7.2
-    - env: DB=postgres; MW=REL1_33; SMW=~3.0@dev
+    - env: DB=postgres; MW=REL1_33; SMW=~3.0@dev; TYPE=coverage
       php: 7.2
   allow_failures:
     # Broken due to https://phabricator.wikimedia.org/T188840
@@ -26,6 +26,12 @@ install:
 
 script:
   - bash ./tests/travis/run-tests.sh
+
+after_success:
+  - if [[ "$TYPE" != "coverage" ]]; then exit 0; fi
+  - ../phase3/tests/phpunit/phpunit.php -c ../phase3/extensions/SemanticTasks/phpunit.xml.dist --coverage-clover coverage.clover
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
 cache:
   directories:
