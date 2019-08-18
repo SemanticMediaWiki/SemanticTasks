@@ -1,4 +1,9 @@
 # Semantic Tasks
+[![Build Status](https://travis-ci.org/SemanticMediaWiki/SemanticTasks.svg?branch=master)](https://travis-ci.org/SemanticMediaWiki/SemanticTasks)
+[![Code Coverage](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticTasks/badges/coverage.png?s=c5563fd91abeb49b37a6ef999198530b6796dd3c)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticTasks/)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticTasks/badges/quality-score.png?s=9cc8ce493f63f5c2c22db71b2061b4b8c21f43ba)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticTasks/)
+[![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-tasks/version.png)](https://packagist.org/packages/mediawiki/semantic-tasks)
+[![Packagist download count](https://poser.pugx.org/mediawiki/semantic-tasks/d/total.png)](https://packagist.org/packages/mediawiki/semantic-tasks)
 
 Semantic Tasks is an extension to MediaWiki that works in conjunction with Semantic MediaWiki 
 to provide task notifications and reminders by email. 
