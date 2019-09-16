@@ -47,9 +47,9 @@ Currenetly it is sponsored by KDZ - Centre for Public Administration Research.
 
 ## Manual
 
-* Notification emails are sent when a page is saved. The system looks for the [[Assigned to::*]] and the [[Carbon copy::*]] property.
+* Notification emails are sent when a page is saved. The system looks for the `[[Assigned to::*]]` and the `[[Carbon copy::*]]` property.
 
-* Reminder emails. The system looks for the [[Reminder at::*]] and the [[Target date::*]] property. It then send reminders to the assignees.
+* Reminder emails. The system looks for the `[[Reminder at::*]]` and the `[[Target date::*]]` property. It then send reminders to the assignees.
 You must run a cron job once a day to execute the reminder script:
 * edit your crontab file: 
 ```
