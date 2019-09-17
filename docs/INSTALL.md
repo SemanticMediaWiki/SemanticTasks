@@ -7,9 +7,9 @@ the extension's page on mediawiki.org:
 
 ## Requirements
 
- - PHP 5.3 or later
- - MediaWiki 1.23  or later
- - Semantic MediaWiki 1.8 or later
+ - PHP 5.6 or later
+ - MediaWiki 1.31  or later
+ - Semantic MediaWiki 3.0 or later
 
 ## Download
 
