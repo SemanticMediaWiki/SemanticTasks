@@ -22,7 +22,7 @@ notification (see below).
 
 ## Installation
 
-The recommended way to install Semantic Cite is using [Composer](http://getcomposer.org) with
+The recommended way to install Semantic Tasks is using [Composer](http://getcomposer.org) with
 [MediaWiki's built-in support for Composer](https://www.mediawiki.org/wiki/Composer).
 
 Note that the required extension Semantic MediaWiki must be installed first according to the installation
