@@ -62,28 +62,35 @@ Add the following line to the end of your "LocalSettings.php" file:
 
     wfLoadExtension( 'SemanticTasks' );
 
+### Step 4
+You must run a cron job e.g. once a day to trigger the reminders to be sent by e-mail. To do so add the
+following line to your crontab to execute the respective script every day at 12:
+
+```
+0 12 * * * php /path/to/SemanticTasks/maintenance/checkForReminders.php
+```
+
+### Step 5
+
+It is possible to adapt the names of the properties for your wiki via configuration in
+the "LocalSettings.php" file. This is an optional step if you would like to use different
+property names. This is the list of default settings:
+
+* `$stgPropertyAssignedTo = 'Assigned to';`
+* `$stgPropertyCarbonCopy = 'Carbon copy';`
+* `$stgPropertyTargetDate = 'Target date';`
+* `$stgPropertyReminderAt = 'Reminder at';`
+* `$stgPropertyStatus = 'Status';`
+* `$stgPropertyAssignedToGroup = 'Assigned to group';`
+* `$stgPropertyHasAssignee = 'Has assignee';`
+
 ## Usage
 
-### On wiki
-* Notification emails are sent when a page is saved. The system looks for the `[[Assigned to::*]]` and the `[[Carbon copy::*]]` property.
+Notification emails:  
+They are sent as soon a page is saved. The system looks for the `[[Assigned to::*]]` and the `[[Carbon copy::*]]` property.
 
-* Reminder emails. The system looks for the `[[Reminder at::*]]` and the `[[Target date::*]]` property. It then send reminders to the assignees.
-
-### Cron
-You must run a cron job once a day to execute the reminder script:
-* edit your crontab file: 
-```
-$ crontab -e
-```
-* add the following line to execute the script every day at 12: 
-```
-0 12 * * * php extensions/SemanticTasks/maintenance/checkForReminders.php
-```
-### Parameters
-```
-$wgSemanticTasksNotifyIfUnassigned
-```
-Set to "true" to notify users when they are unassigned from a task (default = "false")
+Reminder emails:  
+Once the script execution is triggered via cron the software looks for the `[[Reminder at::*]]` and the `[[Target date::*]]` property. It then sends reminders to the assignees.
 
 ## Contribution and support
 
@@ -103,4 +110,5 @@ Currenetly it is sponsored by KDZ - Centre for Public Administration Research.
 
 [GNU General Public License, version 2 or later][gpl-licence], see [COPYING](COPYING) file.
 
+[smw]: https://github.com/SemanticMediaWiki/SemanticMediaWiki
 [gpl-licence]: https://www.gnu.org/copyleft/gpl.html
