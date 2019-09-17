@@ -5,8 +5,8 @@
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-tasks/version.png)](https://packagist.org/packages/mediawiki/semantic-tasks)
 [![Packagist download count](https://poser.pugx.org/mediawiki/semantic-tasks/d/total.png)](https://packagist.org/packages/mediawiki/semantic-tasks)
 
-Semantic Tasks is an extension to MediaWiki that works in conjunction with Semantic MediaWiki 
-to provide task notifications and reminders by email. 
+Semantic Tasks (a.k.a. ST) is a [Semantic Mediawiki][smw] extension that provides task notification
+and reminder emails with the help of semantic annotations.
 
 In contrast to the built in notification systems in MediaWiki (watching pages), this extension 
 can be used to trigger notifications withour user interaction with the MediaWiki system, e. g. 
@@ -22,19 +22,84 @@ notification (see below).
 
 ## Installation
 
-See the detailed [installation guide](docs/INSTALL.md).
-    
+The recommended way to install Semantic Cite is using [Composer](http://getcomposer.org) with
+[MediaWiki's built-in support for Composer](https://www.mediawiki.org/wiki/Composer).
+
+Note that the required extension Semantic MediaWiki must be installed first according to the installation
+instructions provided.
+
+### Step 1
+
+Change to the base directory of your MediaWiki installation. If you do not have a "composer.local.json" file yet,
+create one and add the following content to it:
+
+```
+{
+	"require": {
+		"mediawiki/semantic-tasks": "~2.0"
+	}
+}
+```
+
+If you already have a "composer.local.json" file add the following line to the end of the "require"
+section in your file:
+
+    "mediawiki/semantic-tasks": "~2.0"
+
+Remember to add a comma to the end of the preceding line in this section.
+
+### Step 2
+
+Run the following command in your shell:
+
+    php composer.phar update --no-dev
+
+Note if you have Git installed on your system add the `--prefer-source` flag to the above command.
+
+### Step 3
+
+Add the following line to the end of your "LocalSettings.php" file:
+
+    wfLoadExtension( 'SemanticTasks' );
+
+### Step 4
+You must run a cron job e.g. once a day to trigger the reminders to be sent by e-mail. To do so add the
+following line to your crontab to execute the respective script every day at 12:
+
+```
+0 12 * * * php /path/to/SemanticTasks/maintenance/checkForReminders.php
+```
+
+### Step 5
+
+It is possible to adapt the names of the properties for your wiki via configuration in
+the "LocalSettings.php" file. This is an optional step if you would like to use different
+property names. This is the list of default settings:
+
+* `$stgPropertyAssignedTo = 'Assigned to';`
+* `$stgPropertyCarbonCopy = 'Carbon copy';`
+* `$stgPropertyTargetDate = 'Target date';`
+* `$stgPropertyReminderAt = 'Reminder at';`
+* `$stgPropertyStatus = 'Status';`
+* `$stgPropertyAssignedToGroup = 'Assigned to group';`
+* `$stgPropertyHasAssignee = 'Has assignee';`
+
+## Usage
+
+Notification emails:  
+They are sent as soon a page is saved. The system looks for the `[[Assigned to::*]]` and the `[[Carbon copy::*]]` property.
+
+Reminder emails:  
+Once the script execution is triggered via cron the software looks for the `[[Reminder at::*]]` and the `[[Target date::*]]` property. It then sends reminders to the assignees.
+
 ## Contribution and support
 
-If you have remarks, questions, or suggestions, please ask them on semediawiki-users@lists.sourceforge.net.
-You can subscribe to this list [here](https://lists.sourceforge.net/lists/listinfo/semediawiki-user).
+If you want to contribute work to the project please subscribe to the developers mailing list and
+have a look at the contribution guideline.
 
-If you want to contribute work to the project please subscribe to the developers mailing list.
-
-* [File an issue](https://github.com/SemanticMediaWiki/SemanticTasks/issues)
-* [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticTasks/pulls)
+* [File an issue](https://github.com/SemanticMediaWiki/SemanticCite/issues)
+* [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticCite/pulls)
 * Ask a question on [the mailing list](https://www.semantic-mediawiki.org/wiki/Mailing_list)
-
 
 ## Credits
 
@@ -45,22 +110,5 @@ Currenetly it is sponsored by KDZ - Centre for Public Administration Research.
 
 [GNU General Public License, version 2 or later][gpl-licence], see [COPYING](COPYING) file.
 
-## Manual
-
-* Notification emails are sent when a page is saved. The system looks for the `[[Assigned to::*]]` and the `[[Carbon copy::*]]` property.
-
-* Reminder emails. The system looks for the `[[Reminder at::*]]` and the `[[Target date::*]]` property. It then send reminders to the assignees.
-You must run a cron job once a day to execute the reminder script:
-* edit your crontab file: 
-```
-$ crontab -e
-```
-* add the following line to execute the script every day at 12: 
-```
-0 12 * * * php extensions/SemanticTasks/maintenance/checkForReminders.php
-```
-## Parameters
-```
-$wgSemanticTasksNotifyIfUnassigned
-```
-Set to "true" to notify users when they are unassigned from a task (default = "false")
+[smw]: https://github.com/SemanticMediaWiki/SemanticMediaWiki
+[gpl-licence]: https://www.gnu.org/copyleft/gpl.html
