@@ -16,7 +16,7 @@
 	"requires": {
 		"MediaWiki": ">= 1.31",
 		"extensions": {
-			"SemanticMediaWiki": "*"
+			"SemanticMediaWiki": ">= 3.0"
 		}
 	},
 	"MessagesDirs": {
@@ -33,15 +33,29 @@
 		"SemanticTasksMailer": "src/SemanticTasksMailer.php"
 	},
 	"load_composer_autoloader": true,
-	"manifest_version": 2,
+	"config_prefix": "stg",
 	"config": {
-		"_prefix": "stg",
-		"PropertyAssignedTo": "Assigned to",
-		"PropertyCarbonCopy": "Carbon copy",
-		"PropertyTargetDate": "Target date",
-		"PropertyReminderAt": "Reminder at",
-		"PropertyStatus": "Status",
-		"PropertyAssignedToGroup": "Assigned to group",
-		"PropertyHasAssignee": "Has assignee"
+		"PropertyAssignedTo": {
+			"value": "Assigned to"
+                 },
+		"PropertyCarbonCopy": {
+			"value": "Carbon copy"
+                },
+		"PropertyTargetDate": {
+			"value": "Target date"
+                },
+		"PropertyReminderAt": {
+			"value": "Reminder at"
+                },
+		"PropertyStatus": {
+			"value": "Status"
+                },
+		"PropertyAssignedToGroup": {
+			"value": "Assigned to group"
+                },
+		"PropertyHasAssignee": {
+			"value": "Has assignee"
+                },
+	"manifest_version": 2
 	}
 }
