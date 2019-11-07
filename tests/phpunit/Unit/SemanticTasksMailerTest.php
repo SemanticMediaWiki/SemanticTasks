@@ -38,7 +38,9 @@ class SemanticTasksMailerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGenerateDiffBodyTxt() {
-		$title = new \Title('test');
+		$title = Title::newFromText( 'Kitten' );
+		$context = new \RequestContext();
+		$context->setTitle( $title );
 		$returnText = SemanticTasksMailer::generateDiffBodyTxt( $title );
 	}
 
