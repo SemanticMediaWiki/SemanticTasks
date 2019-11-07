@@ -37,6 +37,11 @@ class SemanticTasks {
 
 		define( 'SEMANTIC_TASKS', $version );
 
+		// https://phabricator.wikimedia.org/T212738
+		if ( !defined( 'MW_VERSION' ) ) {
+			define( 'MW_VERSION', $GLOBALS['wgVersion'] );
+		}
+
 		// Register extension messages and other localisation.
 		$wgMessagesDirs['SemanticTasks'] = __DIR__ . '/i18n';
 
