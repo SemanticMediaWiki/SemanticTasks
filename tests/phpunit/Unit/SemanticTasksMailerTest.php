@@ -37,19 +37,17 @@ class SemanticTasksMailerTest extends \PHPUnit_Framework_TestCase {
 		SemanticTasksMailer::mailNotification( $assignees, $text, $title, $user, $status );
 	}
 
-	/** @todo: fix: needs database.. */
-	/*public function testGenerateDiffBodyTxt() {
+	public function testGenerateDiffBodyTxt() {
 		$title = new \Title('test');
 		$returnText = SemanticTasksMailer::generateDiffBodyTxt( $title );
-	}*/
+	}
 
-	/** @todo: fix: needs database.. */
-	/*public function testSaveAssignees() {
+	public function testSaveAssignees() {
 		$title = new Title();
 		$article = new WikiPage( $title );
 		$assignees = new Assignees();
 		$assignees->saveAssignees( $article );
-	}*/
+	}
 
 	/** @todo: add more tests or asserts */
 	public function testMailAssigneesUpdatedTaskTrueOnMinorEdit() {
