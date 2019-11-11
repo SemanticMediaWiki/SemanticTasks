@@ -10,7 +10,7 @@ use User;
 use WikiPage;
 
 /**
- * @covers \ST\Tests
+ * @covers \ST\SemanticTasksMailer
  * @group semantic-tasks
  *
  * @license GNU GPL v2+
