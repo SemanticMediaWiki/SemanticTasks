@@ -16,7 +16,7 @@ use WikiPage;
  * @license GNU GPL v2+
  * @since 3.0
  */
-class SemanticTasksMailerTest extends \PHPUnit_Framework_TestCase {
+class SemanticTasksMailerTest extends \MediaWikiTestCase {
 
 	/** @todo: expand tests */
 	public function testMailNotification() {
@@ -38,7 +38,8 @@ class SemanticTasksMailerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGenerateDiffBodyTxt() {
-		$title = Title::newFromText( 'Kitten' );
+		$namespace = $this->getDefaultWikitextNS();
+		$title = Title::newFromText( 'Kitten', $namespace );
 		$context = new \RequestContext();
 		$context->setTitle( $title );
 		$returnText = SemanticTasksMailer::generateDiffBodyTxt( $title );
