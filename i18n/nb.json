@@ -6,7 +6,8 @@
 			"Jon Harald Søby"
 		]
 	},
-	"semantictasks-desc": "Meldinger via e-post om tildelte eller oppdaterte oppgaver",
+	"semantictasks-desc": "Sender epostvarsler om tildelte eller oppdaterte oppgaver",
+	"semantictasks-name": "Semantiske oppgaver",
 	"semantictasks-newtask": "Ny oppgave:",
 	"semantictasks-taskassigned": "Oppgave tildelt:",
 	"semantictasks-taskunassigned": "Oppgave fjernet:",
