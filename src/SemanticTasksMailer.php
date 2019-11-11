@@ -24,11 +24,13 @@ if ( !defined( 'SMW_VERSION' ) ) {
 }
 
 // constants for message type
-define( 'ST_NEWTASK', 0 );
-define( 'ST_UPDATE', 1 );
-define( 'ST_ASSIGNED', 2 );
-define( 'ST_CLOSED', 3 );
-define( 'ST_UNASSIGNED', 4 );
+if ( !defined( 'ST_NEWTASK' ) ) {
+	define( 'ST_NEWTASK', 0 );
+	define( 'ST_UPDATE', 1 );
+	define( 'ST_ASSIGNED', 2 );
+	define( 'ST_CLOSED', 3 );
+	define( 'ST_UNASSIGNED', 4 );
+}
 
 /**
  * This class handles the creation and sending of notification emails.
