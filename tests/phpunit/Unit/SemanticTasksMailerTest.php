@@ -2,15 +2,17 @@
 namespace ST\Tests;
 
 use MediaWiki\Diff\ComplexityException;
+use MWException;
 use ST\Assignees;
 use ST\SemanticTasksMailer;
+use ST\UserMailer;
 use TextContent;
 use Title;
 use User;
 use WikiPage;
 
 /**
- * @covers \ST\SemanticTasksMailer
+ * @covers SemanticTasksMailer
  * @group semantic-tasks
  *
  * @license GNU GPL v2+
@@ -20,12 +22,12 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 
 	/** @todo: expand tests */
 	/**
-	 * @covers \ST\SemanticTasksMailer::mailNotification
+	 * @covers SemanticTasksMailer::mailNotification
 	 * @throws ComplexityException
-	 * @throws \MWException
+	 * @throws MWException
 	 */
 	public function testMailNotification() {
-		$userMailerMock = $this->createMock(\ST\UserMailer::class);
+		$userMailerMock = $this->createMock( UserMailer::class );
 
 		$assignees = [ 'someone' ];
 		$text = '';
@@ -33,19 +35,19 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$user = new \User();
 		$status = 0; //ST_NEWTASK
 
-		$userMailerMock->expects($this->once())
-			->method('send')
-			->with($assignees, $this->anything(), $this->anything(), $this->anything(), $this->anything())
-			->willReturn(\Status::newGood());
+		$userMailerMock->expects( $this->once() )
+			->method( 'send' )
+			->with( $assignees, $this->anything(), $this->anything(), $this->anything(), $this->anything() )
+			->willReturn( \Status::newGood() );
 
-		SemanticTasksMailer::setUserMailer($userMailerMock);
+		SemanticTasksMailer::setUserMailer( $userMailerMock );
 		SemanticTasksMailer::mailNotification( $assignees, $text, $title, $user, $status );
 	}
 
 	/**
 	 * @covers SemanticTasksMailer::generateDiffBodyTxt
 	 * @throws ComplexityException
-	 * @throws \MWException
+	 * @throws MWException
 	 */
 	public function testGenerateDiffBodyTxt() {
 		$namespace = $this->getDefaultWikitextNS();
@@ -58,17 +60,17 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$strings = [ "it is a kitten", "two kittens", "three kittens", "four kittens" ];
 		$revisions = [];
 		foreach ( $strings as $string ) {
-			$content = ContentHandler::makeContent( $string, $title );
+			$content = \ContentHandler::makeContent( $string, $title );
 			$page->doEditContent( $content, 'edit page' );
 			$revisions[] = $page->getLatest();
 		}
 
 		$returnText = SemanticTasksMailer::generateDiffBodyTxt( $title );
-		$this->assertNotEquals('', $returnText, 'Diff should not be empty string.');
+		$this->assertNotEquals( '', $returnText, 'Diff should not be empty string.' );
 	}
 
 	/**
-	 * @covers \ST\Assignees::saveAssignees
+	 * @covers Assignees::saveAssignees
 	 */
 	public function testSaveAssignees() {
 		$title = new Title();
@@ -79,8 +81,8 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 
 	/** @todo: add more tests or asserts */
 	/**
-	 * @covers \ST\SemanticTasksMailer::mailAssigneesUpdatedTask
-	 * @throws \MWException
+	 * @covers SemanticTasksMailer::mailAssigneesUpdatedTask
+	 * @throws MWException
 	 */
 	public function testMailAssigneesUpdatedTaskTrueOnMinorEdit() {
 		$assignees = new Assignees();
@@ -94,14 +96,19 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$sectionanchor = null; // unused
 		$flags = EDIT_NEW; // or other..
 		try {
-			$returnValue = SemanticTasksMailer::mailAssigneesUpdatedTask( $assignees, $article, $current_user, $text, $summary,
-				$minoredit, $watchthis, $sectionanchor, $flags );
-		} catch ( \MWException $e ) {
+			$returnValue = SemanticTasksMailer::mailAssigneesUpdatedTask( $assignees, $article, $current_user, $text,
+				$summary, $minoredit, $watchthis, $sectionanchor, $flags );
+		} catch ( MWException $e ) {
 
 		} catch ( ComplexityException $e ) {
 
 		}
 
 		$this->assertTrue($returnValue);
+	}
+
+	/** @todo: fix covers annotation and remove this. */
+	public function testValidCovers() {
+		$this->assertTrue();
 	}
 }
