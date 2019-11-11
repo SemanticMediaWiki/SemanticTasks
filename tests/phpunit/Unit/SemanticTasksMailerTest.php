@@ -42,6 +42,7 @@ class SemanticTasksMailerTest extends \PHPUnit_Framework_TestCase {
 		$context = new \RequestContext();
 		$context->setTitle( $title );
 		$returnText = SemanticTasksMailer::generateDiffBodyTxt( $title );
+		$this->assertNotEquals('', $returnText, 'Diff should not be empty string.');
 	}
 
 	public function testSaveAssignees() {

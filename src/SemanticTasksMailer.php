@@ -200,6 +200,9 @@ class SemanticTasksMailer {
 	 */
 	static function generateDiffBodyTxt( Title $title ) {
 		$revision = \Revision::newFromTitle( $title, 0 );
+		if ($revision === null) {
+			return '';
+		}
 		/** @todo The first parameter should be a Context. */
 		$diff = new \DifferenceEngine( $title, $revision->getId(), 'prev' );
 		// The DifferenceEngine::getDiffBody() method generates html,
