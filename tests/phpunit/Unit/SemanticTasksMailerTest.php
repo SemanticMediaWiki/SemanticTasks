@@ -65,7 +65,7 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 			$revisions[] = $page->getLatest();
 		}
 
-		$returnText = SemanticTasksMailer::generateDiffBodyTxt( $title );
+		$returnText = SemanticTasksMailer::generateDiffBodyTxt( $title, $context );
 		$this->assertNotEquals( '', $returnText, 'Diff should not be empty string.' );
 	}
 
@@ -109,6 +109,6 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 
 	/** @todo: fix covers annotation and remove this. */
 	public function testValidCovers() {
-		$this->assertTrue();
+		$this->assertTrue( true );
 	}
 }
