@@ -19,6 +19,11 @@ use WikiPage;
 class SemanticTasksMailerTest extends \MediaWikiTestCase {
 
 	/** @todo: expand tests */
+	/**
+	 * @covers \ST\SemanticTasksMailer::mailNotification
+	 * @throws ComplexityException
+	 * @throws \MWException
+	 */
 	public function testMailNotification() {
 		$userMailerMock = $this->createMock(\ST\UserMailer::class);
 
@@ -37,6 +42,11 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		SemanticTasksMailer::mailNotification( $assignees, $text, $title, $user, $status );
 	}
 
+	/**
+	 * @covers SemanticTasksMailer::generateDiffBodyTxt
+	 * @throws ComplexityException
+	 * @throws \MWException
+	 */
 	public function testGenerateDiffBodyTxt() {
 		$namespace = $this->getDefaultWikitextNS();
 		$title = Title::newFromText( 'Kitten', $namespace );
@@ -46,6 +56,9 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$this->assertNotEquals('', $returnText, 'Diff should not be empty string.');
 	}
 
+	/**
+	 * @covers \ST\Assignees::saveAssignees
+	 */
 	public function testSaveAssignees() {
 		$title = new Title();
 		$article = new WikiPage( $title );
@@ -54,6 +67,10 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 	}
 
 	/** @todo: add more tests or asserts */
+	/**
+	 * @covers \ST\SemanticTasksMailer::mailAssigneesUpdatedTask
+	 * @throws \MWException
+	 */
 	public function testMailAssigneesUpdatedTaskTrueOnMinorEdit() {
 		$assignees = new Assignees();
 		$title = new Title();
