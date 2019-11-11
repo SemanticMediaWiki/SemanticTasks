@@ -50,8 +50,19 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 	public function testGenerateDiffBodyTxt() {
 		$namespace = $this->getDefaultWikitextNS();
 		$title = Title::newFromText( 'Kitten', $namespace );
+
 		$context = new \RequestContext();
 		$context->setTitle( $title );
+
+		$page = WikiPage::factory( $title );
+		$strings = [ "it is a kitten", "two kittens", "three kittens", "four kittens" ];
+		$revisions = [];
+		foreach ( $strings as $string ) {
+			$content = ContentHandler::makeContent( $string, $title );
+			$page->doEditContent( $content, 'edit page' );
+			$revisions[] = $page->getLatest();
+		}
+
 		$returnText = SemanticTasksMailer::generateDiffBodyTxt( $title );
 		$this->assertNotEquals('', $returnText, 'Diff should not be empty string.');
 	}
