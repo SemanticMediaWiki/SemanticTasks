@@ -5,6 +5,7 @@ namespace ST;
 use Content;
 use ContentHandler;
 use Exception;
+use IContextSource;
 use Language;
 use MediaWiki\Diff\ComplexityException;
 use MWException;
@@ -24,11 +25,13 @@ if ( !defined( 'SMW_VERSION' ) ) {
 }
 
 // constants for message type
-define( 'ST_NEWTASK', 0 );
-define( 'ST_UPDATE', 1 );
-define( 'ST_ASSIGNED', 2 );
-define( 'ST_CLOSED', 3 );
-define( 'ST_UNASSIGNED', 4 );
+if ( !defined( 'ST_NEWTASK' ) ) {
+	define( 'ST_NEWTASK', 0 );
+	define( 'ST_UPDATE', 1 );
+	define( 'ST_ASSIGNED', 2 );
+	define( 'ST_CLOSED', 3 );
+	define( 'ST_UNASSIGNED', 4 );
+}
 
 /**
  * This class handles the creation and sending of notification emails.
@@ -194,14 +197,18 @@ class SemanticTasksMailer {
 	 *
 	 * Code is similar to DifferenceEngine::generateTextDiffBody
 	 * @param Title $title
+	 * @param IContextSource $context
 	 * @return string
-	 * @throws MWException
 	 * @throws ComplexityException
+	 * @throws MWException
 	 */
-	static function generateDiffBodyTxt( Title $title ) {
+	static function generateDiffBodyTxt( Title $title, IContextSource $context = null) {
 		$revision = \Revision::newFromTitle( $title, 0 );
+		if ($revision === null) {
+			return '';
+		}
 		/** @todo The first parameter should be a Context. */
-		$diff = new \DifferenceEngine( $title, $revision->getId(), 'prev' );
+		$diff = new \DifferenceEngine( $context, $revision->getId(), 'prev' );
 		// The DifferenceEngine::getDiffBody() method generates html,
 		// so let's generate the txt diff manually:
 		global $wgContLang;
