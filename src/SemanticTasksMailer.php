@@ -69,29 +69,27 @@ class SemanticTasksMailer {
 		if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
 			$status = ST_NEWTASK;
 		}
-		$assignedToParserOutput = self::getAssignedUsersFromParserOutput($article, $revision, $current_user);
+		$assignedToParserOutput = self::getAssignedUsersFromParserOutput( $article );
 
 		return self::mailAssignees( $article, $text, $current_user, $status, $assignees, $assignedToParserOutput );
 	}
 
 	// todo: this could replace Assignees->getAssignees(...).
-	public static function getAssignedUsersFromParserOutput(WikiPage $article, $revision, User $current_user) {
-		if ( $revision === null) {
-			return [];
-		}
+	public static function getAssignedUsersFromParserOutput( WikiPage $article ) {
 		$smwFactory = ApplicationFactory::getInstance();
 		$mwCollaboratorFactory = $smwFactory->newMwCollaboratorFactory();
+		$revision = $article->getRevision();
 		if ( version_compare( SMW_VERSION, '3.1', '<' ) ) {
 			$editInfo = $mwCollaboratorFactory->newEditInfoProvider(
 				$article,
 				$revision,
-				$current_user
+				null
 			);
 		} else {
 			$editInfo = $mwCollaboratorFactory->newEditInfo(
 				$article,
 				$revision,
-				$current_user
+				null
 			);
 		}
 		$editInfo->fetchEditInfo();
@@ -102,14 +100,14 @@ class SemanticTasksMailer {
 		}
 
 		global $stgPropertyAssignedTo;
-		$stgPropertyAssignedToString = str_replace(' ', '_', $stgPropertyAssignedTo);
-		$property = new \SMW\DIProperty($stgPropertyAssignedToString, false);
+		$stgPropertyAssignedToString = str_replace( ' ', '_', $stgPropertyAssignedTo );
+		$property = new \SMW\DIProperty( $stgPropertyAssignedToString, false );
 
 		/** @var $semanticData \SMW\SemanticData */
-		$semanticData = $parserOutput->getExtensionData('smwdata');
-		$assigneesPropValues = $semanticData->getPropertyValues($property);
+		$semanticData = $parserOutput->getExtensionData( 'smwdata' );
+		$assigneesPropValues = $semanticData->getPropertyValues( $property );
 		// todo: maybe there should be a check if these pages are userpages.
-		$assigneeList = array_map(function(DIWikiPage $assignePropVal) {
+		$assigneeList = array_map(function( DIWikiPage $assignePropVal ) {
 			return $assignePropVal->getTitle()->getText();
 		}, $assigneesPropValues);
 

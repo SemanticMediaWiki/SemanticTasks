@@ -159,7 +159,7 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$article->doEditContent( $content, 'edit page' );
 		$revision = $article->getRevision();
 		$current_user = new User();
-		$assignendUsers = SemanticTasksMailer::getAssignedUsersFromParserOutput( $article, $revision, $current_user );
+		$assignendUsers = SemanticTasksMailer::getAssignedUsersFromParserOutput( $article );
 
 		$this->assertEmpty( $assignendUsers );
 	}
