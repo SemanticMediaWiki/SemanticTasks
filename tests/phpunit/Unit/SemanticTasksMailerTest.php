@@ -151,6 +151,19 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$this->assertTrue($returnValue);
 	}
 
+	public function testGetAssignedUsersFromParserOutput() {
+		$namespace = $this->getDefaultWikitextNS();
+		$title = Title::newFromText( 'Some Random Page', $namespace );
+		$article = WikiPage::factory( $title );
+		$content = \ContentHandler::makeContent( 'this is some edit', $title );
+		$article->doEditContent( $content, 'edit page' );
+		$revision = $article->getRevision();
+		$current_user = new User();
+		$assignendUsers = SemanticTasksMailer::getAssignedUsersFromParserOutput( $article, $revision, $current_user );
+
+		$this->assertEmpty( $assignendUsers );
+	}
+
 	/** @todo: fix covers annotation and remove this. */
 	public function testValidCovers() {
 		$this->assertTrue( true );

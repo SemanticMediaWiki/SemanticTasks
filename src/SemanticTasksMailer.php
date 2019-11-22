@@ -69,20 +69,31 @@ class SemanticTasksMailer {
 		if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
 			$status = ST_NEWTASK;
 		}
-		$assignedToParserOutput = self::getAssignedUserFromParserOutput($article, $revision, $current_user);
+		$assignedToParserOutput = self::getAssignedUsersFromParserOutput($article, $revision, $current_user);
 
 		return self::mailAssignees( $article, $text, $current_user, $status, $assignees, $assignedToParserOutput );
 	}
 
 	// todo: this could replace Assignees->getAssignees(...).
-	private static function getAssignedUserFromParserOutput(WikiPage $article, $revision, User $current_user) {
+	public static function getAssignedUsersFromParserOutput(WikiPage $article, $revision, User $current_user) {
+		if ( $revision === null) {
+			return [];
+		}
 		$smwFactory = ApplicationFactory::getInstance();
 		$mwCollaboratorFactory = $smwFactory->newMwCollaboratorFactory();
-		$editInfo = $mwCollaboratorFactory->newEditInfo(
-			$article,
-			$revision,
-			$current_user
-		);
+		if ( version_compare( SMW_VERSION, '3.1', '<' ) ) {
+			$editInfo = $mwCollaboratorFactory->newEditInfoProvider(
+				$article,
+				$revision,
+				$current_user
+			);
+		} else {
+			$editInfo = $mwCollaboratorFactory->newEditInfo(
+				$article,
+				$revision,
+				$current_user
+			);
+		}
 		$editInfo->fetchEditInfo();
 		$parserOutput = $editInfo->getOutput();
 
