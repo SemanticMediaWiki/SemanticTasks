@@ -23,7 +23,7 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 	/**
 	 * Only needed for MW 1.31
 	 */
-	public function run( \PHPUnit\Framework\TestResult $result = null ) {
+	public function run( PHPUnit_Framework_TestResult $result = null ) {
 		// MW 1.31
 		$this->setCliArg( 'use-normal-tables', true );
 		parent::run( $result );
