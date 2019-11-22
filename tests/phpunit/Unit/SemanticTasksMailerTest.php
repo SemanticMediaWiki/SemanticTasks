@@ -115,12 +115,12 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 	/**
 	 * @covers Assignees::saveAssignees
 	 */
-	/*public function testSaveAssignees() {
+	public function testSaveAssignees() {
 		$title = new Title();
 		$article = new WikiPage( $title );
 		$assignees = new Assignees();
 		$assignees->saveAssignees( $article );
-	}*/
+	}
 
 	/** @todo: add more tests or asserts */
 	/**
