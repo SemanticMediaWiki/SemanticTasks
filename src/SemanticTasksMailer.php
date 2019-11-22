@@ -69,50 +69,8 @@ class SemanticTasksMailer {
 		if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
 			$status = ST_NEWTASK;
 		}
-		$assignedToParserOutput = self::getAssignedUsersFromParserOutput( $article );
 
-		return self::mailAssignees( $article, $text, $current_user, $status, $assignees, $assignedToParserOutput );
-	}
-
-	// todo: this could replace Assignees->getAssignees(...).
-	public static function getAssignedUsersFromParserOutput( WikiPage $article ) {
-		$smwFactory = ApplicationFactory::getInstance();
-		$mwCollaboratorFactory = $smwFactory->newMwCollaboratorFactory();
-		$revision = $article->getRevision();
-		if ( version_compare( SMW_VERSION, '3.1', '<' ) ) {
-			$editInfo = $mwCollaboratorFactory->newEditInfoProvider(
-				$article,
-				$revision,
-				null
-			);
-		} else {
-			$editInfo = $mwCollaboratorFactory->newEditInfo(
-				$article,
-				$revision,
-				null
-			);
-		}
-		$editInfo->fetchEditInfo();
-		$parserOutput = $editInfo->getOutput();
-
-		if ( !$parserOutput instanceof ParserOutput ) {
-			return [];
-		}
-
-		global $stgPropertyAssignedTo;
-		$stgPropertyAssignedToString = str_replace( ' ', '_', $stgPropertyAssignedTo );
-		$property = new \SMW\DIProperty( $stgPropertyAssignedToString, false );
-
-		/** @var $semanticData \SMW\SemanticData */
-		$semanticData = $parserOutput->getExtensionData( 'smwdata' );
-		$assigneesPropValues = $semanticData->getPropertyValues( $property );
-		// todo: maybe there should be a check if these pages are userpages.
-		$assigneeList = array_map(function( DIWikiPage $assignePropVal ) {
-			return $assignePropVal->getTitle()->getText();
-		}, $assigneesPropValues);
-
-
-		return $assigneeList;
+		return self::mailAssignees( $article, $text, $current_user, $status, $assignees, $revision );
 	}
 
 	/**
@@ -128,45 +86,38 @@ class SemanticTasksMailer {
 	 * @global boolean $wgSemanticTasksNotifyIfUnassigned
 	 */
 	static function mailAssignees( WikiPage $article, Content $content, User $user, $status, Assignees $assignees,
-								   $assignedToParserOutput ) {
+								   $revision ) {
 		$text = ContentHandler::getContentText( $content );
 		$title = $article->getTitle();
 
 		// Notify those unassigned from this task
 		global $wgSemanticTasksNotifyIfUnassigned;
 		if ( $wgSemanticTasksNotifyIfUnassigned ) {
-			$removedAssignees = $assignees->getRemovedAssignees( $article );
+			$removedAssignees = $assignees->getRemovedAssignees( $article, $revision );
 			$removedAssignees = Assignees::getAssigneeAddresses( $removedAssignees );
 			self::mailNotification( $removedAssignees, $text, $title, $user, ST_UNASSIGNED );
 		}
 
 		// Send notification of an assigned task to assignees
 		// Treat task as new
-		$newAssignees = $assignees->getNewAssignees( $article );
+		$newAssignees = $assignees->getNewAssignees( $article, $revision );
 		$newAssignees = Assignees::getAssigneeAddresses( $newAssignees );
 		self::mailNotification( $newAssignees, $text, $title, $user, ST_ASSIGNED );
 
-		$copies = $assignees->getCurrentCarbonCopy( $article );
-		$currentStatus = $assignees->getCurrentStatus( $article );
+		$copies = $assignees->getCurrentCarbonCopy( $article, $revision );
+		$currentStatus = $assignees->getCurrentStatus( $article, $revision );
 		$oldStatus = $assignees->getSavedStatus();
 		if ( $currentStatus === "Closed" && $oldStatus !== "Closed" ) {
 			$close_mailto = Assignees::getAssigneeAddresses( $copies );
 			self::mailNotification( $close_mailto, $text, $title, $user, ST_CLOSED );
 		}
 
-		$currentAssignees = $assignees->getCurrentAssignees( $article );
+		$currentAssignees = $assignees->getCurrentAssignees( $article, $revision );
 
 		// Only send group notifications on new tasks
 		$groups = array();
 		if ( $status === ST_NEWTASK ) {
 			$groups = $assignees->getGroupAssignees( $article );
-
-			// if this is a new task and there are no $currentAssignees but there are $assignedToParserOutput
-			// then this is probably a new page and sending ST_ASSIGNED notifications didn't work and needs to be retried.
-			if ( empty( $currentAssignees ) ) {
-				$mails = Assignees::getAssigneeAddresses( $assignedToParserOutput );
-				self::mailNotification( $mails, $text, $title, $user, ST_ASSIGNED );
-			}
 		}
 
 		$mailto = array_merge( $currentAssignees, $copies, $groups );
