@@ -144,12 +144,15 @@ class Assignees {
 	 * @param array $assignees
 	 * @return array
 	 */
-	public function getAssigneeAddresses( array $assignees ) {
+	public static function getAssigneeAddresses( array $assignees ) {
 		$assignee_arr = array();
 		foreach ( $assignees as $assignee_name ) {
 			$assignee = User::newFromName( $assignee_name );
 			// if assignee is the current user, do nothing
 			# if ( $assignee->getID() != $user->getID() ) {
+			if (!$assignee) {
+				continue;
+			}
 			$assignee_mail = new \MailAddress( $assignee->getEmail(), $assignee_name );
 			array_push( $assignee_arr, $assignee_mail );
 			# }

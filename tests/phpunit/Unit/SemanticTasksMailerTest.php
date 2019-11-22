@@ -138,9 +138,10 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$watchthis = null; // unused
 		$sectionanchor = null; // unused
 		$flags = EDIT_NEW; // or other..
+		$revision = null;
 		try {
 			$returnValue = SemanticTasksMailer::mailAssigneesUpdatedTask( $assignees, $article, $current_user, $text,
-				$summary, $minoredit, $watchthis, $sectionanchor, $flags );
+				$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision );
 		} catch ( MWException $e ) {
 
 		} catch ( ComplexityException $e ) {

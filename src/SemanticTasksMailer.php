@@ -9,6 +9,10 @@ use IContextSource;
 use Language;
 use MediaWiki\Diff\ComplexityException;
 use MWException;
+use ParserOutput;
+use SMW\ApplicationFactory;
+use SMW\DIWikiPage;
+use SMWDataItem;
 use SMWPrintRequest;
 use Title;
 use User;
@@ -57,7 +61,7 @@ class SemanticTasksMailer {
 	 * @throws MWException
 	 */
 	public static function mailAssigneesUpdatedTask( Assignees $assignees, WikiPage $article, User $current_user, $text,
-			$summary, $minoredit, $watchthis, $sectionanchor, $flags ) {
+			$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision ) {
 		if ( $minoredit ) {
 			return true;
 		}
@@ -65,7 +69,41 @@ class SemanticTasksMailer {
 		if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
 			$status = ST_NEWTASK;
 		}
-		return self::mailAssignees( $article, $text, $current_user, $status, $assignees );
+		$assignedToParserOutput = self::getAssignedUserFromParserOutput($article, $revision, $current_user);
+
+		return self::mailAssignees( $article, $text, $current_user, $status, $assignees, $assignedToParserOutput );
+	}
+
+	// todo: this could replace Assignees->getAssignees(...).
+	private static function getAssignedUserFromParserOutput(WikiPage $article, $revision, User $current_user) {
+		$smwFactory = ApplicationFactory::getInstance();
+		$mwCollaboratorFactory = $smwFactory->newMwCollaboratorFactory();
+		$editInfo = $mwCollaboratorFactory->newEditInfo(
+			$article,
+			$revision,
+			$current_user
+		);
+		$editInfo->fetchEditInfo();
+		$parserOutput = $editInfo->getOutput();
+
+		if ( !$parserOutput instanceof ParserOutput ) {
+			return [];
+		}
+
+		global $stgPropertyAssignedTo;
+		$stgPropertyAssignedToString = str_replace(' ', '_', $stgPropertyAssignedTo);
+		$property = new \SMW\DIProperty($stgPropertyAssignedToString, false);
+
+		/** @var $semanticData \SMW\SemanticData */
+		$semanticData = $parserOutput->getExtensionData('smwdata');
+		$assigneesPropValues = $semanticData->getPropertyValues($property);
+		// todo: maybe there should be a check if these pages are userpages.
+		$assigneeList = array_map(function(DIWikiPage $assignePropVal) {
+			return $assignePropVal->getTitle()->getText();
+		}, $assigneesPropValues);
+
+
+		return $assigneeList;
 	}
 
 	/**
@@ -80,7 +118,8 @@ class SemanticTasksMailer {
 	 * @throws MWException
 	 * @global boolean $wgSemanticTasksNotifyIfUnassigned
 	 */
-	static function mailAssignees( WikiPage $article, Content $content, User $user, $status, Assignees $assignees ) {
+	static function mailAssignees( WikiPage $article, Content $content, User $user, $status, Assignees $assignees,
+								   $assignedToParserOutput ) {
 		$text = ContentHandler::getContentText( $content );
 		$title = $article->getTitle();
 
@@ -88,21 +127,21 @@ class SemanticTasksMailer {
 		global $wgSemanticTasksNotifyIfUnassigned;
 		if ( $wgSemanticTasksNotifyIfUnassigned ) {
 			$removedAssignees = $assignees->getRemovedAssignees( $article );
-			$removedAssignees = $assignees->getAssigneeAddresses( $removedAssignees );
+			$removedAssignees = Assignees::getAssigneeAddresses( $removedAssignees );
 			self::mailNotification( $removedAssignees, $text, $title, $user, ST_UNASSIGNED );
 		}
 
 		// Send notification of an assigned task to assignees
 		// Treat task as new
 		$newAssignees = $assignees->getNewAssignees( $article );
-		$newAssignees = $assignees->getAssigneeAddresses( $newAssignees );
+		$newAssignees = Assignees::getAssigneeAddresses( $newAssignees );
 		self::mailNotification( $newAssignees, $text, $title, $user, ST_ASSIGNED );
 
 		$copies = $assignees->getCurrentCarbonCopy( $article );
 		$currentStatus = $assignees->getCurrentStatus( $article );
 		$oldStatus = $assignees->getSavedStatus();
 		if ( $currentStatus === "Closed" && $oldStatus !== "Closed" ) {
-			$close_mailto = $assignees->getAssigneeAddresses( $copies );
+			$close_mailto = Assignees::getAssigneeAddresses( $copies );
 			self::mailNotification( $close_mailto, $text, $title, $user, ST_CLOSED );
 		}
 
@@ -112,11 +151,18 @@ class SemanticTasksMailer {
 		$groups = array();
 		if ( $status === ST_NEWTASK ) {
 			$groups = $assignees->getGroupAssignees( $article );
+
+			// if this is a new task and there are no $currentAssignees but there are $assignedToParserOutput
+			// then this is probably a new page and sending ST_ASSIGNED notifications didn't work and needs to be retried.
+			if ( empty( $currentAssignees ) ) {
+				$mails = Assignees::getAssigneeAddresses( $assignedToParserOutput );
+				self::mailNotification( $mails, $text, $title, $user, ST_ASSIGNED );
+			}
 		}
 
 		$mailto = array_merge( $currentAssignees, $copies, $groups );
 		$mailto = array_unique( $mailto );
-		$mailto = $assignees->getAssigneeAddresses( $mailto );
+		$mailto = Assignees::getAssigneeAddresses( $mailto );
 
 		// Send notifications to assignees, ccs, and groups
 		self::mailNotification( $mailto, $text, $title, $user, $status );
@@ -213,12 +259,18 @@ class SemanticTasksMailer {
 		// so let's generate the txt diff manually:
 		global $wgContLang;
 		$diff->loadText();
+		$otext = '';
+		$ntext = '';
 		if ( version_compare( MW_VERSION, '1.32', '<' ) ) {
 			$otext = str_replace( "\r\n", "\n", \ContentHandler::getContentText( $diff->mOldContent ) );
 			$ntext = str_replace( "\r\n", "\n", \ContentHandler::getContentText( $diff->mNewContent ) );
 		} else {
-			$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getOldRevision()->getContent( 'main' ) ) );
-			$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getNewRevision()->getContent( 'main' ) ) );
+			if ($diff->getOldRevision()) {
+				$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getOldRevision()->getContent( 'main' ) ) );
+			}
+			if ($diff->getNewRevision()) {
+				$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getNewRevision()->getContent( 'main' ) ) );
+			}
 		}
 		$ota = explode( "\n", $wgContLang->segmentForDiff( $otext ) );
 		$nta = explode( "\n", $wgContLang->segmentForDiff( $ntext ) );
