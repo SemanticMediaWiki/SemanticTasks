@@ -149,7 +149,7 @@ class Assignees {
 	 * @param array $assignees
 	 * @return array
 	 */
-	public static function getAssigneeAddresses( array $assignees ) {
+	static public function getAssigneeAddresses( array $assignees ) {
 		$assignee_arr = array();
 		foreach ( $assignees as $assignee_name ) {
 			$assignee = User::newFromName( $assignee_name );
