@@ -72,11 +72,11 @@ class SemanticTasks {
 		// Register extension hooks.
 		global $wgHooks;
 		$wgHooks['PageContentSave'][] = [ $assignees, 'saveAssignees' ];
-		$wgHooks['PageContentSaveComplete'][] = function(WikiPage $article, User $current_user, $text,
-				$summary, $minoredit, $watchthis, $sectionanchor, $flags) use ($assignees) {
+		$wgHooks['PageContentSaveComplete'][] = function(WikiPage $article, User $current_user, Content $text,
+				$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision) use ($assignees) {
 			SemanticTasksMailer::mailAssigneesUpdatedTask(
 				$assignees, $article, $current_user, $text,
-				$summary, $minoredit, $watchthis, $sectionanchor, $flags
+				$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision
 			);
 		};
 	}

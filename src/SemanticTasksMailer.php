@@ -9,6 +9,10 @@ use IContextSource;
 use Language;
 use MediaWiki\Diff\ComplexityException;
 use MWException;
+use ParserOutput;
+use SMW\ApplicationFactory;
+use SMW\DIWikiPage;
+use SMWDataItem;
 use SMWPrintRequest;
 use Title;
 use User;
@@ -57,7 +61,7 @@ class SemanticTasksMailer {
 	 * @throws MWException
 	 */
 	public static function mailAssigneesUpdatedTask( Assignees $assignees, WikiPage $article, User $current_user, $text,
-			$summary, $minoredit, $watchthis, $sectionanchor, $flags ) {
+			$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision ) {
 		if ( $minoredit ) {
 			return true;
 		}
@@ -65,7 +69,8 @@ class SemanticTasksMailer {
 		if ( ( $flags & EDIT_NEW ) && !$article->getTitle()->isTalkPage() ) {
 			$status = ST_NEWTASK;
 		}
-		return self::mailAssignees( $article, $text, $current_user, $status, $assignees );
+
+		return self::mailAssignees( $article, $text, $current_user, $status, $assignees, $revision );
 	}
 
 	/**
@@ -80,33 +85,34 @@ class SemanticTasksMailer {
 	 * @throws MWException
 	 * @global boolean $wgSemanticTasksNotifyIfUnassigned
 	 */
-	static function mailAssignees( WikiPage $article, Content $content, User $user, $status, Assignees $assignees ) {
+	static function mailAssignees( WikiPage $article, Content $content, User $user, $status, Assignees $assignees,
+								   $revision ) {
 		$text = ContentHandler::getContentText( $content );
 		$title = $article->getTitle();
 
 		// Notify those unassigned from this task
 		global $wgSemanticTasksNotifyIfUnassigned;
 		if ( $wgSemanticTasksNotifyIfUnassigned ) {
-			$removedAssignees = $assignees->getRemovedAssignees( $article );
-			$removedAssignees = $assignees->getAssigneeAddresses( $removedAssignees );
+			$removedAssignees = $assignees->getRemovedAssignees( $article, $revision );
+			$removedAssignees = Assignees::getAssigneeAddresses( $removedAssignees );
 			self::mailNotification( $removedAssignees, $text, $title, $user, ST_UNASSIGNED );
 		}
 
 		// Send notification of an assigned task to assignees
 		// Treat task as new
-		$newAssignees = $assignees->getNewAssignees( $article );
-		$newAssignees = $assignees->getAssigneeAddresses( $newAssignees );
+		$newAssignees = $assignees->getNewAssignees( $article, $revision );
+		$newAssignees = Assignees::getAssigneeAddresses( $newAssignees );
 		self::mailNotification( $newAssignees, $text, $title, $user, ST_ASSIGNED );
 
-		$copies = $assignees->getCurrentCarbonCopy( $article );
-		$currentStatus = $assignees->getCurrentStatus( $article );
+		$copies = $assignees->getCurrentCarbonCopy( $article, $revision );
+		$currentStatus = $assignees->getCurrentStatus( $article, $revision );
 		$oldStatus = $assignees->getSavedStatus();
 		if ( $currentStatus === "Closed" && $oldStatus !== "Closed" ) {
-			$close_mailto = $assignees->getAssigneeAddresses( $copies );
+			$close_mailto = Assignees::getAssigneeAddresses( $copies );
 			self::mailNotification( $close_mailto, $text, $title, $user, ST_CLOSED );
 		}
 
-		$currentAssignees = $assignees->getCurrentAssignees( $article );
+		$currentAssignees = $assignees->getCurrentAssignees( $article, $revision );
 
 		// Only send group notifications on new tasks
 		$groups = array();
@@ -116,7 +122,7 @@ class SemanticTasksMailer {
 
 		$mailto = array_merge( $currentAssignees, $copies, $groups );
 		$mailto = array_unique( $mailto );
-		$mailto = $assignees->getAssigneeAddresses( $mailto );
+		$mailto = Assignees::getAssigneeAddresses( $mailto );
 
 		// Send notifications to assignees, ccs, and groups
 		self::mailNotification( $mailto, $text, $title, $user, $status );
@@ -213,12 +219,18 @@ class SemanticTasksMailer {
 		// so let's generate the txt diff manually:
 		global $wgContLang;
 		$diff->loadText();
+		$otext = '';
+		$ntext = '';
 		if ( version_compare( MW_VERSION, '1.32', '<' ) ) {
 			$otext = str_replace( "\r\n", "\n", \ContentHandler::getContentText( $diff->mOldContent ) );
 			$ntext = str_replace( "\r\n", "\n", \ContentHandler::getContentText( $diff->mNewContent ) );
 		} else {
-			$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getOldRevision()->getContent( 'main' ) ) );
-			$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getNewRevision()->getContent( 'main' ) ) );
+			if ($diff->getOldRevision()) {
+				$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getOldRevision()->getContent( 'main' ) ) );
+			}
+			if ($diff->getNewRevision()) {
+				$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getNewRevision()->getContent( 'main' ) ) );
+			}
 		}
 		$ota = explode( "\n", $wgContLang->segmentForDiff( $otext ) );
 		$nta = explode( "\n", $wgContLang->segmentForDiff( $ntext ) );

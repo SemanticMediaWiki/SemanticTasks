@@ -138,9 +138,10 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$watchthis = null; // unused
 		$sectionanchor = null; // unused
 		$flags = EDIT_NEW; // or other..
+		$revision = null;
 		try {
 			$returnValue = SemanticTasksMailer::mailAssigneesUpdatedTask( $assignees, $article, $current_user, $text,
-				$summary, $minoredit, $watchthis, $sectionanchor, $flags );
+				$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision );
 		} catch ( MWException $e ) {
 
 		} catch ( ComplexityException $e ) {
@@ -148,6 +149,20 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		}
 
 		$this->assertTrue($returnValue);
+	}
+
+	public function testGetAssignedUsersFromParserOutput() {
+		$namespace = $this->getDefaultWikitextNS();
+		$title = Title::newFromText( 'Some Random Page', $namespace );
+		$article = WikiPage::factory( $title );
+		$content = \ContentHandler::makeContent( 'this is some edit', $title );
+		$article->doEditContent( $content, 'edit page' );
+		$revision = $article->getRevision();
+		$current_user = new User();
+		$assignees = new Assignees();
+		$assignendUsers = $assignees->getCurrentAssignees( $article, $revision );
+
+		$this->assertEmpty( $assignendUsers );
 	}
 
 	/** @todo: fix covers annotation and remove this. */

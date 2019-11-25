@@ -4,11 +4,20 @@ set -ex
 BASE_PATH=$(pwd)
 MW_INSTALL_PATH=$BASE_PATH/../mw
 
+function installSMWWithComposer {
+	if [ "$SMW" != "" ]
+	then
+		composer require 'mediawiki/semantic-media-wiki='$SMW --update-with-dependencies
+	fi
+}
+
 # Run Composer installation from the MW root directory
 function installToMediaWikiRoot {
 	echo -e "Running MW root composer install build on $TRAVIS_BRANCH \n"
 
 	cd $MW_INSTALL_PATH
+
+	installSMWWithComposer
 
 	if [ "$PHPUNIT" != "" ]
 	then
