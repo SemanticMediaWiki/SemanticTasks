@@ -29,7 +29,7 @@ script:
 
 after_success:
   - if [[ "$TYPE" != "coverage" ]]; then exit 0; fi
-  - tests/phpunit/phpunit.php -c extensions/SemanticTasks/phpunit.xml.dist --coverage-clover coverage.clover
+  - ../mw/tests/phpunit/phpunit.php -c ../mw/extensions/SemanticTasks/phpunit.xml.dist --coverage-clover coverage.clover
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
