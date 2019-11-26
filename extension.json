@@ -26,8 +26,7 @@
 		"SemanticTasks::onExtensionFunction"
 	],
 	"AutoloadClasses": {
-		"SemanticTasks": "SemanticTasks.php",
-		"SemanticTasksMailer": "src/SemanticTasksMailer.php"
+		"SemanticTasks": "SemanticTasks.php"
 	},
 	"load_composer_autoloader": true,
 	"manifest_version": 1,
