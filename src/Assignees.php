@@ -208,6 +208,9 @@ class Assignees {
 
 		/** @var $semanticData \SMW\SemanticData */
 		$semanticData = $parserOutput->getExtensionData( 'smwdata' );
+		if ( $semanticData === null ) {
+			return [];
+		}
 		$propValues = $semanticData->getPropertyValues( $property );
 		$valueList = array_map(function( SMWDataItem $propVal ) {
 			if ($propVal instanceof DIWikiPage) {
