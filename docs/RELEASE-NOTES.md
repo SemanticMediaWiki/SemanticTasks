@@ -5,6 +5,18 @@ the extension's page on mediawiki.org:
 
 * https://www.mediawiki.org/wiki/Extension:Semantic_Tasks
 
+## Version 2.0.0
+
+Released on ??
+
+* Made compatible with MediaWiki 1.31 and later.
+* Made compatible with Semantic MediaWiki 3.0 and later.
+* Set requirements to MediaWiki 1.31 or later.
+* Set requirements to Semantic MediaWiki 3.0 or later.
+* Cleanup docs
+* Switch to extension registration
+* Custom property mapping
+
 
 ## Version 1.7.0
 
