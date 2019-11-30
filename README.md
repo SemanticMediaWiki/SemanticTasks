@@ -16,7 +16,7 @@ notification (see below).
 
 ## Requirements
 
- - PHP 5.6 or later
+ - PHP 7.2 or later
  - MediaWiki 1.31  or later
  - Semantic MediaWiki 3.0 or later
 
