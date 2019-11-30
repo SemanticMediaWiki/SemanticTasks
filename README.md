@@ -9,7 +9,7 @@ Semantic Tasks (a.k.a. ST) is a [Semantic Mediawiki][smw] extension that provide
 and reminder emails with the help of semantic annotations.
 
 In contrast to the built in notification systems in MediaWiki (watching pages), this extension 
-can be used to trigger notifications withour user interaction with the MediaWiki system, e. g. 
+can be used to trigger notifications without user interaction with the MediaWiki system, e. g. 
 by filling in a form (using the PageForms extension) where a user name is entered in a form 
 and in the resulting template the respective properties are set to trigger a email 
 notification (see below). 
@@ -104,7 +104,7 @@ have a look at the contribution guideline.
 ## Credits
 
 Semantic Tasks was initially created by Steren Giannini for Creative Commons. 
-Currenetly it is sponsored by KDZ - Centre for Public Administration Research.
+Currenetly it is sponsored by KDZ - Centre for Public Administration Research, with most upgrade work done by [Peter Grassberger](https://github.com/PeterTheOne).
 
 ## License
 
