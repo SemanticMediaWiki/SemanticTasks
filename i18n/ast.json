@@ -4,7 +4,8 @@
 			"Xuacu"
 		]
 	},
-	"semantictasks-desc": "Avisos per corréu electrónicu de les xeres encargaes o anovaes",
+	"semantictasks-desc": "Manda avisos per corréu electrónicu de les xeres encargaes o anovaes",
+	"semantictasks-name": "Xeres Semántiques",
 	"semantictasks-newtask": "Nueva xera:",
 	"semantictasks-taskassigned": "Xera encargada:",
 	"semantictasks-taskunassigned": "Xera desencargada:",
