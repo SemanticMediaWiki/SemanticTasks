@@ -1,12 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vito Genovese"
+			"Vito Genovese",
+			"BaRaN6161 TURK"
 		]
 	},
+	"semantictasks-desc": "Atanmış veya güncellenmiş görevler için e-posta bildirimleri gönderir",
+	"semantictasks-name": "Anlamsal Görevler",
 	"semantictasks-newtask": "Yeni görev:",
+	"semantictasks-taskassigned": "Görev atandı:",
+	"semantictasks-taskunassigned": "Atanmamış görev:",
 	"semantictasks-taskupdated": "Görev güncellendi:",
+	"semantictasks-taskclosed": "Görev kapalı:",
+	"semantictasks-newtask-msg": "\"$1\" görevi oluşturuldu.",
+	"semantictasks-taskclosed-msg": "\"$1\" görevi kapatıldı.",
+	"semantictasks-assignedtoyou-msg2": "\"$1\" görevi size verildi.",
+	"semantictasks-unassignedtoyou-msg2": "\"$1\" görevinizden atanmamışsınız.",
+	"semantictasks-updatedtoyou-msg2": "\"$1\" görevi güncellendi.",
 	"semantictasks-reminder": "Hatırlatma:",
+	"semantictasks-reminder-message2": "Sadece \"$1\" görevinin $2 {{PLURAL:$2|gün|gün}} ile biteceğini hatırlatmak içindir.\n\n$3",
 	"semantictasks-text-message": "Görev tanımı şu şekildedir:",
 	"semantictasks-diff-message": "Farklılıklar şu şekildedir:"
 }
