@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helix84"
+			"Helix84",
+			"Luky001"
 		]
 	},
-	"semantictasks-desc": "Upozornenia emailom na pridelené a aktualizované úlohy",
+	"semantictasks-desc": "Posiela e-mailové upozornenia pre pridelené alebo aktualizované úlohy",
 	"semantictasks-newtask": "Nová úloha:",
 	"semantictasks-taskupdated": "Aktualizovaná úloha:",
 	"semantictasks-assignedtoyou-msg2": "Práve vám bola pridelená úloha „$1“.",
