@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Anarhistička Maca",
 			"Crazymadlover",
-			"Translationista",
-			"Macofe",
 			"Dgstranz",
-			"Indiralena",
 			"Fitoschido",
-			"Anarhistička Maca"
+			"Indiralena",
+			"Macofe",
+			"Translationista"
 		]
 	},
 	"semantictasks-desc": "Envíe notificaciones por correo electrónico para tareas asignadas o actualizadas",

@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Event",
-			"Nghtwlkr",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Nghtwlkr"
 		]
 	},
 	"semantictasks-desc": "Sender epostvarsler om tildelte eller oppdaterte oppgaver",

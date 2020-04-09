@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Fitoschido",
 			"Paucabot",
-			"Toniher",
-			"Fitoschido"
+			"Toniher"
 		]
 	},
 	"semantictasks-desc": "Notificacions de correu electrònic de les tasques assignades o actualitzades",

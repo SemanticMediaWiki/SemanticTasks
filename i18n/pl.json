@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sp5uhe",
 			"Chrumps",
-			"CiaPan"
+			"CiaPan",
+			"Sp5uhe"
 		]
 	},
 	"semantictasks-desc": "Powiadomienia e‐mailem o przypisaniu lub aktualizacji zadań",

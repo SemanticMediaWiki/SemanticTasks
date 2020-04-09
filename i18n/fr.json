@@ -2,10 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Crochet.david",
+			"Derugon",
 			"IAlex",
 			"Urhixidur",
-			"Wladek92",
-			"Derugon"
+			"Wladek92"
 		]
 	},
 	"semantictasks-desc": "Envoyer des notifications par courriel pour les tâches assignées ou mises-à-jour",

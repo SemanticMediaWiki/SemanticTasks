@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Andriykopanytsia",
+			"Movses",
 			"Steve.rusyn",
 			"SteveR",
-			"Тест",
 			"Ата",
-			"Movses"
+			"Тест"
 		]
 	},
 	"semantictasks-desc": "Надсилає сповіщення електронною поштою про призначені чи оновлені завдання.",
