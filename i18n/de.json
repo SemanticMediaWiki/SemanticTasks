@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Als-Holder",
+			"Druesenfieber",
 			"Kghbln",
 			"Metalhead64",
 			"Purodha"
 		]
 	},
 	"semantictasks-desc": "Ermöglicht E-Mail-Benachrichtigungen für neu zugewiesene oder geänderte Aufgaben",
+	"semantictasks-name": "Semantic Tasks",
 	"semantictasks-newtask": "Neue Aufgabe:",
 	"semantictasks-taskassigned": "Zugewiesene Aufgabe:",
 	"semantictasks-taskunassigned": "Nicht zugeordnete Aufgabe:",
