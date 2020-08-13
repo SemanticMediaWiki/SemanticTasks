@@ -5,10 +5,11 @@
 			"Druesenfieber",
 			"Kghbln",
 			"Metalhead64",
-			"Purodha"
+			"Purodha",
+			"Umherirrender"
 		]
 	},
-	"semantictasks-desc": "Ermöglicht E-Mail-Benachrichtigungen für neu zugewiesene oder geänderte Aufgaben",
+	"semantictasks-desc": "Versendet E-Mail-Benachrichtigungen für neu zugewiesene oder geänderte Aufgaben",
 	"semantictasks-name": "Semantic Tasks",
 	"semantictasks-newtask": "Neue Aufgabe:",
 	"semantictasks-taskassigned": "Zugewiesene Aufgabe:",
