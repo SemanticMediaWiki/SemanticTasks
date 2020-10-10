@@ -23,9 +23,11 @@ matrix:
 install:
   - bash ./tests/travis/install-mediawiki.sh
   - bash ./tests/travis/install-semantic-tasks.sh
+  - npm ci
 
 script:
   - bash ./tests/travis/run-tests.sh
+  - npm run test
 
 after_success:
   - if [[ "$TYPE" != "coverage" ]]; then exit 0; fi
