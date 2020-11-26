@@ -44,10 +44,6 @@ class SemanticTasks {
 
 		// Register extension messages and other localisation.
 		$wgMessagesDirs['SemanticTasks'] = __DIR__ . '/i18n';
-
-		// Set to true to notify users when they are unassigned from a task
-		global $wgSemanticTasksNotifyIfUnassigned;
-		$wgSemanticTasksNotifyIfUnassigned = false;
 	}
 
 	/**

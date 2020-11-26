@@ -38,6 +38,7 @@
 		"PropertyReminderAt": "Reminder at",
 		"PropertyStatus": "Status",
 		"PropertyAssignedToGroup": "Assigned to group",
-		"PropertyHasAssignee": "Has assignee"
+		"PropertyHasAssignee": "Has assignee",
+		"SemanticTasksNotifyIfUnassigned": false
 	}
 }
