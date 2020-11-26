@@ -5,6 +5,13 @@ the extension's page on mediawiki.org:
 
 * https://www.mediawiki.org/wiki/Extension:Semantic_Tasks
 
+## Version 2.0.1
+
+Released on 2020-11-26
+
+* Fixes `$wgSemanticTasksNotifyIfUnassigned` being set incorrectly
+* Updated translations (by translatewiki.net community)
+
 ## Version 2.0.0
 
 Released on 2019-11-30
