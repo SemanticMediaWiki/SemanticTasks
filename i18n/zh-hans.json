@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Lakejason0",
 			"Linforest",
 			"Liuxinyu970226"
 		]
 	},
-	"semantictasks-desc": "关于已分配任务或已更新任务的电子邮件通知",
+	"semantictasks-desc": "发送关于已分配任务或已更新任务的电子邮件通知",
 	"semantictasks-newtask": "新任务：",
 	"semantictasks-taskassigned": "已分配的任务：",
 	"semantictasks-taskunassigned": "未分配的任务：",
