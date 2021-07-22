@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"McDutchie",
 			"Rangekill",
 			"Siebrand"
 		]
 	},
-	"semantictasks-desc": "E-mailberichten voor toegewezen of bijgewerkte taken",
+	"semantictasks-desc": "Verzendt e-mailmeldingen voor toegewezen of bijgewerkte taken",
 	"semantictasks-newtask": "Nieuwe taak:",
 	"semantictasks-taskassigned": "Taak toegewezen:",
 	"semantictasks-taskupdated": "Taak bijgewerkt:",
