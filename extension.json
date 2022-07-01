@@ -39,6 +39,7 @@
 		"PropertyStatus": "Status",
 		"PropertyAssignedToGroup": "Assigned to group",
 		"PropertyHasAssignee": "Has assignee",
-		"SemanticTasksNotifyIfUnassigned": false
+		"SemanticTasksNotifyIfUnassigned": false,
+		"NotificationFromSystemAddress": false
 	}
 }

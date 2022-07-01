@@ -143,13 +143,16 @@ class SemanticTasksMailer {
 	 * @global string $wgSitename
 	 */
 	static function mailNotification( array $assignees, $text, Title $title, User $user, $status ) {
-		global $wgSitename;
+		global $wgSitename, $stgNotificationFromSystemAddress, $wgPasswordSender;
 
 		if ( empty( $assignees ) ) {
 			return;
 		}
 		$title_text = $title->getFullText();
-		$from = new \MailAddress( $user->getEmail(), $user->getName() );
+		$from = new \MailAddress(
+			$stgNotificationFromSystemAddress ? $wgPasswordSender : $user->getEmail(),
+			$stgNotificationFromSystemAddress ? $wgSitename : $user->getName()
+		);
 		$link = htmlspecialchars( $title->getFullURL() );
 
 		/** @todo This should probably be refactored */

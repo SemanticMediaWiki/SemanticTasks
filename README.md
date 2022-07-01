@@ -84,6 +84,13 @@ property names. This is the list of default settings:
 * `$stgPropertyAssignedToGroup = 'Assigned to group';`
 * `$stgPropertyHasAssignee = 'Has assignee';`
 
+## Configuration
+
+* `SemanticTasksNotifyIfUnassigned` - (default: `false`) If set to `true` will notify
+  users being unassigned from tasks
+* `$stgNotificationFromSystemAddress` - (default: `false`) If set to `true` will use
+  `$wgSiteName` and `$wgPasswordSender` for notification emails From field
+
 ## Usage
 
 Notification emails:  
