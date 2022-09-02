@@ -163,12 +163,17 @@ class SemanticTasksMailer {
 			$body = wfMessage( $message, $title_text )->text() . " " . $link;
 			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
 		} elseif ( $status == ST_UPDATE ) {
+			// ***edited
+			$context = new \RequestContext();
+			$context->setTitle( $title );
+
 			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskupdated' )->text() . ' ' .
 				$title_text;
 			$message = 'semantictasks-updatedtoyou-msg2';
 			$body = wfMessage( $message, $title_text )->text() . " " . $link;
 			$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' )->text() . "\n" .
-				self::generateDiffBodyTxt( $title );
+				// // ***edited
+				self::generateDiffBodyTxt( $title, $context );
 		} elseif ( $status == ST_CLOSED ) {
 			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskclosed' )->text() . ' ' .
 				$title_text;
@@ -212,12 +217,20 @@ class SemanticTasksMailer {
 	 * @throws MWException
 	 */
 	static function generateDiffBodyTxt( Title $title, IContextSource $context = null) {
+/*
 		$revision = \Revision::newFromTitle( $title, 0 );
 		if ($revision === null) {
 			return '';
 		}
+*/
 		/** @todo The first parameter should be a Context. */
+/*
 		$diff = new \DifferenceEngine( $context, $revision->getId(), 'prev' );
+*/		 
+
+		// ***edited
+		$diff = new \DifferenceEngine( $context, $title->getLatestRevID(), 'prev' );
+
 		// The DifferenceEngine::getDiffBody() method generates html,
 		// so let's generate the txt diff manually:
 		global $wgContLang;
