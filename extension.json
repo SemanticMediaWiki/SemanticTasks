@@ -25,6 +25,9 @@
 	"ExtensionFunctions": [
 		"SemanticTasks::onExtensionFunction"
 	],
+	"AutoloadNamespaces": {
+		"ST\\": "src"
+	},
 	"AutoloadClasses": {
 		"SemanticTasks": "SemanticTasks.php"
 	},

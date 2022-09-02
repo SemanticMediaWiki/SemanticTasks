@@ -10,7 +10,7 @@
 	"homepage": "https://www.mediawiki.org/wiki/Extension:Semantic_Tasks",
 	"license": "GPL-2.0-or-later",
 	"require": {
-		"mediawiki/semantic-media-wiki": "~3.0"
+		"mediawiki/semantic-media-wiki": "~3.0|~4.0"
 	},
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "1.0.0",
