@@ -31,6 +31,7 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		return $testResult;
 	}
 
+
 	protected function overrideMwServices( $configOverrides = null, array $services = [] ) {
 		/**
 		 * `MediaWikiTestCase` isolates the result with  `MediaWikiTestResult` which
@@ -159,10 +160,13 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$article = WikiPage::factory( $title );
 		$content = \ContentHandler::makeContent( 'this is some edit', $title );
 		$article->doEditContent( $content, 'edit page' );
-		$revision = $article->getRevision();
+
+		// ***edited
+		//$revision = $article->getRevision();
+		$revisionRecord = $article->getRevisionRecord();
 		$current_user = new User();
 		$assignees = new Assignees();
-		$assignendUsers = $assignees->getCurrentAssignees( $article, $revision );
+		$assignendUsers = $assignees->getCurrentAssignees( $article, $revisionRecord );
 
 		$this->assertEmpty( $assignendUsers );
 	}
