@@ -27,6 +27,17 @@ class Assignees {
 		return true;
 	}
 
+	// ***edited
+	public function saveAssigneesMultiContentSave( \MediaWiki\Revision\RenderedRevision $renderedRevision, \MediaWiki\User\UserIdentity $user, \CommentStoreComment $summary, $flags, \Status $hookStatus) { 
+		$revision = $renderedRevision->getRevision();
+		$title = \Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
+		$article = WikiPage::factory( $title );
+
+		$this->taskAssignees = $this->getCurrentAssignees( $article, $revision );
+		$this->taskStatus = $this->getCurrentStatus( $article, $revision );
+		return true;
+	}
+
 	public function getSavedStatus() {
 		return $this->taskStatus;
 	}
