@@ -86,7 +86,7 @@ class SemanticTasks {
 
 				// @see includes/Storage/PageUpdater.php
 				$mainContent = $revisionRecord->getContent( MediaWiki\Revision\SlotRecord::MAIN, MediaWiki\Revision\RevisionRecord::RAW );
-				$minoredit = $flags & EDIT_MINOR;
+				$minoredit = $editResult->isNullEdit() || ( $flags & EDIT_MINOR );
 				$watchthis = null;
 				$sectionanchor = null;
 
