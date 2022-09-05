@@ -30,8 +30,13 @@ class Assignees {
 	// ***edited
 	public function saveAssigneesMultiContentSave( \MediaWiki\Revision\RenderedRevision $renderedRevision, \MediaWiki\User\UserIdentity $user, \CommentStoreComment $summary, $flags, \Status $hookStatus) { 
 		$revision = $renderedRevision->getRevision();
-		$title = \Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
-		$article = WikiPage::factory( $title );
+		if ( method_exists( RevisionRecord::class, 'getPage' ) ) {
+			$article = $revision->getPage();
+
+		} else {
+			$title = \Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
+			$article = WikiPage::factory( $title );
+		}
 
 		$this->taskAssignees = $this->getCurrentAssignees( $article, $revision );
 		$this->taskStatus = $this->getCurrentStatus( $article, $revision );
