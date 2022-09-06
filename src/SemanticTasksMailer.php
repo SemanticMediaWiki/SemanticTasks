@@ -282,6 +282,7 @@ class SemanticTasksMailer {
 		# Get tasks where a reminder is called for, whose status is either new or in progress, and
 		# whose target date is in the future.
 		$query_string = "[[$stgPropertyReminderAt::+]][[$stgPropertyStatus::New||In Progress]][[$stgPropertyTargetDate::≥ $today]]";
+
 		$properties_to_display = array( $stgPropertyReminderAt, $stgPropertyAssignedTo, $stgPropertyTargetDate );
 
 		$results = Query::getQueryResults( $query_string, $properties_to_display, true );
@@ -290,7 +291,9 @@ class SemanticTasksMailer {
 		}
 
 		while ( $row = $results->getNext() ) {
-			$task_name = $row[0]->getNextObject()->getTitle();
+			// ***edited
+			// $task_name = $row[0]->getNextObject()->getTitle();
+			$task_name = $row[0]->getNextDataItem()->getTitle();
 			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-reminder' )->text() . $task_name;
 			// The following doesn't work, maybe because we use a cron job.
 			// $link = $task_name->getFullURL();
@@ -299,22 +302,37 @@ class SemanticTasksMailer {
 			// You know what? Let's try it again.
 			$link = $task_name->getFullURL();
 
-			$target_date = $row[3]->getNextObject();
-			$tg_date = new DateTime( $target_date->getShortHTMLText() );
+			// ***edited
+			$target_date = $row[3]->getNextDataItem();
+			// $target_date = $row[3]->getNextObject();
+			//$tg_date = new \DateTime( $target_date->getShortHTMLText() );
+			$tg_date = $target_date->asDateTime();
 
-			while ( $reminder = $row[1]->getNextObject() ) {
-				$remind_me_in = $reminder->getShortHTMLText();
-				$date = new DateTime( 'today midnight' );
-				$date->modify( "+$remind_me_in day" );
+			// ***edited
+			while ( $reminder = $row[1]->getNextDataItem() ) {
+				// ***edited
+				// $remind_me_in = $reminder->getShortHTMLText();
+				// $date = new DateTime( 'today midnight' );
+				// $date->modify( "+$remind_me_in day" );
 
-				if ( $tg_date === $date ) {
+				$remind_me_on = $reminder->asDateTime();
+				$date = new \DateTime( 'today midnight' );
+
+				// ***edited
+				// if ( $tg_date === $date ) {
+				if ( $date->getTimestamp() === $remind_me_on->getTimestamp() ) {
 					global $wgLang;
-					while ( $task_assignee = $row[2]->getNextObject() ) {
+
+					// ***edited
+					$remind_me_in = $tg_date->diff( $date )->format( "%a" );
+
+					while ( $task_assignee = $row[2]->getNextDataItem() ) {
 						$assignee_username = $task_assignee->getTitle()->getText();
 						$assignee = User::newFromName( $assignee_username );
 
 						$body = wfMessage( 'semantictasks-reminder-message2', $task_name,
 							$wgLang->formatNum( $remind_me_in ), $link )->text();
+
 						$assignee->sendMail( $subject, $body );
 					}
 				}
