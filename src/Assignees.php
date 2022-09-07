@@ -206,6 +206,11 @@ class Assignees {
 				null
 			);
 		} else {
+			// ***edited
+			if ( version_compare( SMW_VERSION, '4.0', '<' ) ) {
+				// *** legacyRevision
+				$revision = new \Revision( $revision );
+			}
 			$editInfo = $mwCollaboratorFactory->newEditInfo(
 				$article,
 				$revision,
