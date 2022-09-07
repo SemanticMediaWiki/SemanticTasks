@@ -233,8 +233,12 @@ class SemanticTasksMailer {
 
 		// The DifferenceEngine::getDiffBody() method generates html,
 		// so let's generate the txt diff manually:
-		global $wgContLang;
+		//global $wgContLang;
 		$diff->loadText();
+
+		// ***edited
+		$lang = \MediaWiki\MediaWikiServices::getInstance()->getContentLanguage();
+
 		$otext = '';
 		$ntext = '';
 		if ( version_compare( MW_VERSION, '1.32', '<' ) ) {
@@ -248,13 +252,20 @@ class SemanticTasksMailer {
 				$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getNewRevision()->getContent( 'main' ) ) );
 			}
 		}
-		$ota = explode( "\n", $wgContLang->segmentForDiff( $otext ) );
-		$nta = explode( "\n", $wgContLang->segmentForDiff( $ntext ) );
+		// ***edited
+		// $ota = explode( "\n", $wgContLang->segmentForDiff( $otext ) );
+		// $nta = explode( "\n", $wgContLang->segmentForDiff( $ntext ) );
+		$ota = explode( "\n", $lang->segmentForDiff( $otext ) );
+		$nta = explode( "\n", $lang->segmentForDiff( $ntext ) );
+
 		// We use here the php diff engine included in MediaWiki
 		$diffs = new \Diff( $ota, $nta );
 		// And we ask for a txt formatted diff
 		$formatter = new \UnifiedDiffFormatter();
-		$diff_text = $wgContLang->unsegmentForDiff( $formatter->format( $diffs ) );
+
+		// ***edited
+		// $diff_text = $wgContLang->unsegmentForDiff( $formatter->format( $diffs ) );
+		$diff_text = $lang->unsegmentForDiff( $formatter->format( $diffs ) );
 		return $diff_text;
 	}
 
