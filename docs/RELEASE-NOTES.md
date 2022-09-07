@@ -5,6 +5,19 @@ the extension's page on mediawiki.org:
 
 * https://www.mediawiki.org/wiki/Extension:Semantic_Tasks
 
+## Version 3.0.0
+
+Released on 2022-09-xx
+
+* Minimum requirement for
+  * PHP changed to version 7.3 and later
+  * MediaWiki changed to version 1.35 and later
+  * Semantic MediaWiki changed to version 3.2 and later
+* Adds compatibility with SMW 4.x and MW up to 1.38 (thank you to [thomas-topway-it](https://github.com/thomas-topway-it))
+* Fixes some bugs (sending too many e-mails) (thank you to [vedmaka](https://github.com/vedmaka))
+* Introduces $stgNotificationFromSystemAddress using wiki $wgSiteName and $wgPasswordSender as a From address for tasks notifications emails (thank you to [vedmaka](https://github.com/vedmaka))
+* Updated translations (by translatewiki.net community)
+
 ## Version 2.0.1
 
 Released on 2020-11-26
