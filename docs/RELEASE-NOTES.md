@@ -14,7 +14,7 @@ Released on 2022-09-xx
   * MediaWiki changed to version 1.35 and later
   * Semantic MediaWiki changed to version 3.2 and later
 * Adds compatibility with SMW 4.x and MW up to 1.38 (thank you to [thomas-topway-it](https://github.com/thomas-topway-it))
-* Fixes some bugs (sending too many e-mails) (thank you to [vedmaka](https://github.com/vedmaka))
+* Fixes some bugs (sending too many e-mails) (thank you to [thomas-topway-it](https://github.com/thomas-topway-it))
 * Introduces $stgNotificationFromSystemAddress using wiki $wgSiteName and $wgPasswordSender as a From address for tasks notifications emails (thank you to [vedmaka](https://github.com/vedmaka))
 * Updated translations (by translatewiki.net community)
 
