@@ -1,12 +1,13 @@
 {
 	"name": "SemanticTasks",
-	"version": "2.0.1",
+	"version": "3.0.0",
 	"author": [
 		"Steren Giannini",
 		"Ryan Lane",
 		"Ike Hecht",
 		"Peter Grassberger",
-		"..."
+		"Vedmaka",
+		"thomas-topway-it"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Semantic_Tasks",
 	"descriptionmsg": "semantictasks-desc",
@@ -14,7 +15,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "semantic",
 	"requires": {
-		"MediaWiki": ">= 1.31"
+		"MediaWiki": ">= 1.35"
 	},
 	"MessagesDirs": {
 		"SemanticTasks": [
