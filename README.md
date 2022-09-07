@@ -107,7 +107,7 @@ have a look at the contribution guideline.
 ## Credits
 
 Semantic Tasks was initially created by Steren Giannini for Creative Commons. Later it was sponsored by KDZ - Centre for Public Administration Research, with most upgrade work done by [Peter Grassberger](https://github.com/PeterTheOne).
-Currenetly it is sponsored by [KM-A Knowledge Management Associates](https://km-a.net/knowledge-wiki/), with most upgrade work done by [thomas-topway-it](https://github.com/thomas-topway-it).
+Currently it is sponsored by [KM-A Knowledge Management Associates](https://km-a.net/knowledge-wiki/), with most upgrade work done by [thomas-topway-it](https://github.com/thomas-topway-it).
 
 
 ## License
