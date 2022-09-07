@@ -12,9 +12,9 @@ In contrast to the built in notification systems in MediaWiki (watching pages), 
 
 ## Requirements
 
- - PHP 5.6 or later
- - MediaWiki 1.31  or later
- - Semantic MediaWiki 3.0 or later
+ - PHP 7.3 or later
+ - MediaWiki 1.315 or later
+ - Semantic MediaWiki 3.2 or later
 
 ## Installation
 
@@ -40,7 +40,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-tasks": "~2.0"
+    "mediawiki/semantic-tasks": "~3.0"
 
 Remember to add a comma to the end of the preceding line in this section.
 
@@ -103,6 +103,9 @@ have a look at the contribution guideline.
 * [File an issue](https://github.com/SemanticMediaWiki/SemanticCite/issues)
 * [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticCite/pulls)
 * Ask a question on [the mailing list](https://www.semantic-mediawiki.org/wiki/Mailing_list)
+
+## Version history
+See [release notes](docs/RELEASE-NOTES.md).
 
 ## Credits
 
