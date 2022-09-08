@@ -116,7 +116,10 @@ class SemanticTasksMailer {
 
 		// Only send group notifications on new tasks
 		$groups = array();
-		if ( $status === ST_NEWTASK ) {
+
+		// ***edited
+		//if ( $status === ST_NEWTASK ) {
+		if ( true ) {
 			$groups = $assignees->getGroupAssignees( $article );
 		}
 
