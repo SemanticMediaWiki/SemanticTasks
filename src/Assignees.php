@@ -128,7 +128,9 @@ class Assignees {
 
 		// If not any row, do nothing
 		if ( !empty( $group_assignees ) ) {
-			while ( $group_assignee = $group_assignees->getNextObject() ) {
+			// ***edited
+			// while ( $group_assignee = $group_assignees->getNextObject() ) {
+			while ( $group_assignee = $group_assignees->getNextDataItem() ) {
 				$group_assignee = $group_assignee->getTitle();
 				$group_name = $group_assignee->getText();
 				$query_word = $stgPropertyHasAssignee;
@@ -143,7 +145,9 @@ class Assignees {
 				}
 
 				if ( !empty( $task_assignees ) ) {
-					while ( $task_assignee = $task_assignees->getNextObject() ) {
+					// ***edited
+					//while ( $task_assignee = $task_assignees->getNextObject() ) {
+					while ( $task_assignee = $task_assignees->getNextDataItem() ) {
 						$assignee_name = $task_assignee->getTitle();
 						$assignee_name = $assignee_name->getText();
 						/** @todo Create User object */
