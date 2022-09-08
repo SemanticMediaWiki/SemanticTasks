@@ -331,7 +331,8 @@ class SemanticTasksMailer {
 
 				// ***edited
 				// if ( $tg_date === $date ) {
-				if ( $date->getTimestamp() === $remind_me_on->getTimestamp() ) {
+				if ( $date->getTimestamp() === $remind_me_on->getTimestamp()
+					|| $date->getTimestamp() === $tg_date->getTimestamp() ) {
 					global $wgLang;
 
 					// ***edited
