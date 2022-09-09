@@ -68,7 +68,6 @@ class SemanticTasks {
 		// Register extension hooks.
 		global $wgHooks;
 
-		// ***edited
 		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
 			$wgHooks['PageContentSave'][] = [ $assignees, 'saveAssignees' ];
 			$wgHooks['PageContentSaveComplete'][] = function(WikiPage $article, User $current_user, Content $text,
@@ -79,7 +78,6 @@ class SemanticTasks {
 				);
 			};
 
-		// ***edited
 		} else {
 			$wgHooks['MultiContentSave'][] = [ $assignees, 'saveAssigneesMultiContentSave' ];
 			$wgHooks['PageSaveComplete'][] = function( WikiPage $wikiPage, MediaWiki\User\UserIdentity $user, string $summary, int $flags, MediaWiki\Revision\RevisionRecord $revisionRecord, MediaWiki\Storage\EditResult $editResult ) use ( $assignees ) {
