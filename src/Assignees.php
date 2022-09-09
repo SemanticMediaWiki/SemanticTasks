@@ -27,19 +27,18 @@ class Assignees {
 		return true;
 	}
 
-	// ***edited
-	public function saveAssigneesMultiContentSave( \MediaWiki\Revision\RenderedRevision $renderedRevision, \MediaWiki\User\UserIdentity $user, \CommentStoreComment $summary, $flags, \Status $hookStatus) { 
-		$revision = $renderedRevision->getRevision();
+	public function saveAssigneesMultiContentSave( \MediaWiki\Revision\RenderedRevision $renderedRevision, \MediaWiki\User\UserIdentity $user, \CommentStoreComment $summary, $flags, \Status $hookStatus) {
 		if ( method_exists( RevisionRecord::class, 'getPage' ) ) {
 			$article = $revision->getPage();
 
 		} else {
+			$revision = $renderedRevision->getRevision();
 			$title = \Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
 			$article = WikiPage::factory( $title );
 		}
 
-		$this->taskAssignees = $this->getCurrentAssignees( $article, $revision );
-		$this->taskStatus = $this->getCurrentStatus( $article, $revision );
+		$this->taskAssignees = $this->getCurrentAssignees( $article, null );
+		$this->taskStatus = $this->getCurrentStatus( $article, null );
 		return true;
 	}
 
@@ -74,11 +73,17 @@ class Assignees {
 	public function getCurrentStatus( WikiPage &$article, $revision ) {
 		global $stgPropertyStatus;
 		$status = $this->getProperties( $stgPropertyStatus, $article, $revision );
-		$statusString = '';
+
 		if ( count( $status ) > 0 ) {
-			$statusString = $status[0];
+			$status = $status[0];
+
+			// status must be type text
+			if ( $status instanceof \SMWDIBlob ) {
+				return $status->getString();
+			}
 		}
-		return $statusString;
+
+		return null;
 	}
 
 	/**
@@ -128,8 +133,6 @@ class Assignees {
 
 		// If not any row, do nothing
 		if ( !empty( $group_assignees ) ) {
-			// ***edited
-			// while ( $group_assignee = $group_assignees->getNextObject() ) {
 			while ( $group_assignee = $group_assignees->getNextDataItem() ) {
 				$group_assignee = $group_assignee->getTitle();
 				$group_name = $group_assignee->getText();
@@ -145,16 +148,11 @@ class Assignees {
 				}
 
 				if ( !empty( $task_assignees ) ) {
-					// ***edited
-					//while ( $task_assignee = $task_assignees->getNextObject() ) {
 					while ( $task_assignee = $task_assignees->getNextDataItem() ) {
-						$assignee_name = $task_assignee->getTitle();
-						$assignee_name = $assignee_name->getText();
-						/** @todo Create User object */
-						$assignee_name = explode( ":", $assignee_name );
-						$assignee_name = $assignee_name[0];
-
-						array_push( $assignee_arr, $assignee_name );
+						$assignee = $task_assignee->getTitle();
+						if ( $assignee ) {
+							array_push( $assignee_arr, $assignee->getText() );
+						}
 					}
 				}
 			}
@@ -170,20 +168,21 @@ class Assignees {
 	 * @return array
 	 */
 	static public function getAssigneeAddresses( array $assignees ) {
-		$assignee_arr = array();
+		$assignee_arr = array_unique( $assignees );
+		$ret = array();
 		foreach ( $assignees as $assignee_name ) {
 			$assignee = User::newFromName( $assignee_name );
 			// if assignee is the current user, do nothing
 			# if ( $assignee->getID() != $user->getID() ) {
-			if (!$assignee) {
+			if ( !$assignee ) {
 				continue;
 			}
 			$assignee_mail = new \MailAddress( $assignee->getEmail(), $assignee_name );
-			array_push( $assignee_arr, $assignee_mail );
+			array_push( $ret, $assignee_mail );
 			# }
 		}
 
-		return $assignee_arr;
+		return $ret;
 	}
 
 	/**
@@ -197,22 +196,22 @@ class Assignees {
 	private function getProperties( $propertyString, $article, $revision ) {
 		$smwFactory = ApplicationFactory::getInstance();
 		$mwCollaboratorFactory = $smwFactory->newMwCollaboratorFactory();
-		if ($revision === null) {
-			$revision = $article->getRevision();
-		}
-		if ($revision === null) {
-			return [];
-		}
+
+		// untested in v. 3.0.0
 		if ( version_compare( SMW_VERSION, '3.1', '<' ) ) {
 			$editInfo = $mwCollaboratorFactory->newEditInfoProvider(
 				$article,
 				$revision,
 				null
 			);
+
+		// $revision must be null when called from hook
+		// MultiContentSave, to get the unsaved (not planned)
+		// revision
 		} else {
-			// ***edited
-			if ( version_compare( SMW_VERSION, '4.0', '<' ) ) {
-				// *** legacyRevision
+			if ( version_compare( SMW_VERSION, '4.0', '<' )
+				&& ( $revision instanceof \MediaWiki\Revision\RevisionStoreRecord )  ) {
+				// *** get legacyRevision
 				$revision = new \Revision( $revision );
 			}
 			$editInfo = $mwCollaboratorFactory->newEditInfo(
