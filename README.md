@@ -89,16 +89,16 @@ property names. This is the list of default settings:
 
 ## Usage
 
-Notification emails:  
+### Notification emails
 They are sent as soon a page is saved. The system looks for the `[[Assigned to::*]]`, `[[Carbon copy::*]]` and `[[Assigned to group::*]]` properties.
 
-Groups:
+### Groups
 Create a group page with properties `[[Has assignee::*]]` and then assign the group to the task with `[[Assigned to group::*]]` property.
 
-Status:
+### Status
 Set Status to `[[Status::Closed]]` to inform assignees that the task has been closed and to disable notifications and reminders.
 
-Reminder emails:  
+### Reminder emails
 Once the script execution is triggered via cron the software looks for the `[[Reminder at::*]]` and the `[[Target date::*]]` property. It then sends reminders to all the assignees.
 
 
