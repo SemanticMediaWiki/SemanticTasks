@@ -5,7 +5,7 @@ the extension's page on mediawiki.org:
 
 * https://www.mediawiki.org/wiki/Extension:Semantic_Tasks
 
-## Version 3.0.0
+## Version 2.1.0
 
 Released on 2022-09-xx
 
