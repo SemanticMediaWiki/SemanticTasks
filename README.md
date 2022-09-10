@@ -40,7 +40,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-tasks": "~3.0"
+    "mediawiki/semantic-tasks": "~2.0"
 
 Remember to add a comma to the end of the preceding line in this section.
 
