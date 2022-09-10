@@ -90,7 +90,7 @@ property names. This is the list of default settings:
 ## Usage
 
 ### Notification emails
-They are sent as soon a page is saved. The system looks for the `[[Assigned to::*]]`, `[[Carbon copy::*]]` and `[[Assigned to group::*]]` properties.
+They are sent as soon a page is saved. The system looks for the `[[Assigned to::*]]`, `[[Carbon copy::*]]` and/or `[[Assigned to group::*]]` properties.
 
 ### Groups
 Create a group page with properties `[[Has assignee::*]]` and then assign the group to the task with `[[Assigned to group::*]]` property.
