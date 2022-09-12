@@ -214,7 +214,7 @@ class SemanticTasksMailer {
 	 * @throws MWException
 	 */
 	static function generateDiffBodyTxt( Title $title, IContextSource $context = null) {
-		$diff = new \DifferenceEngine( $context, $title->getLatestRevID(), 'prev' );
+		$diff = new \DifferenceEngine( $context, $title->getLatestRevID() );
 
 		// The DifferenceEngine::getDiffBody() method generates html,
 		// so let's generate the txt diff manually:
