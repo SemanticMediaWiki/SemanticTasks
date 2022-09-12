@@ -274,15 +274,16 @@ class SemanticTasksMailer {
 		# Get tasks where a reminder is called for, whose status is either new or in progress, and
 		# whose target date is in the future.
 
-		// ***[[$stgPropertyReminderAt::+]] could be omitted
-		$query_string = "[[$stgPropertyReminderAt::+]][[$stgPropertyStatus::!Closed]][[$stgPropertyTargetDate::≥ $today]]";
+		// target date in the future is the only requirement
+		$query_string = "[[$stgPropertyTargetDate::≥ $today]]";
 
 		$properties_to_display = array(
 			$stgPropertyReminderAt,
 			$stgPropertyAssignedTo,
 			$stgPropertyTargetDate,
 			$stgPropertyCarbonCopy,
-			$stgPropertyAssignedToGroup
+			$stgPropertyAssignedToGroup,
+			$stgPropertyStatus
 		);
 
 		$results = Query::getQueryResults( $query_string, $properties_to_display, true );
@@ -291,61 +292,85 @@ class SemanticTasksMailer {
 		}
 
 		while ( $row = $results->getNext() ) {
-			$task_name = $row[0]->getNextDataItem()->getTitle();
-			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-reminder' )->text() . $task_name;
-			// ***unused var
-			$link = $task_name->getFullURL();
-
+			$date = new \DateTime( 'today midnight' );
 			$target_date = $row[3]->getNextDataItem();
 
 			// must be of type date
 			$tg_date = $target_date->asDateTime();
 
-			while ( $reminder = $row[1]->getNextDataItem() ) {
-				// ***nice idea
-				// $remind_me_in = $reminder->getShortHTMLText();
-				// $date = new DateTime( 'today midnight' );
-				// $date->modify( "+$remind_me_in day" );
+			$reminder = false;
+			if ( $date->getTimestamp() === $tg_date->getTimestamp() ) {
+				$reminder = true;
+			}
 
-				$remind_me_on = $reminder->asDateTime();
-				$date = new \DateTime( 'today midnight' );
-
-				if ( $date->getTimestamp() === $remind_me_on->getTimestamp()
-					|| $date->getTimestamp() === $tg_date->getTimestamp() ) {
-
-					$remind_me_in = $tg_date->diff( $date )->format( "%a" );
-					$assignees = array();
-
-					// Assigned to
-					while ( $task_assignee = $row[2]->getNextDataItem() ) {
-						$assignees[] = $task_assignee->getTitle()->getText();
-					}
-
-					// Carbon copy
-					while ( $task_assignee = $row[4]->getNextDataItem() ) {
-						$assignees[] = $task_assignee->getTitle()->getText();
-					}
-
-					// groups
-					while ( $group_assignee = $row[5]->getNextDataItem() ) {
-						$group_name = $group_assignee->getTitle()->getText();
-						$query_word = $stgPropertyHasAssignee;
-						$results_ = Query::getQueryResults( "[[$group_name]][[$query_word::+]]", array( $query_word ), false );
-
-						while ( $row_ = $results_->getNext() ) {
-							while ( $task_assignee = $row_[0]->getNextDataItem() ) {
-								$assignees[] = $task_assignee->getTitle()->getText();
-							}
+			if ( !$reminder ) {
+				while ( $reminderAt = $row[1]->getNextDataItem() ) {
+					if ( $reminderAt instanceof \SMWDITime ) {
+						$reminderDate = $reminderAt->asDateTime();
+						if ( $date->getTimestamp() === $reminderDate->getTimestamp() ) {
+							$reminder = true;
+							break;
 						}
 					}
+				}
+			}
 
-					$assignees = array_unique( $assignees );
-					foreach( $assignees as $assignee_username ) {
-						$body = wfMessage( 'semantictasks-reminder-message2', $task_name, $wgLang->formatNum( $remind_me_in ), $link )->text();
-						$assignee = User::newFromName( $assignee_username );
-						$assignee->sendMail( $subject, $body );
+			if ( !$reminder ) {
+				continue;
+			}
+
+			$status = $row[6]->getNextDataItem();
+
+			if ( $status instanceof \SMWDIBlob ) {
+				$status = $status->getString();
+
+				if ( $status === 'Closed' ) {
+					continue;
+				}
+			}
+
+			$remind_me_in = $tg_date->diff( $date )->format( "%a" );
+			$assignees = array();
+
+			// Assigned to
+			while ( $task_assignee = $row[2]->getNextDataItem() ) {
+				$assignees[] = $task_assignee->getTitle()->getText();
+			}
+
+			// Carbon copy
+			while ( $task_assignee = $row[4]->getNextDataItem() ) {
+				$assignees[] = $task_assignee->getTitle()->getText();
+			}
+
+			// groups
+			while ( $group_assignee = $row[5]->getNextDataItem() ) {
+				$group_name = $group_assignee->getTitle()->getText();
+				$query_word = $stgPropertyHasAssignee;
+				$results_ = Query::getQueryResults( "[[$group_name]][[$query_word::+]]", array( $query_word ), false );
+
+				while ( $row_ = $results_->getNext() ) {
+					while ( $task_assignee = $row_[0]->getNextDataItem() ) {
+						$assignees[] = $task_assignee->getTitle()->getText();
 					}
 				}
+			}
+
+			if ( !count ( $assignees ) ) {
+				continue;
+			}
+
+			$assignees = array_unique( $assignees );
+
+			$task_name = $row[0]->getNextDataItem()->getTitle();
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-reminder' )->text() . $task_name;
+
+			// ***unused var
+			$link = $task_name->getFullURL();
+
+			foreach( $assignees as $assignee_username ) {
+				$body = wfMessage( 'semantictasks-reminder-message2', $task_name, $wgLang->formatNum( $remind_me_in ), $link )->text();
+				$assignee = User::newFromName( $assignee_username );
+				$assignee->sendMail( $subject, $body );
 			}
 		}
 
