@@ -90,42 +90,41 @@ class SemanticTasksMailer {
 		$text = ContentHandler::getContentText( $content );
 		$title = $article->getTitle();
 
-		// Notify those unassigned from this task
+		$newAssignees = $assignees->getNewAssignees( $article, $revision );
+		$currentAssignees = $assignees->getCurrentAssignees( $article, $revision );	
+		$groups = $assignees->getGroupAssignees( $article );
+		$copies = $assignees->getCurrentCarbonCopy( $article, $revision );
+		
+		$currentStatus = $assignees->getCurrentStatus( $article, $revision );
+		$oldStatus = $assignees->getSavedStatus();
+
+		if ( $currentStatus === "Closed" && $oldStatus !== "Closed" ) {
+			$recipients = array_merge( $currentAssignees, $copies, $groups );
+			$mailTo = Assignees::getAssigneeAddresses( $recipients );
+			self::mailNotification( $mailTo, $text, $title, $user, ST_CLOSED );
+		}
+
+		// do not send notifications to other users if status is Closed
+		if ( $currentStatus === "Closed" ) {
+			return;
+		}
+
+		// Notify those unassigned from this task, default false
 		global $wgSemanticTasksNotifyIfUnassigned;
 		if ( $wgSemanticTasksNotifyIfUnassigned ) {
 			$removedAssignees = $assignees->getRemovedAssignees( $article, $revision );
-			$removedAssignees = Assignees::getAssigneeAddresses( $removedAssignees );
-			self::mailNotification( $removedAssignees, $text, $title, $user, ST_UNASSIGNED );
+			$mailTo = Assignees::getAssigneeAddresses( $removedAssignees );
+			self::mailNotification( $mailTo, $text, $title, $user, ST_UNASSIGNED );
 		}
 
 		// Send notification of an assigned task to assignees
-		// Treat task as new
-		$newAssignees = $assignees->getNewAssignees( $article, $revision );
-		$newAssignees = Assignees::getAssigneeAddresses( $newAssignees );
-		self::mailNotification( $newAssignees, $text, $title, $user, ST_ASSIGNED );
-
-		$copies = $assignees->getCurrentCarbonCopy( $article, $revision );
-		$currentStatus = $assignees->getCurrentStatus( $article, $revision );
-		$oldStatus = $assignees->getSavedStatus();
-		if ( $currentStatus === "Closed" && $oldStatus !== "Closed" ) {
-			$close_mailto = Assignees::getAssigneeAddresses( $copies );
-			self::mailNotification( $close_mailto, $text, $title, $user, ST_CLOSED );
-		}
-
-		$currentAssignees = $assignees->getCurrentAssignees( $article, $revision );
-
-		// Only send group notifications on new tasks
-		$groups = array();
-		if ( $status === ST_NEWTASK ) {
-			$groups = $assignees->getGroupAssignees( $article );
-		}
-
-		$mailto = array_merge( $currentAssignees, $copies, $groups );
-		$mailto = array_unique( $mailto );
-		$mailto = Assignees::getAssigneeAddresses( $mailto );
+		$mailTo = Assignees::getAssigneeAddresses( $newAssignees );
+		self::mailNotification( $mailTo, $text, $title, $user, ST_ASSIGNED );
 
 		// Send notifications to assignees, ccs, and groups
-		self::mailNotification( $mailto, $text, $title, $user, $status );
+		$recipients = array_merge( $currentAssignees, $copies, $groups );
+		$mailTo = Assignees::getAssigneeAddresses( $recipients );
+		self::mailNotification( $mailTo, $text, $title, $user, $status );
 
 		return true;
 	}
@@ -163,12 +162,15 @@ class SemanticTasksMailer {
 			$body = wfMessage( $message, $title_text )->text() . " " . $link;
 			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
 		} elseif ( $status == ST_UPDATE ) {
+			$context = new \RequestContext();
+			$context->setTitle( $title );
+
 			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskupdated' )->text() . ' ' .
 				$title_text;
 			$message = 'semantictasks-updatedtoyou-msg2';
 			$body = wfMessage( $message, $title_text )->text() . " " . $link;
-			$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' )->text() . "\n" .
-				self::generateDiffBodyTxt( $title );
+			$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' )->text() . "\n";
+			$body .= self::generateDiffBodyTxt( $title, $context );
 		} elseif ( $status == ST_CLOSED ) {
 			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-taskclosed' )->text() . ' ' .
 				$title_text;
@@ -212,15 +214,10 @@ class SemanticTasksMailer {
 	 * @throws MWException
 	 */
 	static function generateDiffBodyTxt( Title $title, IContextSource $context = null) {
-		$revision = \Revision::newFromTitle( $title, 0 );
-		if ($revision === null) {
-			return '';
-		}
-		/** @todo The first parameter should be a Context. */
-		$diff = new \DifferenceEngine( $context, $revision->getId(), 'prev' );
+		$diff = new \DifferenceEngine( $context, $title->getLatestRevID() );
+
 		// The DifferenceEngine::getDiffBody() method generates html,
 		// so let's generate the txt diff manually:
-		global $wgContLang;
 		$diff->loadText();
 		$otext = '';
 		$ntext = '';
@@ -235,13 +232,17 @@ class SemanticTasksMailer {
 				$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getNewRevision()->getContent( 'main' ) ) );
 			}
 		}
-		$ota = explode( "\n", $wgContLang->segmentForDiff( $otext ) );
-		$nta = explode( "\n", $wgContLang->segmentForDiff( $ntext ) );
+		$lang = \MediaWiki\MediaWikiServices::getInstance()->getContentLanguage();
+
+		$ota = explode( "\n", $lang->segmentForDiff( $otext ) );
+		$nta = explode( "\n", $lang->segmentForDiff( $ntext ) );
+
 		// We use here the php diff engine included in MediaWiki
 		$diffs = new \Diff( $ota, $nta );
 		// And we ask for a txt formatted diff
 		$formatter = new \UnifiedDiffFormatter();
-		$diff_text = $wgContLang->unsegmentForDiff( $formatter->format( $diffs ) );
+
+		$diff_text = $lang->unsegmentForDiff( $formatter->format( $diffs ) );
 		return $diff_text;
 	}
 
@@ -254,11 +255,15 @@ class SemanticTasksMailer {
 	 * @global Language $wgLang
 	 */
 	static function remindAssignees() {
+		global $wgLang;
 		global $wgSitename;
 		global $stgPropertyReminderAt;
 		global $stgPropertyAssignedTo;
 		global $stgPropertyTargetDate;
 		global $stgPropertyStatus;
+		global $stgPropertyCarbonCopy;
+		global $stgPropertyAssignedToGroup;
+		global $stgPropertyHasAssignee;
 
 		# Make this equal to midnight. Rational is that if users set today as the Target date with
 		# reminders set to "0" so that the reminder happens on the deadline, the reminders will go
@@ -268,8 +273,18 @@ class SemanticTasksMailer {
 
 		# Get tasks where a reminder is called for, whose status is either new or in progress, and
 		# whose target date is in the future.
-		$query_string = "[[$stgPropertyReminderAt::+]][[$stgPropertyStatus::New||In Progress]][[$stgPropertyTargetDate::≥ $today]]";
-		$properties_to_display = array( $stgPropertyReminderAt, $stgPropertyAssignedTo, $stgPropertyTargetDate );
+
+		// target date in the future is the only requirement
+		$query_string = "[[$stgPropertyTargetDate::≥ $today]]";
+
+		$properties_to_display = array(
+			$stgPropertyReminderAt,
+			$stgPropertyAssignedTo,
+			$stgPropertyTargetDate,
+			$stgPropertyCarbonCopy,
+			$stgPropertyAssignedToGroup,
+			$stgPropertyStatus
+		);
 
 		$results = Query::getQueryResults( $query_string, $properties_to_display, true );
 		if ( empty( $results ) ) {
@@ -277,36 +292,88 @@ class SemanticTasksMailer {
 		}
 
 		while ( $row = $results->getNext() ) {
-			$task_name = $row[0]->getNextObject()->getTitle();
-			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-reminder' )->text() . $task_name;
-			// The following doesn't work, maybe because we use a cron job.
-			// $link = $task_name->getFullURL();
-			// So let's do it manually
-			//$link = $wiki_url . $task_name->getPartialURL();
-			// You know what? Let's try it again.
-			$link = $task_name->getFullURL();
+			$date = new \DateTime( 'today midnight' );
+			$target_date = $row[3]->getNextDataItem();
 
-			$target_date = $row[3]->getNextObject();
-			$tg_date = new DateTime( $target_date->getShortHTMLText() );
+			// must be of type date
+			$tg_date = $target_date->asDateTime();
 
-			while ( $reminder = $row[1]->getNextObject() ) {
-				$remind_me_in = $reminder->getShortHTMLText();
-				$date = new DateTime( 'today midnight' );
-				$date->modify( "+$remind_me_in day" );
+			$reminder = false;
+			if ( $date->getTimestamp() === $tg_date->getTimestamp() ) {
+				$reminder = true;
+			}
 
-				if ( $tg_date === $date ) {
-					global $wgLang;
-					while ( $task_assignee = $row[2]->getNextObject() ) {
-						$assignee_username = $task_assignee->getTitle()->getText();
-						$assignee = User::newFromName( $assignee_username );
-
-						$body = wfMessage( 'semantictasks-reminder-message2', $task_name,
-							$wgLang->formatNum( $remind_me_in ), $link )->text();
-						$assignee->sendMail( $subject, $body );
+			if ( !$reminder ) {
+				while ( $reminderAt = $row[1]->getNextDataItem() ) {
+					if ( $reminderAt instanceof \SMWDITime ) {
+						$reminderDate = $reminderAt->asDateTime();
+						if ( $date->getTimestamp() === $reminderDate->getTimestamp() ) {
+							$reminder = true;
+							break;
+						}
 					}
 				}
 			}
+
+			if ( !$reminder ) {
+				continue;
+			}
+
+			$status = $row[6]->getNextDataItem();
+
+			if ( $status instanceof \SMWDIBlob ) {
+				$status = $status->getString();
+
+				if ( $status === 'Closed' ) {
+					continue;
+				}
+			}
+
+			$remind_me_in = $tg_date->diff( $date )->format( "%a" );
+			$assignees = array();
+
+			// Assigned to
+			while ( $task_assignee = $row[2]->getNextDataItem() ) {
+				$assignees[] = $task_assignee->getTitle()->getText();
+			}
+
+			// Carbon copy
+			while ( $task_assignee = $row[4]->getNextDataItem() ) {
+				$assignees[] = $task_assignee->getTitle()->getText();
+			}
+
+			// groups
+			while ( $group_assignee = $row[5]->getNextDataItem() ) {
+				$group_name = $group_assignee->getTitle()->getText();
+				$query_word = $stgPropertyHasAssignee;
+				$results_ = Query::getQueryResults( "[[$group_name]][[$query_word::+]]", array( $query_word ), false );
+
+				while ( $row_ = $results_->getNext() ) {
+					while ( $task_assignee = $row_[0]->getNextDataItem() ) {
+						$assignees[] = $task_assignee->getTitle()->getText();
+					}
+				}
+			}
+
+			if ( !count ( $assignees ) ) {
+				continue;
+			}
+
+			$assignees = array_unique( $assignees );
+
+			$task_name = $row[0]->getNextDataItem()->getTitle();
+			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-reminder' )->text() . $task_name;
+
+			// ***unused var
+			$link = $task_name->getFullURL();
+
+			foreach( $assignees as $assignee_username ) {
+				$body = wfMessage( 'semantictasks-reminder-message2', $task_name, $wgLang->formatNum( $remind_me_in ), $link )->text();
+				$assignee = User::newFromName( $assignee_username );
+				$assignee->sendMail( $subject, $body );
+			}
 		}
+
 		return true;
 	}
 

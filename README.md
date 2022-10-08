@@ -8,17 +8,13 @@
 Semantic Tasks (a.k.a. ST) is a [Semantic Mediawiki][smw] extension that provides task notification
 and reminder emails with the help of semantic annotations.
 
-In contrast to the built in notification systems in MediaWiki (watching pages), this extension 
-can be used to trigger notifications without user interaction with the MediaWiki system, e. g. 
-by filling in a form (using the PageForms extension) where a user name is entered in a form 
-and in the resulting template the respective properties are set to trigger a email 
-notification (see below). 
+In contrast to the built in notification systems in MediaWiki (watching pages), this extension can be used to trigger notifications without user interaction with the MediaWiki system, e. g. by filling in a form (using the PageForms extension) where a user name is entered in a form and in the resulting template the respective properties are set to trigger a email notification (see below). 
 
 ## Requirements
 
- - PHP 5.6 or later
- - MediaWiki 1.31  or later
- - Semantic MediaWiki 3.0 or later
+ - PHP 7.3 or later
+ - MediaWiki 1.35 or later
+ - Semantic MediaWiki 3.2 or later
 
 ## Installation
 
@@ -93,11 +89,18 @@ property names. This is the list of default settings:
 
 ## Usage
 
-Notification emails:  
-They are sent as soon a page is saved. The system looks for the `[[Assigned to::*]]` and the `[[Carbon copy::*]]` property.
+### Notification emails
+They are sent as soon a page is saved. The system looks for the `[[Assigned to::*]]`, `[[Carbon copy::*]]` and/or `[[Assigned to group::*]]` properties.
 
-Reminder emails:  
-Once the script execution is triggered via cron the software looks for the `[[Reminder at::*]]` and the `[[Target date::*]]` property. It then sends reminders to the assignees.
+### Groups
+Create a group page with properties `[[Has assignee::*]]` and then assign the group to the task with `[[Assigned to group::*]]` property.
+
+### Status
+Set Status to `[[Status::Closed]]` to inform assignees that the task has been closed and to disable notifications and reminders.
+
+### Reminder emails
+Once the script execution is triggered via cron the software looks for the `[[Reminder at::*]]` and the `[[Target date::*]]` property. It then sends reminders to all the assignees.
+
 
 ## Contribution and support
 
@@ -108,10 +111,14 @@ have a look at the contribution guideline.
 * [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticCite/pulls)
 * Ask a question on [the mailing list](https://www.semantic-mediawiki.org/wiki/Mailing_list)
 
+## Version history
+See [release notes](docs/RELEASE-NOTES.md).
+
 ## Credits
 
-Semantic Tasks was initially created by Steren Giannini for Creative Commons. 
-Currenetly it is sponsored by KDZ - Centre for Public Administration Research, with most upgrade work done by [Peter Grassberger](https://github.com/PeterTheOne).
+Semantic Tasks was initially created by Steren Giannini for Creative Commons. Later it was sponsored by KDZ - Centre for Public Administration Research, with most upgrade work done by [Peter Grassberger](https://github.com/PeterTheOne).
+Currently it is sponsored by [KM-A Knowledge Management Associates](https://km-a.net/knowledge-wiki/), with most upgrade work done by [thomas-topway-it](https://github.com/thomas-topway-it).
+
 
 ## License
 

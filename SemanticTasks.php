@@ -67,14 +67,36 @@ class SemanticTasks {
 
 		// Register extension hooks.
 		global $wgHooks;
-		$wgHooks['PageContentSave'][] = [ $assignees, 'saveAssignees' ];
-		$wgHooks['PageContentSaveComplete'][] = function(WikiPage $article, User $current_user, Content $text,
-				$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision) use ($assignees) {
-			SemanticTasksMailer::mailAssigneesUpdatedTask(
-				$assignees, $article, $current_user, $text,
-				$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision
-			);
-		};
+
+		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
+			$wgHooks['PageContentSave'][] = [ $assignees, 'saveAssignees' ];
+			$wgHooks['PageContentSaveComplete'][] = function(WikiPage $article, User $current_user, Content $text,
+					$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision) use ($assignees) {
+				SemanticTasksMailer::mailAssigneesUpdatedTask(
+					$assignees, $article, $current_user, $text,
+					$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision
+				);
+			};
+
+		} else {
+			$wgHooks['MultiContentSave'][] = [ $assignees, 'saveAssigneesMultiContentSave' ];
+			$wgHooks['PageSaveComplete'][] = function( WikiPage $wikiPage, MediaWiki\User\UserIdentity $user, string $summary, int $flags, MediaWiki\Revision\RevisionRecord $revisionRecord, MediaWiki\Storage\EditResult $editResult ) use ( $assignees ) {
+
+				// @see includes/Storage/PageUpdater.php
+				$mainContent = $revisionRecord->getContent( MediaWiki\Revision\SlotRecord::MAIN, MediaWiki\Revision\RevisionRecord::RAW );
+				$minoredit = $editResult->isNullEdit() || ( $flags & EDIT_MINOR )
+					// *** this is for the use in conjunction with WSSlots
+					|| ( $flags & EDIT_INTERNAL );
+				$watchthis = null;
+				$sectionanchor = null;
+
+				SemanticTasksMailer::mailAssigneesUpdatedTask(
+					$assignees, $wikiPage, $user, $mainContent,
+					$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revisionRecord
+				);
+			};
+		}
+
 	}
 
 }

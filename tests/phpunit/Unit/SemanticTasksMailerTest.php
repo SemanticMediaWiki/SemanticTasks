@@ -23,11 +23,14 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 	/**
 	 * Only needed for MW 1.31
 	 */
-	public function run( \PHPUnit_Framework_TestResult $result = null ) {
+	// ***edited
+	public function run( ?\PHPUnit_Framework_TestResult $result = null ) : \PHPUnit_Framework_TestResult {
 		// MW 1.31
 		$this->setCliArg( 'use-normal-tables', true );
-		parent::run( $result );
+		$testResult = parent::run( $result );
+		return $testResult;
 	}
+
 
 	protected function overrideMwServices( $configOverrides = null, array $services = [] ) {
 		/**
@@ -157,10 +160,13 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$article = WikiPage::factory( $title );
 		$content = \ContentHandler::makeContent( 'this is some edit', $title );
 		$article->doEditContent( $content, 'edit page' );
-		$revision = $article->getRevision();
+
+		// ***edited
+		//$revision = $article->getRevision();
+		$revisionRecord = $article->getRevisionRecord();
 		$current_user = new User();
 		$assignees = new Assignees();
-		$assignendUsers = $assignees->getCurrentAssignees( $article, $revision );
+		$assignendUsers = $assignees->getCurrentAssignees( $article, $revisionRecord );
 
 		$this->assertEmpty( $assignendUsers );
 	}

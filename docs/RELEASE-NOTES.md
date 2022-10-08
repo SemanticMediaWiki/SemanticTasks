@@ -5,6 +5,22 @@ the extension's page on mediawiki.org:
 
 * https://www.mediawiki.org/wiki/Extension:Semantic_Tasks
 
+## Version 2.1.0
+
+Released on 2022-09-xx
+
+* Minimum requirement for
+  * PHP changed to version 7.3 and later
+  * MediaWiki changed to version 1.35 and later
+  * Semantic MediaWiki changed to version 3.2 and later
+* Tasks can be disabled setting status "Closed"
+* Sends reminders to groups and CCs
+* Sends notifications to groups together with Assigned to and CCs
+* It does not send notifications on null or minor edits
+* Adds compatibility with SMW 4.x and MW up to 1.38
+* Introduces $stgNotificationFromSystemAddress using wiki $wgSiteName and $wgPasswordSender as a From address for tasks notifications emails (thank you to [vedmaka](https://github.com/vedmaka))
+* Updated translations (by translatewiki.net community)
+
 ## Version 2.0.1
 
 Released on 2020-11-26
