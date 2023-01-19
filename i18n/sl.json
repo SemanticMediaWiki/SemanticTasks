@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"semantictasks-desc": "Pošilja e-poštna obvestila za dodeljena ali posodobljena opravila",
+	"semantictasks-newtask": "Novo opravilo:",
+	"semantictasks-taskassigned": "Dodeljeno opravilo:",
+	"semantictasks-taskunassigned": "Oddodeljeno opravilo:",
+	"semantictasks-taskupdated": "Posodobljeno opravilo>",
+	"semantictasks-taskclosed": "Zaprto opravilo:",
+	"semantictasks-newtask-msg": "Pravkar je bilo ustvarjeno opravilo »$1«.",
+	"semantictasks-taskclosed-msg": "Pravkar je bilo zaprto opravilo »$1«.",
+	"semantictasks-assignedtoyou-msg2": "Pravkar vam je bilo dodeljeno opravilo »$1«.",
+	"semantictasks-unassignedtoyou-msg2": "Pravkar vam je bilo oddodeljeno opravilo »$1«.",
+	"semantictasks-updatedtoyou-msg2": "Pravkar je bilo posodobljeno opravilo »$1«.",
+	"semantictasks-reminder": "Opomnik:",
+	"semantictasks-reminder-message2": "Želimo vas spomniti, da se opravilo »$1« konča v $2 {{PLURAL:$2|dnevu|dneh}}.\n\n$3",
+	"semantictasks-text-message": "Tu je opis opravila:",
+	"semantictasks-diff-message": "Tu so razlike:"
+}
