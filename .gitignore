@@ -1,8 +1,7 @@
 node_modules/
 vendor/
 composer.lock
-extensions/
-
+.eslintcache
 .svn
 *~
 *.kate-swp
