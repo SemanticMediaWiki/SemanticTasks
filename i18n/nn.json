@@ -1,15 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gunnernett"
+			"Gunnernett",
+			"Ranveig"
 		]
 	},
-	"semantictasks-desc": "Meldingar via e-post om tildelte eller oppdaterte oppgåver",
+	"semantictasks-desc": "Sender meldingar via e-post om tildelte eller oppdaterte oppgåver",
 	"semantictasks-newtask": "Ny oppgåve:",
+	"semantictasks-taskassigned": "Tildelt oppgåve:",
+	"semantictasks-taskunassigned": "Utildelt oppgåve:",
 	"semantictasks-taskupdated": "Oppgåva oppdatert:",
+	"semantictasks-taskclosed": "Lukka oppgåve:",
+	"semantictasks-newtask-msg": "Oppgåva «$1» har nettopp vorte oppretta.",
+	"semantictasks-taskclosed-msg": "Oppgåva «$1» har nettopp vorte lukka.",
 	"semantictasks-assignedtoyou-msg2": "Oppgåva «$1» har nett vorten gjeve til deg",
+	"semantictasks-unassignedtoyou-msg2": "Du har nett vorte fjerna frå oppgåva «$1».",
 	"semantictasks-updatedtoyou-msg2": "Oppgåva «$1» har nett vorte oppdatert.",
 	"semantictasks-reminder": "Påminning:",
+	"semantictasks-reminder-message2": "Berre ei påminning om at oppgåva «$1» vert avslutta om {{PLURAL:$2|éin dag|$2 dagar}}.\n\n$3",
 	"semantictasks-text-message": "Her er ei skildring av oppgåva:",
 	"semantictasks-diff-message": "Her er skilnadane:"
 }
