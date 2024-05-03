@@ -7,7 +7,7 @@
 		]
 	},
 	"semantictasks-desc": "Sends email notifications for assigned or updated tasks",
-	"semantictasks-name": "Semantic Tasks",	
+	"semantictasks-name": "Semantic Tasks",
 	"semantictasks-newtask": "New task:",
 	"semantictasks-taskassigned": "Task assigned:",
 	"semantictasks-taskunassigned": "Task unassigned:",
