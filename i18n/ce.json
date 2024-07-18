@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"semantictasks-newtask": "Керла тӀедиллар:",
+	"semantictasks-taskassigned": "ДӀахӀоттийна дӀедиллар:",
+	"semantictasks-taskunassigned": "ДӀахӀоттийна доцу дӀедиллар:",
+	"semantictasks-taskupdated": "Карладаьккхина тӀедиллар:",
+	"semantictasks-taskclosed": "ТӀедиллар дӀакъевлина:",
+	"semantictasks-newtask-msg": "\"$1\" тӀедиллар хӀинцца кхоьллина.",
+	"semantictasks-taskclosed-msg": "\"$1\" тӀедиллар хӀинцца дӀакъевлина.",
+	"semantictasks-assignedtoyou-msg2": "Хьуна хӀинцца билгалдаьккхина \"$1\" тӀедиллар.",
+	"semantictasks-unassignedtoyou-msg2": "ХӀинцца хьуна ца делира $1 тӀедиллар.",
+	"semantictasks-updatedtoyou-msg2": "\"$1\" тӀедиллар хӀинцца карлаяьккхина.",
+	"semantictasks-reminder": "Дагадаийтар:"
+}
