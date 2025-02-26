@@ -117,14 +117,24 @@ class SemanticTasksMailer {
 			self::mailNotification( $mailTo, $text, $title, $user, ST_UNASSIGNED );
 		}
 
-		// Send notification of an assigned task to assignees
-		$mailTo = Assignees::getAssigneeAddresses( $newAssignees );
-		self::mailNotification( $mailTo, $text, $title, $user, ST_ASSIGNED );
+		// Send notification of an assigned task to new assignees
+		$mailToNewAssignees = Assignees::getAssigneeAddresses( $newAssignees );
+		self::mailNotification( $mailToNewAssignees, $text, $title, $user, ST_ASSIGNED );
+
+		$notifiedUsers = array_map( static function ( $value ) {
+			return $value->name;
+		}, $mailToNewAssignees );
 
 		// Send notifications to assignees, ccs, and groups
 		$recipients = array_merge( $currentAssignees, $copies, $groups );
-		$mailTo = Assignees::getAssigneeAddresses( $recipients );
-		self::mailNotification( $mailTo, $text, $title, $user, $status );
+		$mailToAssignees = Assignees::getAssigneeAddresses( $recipients );
+
+		// ensure recipients do not overlap
+		$mailToAssignees = array_filter( $mailToAssignees, static function ( $value ) use ( $notifiedUsers ) {
+			return !in_array( $value->name, $notifiedUsers );
+		} );
+
+		self::mailNotification( $mailToAssignees, $text, $title, $user, $status );
 
 		return true;
 	}
