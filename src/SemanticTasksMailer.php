@@ -10,7 +10,7 @@ use Language;
 use MediaWiki\Diff\ComplexityException;
 use MWException;
 use ParserOutput;
-use SMW\ApplicationFactory;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 use SMW\DIWikiPage;
 use SMWDataItem;
 use SMWPrintRequest;
