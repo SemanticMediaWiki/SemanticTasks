@@ -2,6 +2,8 @@
 
 namespace ST;
 
+use SMW\Query\PrintRequest;
+
 class Query {
 
 	/**
@@ -26,8 +28,8 @@ class Query {
 
 		// Push the properties to display in the printout array.
 		foreach ( $properties_to_display as $property ) {
-			$to_push = new \SMWPrintRequest(
-				\SMWPrintRequest::PRINT_PROP,
+			$to_push = new PrintRequest(
+				PrintRequest::PRINT_PROP,
 				$property,
 				\SMW\DataValueFactory::getInstance()->newPropertyValueByLabel( $property )
 			);
