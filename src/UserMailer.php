@@ -23,6 +23,8 @@ class UserMailer {
 	 * @throws \MWException
 	 */
 	function send( $to, $from, $subject, $body, $options = [] ) {
+		global $wgEnotifRevealEditorAddress;
+
 		// @see User -> sendMail
 		$passwordSender = MediaWikiServices::getInstance()->getMainConfig()
 			->get( MainConfigNames::PasswordSender );
@@ -30,9 +32,12 @@ class UserMailer {
 		$sender = new MailAddress( $passwordSender,
 			wfMessage( 'emailsender' )->inContentLanguage()->text() );
 
-		$this->userMailer->send( $to, $sender, $subject, $body, [
-			'replyTo' => $from,
-		] );
+		$options = [];
+		if ( $wgEnotifRevealEditorAddress ) {
+			$options['replyTo'] = $from;
+		}
+
+		$this->userMailer->send( $to, $sender, $subject, $body, $options );
 
 		// *** the following may fail since $from is not the real
 		// sender
