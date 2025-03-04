@@ -150,7 +150,7 @@ class SemanticTasksMailer {
 			$stgNotificationFromSystemAddress ? $wgPasswordSender : $user->getEmail(),
 			$stgNotificationFromSystemAddress ? $wgSitename : $user->getName()
 		);
-		$link = htmlspecialchars( $title->getFullURL() );
+		$link = htmlspecialchars( $title->getFullURL() ?? '' );
 
 		/** @todo This should probably be refactored */
 		if ( $status == ST_NEWTASK ) {
@@ -212,7 +212,7 @@ class SemanticTasksMailer {
 	 * @throws MWException
 	 */
 	public static function generateDiffBodyTxt( Title $title, ?IContextSource $context = null ) {
-		$diff = new \DifferenceEngine( $context, $title->getLatestRevID() );
+		$diff = new \DifferenceEngine( $context );
 
 		// The DifferenceEngine::getDiffBody() method generates html,
 		// so let's generate the txt diff manually:

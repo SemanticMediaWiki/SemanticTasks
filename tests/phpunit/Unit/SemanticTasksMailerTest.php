@@ -136,6 +136,7 @@ class SemanticTasksMailerTest extends \MediaWikiIntegrationTestCase {
 	public function testSaveAssignees() {
 		$title = $this->createMock( Title::class );
 		$title->method( 'canExist' )->willReturn( true );
+		$title->method( 'getWikiId' )->willReturn( false );
 		$article = new WikiPage( $title );
 		$assignees = new Assignees();
 		$assignees->saveAssignees( $article );

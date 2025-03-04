@@ -193,29 +193,16 @@ class Assignees {
 		$smwFactory = ApplicationFactory::getInstance();
 		$mwCollaboratorFactory = $smwFactory->newMwCollaboratorFactory();
 
-		// untested in v. 3.0.0
-		if ( version_compare( SMW_VERSION, '3.1', '<' ) ) {
-			$editInfo = $mwCollaboratorFactory->newEditInfoProvider(
-				$article,
-				$revision,
-				null
-			);
-
-		// $revision must be null when called from hook
-		// MultiContentSave, to get the unsaved (not planned)
-		// revision
-		} else {
-			if ( version_compare( SMW_VERSION, '4.0', '<' )
-				&& ( $revision instanceof \MediaWiki\Revision\RevisionStoreRecord ) ) {
-				// *** get legacyRevision
-				$revision = new \Revision( $revision );
-			}
-			$editInfo = $mwCollaboratorFactory->newEditInfo(
-				$article,
-				$revision,
-				null
-			);
+		if ( version_compare( SMW_VERSION, '4.0', '<' )
+			&& ( $revision instanceof \MediaWiki\Revision\RevisionStoreRecord ) ) {
+			// *** get legacyRevision
+			$revision = new \Revision( $revision );
 		}
+		$editInfo = $mwCollaboratorFactory->newEditInfo(
+			$article,
+			$revision,
+			null
+		);
 		$editInfo->fetchEditInfo();
 		$parserOutput = $editInfo->getOutput();
 
