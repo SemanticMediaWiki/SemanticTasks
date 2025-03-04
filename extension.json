@@ -32,18 +32,36 @@
 	"AutoloadClasses": {
 		"SemanticTasks": "SemanticTasks.php"
 	},
-	"load_composer_autoloader": true,
-	"manifest_version": 1,
+	"config_prefix": "stg",
 	"config": {
-		"_prefix": "stg",
-		"PropertyAssignedTo": "Assigned to",
-		"PropertyCarbonCopy": "Carbon copy",
-		"PropertyTargetDate": "Target date",
-		"PropertyReminderAt": "Reminder at",
-		"PropertyStatus": "Status",
-		"PropertyAssignedToGroup": "Assigned to group",
-		"PropertyHasAssignee": "Has assignee",
-		"SemanticTasksNotifyIfUnassigned": false,
-		"NotificationFromSystemAddress": false
-	}
+		"PropertyAssignedTo": {
+			"value": "Assigned to"
+		},
+		"PropertyCarbonCopy": {
+			"value": "Carbon copy"
+		},
+		"PropertyTargetDate": {
+			"value": "Target date"
+		},
+		"PropertyReminderAt": {
+			"value": "Reminder at"
+		},
+		"PropertyStatus": {
+			"value": "Status"
+		},
+		"PropertyAssignedToGroup": {
+			"value": "Assigned to group"
+		},
+		"PropertyHasAssignee": {
+			"value": "Has assignee"
+		},
+		"SemanticTasksNotifyIfUnassigned": {
+			"value": false
+		},
+		"NotificationFromSystemAddress": {
+			"value": false
+		}
+	},
+	"load_composer_autoloader": true,
+	"manifest_version": 2
 }

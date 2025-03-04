@@ -6,14 +6,8 @@ use Content;
 use ContentHandler;
 use Exception;
 use IContextSource;
-use Language;
 use MediaWiki\Diff\ComplexityException;
 use MWException;
-use ParserOutput;
-use SMW\ApplicationFactory;
-use SMW\DIWikiPage;
-use SMWDataItem;
-use SMWPrintRequest;
 use Title;
 use User;
 use WikiPage;
@@ -56,7 +50,7 @@ class SemanticTasksMailer {
 	 * @param null $watchthis Unused
 	 * @param null $sectionanchor Unused
 	 * @param $flags
-	 * @return boolean
+	 * @return bool
 	 * @throws ComplexityException
 	 * @throws MWException
 	 */
@@ -78,23 +72,28 @@ class SemanticTasksMailer {
 	 * @param WikiPage $article
 	 * @param Content $content
 	 * @param User $user
-	 * @param integer $status
+	 * @param int $status
 	 * @param Assignees $assignees
-	 * @return boolean
+	 * @return bool
 	 * @throws ComplexityException
 	 * @throws MWException
-	 * @global boolean $wgSemanticTasksNotifyIfUnassigned
 	 */
-	static function mailAssignees( WikiPage $article, Content $content, User $user, $status, Assignees $assignees,
-								   $revision ) {
+	public static function mailAssignees(
+		WikiPage $article,
+		Content $content,
+		User $user,
+		$status,
+		Assignees $assignees,
+		$revision
+	) {
 		$text = ContentHandler::getContentText( $content );
 		$title = $article->getTitle();
 
 		$newAssignees = $assignees->getNewAssignees( $article, $revision );
-		$currentAssignees = $assignees->getCurrentAssignees( $article, $revision );	
+		$currentAssignees = $assignees->getCurrentAssignees( $article, $revision );
 		$groups = $assignees->getGroupAssignees( $article );
 		$copies = $assignees->getCurrentCarbonCopy( $article, $revision );
-		
+
 		$currentStatus = $assignees->getCurrentStatus( $article, $revision );
 		$oldStatus = $assignees->getSavedStatus();
 
@@ -136,12 +135,11 @@ class SemanticTasksMailer {
 	 * @param string $text
 	 * @param Title $title
 	 * @param User $user
-	 * @param integer $status
+	 * @param int $status
 	 * @throws MWException
 	 * @throws ComplexityException
-	 * @global string $wgSitename
 	 */
-	static function mailNotification( array $assignees, $text, Title $title, User $user, $status ) {
+	public static function mailNotification( array $assignees, $text, Title $title, User $user, $status ) {
 		global $wgSitename, $stgNotificationFromSystemAddress, $wgPasswordSender;
 
 		if ( empty( $assignees ) ) {
@@ -192,14 +190,14 @@ class SemanticTasksMailer {
 			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
 		}
 
-		if (!self::$user_mailer) {
-			self::$user_mailer = new \ST\UserMailer(new \UserMailer());
+		if ( !self::$user_mailer ) {
+			self::$user_mailer = new \ST\UserMailer( new \UserMailer() );
 		}
 
 		self::$user_mailer->send( $assignees, $from, $subject, $body );
 	}
 
-	static function setUserMailer(\ST\UserMailer $user_mailer) {
+	public static function setUserMailer( \ST\UserMailer $user_mailer ) {
 		self::$user_mailer = $user_mailer;
 	}
 
@@ -208,12 +206,12 @@ class SemanticTasksMailer {
 	 *
 	 * Code is similar to DifferenceEngine::generateTextDiffBody
 	 * @param Title $title
-	 * @param IContextSource $context
+	 * @param IContextSource|null $context
 	 * @return string
 	 * @throws ComplexityException
 	 * @throws MWException
 	 */
-	static function generateDiffBodyTxt( Title $title, IContextSource $context = null) {
+	public static function generateDiffBodyTxt( Title $title, ?IContextSource $context = null ) {
 		$diff = new \DifferenceEngine( $context, $title->getLatestRevID() );
 
 		// The DifferenceEngine::getDiffBody() method generates html,
@@ -221,16 +219,11 @@ class SemanticTasksMailer {
 		$diff->loadText();
 		$otext = '';
 		$ntext = '';
-		if ( version_compare( MW_VERSION, '1.32', '<' ) ) {
-			$otext = str_replace( "\r\n", "\n", \ContentHandler::getContentText( $diff->mOldContent ) );
-			$ntext = str_replace( "\r\n", "\n", \ContentHandler::getContentText( $diff->mNewContent ) );
-		} else {
-			if ($diff->getOldRevision()) {
-				$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getOldRevision()->getContent( 'main' ) ) );
-			}
-			if ($diff->getNewRevision()) {
-				$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getNewRevision()->getContent( 'main' ) ) );
-			}
+		if ( $diff->getOldRevision() ) {
+			$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getOldRevision()->getContent( 'main' ) ) );
+		}
+		if ( $diff->getNewRevision() ) {
+			$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getNewRevision()->getContent( 'main' ) ) );
 		}
 		$lang = \MediaWiki\MediaWikiServices::getInstance()->getContentLanguage();
 
@@ -249,12 +242,10 @@ class SemanticTasksMailer {
 	/**
 	 * Run by the maintenance script to remind the assignees
 	 *
-	 * @return boolean
+	 * @return bool
 	 * @throws Exception
-	 * @global string $wgSitename
-	 * @global Language $wgLang
 	 */
-	static function remindAssignees() {
+	public static function remindAssignees() {
 		global $wgLang;
 		global $wgSitename;
 		global $stgPropertyReminderAt;
@@ -277,14 +268,14 @@ class SemanticTasksMailer {
 		// target date in the future is the only requirement
 		$query_string = "[[$stgPropertyTargetDate::≥ $today]]";
 
-		$properties_to_display = array(
+		$properties_to_display = [
 			$stgPropertyReminderAt,
 			$stgPropertyAssignedTo,
 			$stgPropertyTargetDate,
 			$stgPropertyCarbonCopy,
 			$stgPropertyAssignedToGroup,
 			$stgPropertyStatus
-		);
+		];
 
 		$results = Query::getQueryResults( $query_string, $properties_to_display, true );
 		if ( empty( $results ) ) {
@@ -330,7 +321,7 @@ class SemanticTasksMailer {
 			}
 
 			$remind_me_in = $tg_date->diff( $date )->format( "%a" );
-			$assignees = array();
+			$assignees = [];
 
 			// Assigned to
 			while ( $task_assignee = $row[2]->getNextDataItem() ) {
@@ -346,7 +337,7 @@ class SemanticTasksMailer {
 			while ( $group_assignee = $row[5]->getNextDataItem() ) {
 				$group_name = $group_assignee->getTitle()->getText();
 				$query_word = $stgPropertyHasAssignee;
-				$results_ = Query::getQueryResults( "[[$group_name]][[$query_word::+]]", array( $query_word ), false );
+				$results_ = Query::getQueryResults( "[[$group_name]][[$query_word::+]]", [ $query_word ], false );
 
 				while ( $row_ = $results_->getNext() ) {
 					while ( $task_assignee = $row_[0]->getNextDataItem() ) {
@@ -355,7 +346,7 @@ class SemanticTasksMailer {
 				}
 			}
 
-			if ( !count ( $assignees ) ) {
+			if ( !count( $assignees ) ) {
 				continue;
 			}
 
@@ -367,7 +358,7 @@ class SemanticTasksMailer {
 			// ***unused var
 			$link = $task_name->getFullURL();
 
-			foreach( $assignees as $assignee_username ) {
+			foreach ( $assignees as $assignee_username ) {
 				$body = wfMessage( 'semantictasks-reminder-message2', $task_name, $wgLang->formatNum( $remind_me_in ), $link )->text();
 				$assignee = User::newFromName( $assignee_username );
 				$assignee->sendMail( $subject, $body );
@@ -381,12 +372,11 @@ class SemanticTasksMailer {
 	 * Prints debugging information. $debugText is what you want to print, $debugVal
 	 * is the level at which you want to print the information.
 	 *
-	 * @global boolean $wgSemanticTasksDebug
 	 * @param string $debugText
-	 * @param string $debugArr
-	 * @access private
+	 * @param string|null $debugArr
+	 * @private
 	 */
-	static function printDebug( $debugText, $debugArr = null ) {
+	public static function printDebug( $debugText, $debugArr = null ) {
 		global $wgSemanticTasksDebug;
 
 		if ( $wgSemanticTasksDebug ) {

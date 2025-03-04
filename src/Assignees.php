@@ -3,8 +3,8 @@
 namespace ST;
 
 use ParserOutput;
-use SMW\ApplicationFactory;
 use SMW\DIWikiPage;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 use SMWDataItem;
 use User;
 use WikiPage;
@@ -18,7 +18,7 @@ class Assignees {
 	/**
 	 * Previously this was SemanticTasksMailer::findOldValues
 	 *
-	 * @param WikiPage $article
+	 * @param WikiPage &$article
 	 * @return bool
 	 */
 	public function saveAssignees( WikiPage &$article ) {
@@ -27,7 +27,7 @@ class Assignees {
 		return true;
 	}
 
-	public function saveAssigneesMultiContentSave( \MediaWiki\Revision\RenderedRevision $renderedRevision, \MediaWiki\User\UserIdentity $user, \CommentStoreComment $summary, $flags, \Status $hookStatus) {
+	public function saveAssigneesMultiContentSave( \MediaWiki\Revision\RenderedRevision $renderedRevision, \MediaWiki\User\UserIdentity $user, \CommentStoreComment $summary, $flags, \Status $hookStatus ) {
 		if ( method_exists( RevisionRecord::class, 'getPage' ) ) {
 			$article = $revision->getPage();
 
@@ -51,7 +51,7 @@ class Assignees {
 	}
 
 	/**
-	 * @param WikiPage $article
+	 * @param WikiPage &$article
 	 * @param $revision
 	 * @return array
 	 */
@@ -66,7 +66,7 @@ class Assignees {
 	}
 
 	/**
-	 * @param WikiPage $article
+	 * @param WikiPage &$article
 	 * @param $revision
 	 * @return string
 	 */
@@ -87,7 +87,7 @@ class Assignees {
 	}
 
 	/**
-	 * @param WikiPage $article
+	 * @param WikiPage &$article
 	 * @param $revision
 	 * @return array
 	 */
@@ -96,7 +96,7 @@ class Assignees {
 	}
 
 	/**
-	 * @param WikiPage $article
+	 * @param WikiPage &$article
 	 * @param $revision
 	 * @return array
 	 */
@@ -107,7 +107,7 @@ class Assignees {
 	/**
 	 * Returns an array of assignees based on $query_word
 	 *
-	 * @param WikiPage $article
+	 * @param WikiPage &$article
 	 * @return array
 	 */
 	public function getGroupAssignees( WikiPage &$article ) {
@@ -118,10 +118,10 @@ class Assignees {
 		$title_text = $article->getTitle()->getFullText();
 
 		// Array of assignees to return
-		$assignee_arr = array();
+		$assignee_arr = [];
 
 		// get the result of the query "[[$title]][[$query_word::+]]"
-		$properties_to_display = array( $query_word );
+		$properties_to_display = [ $query_word ];
 		$results = Query::getQueryResults( "[[$title_text]][[$query_word::+]]", $properties_to_display,
 			false );
 
@@ -137,7 +137,7 @@ class Assignees {
 				$group_assignee = $group_assignee->getTitle();
 				$group_name = $group_assignee->getText();
 				$query_word = $stgPropertyHasAssignee;
-				$properties_to_display = array( $query_word );
+				$properties_to_display = [ $query_word ];
 				$results = Query::getQueryResults( "[[$group_name]][[$query_word::+]]", $properties_to_display,
 					false );
 
@@ -167,9 +167,9 @@ class Assignees {
 	 * @param array $assignees
 	 * @return array
 	 */
-	static public function getAssigneeAddresses( array $assignees ) {
+	public static function getAssigneeAddresses( array $assignees ) {
 		$assignee_arr = array_unique( $assignees );
-		$ret = array();
+		$ret = [];
 		foreach ( $assignees as $assignee_name ) {
 			$assignee = User::newFromName( $assignee_name );
 			// if assignee is the current user, do nothing
@@ -210,7 +210,7 @@ class Assignees {
 		// revision
 		} else {
 			if ( version_compare( SMW_VERSION, '4.0', '<' )
-				&& ( $revision instanceof \MediaWiki\Revision\RevisionStoreRecord )  ) {
+				&& ( $revision instanceof \MediaWiki\Revision\RevisionStoreRecord ) ) {
 				// *** get legacyRevision
 				$revision = new \Revision( $revision );
 			}
@@ -236,14 +236,13 @@ class Assignees {
 			return [];
 		}
 		$propValues = $semanticData->getPropertyValues( $property );
-		$valueList = array_map(function( SMWDataItem $propVal ) {
-			if ($propVal instanceof DIWikiPage) {
+		$valueList = array_map( static function ( SMWDataItem $propVal ) {
+			if ( $propVal instanceof DIWikiPage ) {
 				return $propVal->getTitle()->getText();
 			}
 			return $propVal;
-		}, $propValues);
+		}, $propValues );
 
 		return $valueList;
 	}
 }
-
