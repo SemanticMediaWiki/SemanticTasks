@@ -2,6 +2,7 @@
 
 namespace ST;
 
+use MediaWiki\MediaWikiServices;
 use ParserOutput;
 use SMW\DIWikiPage;
 use SMW\Services\ServicesFactory as ApplicationFactory;
@@ -28,14 +29,9 @@ class Assignees {
 	}
 
 	public function saveAssigneesMultiContentSave( \MediaWiki\Revision\RenderedRevision $renderedRevision, \MediaWiki\User\UserIdentity $user, \CommentStoreComment $summary, $flags, \Status $hookStatus ) {
-		if ( method_exists( RevisionRecord::class, 'getPage' ) ) {
-			$article = $revision->getPage();
-
-		} else {
-			$revision = $renderedRevision->getRevision();
-			$title = \Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
-			$article = WikiPage::factory( $title );
-		}
+		$revision = $renderedRevision->getRevision();
+		$title = \Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
+		$article = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 
 		$this->taskAssignees = $this->getCurrentAssignees( $article, null );
 		$this->taskStatus = $this->getCurrentStatus( $article, null );

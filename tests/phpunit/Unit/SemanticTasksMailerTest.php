@@ -19,6 +19,7 @@ use WikiPage;
 /**
  * @covers \ST\SemanticTasksMailer
  * @group semantic-tasks
+ * @group Database
  *
  * @license GPL-2.0-or-later
  * @since 3.0
