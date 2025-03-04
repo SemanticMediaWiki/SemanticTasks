@@ -6,6 +6,7 @@
  * @defgroup SemanticTasks Semantic Tasks
  */
 
+use MediaWiki\MediaWikiServices;
 use ST\SemanticTasksMailer;
 
 SemanticTasks::load();
@@ -60,10 +61,9 @@ class SemanticTasks {
 		$assignees = new \ST\Assignees();
 
 		// Register extension hooks.
-		global $wgHooks;
-
-		$wgHooks['MultiContentSave'][] = [ $assignees, 'saveAssigneesMultiContentSave' ];
-		$wgHooks['PageSaveComplete'][] = static function ( WikiPage $wikiPage, MediaWiki\User\UserIdentity $user, string $summary, int $flags, MediaWiki\Revision\RevisionRecord $revisionRecord, MediaWiki\Storage\EditResult $editResult ) use ( $assignees ) {
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		$hookContainer->register( 'MultiContentSave', [ $assignees, 'saveAssigneesMultiContentSave' ] );
+		$hookContainer->register( 'PageSaveComplete', static function ( WikiPage $wikiPage, MediaWiki\User\UserIdentity $user, string $summary, int $flags, MediaWiki\Revision\RevisionRecord $revisionRecord, MediaWiki\Storage\EditResult $editResult ) use ( $assignees ) {
 			// @see includes/Storage/PageUpdater.php
 			$mainContent = $revisionRecord->getContent( MediaWiki\Revision\SlotRecord::MAIN, MediaWiki\Revision\RevisionRecord::RAW );
 			$minoredit = $editResult->isNullEdit() || ( $flags & EDIT_MINOR )
@@ -76,7 +76,7 @@ class SemanticTasks {
 				$assignees, $wikiPage, $user, $mainContent,
 				$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revisionRecord
 			);
-		};
+		} );
 	}
 
 }
