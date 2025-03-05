@@ -10,7 +10,7 @@ class UserMailer {
 
 	private $userMailer;
 
-	function __construct(\UserMailer $userMailer) {
+	public function __construct( \UserMailer $userMailer ) {
 		$this->userMailer = $userMailer;
 	}
 
