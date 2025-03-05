@@ -221,7 +221,6 @@ class SemanticTasksMailer {
 	 * @throws ComplexityException
 	 * @throws MWException
 	 */
-
 	public static function generateDiffBodyTxt( Title $title, ?IContextSource $context = null ) {
 		$diff = new \DifferenceEngine( $context );
 
