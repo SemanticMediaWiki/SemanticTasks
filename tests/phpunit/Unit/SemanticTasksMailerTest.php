@@ -1,8 +1,13 @@
 <?php
 namespace ST\Tests;
 
+use CommentStoreComment;
 use MediaWiki\Diff\ComplexityException;
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Storage\RevisionSlotsUpdate;
 use MWException;
+use PHPUnit\Framework\TestResult;
 use ST\Assignees;
 use ST\SemanticTasksMailer;
 use ST\UserMailer;
@@ -12,29 +17,28 @@ use User;
 use WikiPage;
 
 /**
- * @covers SemanticTasksMailer
+ * @covers \ST\SemanticTasksMailer
  * @group semantic-tasks
+ * @group Database
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 3.0
  */
-class SemanticTasksMailerTest extends \MediaWikiTestCase {
+class SemanticTasksMailerTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * Only needed for MW 1.31
 	 */
-	// ***edited
-	public function run( ?\PHPUnit_Framework_TestResult $result = null ) : \PHPUnit_Framework_TestResult {
+	public function run( ?TestResult $result = null ): TestResult {
 		// MW 1.31
 		$this->setCliArg( 'use-normal-tables', true );
 		$testResult = parent::run( $result );
 		return $testResult;
 	}
 
-
 	protected function overrideMwServices( $configOverrides = null, array $services = [] ) {
 		/**
-		 * `MediaWikiTestCase` isolates the result with  `MediaWikiTestResult` which
+		 * `MediaWikiIntegrationTestCase` isolates the result with  `MediaWikiTestResult` which
 		 * ecapsultes the commandline args and since we need to use "real" tables
 		 * as part of "use-normal-tables" we otherwise end-up with the `CloneDatabase`
 		 * to create TEMPORARY  TABLE by default as in:
@@ -67,8 +71,9 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 	}
 
 	/** @todo: expand tests */
+
 	/**
-	 * @covers SemanticTasksMailer::mailNotification
+	 * @covers \ST\SemanticTasksMailer::mailNotification
 	 * @throws ComplexityException
 	 * @throws MWException
 	 */
@@ -77,9 +82,9 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 
 		$assignees = [ 'someone' ];
 		$text = '';
-		$title = new Title();
+		$title = $this->createMock( Title::class );
 		$user = new \User();
-		$status = 0; //ST_NEWTASK
+		$status = 0; // ST_NEWTASK
 
 		$userMailerMock->expects( $this->once() )
 			->method( 'send' )
@@ -91,7 +96,7 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers SemanticTasksMailer::generateDiffBodyTxt
+	 * @covers \ST\SemanticTasksMailer::generateDiffBodyTxt
 	 * @throws ComplexityException
 	 * @throws MWException
 	 */
@@ -102,12 +107,22 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 		$context = new \RequestContext();
 		$context->setTitle( $title );
 
-		$page = WikiPage::factory( $title );
+		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 		$strings = [ "it is a kitten", "two kittens", "three kittens", "four kittens" ];
 		$revisions = [];
 		foreach ( $strings as $string ) {
 			$content = \ContentHandler::makeContent( $string, $title );
-			$page->doEditContent( $content, 'edit page' );
+
+			$performer = $context->getUser();
+			$summary = CommentStoreComment::newUnsavedComment( trim( 'edit page' ) );
+
+			$slotsUpdate = new RevisionSlotsUpdate();
+			$slotsUpdate->modifyContent( SlotRecord::MAIN, $content );
+
+			$page->newPageUpdater( $performer, $slotsUpdate )
+				->setContent( SlotRecord::MAIN, $content )
+				->saveRevision( $summary );
+
 			$revisions[] = $page->getLatest();
 		}
 
@@ -116,26 +131,30 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers Assignees::saveAssignees
+	 * @covers \ST\Assignees::saveAssignees
 	 */
 	public function testSaveAssignees() {
-		$title = new Title();
+		$title = $this->createMock( Title::class );
+		$title->method( 'canExist' )->willReturn( true );
+		$title->method( 'getWikiId' )->willReturn( false );
 		$article = new WikiPage( $title );
 		$assignees = new Assignees();
 		$assignees->saveAssignees( $article );
 	}
 
 	/** @todo: add more tests or asserts */
+
 	/**
-	 * @covers SemanticTasksMailer::mailAssigneesUpdatedTask
+	 * @covers \ST\SemanticTasksMailer::mailAssigneesUpdatedTask
 	 * @throws MWException
 	 */
 	public function testMailAssigneesUpdatedTaskTrueOnMinorEdit() {
 		$assignees = new Assignees();
-		$title = new Title();
-		$article = new WikiPage($title);
+		$title = $this->createMock( Title::class );
+		$title->method( 'canExist' )->willReturn( true );
+		$article = new WikiPage( $title );
 		$current_user = new User();
-		$text = new TextContent('test TextContent');
+		$text = new TextContent( 'test TextContent' );
 		$summary = ''; // unused
 		$minoredit = true; // or true;
 		$watchthis = null; // unused
@@ -151,27 +170,31 @@ class SemanticTasksMailerTest extends \MediaWikiTestCase {
 
 		}
 
-		$this->assertTrue($returnValue);
+		$this->assertTrue( $returnValue );
 	}
 
 	public function testGetAssignedUsersFromParserOutput() {
 		$namespace = $this->getDefaultWikitextNS();
 		$title = Title::newFromText( 'Some Random Page', $namespace );
-		$article = WikiPage::factory( $title );
+		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 		$content = \ContentHandler::makeContent( 'this is some edit', $title );
-		$article->doEditContent( $content, 'edit page' );
+		$performer = \RequestContext::getMain()->getUser();
+		$summary = CommentStoreComment::newUnsavedComment( trim( 'edit page' ) );
+		$slotsUpdate = new RevisionSlotsUpdate();
+		$slotsUpdate->modifyContent( SlotRecord::MAIN, $content );
+		$page->newPageUpdater( $performer, $slotsUpdate )
+			->setContent( SlotRecord::MAIN, $content )
+			->saveRevision( $summary );
 
-		// ***edited
-		//$revision = $article->getRevision();
-		$revisionRecord = $article->getRevisionRecord();
+		$revisionRecord = $page->getRevisionRecord();
 		$current_user = new User();
 		$assignees = new Assignees();
-		$assignendUsers = $assignees->getCurrentAssignees( $article, $revisionRecord );
+		$assignendUsers = $assignees->getCurrentAssignees( $page, $revisionRecord );
 
 		$this->assertEmpty( $assignendUsers );
 	}
 
-	/** @todo: fix covers annotation and remove this. */
+	/** @todo fix covers annotation and remove this. */
 	public function testValidCovers() {
 		$this->assertTrue( true );
 	}

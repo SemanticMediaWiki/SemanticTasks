@@ -6,7 +6,7 @@ class UserMailer {
 
 	private $userMailer;
 
-	function __construct(\UserMailer $userMailer) {
+	public function __construct( \UserMailer $userMailer ) {
 		$this->userMailer = $userMailer;
 	}
 
@@ -18,7 +18,7 @@ class UserMailer {
 	 * @param array $options
 	 * @throws \MWException
 	 */
-	function send( $to, $from, $subject, $body, $options = [] ) {
+	public function send( $to, $from, $subject, $body, $options = [] ) {
 		$this->userMailer->send( $to, $from, $subject, $body, $options );
 	}
 }
