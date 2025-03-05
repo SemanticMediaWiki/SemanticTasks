@@ -27,10 +27,17 @@
 	},
 	"scripts": {
 		"test": [
+			"@analyze",
+			"@phpunit"
+		],
+		"test-coverage": [
+			"@analyze",
+			"@phpunit-coverage"
+		],
+		"analyze": [
 			"@lint",
 			"@phpcs",
-			"@minus-x",
-			"@phpunit"
+			"@minus-x"
 		],
 		"fix": [
 			"minus-x fix .",
