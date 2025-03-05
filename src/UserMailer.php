@@ -22,7 +22,7 @@ class UserMailer {
 	 * @param array $options
 	 * @throws \MWException
 	 */
-	function send( $to, $from, $subject, $body, $options = [] ) {
+	public function send( $to, $from, $subject, $body, $options = [] ) {
 		global $wgEnotifRevealEditorAddress;
 
 		// @see User -> sendMail
