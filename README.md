@@ -32,7 +32,7 @@ create one and add the following content to it:
 ```
 {
 	"require": {
-		"mediawiki/semantic-tasks": "~2.0"
+		"mediawiki/semantic-tasks": "dev-master"
 	}
 }
 ```
@@ -40,7 +40,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-tasks": "~2.0"
+    "mediawiki/semantic-tasks": "dev-master"
 
 Remember to add a comma to the end of the preceding line in this section.
 
