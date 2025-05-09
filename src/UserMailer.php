@@ -29,6 +29,8 @@ class UserMailer {
 		$passwordSender = MediaWikiServices::getInstance()->getMainConfig()
 			->get( MainConfigNames::PasswordSender );
 
+		// @attention send from real sender (wiki's email) instead of 
+		// the $from address, to maximize delivery 
 		$sender = new MailAddress( $passwordSender,
 			wfMessage( 'emailsender' )->inContentLanguage()->text() );
 
