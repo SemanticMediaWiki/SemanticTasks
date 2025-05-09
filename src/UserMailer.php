@@ -29,6 +29,8 @@ class UserMailer {
 		$passwordSender = MediaWikiServices::getInstance()->getMainConfig()
 			->get( MainConfigNames::PasswordSender );
 
+		// @attention send from real sender (wiki's email) instead of
+		// the $from address, to maximize delivery
 		$sender = new MailAddress( $passwordSender,
 			wfMessage( 'emailsender' )->inContentLanguage()->text() );
 
@@ -37,10 +39,19 @@ class UserMailer {
 			$options['replyTo'] = $from;
 		}
 
-		$this->userMailer->send( $to, $sender, $subject, $body, $options );
-
-		// *** the following may fail since $from is not the real
-		// sender
-		// $this->userMailer->send( $to, $from, $subject, $body, $options );
+		// @attention !! @see UserMailer-> sendInternal
+		// PEAR mailer will set
+		// $headers['To'] = 'undisclosed-recipients'
+		// when the recipients are more than 1 !!
+		// this may trigger antispam, leading to non delivery
+		// of messages
+		// send to the recipients one by one as a workaround
+		$sent = [];
+		foreach ( $to as $recipient ) {
+			if ( !in_array( $recipient->address, $sent ) ) {
+				$this->userMailer->send( $recipient, $sender, $subject, $body, $options );
+				$sent[] = $recipient->address;
+			}
+		}
 	}
 }
