@@ -14,5 +14,7 @@
 	"semantictasks-assignedtoyou-msg2": "Хьуна хӀинцца билгалдаьккхина \"$1\" тӀедиллар.",
 	"semantictasks-unassignedtoyou-msg2": "ХӀинцца хьуна ца делира $1 тӀедиллар.",
 	"semantictasks-updatedtoyou-msg2": "\"$1\" тӀедиллар хӀинцца карлаяьккхина.",
-	"semantictasks-reminder": "Дагадаийтар:"
+	"semantictasks-reminder": "Дагадаийтар:",
+	"semantictasks-text-message": "Кхузахь дӀайаздина ду тӀедиллар:",
+	"semantictasks-diff-message": "Кхузахь башхаллаш йу:"
 }
