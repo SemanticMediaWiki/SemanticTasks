@@ -4,6 +4,7 @@
 			"Умар"
 		]
 	},
+	"semantictasks-desc": "ТӀеэцначу йа карладаьккхиначу гӀуллакхех лаьцна электронан поштехула хаамаш бар",
 	"semantictasks-newtask": "Керла тӀедиллар:",
 	"semantictasks-taskassigned": "ДӀахӀоттийна дӀедиллар:",
 	"semantictasks-taskunassigned": "ДӀахӀоттийна доцу дӀедиллар:",
@@ -15,6 +16,7 @@
 	"semantictasks-unassignedtoyou-msg2": "ХӀинцца хьуна ца делира $1 тӀедиллар.",
 	"semantictasks-updatedtoyou-msg2": "\"$1\" тӀедиллар хӀинцца карлайаьккхина.",
 	"semantictasks-reminder": "Дагадаийтар:",
+	"semantictasks-reminder-message2": "Дагадоуьйту, тӀедиллар «$1» чекхдолуш хилар $2 {{PLURAL:$2|динах}}.\n\n$3",
 	"semantictasks-text-message": "Кхузахь дӀайаздина ду тӀедиллар:",
 	"semantictasks-diff-message": "Кхузахь башхаллаш йу:"
 }
