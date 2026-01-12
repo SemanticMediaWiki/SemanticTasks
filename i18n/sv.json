@@ -3,17 +3,20 @@
 		"authors": [
 			"Fluff",
 			"Martinwiss",
-			"Per"
+			"Per",
+			"Stefan2255"
 		]
 	},
-	"semantictasks-desc": "E-postmeddelanden för tilldelade eller uppdaterade uppgifter",
+	"semantictasks-desc": "Skickar e-postaviseringar för tilldelade eller uppdaterade uppgifter",
 	"semantictasks-newtask": "Ny uppgift:",
 	"semantictasks-taskassigned": "Uppgift tilldelad:",
+	"semantictasks-taskunassigned": "Uppgift borttagen:",
 	"semantictasks-taskupdated": "Uppgiften uppdaterad:",
 	"semantictasks-taskclosed": "Uppgiften avslutad:",
 	"semantictasks-newtask-msg": "Uppgiften \"$1\" har just skapats.",
 	"semantictasks-taskclosed-msg": "Uppgiften \"$1\" har precis slutförts.",
 	"semantictasks-assignedtoyou-msg2": "Uppgiften \"$1\" har just tilldelats till dig",
+	"semantictasks-unassignedtoyou-msg2": "Du har just blivit avregistrerad från uppgiften \"$1\".",
 	"semantictasks-updatedtoyou-msg2": "Uppgiften \"$1\" har precis uppdaterats.",
 	"semantictasks-reminder": "Påminnelse:",
 	"semantictasks-reminder-message2": "Ett meddelande för att påminna dig om uppgiften \"$1\" som slutar om {{PLURAL:$2|en dag|$2 dagar}}.\n\n$3",
