@@ -6,14 +6,14 @@ use MediaWiki\Diff\ComplexityException;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\RevisionSlotsUpdate;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MWException;
 use PHPUnit\Framework\TestResult;
 use ST\Assignees;
 use ST\SemanticTasksMailer;
 use ST\UserMailer;
 use TextContent;
-use Title;
-use User;
 use WikiPage;
 
 /**
