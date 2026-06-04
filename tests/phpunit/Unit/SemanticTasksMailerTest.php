@@ -178,7 +178,7 @@ class SemanticTasksMailerTest extends \MediaWikiIntegrationTestCase {
 		$title = Title::newFromText( 'Some Random Page', $namespace );
 		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 		$content = \ContentHandler::makeContent( 'this is some edit', $title );
-		$performer = \RequestContext::getMain()->getUser();
+		$performer = User::newSystemUser( 'Maintenance script', [ 'steal' => true ] );
 		$summary = CommentStoreComment::newUnsavedComment( trim( 'edit page' ) );
 		$slotsUpdate = new RevisionSlotsUpdate();
 		$slotsUpdate->modifyContent( SlotRecord::MAIN, $content );
