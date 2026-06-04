@@ -12,9 +12,9 @@ In contrast to the built in notification systems in MediaWiki (watching pages), 
 
 ## Requirements
 
- - PHP 7.3 or later
- - MediaWiki 1.35 or later
- - Semantic MediaWiki 3.2 or later
+ - PHP 8.2 or later
+ - MediaWiki 1.43 or later
+ - Semantic MediaWiki 6.0 or later
 
 ## Installation
 
