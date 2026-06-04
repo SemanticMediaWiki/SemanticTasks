@@ -113,7 +113,7 @@ class SemanticTasksMailerTest extends \MediaWikiIntegrationTestCase {
 		foreach ( $strings as $string ) {
 			$content = \ContentHandler::makeContent( $string, $title );
 
-			$performer = $context->getUser();
+			$performer = User::newSystemUser( 'Maintenance script', [ 'steal' => true ] );
 			$summary = CommentStoreComment::newUnsavedComment( trim( 'edit page' ) );
 
 			$slotsUpdate = new RevisionSlotsUpdate();
