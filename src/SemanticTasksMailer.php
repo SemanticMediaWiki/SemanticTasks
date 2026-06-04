@@ -3,7 +3,6 @@
 namespace ST;
 
 use Content;
-use ContentHandler;
 use Exception;
 use IContextSource;
 use MediaWiki\Content\TextContent;
