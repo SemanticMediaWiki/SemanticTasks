@@ -7,9 +7,9 @@ use ContentHandler;
 use Exception;
 use IContextSource;
 use MediaWiki\Diff\ComplexityException;
-use MWException;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MWException;
 use WikiPage;
 
 if ( !defined( 'MEDIAWIKI' ) ) {
