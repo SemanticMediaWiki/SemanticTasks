@@ -8,8 +8,8 @@ use Exception;
 use IContextSource;
 use MediaWiki\Diff\ComplexityException;
 use MWException;
-use Title;
-use User;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use WikiPage;
 
 if ( !defined( 'MEDIAWIKI' ) ) {
