@@ -6,6 +6,7 @@ use Content;
 use ContentHandler;
 use Exception;
 use IContextSource;
+use MediaWiki\Content\TextContent;
 use MediaWiki\Diff\ComplexityException;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
@@ -86,7 +87,7 @@ class SemanticTasksMailer {
 		Assignees $assignees,
 		$revision
 	) {
-		$text = ContentHandler::getContentText( $content );
+		$text = $content instanceof TextContent ? $content->getText() : '';
 		$title = $article->getTitle();
 
 		$newAssignees = $assignees->getNewAssignees( $article, $revision );
@@ -230,10 +231,14 @@ class SemanticTasksMailer {
 		$otext = '';
 		$ntext = '';
 		if ( $diff->getOldRevision() ) {
-			$otext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getOldRevision()->getContent( 'main' ) ) );
+			$content = $diff->getOldRevision()->getContent( 'main' );
+			$text = $content instanceof TextContent ? $content->getText() : '';
+			$otext = str_replace( "\r\n", "\n", $text );
 		}
 		if ( $diff->getNewRevision() ) {
-			$ntext = str_replace( "\r\n", "\n", ContentHandler::getContentText( $diff->getNewRevision()->getContent( 'main' ) ) );
+			$content = $diff->getNewRevision()->getContent( 'main' );
+			$text = $content instanceof TextContent ? $content->getText() : '';
+			$ntext = str_replace( "\r\n", "\n", $text );
 		}
 		$lang = \MediaWiki\MediaWikiServices::getInstance()->getContentLanguage();
 
