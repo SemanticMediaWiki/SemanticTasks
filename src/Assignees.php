@@ -3,11 +3,12 @@
 namespace ST;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use ParserOutput;
 use SMW\DIWikiPage;
 use SMW\Services\ServicesFactory as ApplicationFactory;
 use SMWDataItem;
-use User;
 use WikiPage;
 
 /** @todo: rename TaskDiff something similar */
@@ -30,7 +31,7 @@ class Assignees {
 
 	public function saveAssigneesMultiContentSave( \MediaWiki\Revision\RenderedRevision $renderedRevision, \MediaWiki\User\UserIdentity $user, \CommentStoreComment $summary, $flags, \Status $hookStatus ) {
 		$revision = $renderedRevision->getRevision();
-		$title = \Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
+		$title = Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
 		$article = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 
 		$this->taskAssignees = $this->getCurrentAssignees( $article, null );
