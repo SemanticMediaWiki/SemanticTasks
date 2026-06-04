@@ -1,6 +1,6 @@
 {
 	"name": "SemanticTasks",
-	"version": "2.1.0",
+	"version": "3.0.0-alpha",
 	"author": [
 		"Steren Giannini",
 		"Ryan Lane",
@@ -15,7 +15,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "semantic",
 	"requires": {
-		"MediaWiki": ">= 1.35"
+		"MediaWiki": ">= 1.43"
 	},
 	"MessagesDirs": {
 		"SemanticTasks": [
