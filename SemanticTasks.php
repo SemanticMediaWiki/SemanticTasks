@@ -200,7 +200,7 @@ class SemanticTasks {
 				}
 
 				$wikiPage = SemanticTasks::getEffectiveArticle( $title );
-				$status =  SemanticTasksMailer::TALK_DELETED;
+				$status = SemanticTasksMailer::TALK_DELETED;
 			}
 
 			SemanticTasksMailer::mailAssignees( $wikiPage, $text, $user, $status, $assignees, $revision );
