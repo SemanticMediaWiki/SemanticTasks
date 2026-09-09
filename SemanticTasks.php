@@ -6,8 +6,11 @@
  * @defgroup SemanticTasks Semantic Tasks
  */
 
+use ContentHandler;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
+use MWException;
 use ST\SemanticTasksMailer;
 
 SemanticTasks::load();
@@ -41,6 +44,55 @@ class SemanticTasks {
 		if ( !defined( 'MW_VERSION' ) ) {
 			define( 'MW_VERSION', $GLOBALS['wgVersion'] );
 		}
+	}
+
+	/**
+	 * @see https://github.com/SemanticMediaWiki/KnowledgeGraph/blob/main/includes/KnowledgeGraph.php
+	 *
+	 * @return bool
+	 */
+	private static function ensureSemanticTasksMessagesExists() {
+		global $stgMessagesArticle;
+
+		if ( !$stgMessagesArticle ) {
+			return false;
+		}
+
+		$title = Title::newFromText( $stgMessagesArticle );
+		if ( !$title ) {
+			 throw new MWException( 'Title for SemanticTasksMessage not valid' );
+		}
+
+		if ( $title->isKnown() ) {
+			return true;
+		}
+
+		// Create page content
+		$filePath = __DIR__ . '/data/SemanticTasksMessages.wikitext';
+
+		if ( !file_exists( $filePath ) ) {
+			wfDebugLog( 'SemanticTasks', 'Missing SemanticTasksMessages.wikitext.' );
+			return;
+		}
+
+		$text = file_get_contents( $filePath );
+		
+		$content = ContentHandler::makeContent(
+			$text,
+			$title
+		);
+
+		$user = User::newSystemUser( 'MediaWiki default', [ 'steal' => true ] );
+
+		$wikiPage = MediaWikiServices::getInstance()
+			->getWikiPageFactory()->newFromTitle( $title );
+
+		$pageUpdater = $wikiPage->newPageUpdater( $user );
+		$pageUpdater->setContent( SlotRecord::MAIN, $content );
+		$pageUpdater->saveRevision(
+			CommentStoreComment::newUnsavedComment( 'Initialize KnowledgeGraphOptions' ),
+			EDIT_SUPPRESS_RC
+		);
 	}
 
 	/**
@@ -88,14 +140,18 @@ class SemanticTasks {
 			}
 		}
 
+		self::ensureSemanticTasksMessagesExists();
+
 		$assignees = new \ST\Assignees();
 
 		// Register extension hooks.
 		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 
+		$semanticTasksMessages = MediaWikiServices::getInstance()->getService( 'SemanticTasksMessages' );
+
 		$hookContainer->register( 'MultiContentSave', [ $assignees, 'saveAssigneesMultiContentSave' ] );
 
-		$hookContainer->register( 'PageSaveComplete', static function ( WikiPage $wikiPage, MediaWiki\User\UserIdentity $user, string $summary, int $flags, MediaWiki\Revision\RevisionRecord $revisionRecord, MediaWiki\Storage\EditResult $editResult ) use ( $assignees ) {
+		$hookContainer->register( 'PageSaveComplete', static function ( WikiPage $wikiPage, MediaWiki\User\UserIdentity $user, string $summary, int $flags, MediaWiki\Revision\RevisionRecord $revisionRecord, MediaWiki\Storage\EditResult $editResult ) use ( $assignees, $semanticTasksMessages ) {
 			// @see includes/Storage/PageUpdater.php
 			$mainContent = $revisionRecord->getContent( MediaWiki\Revision\SlotRecord::MAIN, MediaWiki\Revision\RevisionRecord::RAW );
 			$minoredit = $editResult->isNullEdit() || ( $flags & EDIT_MINOR )
@@ -108,6 +164,8 @@ class SemanticTasks {
 				$assignees, $wikiPage, $user, $mainContent,
 				$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revisionRecord
 			);
+
+			$semanticTasksMessages->handlePageUpdate( $wikiPage->getTitle() );
 		} );
 
 		$hookContainer->register( 'PageDelete', static function ( $wikiPage, $deleter, string $reason, StatusValue $status, bool $suppress ) use ( $assignees ) {
@@ -115,7 +173,7 @@ class SemanticTasks {
 		} );
 
 		// @see https://github.com/SemanticMediaWiki/SemanticTasks/issues/67
-		$hookContainer->register( 'PageDeleteComplete', static function ( $pageRecord, $deleter, $reason, $pageID, $deletedRev, $logEntry, $archivedRevisionCount ) use ( $assignees ) {
+		$hookContainer->register( 'PageDeleteComplete', static function ( $pageRecord, $deleter, $reason, $pageID, $deletedRev, $logEntry, $archivedRevisionCount ) use ( $assignees, $semanticTasksMessages ) {
 			global $stgNotifyOnDeleteTaskArticle;
 			global $stgNotifyOnTalkPageEditOfTaskArticle;
 			$user = $deleter->getUser();
@@ -123,6 +181,8 @@ class SemanticTasks {
 			$revision = null;
 
 			$title = $pageRecord->getTitle();
+
+			$semanticTasksMessages->handlePageUpdate( $title );
 
 			// directly send email
 			if ( !$title->isTalkPage() ) {
@@ -140,10 +200,11 @@ class SemanticTasks {
 				}
 
 				$wikiPage = SemanticTasks::getEffectiveArticle( $title );
-				$status = SemanticTasksMailer::TALK_DELETED;
+				$status =  SemanticTasksMailer::TALK_DELETED;
 			}
 
 			SemanticTasksMailer::mailAssignees( $wikiPage, $text, $user, $status, $assignees, $revision );
 		} );
+
 	}
 }
