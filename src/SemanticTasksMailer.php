@@ -75,7 +75,7 @@ class SemanticTasksMailer {
 			if ( !$stgNotifyOnTalkPageEditOfTaskArticle ) {
 				return;
 			}
-	
+
 			$article = SemanticTasks::getEffectiveArticleFromPage( $article );
 
 			if ( ( $flags & EDIT_NEW ) ) {
