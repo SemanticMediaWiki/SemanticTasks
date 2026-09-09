@@ -1,8 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
-	"semantictasks-newtask": "نوې دنده:"
+	"semantictasks-desc": "د سپارل شويو يا هم‌مهاله شويو کاردندو برېښليک خبرتياوې لېږي",
+	"semantictasks-newtask": "نوې کاردنده:",
+	"semantictasks-taskassigned": "ورسپارل‌شوې کاردنده:",
+	"semantictasks-taskunassigned": "ناسپارل‌شوې کاردنده:",
+	"semantictasks-taskupdated": "کاردنده هم‌مهاله‌شوه:",
+	"semantictasks-taskclosed": "کاردنده وتړل شوه:",
+	"semantictasks-newtask-msg": "\"$1\" کاردنده همدا اوس جوړه شوه.",
+	"semantictasks-taskclosed-msg": "\"$1\" کاردنده همدا اوس وتړل شوه.",
+	"semantictasks-assignedtoyou-msg2": "\"$1\" کاردنده همدا اوس تاسو ته وسپارل شوه.",
+	"semantictasks-unassignedtoyou-msg2": "تاسو همدا اوس له \"$1\" کاردندې لرې شوئ.",
+	"semantictasks-updatedtoyou-msg2": "\"$1\" کاردنده همدا اوس هم‌مهاله شوه.",
+	"semantictasks-reminder": "يادوونکی:",
+	"semantictasks-reminder-message2": "يوازې تاسو ته دريادوو چې \"$1\" کاردنده به په $2 {{PLURAL:$2|ورځ|ورځو}} کې پای ته ورسېږي.\n\n$3",
+	"semantictasks-text-message": "دلته د کاردندې څرگنداوی دی:",
+	"semantictasks-diff-message": "دلته يې توپيرونه دي:"
 }
