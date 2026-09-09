@@ -75,7 +75,7 @@ class SemanticTasksMailer {
 			if ( !$stgNotifyOnTalkPageEditOfTaskArticle ) {
 				return;
 			}
-
+	
 			$article = SemanticTasks::getEffectiveArticleFromPage( $article );
 
 			if ( ( $flags & EDIT_NEW ) ) {
@@ -86,6 +86,25 @@ class SemanticTasksMailer {
 		}
 
 		return self::mailAssignees( $article, $text, $current_user, $status, $assignees, $revision );
+	}
+
+	/**
+	 *
+	 * @param string $key
+	 * @param mixed ...$argv
+	 * @return string
+	 */
+	public static function getMessage( $key, ...$argv ) {
+		global $stgMessagesArticle;
+		if ( !$stgMessagesArticle ) {
+			return wfMessage( $key, ...$argv )->text();
+		}
+		$title = Title::newFromText( $stgMessagesArticle );
+		if ( !$title || !$title->isKnown() ) {
+			return wfMessage( $key, ...$argv )->text();
+		}
+		$semanticTasksMessages = MediaWikiServices::getInstance()->getService( 'SemanticTasksMessages' );
+		return $semanticTasksMessages->getMessage( $key, ...$argv );
 	}
 
 	/**
@@ -142,8 +161,11 @@ class SemanticTasksMailer {
 		}
 
 		// Notify those unassigned from this task, default false
+		global $stgNotifyIfUnassigned;
+
+		// back-compatibility
 		global $wgSemanticTasksNotifyIfUnassigned;
-		if ( $wgSemanticTasksNotifyIfUnassigned ) {
+		if ( $stgNotifyIfUnassigned || $wgSemanticTasksNotifyIfUnassigned ) {
 			$removedAssignees = $assignees->getRemovedAssignees( $article, $revision );
 			$mailTo = Assignees::getAssigneeAddresses( $removedAssignees );
 			self::mailNotification( $mailTo, $text, $title, $user, self::UNASSIGNED );
@@ -155,7 +177,7 @@ class SemanticTasksMailer {
 		if ( count( $newAssignees ) ) {
 			$mailToNewAssignees = Assignees::getAssigneeAddresses( $newAssignees );
 			self::mailNotification( $mailToNewAssignees, $text, $title, $user, self::ASSIGNED );
-
+	
 			$notifiedUsers = array_map( static function ( $value ) {
 				return $value->name;
 			}, $mailToNewAssignees );
@@ -203,50 +225,50 @@ class SemanticTasksMailer {
 
 		/** @TODO This should probably be refactored */
 		if ( $status == self::NEWTASK ) {
-			$subject .= wfMessage( 'semantictasks-newtask' )->text() . ' ' . $title_text;
-			$body = wfMessage( 'semantictasks-newtask-msg', $title_text )->text() . " " . $link;
-			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+			$subject .= self::getMessage( 'semantictasks-newtask-subject', $title_text );
+			$body = self::getMessage( 'semantictasks-newtask-body-1', $title_text ) . " " . $link;
+			$body .= "\n \n" . self::getMessage( 'semantictasks-newtask-body-2' ) . "\n" . $text;
 
 		} elseif ( $status == self::UPDATED ) {
 			$context = new \RequestContext();
 			$context->setTitle( $title );
 
-			$subject .= wfMessage( 'semantictasks-taskupdated' )->text() . ' ' . $title_text;
-			$body = wfMessage( 'semantictasks-updatedtoyou-msg2', $title_text )->text() . " " . $link;
-			$body .= "\n \n" . wfMessage( 'semantictasks-diff-message' )->text() . "\n";
+			$subject .= self::getMessage( 'semantictasks-taskupdated-subject', $title_text );
+			$body = self::getMessage( 'semantictasks-taskupdated-body-1', $title_text ) . " " . $link;
+			$body .= "\n \n" . self::getMessage( 'semantictasks-taskupdated-body-2' ) . "\n";
 			$body .= self::generateDiffBodyTxt( $title, $context );
 
 		} elseif ( $status == self::CLOSED ) {
-			$subject .= wfMessage( 'semantictasks-taskclosed' )->text() . ' ' . $title_text;
-			$body = wfMessage( 'semantictasks-taskclosed-msg', $title_text )->text() . " " . $link;
-			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+			$subject .= self::getMessage( 'semantictasks-taskclosed-subject', $title_text );
+			$body = self::getMessage( 'semantictasks-taskclosed-body-1', $title_text ) . " " . $link;
+			$body .= "\n \n" . self::getMessage( 'semantictasks-taskclosed-body-2' ) . "\n" . $text;
 
 		} elseif ( $status == self::UNASSIGNED ) {
-			$subject .= wfMessage( 'semantictasks-taskunassigned' )->text() . ' ' . $title_text;
-			$body = wfMessage( 'semantictasks-unassignedtoyou-msg2', $title_text )->text() . " " . $link;
-			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+			$subject .= self::getMessage( 'semantictasks-taskunassigned-subject', $title_text );
+			$body = self::getMessage( 'semantictasks-taskunassigned-body-1', $title_text ) . " " . $link;
+			$body .= "\n \n" . self::getMessage( 'semantictasks-taskunassigned-body-2' ) . "\n" . $text;
 
 		} elseif ( $status == self::TALK_CREATED ) {
-			$subject .= wfMessage( 'semantictasks-task-talk-page-created' )->text() . ' ' . $title_text;
-			$body = wfMessage( 'semantictasks-task-talk-page-created-message', $title_text )->text();
+			$subject .= self::getMessage( 'semantictasks-talkpageoftaskcreated-subject', $title_text );
+			$body = self::getMessage( 'semantictasks-talkpageoftaskcreated-body-1', $title_text );
 
 		} elseif ( $status == self::TALK_EDITED ) {
-			$subject .= wfMessage( 'semantictasks-task-talk-page-edited' )->text() . ' ' . $title_text;
-			$body = wfMessage( 'semantictasks-task-talk-page-edited-message', $title_text )->text();
+			$subject .= self::getMessage( 'semantictasks-talkpageoftaskedited-subject', $title_text );
+			$body = self::getMessage( 'semantictasks-talkpageoftaskedited-body-1', $title_text );
 
 		} elseif ( $status == self::DELETED ) {
-			$subject .= wfMessage( 'semantictasks-task-article-deleted' )->text() . ' ' . $title_text;
-			$body = wfMessage( 'semantictasks-task-article-deleted-message', $title_text )->text();
+			$subject .= self::getMessage( 'semantictasks-taskdeleted-subject', $title_text );
+			$body = self::getMessage( 'semantictasks-taskdeleted-body-1', $title_text );
 
 		} elseif ( $status == self::TALK_DELETED ) {
-			$subject .= wfMessage( 'semantictasks-task-talk-article-deleted' )->text() . ' ' . $title_text;
-			$body = wfMessage( 'semantictasks-task-article-talk-deleted-message', $title_text )->text();
+			$subject .= self::getMessage( 'semantictasks-talkpageoftaskdeleted-subject', $title_text );
+			$body = self::getMessage( 'semantictasks-talkpageoftaskdeleted-body-1', $title_text );
 
 		} else {
 			// status == ASSIGNED
-			$subject .= wfMessage( 'semantictasks-taskassigned' )->text() . ' ' . $title_text;
-			$body = wfMessage( 'semantictasks-assignedtoyou-msg2', $title_text )->text() . " " . $link;
-			$body .= "\n \n" . wfMessage( 'semantictasks-text-message' )->text() . "\n" . $text;
+			$subject .= self::getMessage( 'semantictasks-taskassigned-subject', $title_text );
+			$body = self::getMessage( 'semantictasks-taskassigned-body-1', $title_text ) . " " . $link;
+			$body .= "\n \n" . self::getMessage( 'semantictasks-taskassigned-body-2' ) . "\n" . $text;
 		}
 
 		if ( !self::$user_mailer ) {
@@ -416,13 +438,13 @@ class SemanticTasksMailer {
 			$assignees = array_unique( $assignees );
 
 			$task_name = $row[0]->getNextDataItem()->getTitle();
-			$subject = '[' . $wgSitename . '] ' . wfMessage( 'semantictasks-reminder' )->text() . $task_name;
+			$subject = '[' . $wgSitename . '] ' . self::getMessage( 'semantictasks-reminder-subject', $task_name );
 
 			// ***unused var
 			$link = $task_name->getFullURL();
 
 			foreach ( $assignees as $assignee_username ) {
-				$body = wfMessage( 'semantictasks-reminder-message2', $task_name, $wgLang->formatNum( $remind_me_in ), $link )->text();
+				$body = self::getMessage( 'semantictasks-reminder-body-1', $task_name, $wgLang->formatNum( $remind_me_in ), $link );
 				$assignee = User::newFromName( $assignee_username );
 				$assignee->sendMail( $subject, $body );
 			}
