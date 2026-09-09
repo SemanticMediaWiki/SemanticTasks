@@ -2,10 +2,10 @@
 
 namespace ST;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use ParserOutput;
+use SemanticTasks;
 use SMW\DIWikiPage;
 use SMW\Services\ServicesFactory as ApplicationFactory;
 use SMWDataItem;
@@ -16,31 +16,71 @@ class Assignees {
 
 	private $taskAssignees;
 	private $taskStatus;
+	private $taskCopies;
+	private $taskGroups;
 
 	/**
 	 * Previously this was SemanticTasksMailer::findOldValues
 	 *
-	 * @param WikiPage &$article
+	 * @param WikiPage $article
 	 * @return bool
 	 */
-	public function saveAssignees( WikiPage &$article ) {
+	public function saveAssigneesAndStatus( WikiPage $article ) {
 		$this->taskAssignees = $this->getCurrentAssignees( $article, null );
 		$this->taskStatus = $this->getCurrentStatus( $article, null );
+		return true;
+	}
+
+	/**
+	 * @param WikiPage $article
+	 * @return bool
+	 */
+	public function saveCopies( WikiPage $article ) {
+		$this->taskCopies = $this->getCurrentCarbonCopy( $article, null );
+		return true;
+	}
+
+	/**
+	 * @param WikiPage $article
+	 * @return bool
+	 */
+	public function saveGroups( WikiPage $article ) {
+		$this->taskGroups = $this->getGroupAssignees( $article );
+		return true;
+	}
+
+	/**
+	 * @param WikiPage $wikiPage
+	 * @return bool
+	 */
+	public function saveAssigneesPageDelete( $wikiPage ) {
+		$article = SemanticTasks::getEffectiveArticleFromPage( $wikiPage );
+
+		$this->saveAssigneesAndStatus( $article );
+		$this->saveCopies( $article );
+		$this->saveGroups( $article );
+
 		return true;
 	}
 
 	public function saveAssigneesMultiContentSave( \MediaWiki\Revision\RenderedRevision $renderedRevision, \MediaWiki\User\UserIdentity $user, \CommentStoreComment $summary, $flags, \Status $hookStatus ) {
 		$revision = $renderedRevision->getRevision();
 		$title = Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
-		$article = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+		$article = SemanticTasks::getEffectiveArticle( $title );
 
-		$this->taskAssignees = $this->getCurrentAssignees( $article, null );
-		$this->taskStatus = $this->getCurrentStatus( $article, null );
-		return true;
+		return $this->saveAssigneesAndStatus( $article );
 	}
 
 	public function getSavedStatus() {
 		return $this->taskStatus;
+	}
+
+	public function getSavedCopies() {
+		return $this->taskCopies;
+	}
+
+	public function getSavedGroups() {
+		return $this->taskGroups;
 	}
 
 	public function getSavedAssignees() {
@@ -48,26 +88,31 @@ class Assignees {
 	}
 
 	/**
-	 * @param WikiPage &$article
+	 * @param WikiPage $article
 	 * @param $revision
 	 * @return array
 	 */
-	public function getCurrentAssignees( WikiPage &$article, $revision ) {
+	public function getCurrentAssignees( WikiPage $article, $revision ) {
 		global $stgPropertyAssignedTo;
 		return $this->getProperties( $stgPropertyAssignedTo, $article, $revision );
 	}
 
-	public function getCurrentCarbonCopy( WikiPage &$article, $revision ) {
+	/**
+	 * @param WikiPage $article
+	 * @param $revision
+	 * @return array
+	 */
+	public function getCurrentCarbonCopy( WikiPage $article, $revision ) {
 		global $stgPropertyCarbonCopy;
 		return $this->getProperties( $stgPropertyCarbonCopy, $article, $revision );
 	}
 
 	/**
-	 * @param WikiPage &$article
+	 * @param WikiPage $article
 	 * @param $revision
 	 * @return string
 	 */
-	public function getCurrentStatus( WikiPage &$article, $revision ) {
+	public function getCurrentStatus( WikiPage $article, $revision ) {
 		global $stgPropertyStatus;
 		$status = $this->getProperties( $stgPropertyStatus, $article, $revision );
 

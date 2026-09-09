@@ -1,0 +1,45 @@
+__NOTOC__
+== New task ==
+semantictasks-newtask-subject|New task: $1
+semantictasks-newtask-body-1|The task "$1" has just been created.
+semantictasks-newtask-body-2|Here is the task description:
+
+== Task updated ==
+semantictasks-taskupdated-subject|Task updated: $1
+semantictasks-taskupdated-body-1|The task "$1" has just been updated.
+semantictasks-taskupdated-body-2|Here are the differences:
+
+== Task closed ==
+semantictasks-taskclosed-subject|Task closed: $1
+semantictasks-taskclosed-body-1|The task "$1" has just been closed.
+semantictasks-taskclosed-body-2|Here is the task description:
+
+== Task unassigned ==
+semantictasks-taskunassigned-subject|Task unassigned: $1
+semantictasks-taskunassigned-body-1|You have just been unassigned from the task "$1".
+semantictasks-taskunassigned-body-2|Here is the task description:
+
+== Talk page of Task created ==
+semantictasks-talkpageoftaskcreated-subject|Talk page of task article has been created
+semantictasks-talkpageoftaskcreated-body-1|Talk page related to task article "$1" has been created
+
+== Talk page of Task edited ==
+semantictasks-talkpageoftaskedited-subject|Talk page of task article has been edited
+semantictasks-talkpageoftaskedited-body-1|Talk page related to task article "$1" has been edited
+
+== Task deleted ==
+semantictasks-taskdeleted-subject|Article with assigned tasks deleted
+semantictasks-taskdeleted-body-1|The article "$1" with assigned tasks has been deleted.
+
+== Talk page of task deleted ==
+semantictasks-talkpageoftaskdeleted-subject|Talk page of article with assigned tasks deleted
+semantictasks-talkpageoftaskdeleted-body-1|The talk page of the article "$1" with assigned tasks has been deleted.
+
+== Task assigned ==
+semantictasks-taskassigned-subject|Task assigned: $1
+semantictasks-taskassigned-body-1|The task "$1" has just been assigned to you.
+semantictasks-taskassigned-body-2|Here is the task description:
+
+== Reminder ==
+semantictasks-reminder-subject|Reminder: $1
+semantictasks-reminder-body-1|Just to remind you that the task "$1" ends in $2 {{PLURAL:$2|day|days}}.
