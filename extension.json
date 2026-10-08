@@ -1,6 +1,6 @@
 {
 	"name": "SemanticTasks",
-	"version": "3.0.0-alpha",
+	"version": "3.2.0",
 	"author": [
 		"Steren Giannini",
 		"Ryan Lane",
@@ -32,8 +32,20 @@
 	"AutoloadClasses": {
 		"SemanticTasks": "SemanticTasks.php"
 	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
 	"config_prefix": "stg",
 	"config": {
+		"MessagesArticle": {
+			"value": "MediaWiki:SemanticTasksMessages"
+		},
+		"NotifyOnDeleteTaskArticle": {
+			"value": false
+		},
+		"NotifyOnTalkPageEditOfTaskArticle": {
+			"value": true
+		},
 		"PropertyAssignedTo": {
 			"value": "Assigned to"
 		},
@@ -55,7 +67,7 @@
 		"PropertyHasAssignee": {
 			"value": "Has assignee"
 		},
-		"SemanticTasksNotifyIfUnassigned": {
+		"NotifyIfUnassigned": {
 			"value": false
 		},
 		"NotificationFromSystemAddress": {

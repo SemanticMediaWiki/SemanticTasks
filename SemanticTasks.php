@@ -7,6 +7,9 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Title\Title;
 use ST\SemanticTasksMailer;
 
 SemanticTasks::load();
@@ -43,6 +46,35 @@ class SemanticTasks {
 	}
 
 	/**
+	 * @param Title $title
+	 * @return WikiPage
+	 */
+	public static function getEffectiveArticle( $title ) {
+		if ( !$title->isTalkPage() ) {
+			return MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+		}
+
+		$subjectTitle = $title->getSubjectPage();
+		return MediaWikiServices::getInstance()
+			->getWikiPageFactory()->newFromTitle( $subjectTitle );
+	}
+
+	/**
+	 * @param WikiPage $wikiPage
+	 * @return WikiPage
+	 */
+	public static function getEffectiveArticleFromPage( $wikiPage ) {
+		$title = $wikiPage->getTitle();
+		if ( !$title->isTalkPage() ) {
+			return $wikiPage;
+		}
+
+		$subjectTitle = $title->getSubjectPage();
+		return MediaWikiServices::getInstance()
+			->getWikiPageFactory()->newFromTitle( $subjectTitle );
+	}
+
+	/**
 	 * @since 1.0
 	 */
 	public static function onExtensionFunction() {
@@ -62,10 +94,16 @@ class SemanticTasks {
 
 		// Register extension hooks.
 		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+
+		$semanticTasksMessages = MediaWikiServices::getInstance()->getService( 'SemanticTasksMessages' );
+		
+		$semanticTasksMessages->ensureSemanticTasksMessagesExists();
+
 		$hookContainer->register( 'MultiContentSave', [ $assignees, 'saveAssigneesMultiContentSave' ] );
-		$hookContainer->register( 'PageSaveComplete', static function ( WikiPage $wikiPage, MediaWiki\User\UserIdentity $user, string $summary, int $flags, MediaWiki\Revision\RevisionRecord $revisionRecord, MediaWiki\Storage\EditResult $editResult ) use ( $assignees ) {
+
+		$hookContainer->register( 'PageSaveComplete', static function ( WikiPage $wikiPage, MediaWiki\User\UserIdentity $user, string $summary, int $flags, MediaWiki\Revision\RevisionRecord $revisionRecord, MediaWiki\Storage\EditResult $editResult ) use ( $assignees, $semanticTasksMessages ) {
 			// @see includes/Storage/PageUpdater.php
-			$mainContent = $revisionRecord->getContent( MediaWiki\Revision\SlotRecord::MAIN, MediaWiki\Revision\RevisionRecord::RAW );
+			$mainContent = $revisionRecord->getContent( SlotRecord::MAIN, RevisionRecord::RAW );
 			$minoredit = $editResult->isNullEdit() || ( $flags & EDIT_MINOR )
 				// *** this is for the use in conjunction with WSSlots
 				|| ( $flags & EDIT_INTERNAL );
@@ -76,7 +114,47 @@ class SemanticTasks {
 				$assignees, $wikiPage, $user, $mainContent,
 				$summary, $minoredit, $watchthis, $sectionanchor, $flags, $revisionRecord
 			);
-		} );
-	}
 
+			$semanticTasksMessages->handlePageUpdate( $wikiPage->getTitle() );
+		} );
+
+		$hookContainer->register( 'PageDelete', static function ( $wikiPage, $deleter, string $reason, StatusValue $status, bool $suppress ) use ( $assignees ) {
+			$assignees->saveAssigneesPageDelete( $wikiPage );
+		} );
+
+		// @see https://github.com/SemanticMediaWiki/SemanticTasks/issues/67
+		$hookContainer->register( 'PageDeleteComplete', static function ( $pageRecord, $deleter, $reason, $pageID, $deletedRev, $logEntry, $archivedRevisionCount ) use ( $assignees, $semanticTasksMessages ) {
+			global $stgNotifyOnDeleteTaskArticle;
+			global $stgNotifyOnTalkPageEditOfTaskArticle;
+			$user = $deleter->getUser();
+			$text = null;
+			$revision = null;
+
+			$title = $pageRecord->getTitle();
+
+			$semanticTasksMessages->handlePageUpdate( $title );
+
+			// directly send email
+			if ( !$title->isTalkPage() ) {
+				if ( !$stgNotifyOnDeleteTaskArticle ) {
+					return;
+				}
+
+				$wikiPage = $pageRecord;
+				$status = SemanticTasksMailer::DELETED;
+
+			// retrieve subject article
+			} else {
+				if ( !$stgNotifyOnTalkPageEditOfTaskArticle ) {
+					return;
+				}
+
+				$wikiPage = SemanticTasks::getEffectiveArticle( $title );
+				$status = SemanticTasksMailer::TALK_DELETED;
+			}
+
+			SemanticTasksMailer::mailAssignees( $wikiPage, $text, $user, $status, $assignees, $revision );
+		} );
+
+	}
 }
