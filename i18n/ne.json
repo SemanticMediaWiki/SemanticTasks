@@ -5,6 +5,6 @@
 			"राम प्रसाद जोशी"
 		]
 	},
-	"semantictasks-taskunassigned": "बाडफाड नभएको कार्यः",
-	"semantictasks-unassignedtoyou-msg2": "\"$1\" कार्यबाट तपाईंलाई कार्यभार मुक्त गरिएको छ ।"
+	"semantictasks-taskunassigned-subject": "बाडफाड नभएको कार्यः",
+	"semantictasks-taskunassigned-body-1": "\"$1\" कार्यबाट तपाईंलाई कार्यभार मुक्त गरिएको छ ।"
 }

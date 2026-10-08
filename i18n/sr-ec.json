@@ -5,11 +5,11 @@
 			"Михајло Анђелковић"
 		]
 	},
-	"semantictasks-newtask": "Нови задатак:",
-	"semantictasks-taskassigned": "Задатак додељен:",
-	"semantictasks-taskupdated": "Задатак ажуриран:",
-	"semantictasks-taskclosed": "Задатак затворен:",
-	"semantictasks-reminder": "Подсетник:",
-	"semantictasks-text-message": "Овде је опис задатка:",
-	"semantictasks-diff-message": "Овде су разлике:"
+	"semantictasks-newtask-subject": "Нови задатак:",
+	"semantictasks-newtask-body-2": "Овде је опис задатка:",
+	"semantictasks-taskupdated-subject": "Задатак ажуриран:",
+	"semantictasks-taskupdated-body-2": "Овде су разлике:",
+	"semantictasks-taskclosed-subject": "Задатак затворен:",
+	"semantictasks-taskassigned-subject": "Задатак додељен:",
+	"semantictasks-reminder-subject": "Подсетник:"
 }

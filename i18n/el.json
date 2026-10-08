@@ -4,9 +4,9 @@
 			"ZaDiak"
 		]
 	},
-	"semantictasks-newtask": "Νέα εργασία:",
-	"semantictasks-taskupdated": "Η εργασία ενημερώθηκε:",
-	"semantictasks-reminder": "Υπενθύμιση:",
-	"semantictasks-text-message": "Εδώ είναι η περιγραφή της εργασίας:",
-	"semantictasks-diff-message": "Εδώ είναι οι διαφορές:"
+	"semantictasks-newtask-subject": "Νέα εργασία:",
+	"semantictasks-newtask-body-2": "Εδώ είναι η περιγραφή της εργασίας:",
+	"semantictasks-taskupdated-subject": "Η εργασία ενημερώθηκε:",
+	"semantictasks-taskupdated-body-2": "Εδώ είναι οι διαφορές:",
+	"semantictasks-reminder-subject": "Υπενθύμιση:"
 }

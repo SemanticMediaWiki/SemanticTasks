@@ -8,16 +8,15 @@
 		]
 	},
 	"semantictasks-desc": "Kas a ra kemennoù dre bostel evit an trevelloù deverket pe hizivaet",
-	"semantictasks-newtask": "Trevell nevez :",
-	"semantictasks-taskassigned": "Trevell roet :",
-	"semantictasks-taskupdated": "Hizivaet an trevell :",
-	"semantictasks-taskclosed": "Trevell serret :",
-	"semantictasks-newtask-msg": "O paouez bezañ krouet eo an trevell \"$1\".",
-	"semantictasks-taskclosed-msg": "O paouez bezañ serret eo an trevell \"$1\".",
-	"semantictasks-assignedtoyou-msg2": "Deverket eo bet an trevell \"$1\" deoc'h.",
-	"semantictasks-updatedtoyou-msg2": "Hizivaet eo bet an trevell \"$1\".",
-	"semantictasks-reminder": "Derc'hel soñj :",
-	"semantictasks-reminder-message2": "Un tamm gerig da zegas da soñj deoc'h e vo echuet an trevell \"$1\" a-benn $2 {{PLURAL:$2|deiz|deiz}}.\n\n\n$3",
-	"semantictasks-text-message": "Setu aze deskrivadenn an trevell :",
-	"semantictasks-diff-message": "Setu amañ ar c'hemmoù :"
+	"semantictasks-newtask-subject": "Trevell nevez :",
+	"semantictasks-newtask-body-1": "O paouez bezañ krouet eo an trevell \"$1\".",
+	"semantictasks-newtask-body-2": "Setu aze deskrivadenn an trevell :",
+	"semantictasks-taskupdated-subject": "Hizivaet an trevell :",
+	"semantictasks-taskupdated-body-1": "Hizivaet eo bet an trevell \"$1\".",
+	"semantictasks-taskupdated-body-2": "Setu amañ ar c'hemmoù :",
+	"semantictasks-taskclosed-subject": "Trevell serret :",
+	"semantictasks-taskclosed-body-1": "O paouez bezañ serret eo an trevell \"$1\".",
+	"semantictasks-taskassigned-subject": "Trevell roet :",
+	"semantictasks-taskassigned-body-1": "Deverket eo bet an trevell \"$1\" deoc'h.",
+	"semantictasks-reminder-subject": "Derc'hel soñj :"
 }

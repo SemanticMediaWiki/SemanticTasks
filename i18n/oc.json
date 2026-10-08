@@ -5,16 +5,15 @@
 		]
 	},
 	"semantictasks-desc": "Notificacions per corrièr electronic pels prètzfaits assignats o meses a jorn",
-	"semantictasks-newtask": "Prètzfait novèl :",
-	"semantictasks-taskassigned": "Prètzfait assignat :",
-	"semantictasks-taskupdated": "Prètzfait mes a jorn :",
-	"semantictasks-taskclosed": "Prètzfait tampat :",
-	"semantictasks-newtask-msg": "Lo prètzfait « $1 » ven d'èsser creat.",
-	"semantictasks-taskclosed-msg": "Lo prètzfait « $1 » ven d'èsser tampat.",
-	"semantictasks-assignedtoyou-msg2": "Lo prètzfait \"$1\" vos es estat assignat.",
-	"semantictasks-updatedtoyou-msg2": "Lo prètzfait \"$1\" es estat mes a jorn.",
-	"semantictasks-reminder": "Rapèl :",
-	"semantictasks-reminder-message2": "Vos rapelam que lo prètzfait « $1 » s'acaba dins $2 {{PLURAL:$2|jorn|jorns}}.\n\n$3",
-	"semantictasks-text-message": "Vaquí la descripcion del prètzfait :",
-	"semantictasks-diff-message": "Las diferéncias son listadas çaijós :"
+	"semantictasks-newtask-subject": "Prètzfait novèl :",
+	"semantictasks-newtask-body-1": "Lo prètzfait « $1 » ven d'èsser creat.",
+	"semantictasks-newtask-body-2": "Vaquí la descripcion del prètzfait :",
+	"semantictasks-taskupdated-subject": "Prètzfait mes a jorn :",
+	"semantictasks-taskupdated-body-1": "Lo prètzfait \"$1\" es estat mes a jorn.",
+	"semantictasks-taskupdated-body-2": "Las diferéncias son listadas çaijós :",
+	"semantictasks-taskclosed-subject": "Prètzfait tampat :",
+	"semantictasks-taskclosed-body-1": "Lo prètzfait « $1 » ven d'èsser tampat.",
+	"semantictasks-taskassigned-subject": "Prètzfait assignat :",
+	"semantictasks-taskassigned-body-1": "Lo prètzfait \"$1\" vos es estat assignat.",
+	"semantictasks-reminder-subject": "Rapèl :"
 }

@@ -4,6 +4,6 @@
 			"Ukabia"
 		]
 	},
-	"semantictasks-assignedtoyou-msg2": "Ozí ''$1'' a gbakutala gi",
-	"semantictasks-reminder": "Ihe eji chetá:"
+	"semantictasks-taskassigned-body-1": "Ozí ''$1'' a gbakutala gi",
+	"semantictasks-reminder-subject": "Ihe eji chetá:"
 }

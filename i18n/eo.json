@@ -4,9 +4,9 @@
 			"Yekrats"
 		]
 	},
-	"semantictasks-newtask": "Nova tasko:",
-	"semantictasks-taskassigned": "Tasko donita al:",
-	"semantictasks-taskupdated": "Takso ĝisdatigita:",
-	"semantictasks-reminder": "Memorigilo:",
-	"semantictasks-diff-message": "Jen la malsamaĵoj:"
+	"semantictasks-newtask-subject": "Nova tasko:",
+	"semantictasks-taskupdated-subject": "Takso ĝisdatigita:",
+	"semantictasks-taskupdated-body-2": "Jen la malsamaĵoj:",
+	"semantictasks-taskassigned-subject": "Tasko donita al:",
+	"semantictasks-reminder-subject": "Memorigilo:"
 }

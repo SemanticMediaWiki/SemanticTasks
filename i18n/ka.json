@@ -4,14 +4,14 @@
 			"David1010"
 		]
 	},
-	"semantictasks-newtask": "ახალი დავალება:",
-	"semantictasks-taskassigned": "დაყენებული დავალება:",
-	"semantictasks-taskupdated": "დავალება განახლდა:",
-	"semantictasks-taskclosed": "დავალება დახურულია:",
-	"semantictasks-newtask-msg": "დავალება „$1“ ახლახანს შეიქმნა.",
-	"semantictasks-taskclosed-msg": "დავალება „$1“ ახლახანს დაიხურა.",
-	"semantictasks-updatedtoyou-msg2": "დავალება „$1“ ახლახანს განახლდა.",
-	"semantictasks-reminder": "შეხსენება:",
-	"semantictasks-text-message": "აქ არის დავალების აღწერა:",
-	"semantictasks-diff-message": "აქ არის განსხვავებები:"
+	"semantictasks-newtask-subject": "ახალი დავალება:",
+	"semantictasks-newtask-body-1": "დავალება „$1“ ახლახანს შეიქმნა.",
+	"semantictasks-newtask-body-2": "აქ არის დავალების აღწერა:",
+	"semantictasks-taskupdated-subject": "დავალება განახლდა:",
+	"semantictasks-taskupdated-body-1": "დავალება „$1“ ახლახანს განახლდა.",
+	"semantictasks-taskupdated-body-2": "აქ არის განსხვავებები:",
+	"semantictasks-taskclosed-subject": "დავალება დახურულია:",
+	"semantictasks-taskclosed-body-1": "დავალება „$1“ ახლახანს დაიხურა.",
+	"semantictasks-taskassigned-subject": "დაყენებული დავალება:",
+	"semantictasks-reminder-subject": "შეხსენება:"
 }

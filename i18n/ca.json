@@ -8,16 +8,15 @@
 		]
 	},
 	"semantictasks-desc": "Envia notificacions per correu electrònic de tasques assignades o actualitzades.",
-	"semantictasks-newtask": "Tasca nova:",
-	"semantictasks-taskassigned": "Tasca assignada:",
-	"semantictasks-taskupdated": "Tasca actualitzada:",
-	"semantictasks-taskclosed": "Tasca tancada:",
-	"semantictasks-newtask-msg": "S'acaba de crear la tasca «$1».",
-	"semantictasks-taskclosed-msg": "S'acaba de tancar la tasca «$1».",
-	"semantictasks-assignedtoyou-msg2": "Se us acaba d'assignar la tasca «$1».",
-	"semantictasks-updatedtoyou-msg2": "S'acaba d'actualitzar la tasca «$1».",
-	"semantictasks-reminder": "Recordatori:",
-	"semantictasks-reminder-message2": "Només recordar-vos que la tasca «$1» acaba en $2 {{PLURAL:$2|dia|dies}}.\n\n$3",
-	"semantictasks-text-message": "Aquí hi ha una descripció de la tasca:",
-	"semantictasks-diff-message": "Aquí hi ha les diferències:"
+	"semantictasks-newtask-subject": "Tasca nova:",
+	"semantictasks-newtask-body-1": "S'acaba de crear la tasca «$1».",
+	"semantictasks-newtask-body-2": "Aquí hi ha una descripció de la tasca:",
+	"semantictasks-taskupdated-subject": "Tasca actualitzada:",
+	"semantictasks-taskupdated-body-1": "S'acaba d'actualitzar la tasca «$1».",
+	"semantictasks-taskupdated-body-2": "Aquí hi ha les diferències:",
+	"semantictasks-taskclosed-subject": "Tasca tancada:",
+	"semantictasks-taskclosed-body-1": "S'acaba de tancar la tasca «$1».",
+	"semantictasks-taskassigned-subject": "Tasca assignada:",
+	"semantictasks-taskassigned-body-1": "Se us acaba d'assignar la tasca «$1».",
+	"semantictasks-reminder-subject": "Recordatori:"
 }

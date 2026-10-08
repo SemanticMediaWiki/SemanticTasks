@@ -5,16 +5,15 @@
 		]
 	},
 	"semantictasks-desc": "Benochrichtigunge per E-Mail bi veränderte oder nej zuegwisene Ufgabe",
-	"semantictasks-newtask": "Neji Ufgab:",
-	"semantictasks-taskassigned": "Ufgab zuegwise:",
-	"semantictasks-taskupdated": "Ufgab aktualisiert:",
-	"semantictasks-taskclosed": "Ufgab zuegmacht:",
-	"semantictasks-newtask-msg": "D Ufgab „$1“ isch grad erscht aagleit wore.",
-	"semantictasks-taskclosed-msg": "D Ufgab „$1“ isch grad zuegmcht woe.",
-	"semantictasks-assignedtoyou-msg2": "D Ufgab „$1“ isch Dir grad zuegwise wore.",
-	"semantictasks-updatedtoyou-msg2": "D Ufgab „$1“ isch grad aktualisiert wore.",
-	"semantictasks-reminder": "Erinnerig:",
-	"semantictasks-reminder-message2": "Des isch nume ne Erinnerig, ass d Ufgab „$1“ in {{PLURAL:$2|eim Tag|$2 Täg}} ufhert.\n\n$3",
-	"semantictasks-text-message": "Do isch d Ufgabebschryybig:",
-	"semantictasks-diff-message": "Do sin d Unterschid:"
+	"semantictasks-newtask-subject": "Neji Ufgab:",
+	"semantictasks-newtask-body-1": "D Ufgab „$1“ isch grad erscht aagleit wore.",
+	"semantictasks-newtask-body-2": "Do isch d Ufgabebschryybig:",
+	"semantictasks-taskupdated-subject": "Ufgab aktualisiert:",
+	"semantictasks-taskupdated-body-1": "D Ufgab „$1“ isch grad aktualisiert wore.",
+	"semantictasks-taskupdated-body-2": "Do sin d Unterschid:",
+	"semantictasks-taskclosed-subject": "Ufgab zuegmacht:",
+	"semantictasks-taskclosed-body-1": "D Ufgab „$1“ isch grad zuegmcht woe.",
+	"semantictasks-taskassigned-subject": "Ufgab zuegwise:",
+	"semantictasks-taskassigned-body-1": "D Ufgab „$1“ isch Dir grad zuegwise wore.",
+	"semantictasks-reminder-subject": "Erinnerig:"
 }

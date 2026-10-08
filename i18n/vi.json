@@ -6,12 +6,11 @@
 		]
 	},
 	"semantictasks-desc": "Thông báo qua thư điện tử khi có nhiệm vụ được giao hoặc cập nhật",
-	"semantictasks-newtask": "Công việc mới:",
-	"semantictasks-taskupdated": "Công việc được cập nhật:",
-	"semantictasks-assignedtoyou-msg2": "Nhiệm vụ “$1” vừa được giao cho bạn",
-	"semantictasks-updatedtoyou-msg2": "Nhiệm vụ “$1” vừa mới được cập nhật.",
-	"semantictasks-reminder": "Lời nhắc:",
-	"semantictasks-reminder-message2": "Thư này chỉ để nhắc bạn rằng nhiệm vụ “$1” sẽ kết thúc trong $2 ngày nữa.\n\n$3",
-	"semantictasks-text-message": "Miêu tả công việc:",
-	"semantictasks-diff-message": "Các khác biệt:"
+	"semantictasks-newtask-subject": "Công việc mới:",
+	"semantictasks-newtask-body-2": "Miêu tả công việc:",
+	"semantictasks-taskupdated-subject": "Công việc được cập nhật:",
+	"semantictasks-taskupdated-body-1": "Nhiệm vụ “$1” vừa mới được cập nhật.",
+	"semantictasks-taskupdated-body-2": "Các khác biệt:",
+	"semantictasks-taskassigned-body-1": "Nhiệm vụ “$1” vừa được giao cho bạn",
+	"semantictasks-reminder-subject": "Lời nhắc:"
 }

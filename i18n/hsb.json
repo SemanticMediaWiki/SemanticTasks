@@ -5,16 +5,15 @@
 		]
 	},
 	"semantictasks-desc": "E-mejlowe zdźělenja za připokazane abo zaktualizowane nadawki",
-	"semantictasks-newtask": "Nowy nadawk:",
-	"semantictasks-taskassigned": "Nadawk připokazany:",
-	"semantictasks-taskupdated": "Nadawk zaktualizowany:",
-	"semantictasks-taskclosed": "Nadawk zakónčeny:",
-	"semantictasks-newtask-msg": "Nadawk \"$1\" je so runje wutworił.",
-	"semantictasks-taskclosed-msg": "Nadawk \"$1\" je so runje zakónčił.",
-	"semantictasks-assignedtoyou-msg2": "Nadawk \"$1\" bu ći runje připokazany",
-	"semantictasks-updatedtoyou-msg2": "Nadawk \"$1\" bu runje zaktualizowany",
-	"semantictasks-reminder": "Dopomnjeće:",
-	"semantictasks-reminder-message2": "Je to jenož dopomnjeće, zo nadawk \"$1\" so za $2 {{PLURAL:|dźeń|dnjej|dny|dnjow}} skónči.\n\n$3",
-	"semantictasks-text-message": "Tu je wopisanje nadawka:",
-	"semantictasks-diff-message": "Tu su rozdźěle:"
+	"semantictasks-newtask-subject": "Nowy nadawk:",
+	"semantictasks-newtask-body-1": "Nadawk \"$1\" je so runje wutworił.",
+	"semantictasks-newtask-body-2": "Tu je wopisanje nadawka:",
+	"semantictasks-taskupdated-subject": "Nadawk zaktualizowany:",
+	"semantictasks-taskupdated-body-1": "Nadawk \"$1\" bu runje zaktualizowany",
+	"semantictasks-taskupdated-body-2": "Tu su rozdźěle:",
+	"semantictasks-taskclosed-subject": "Nadawk zakónčeny:",
+	"semantictasks-taskclosed-body-1": "Nadawk \"$1\" je so runje zakónčił.",
+	"semantictasks-taskassigned-subject": "Nadawk připokazany:",
+	"semantictasks-taskassigned-body-1": "Nadawk \"$1\" bu ći runje připokazany",
+	"semantictasks-reminder-subject": "Dopomnjeće:"
 }

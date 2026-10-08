@@ -5,16 +5,15 @@
 		]
 	},
 	"semantictasks-desc": "Invia email di notifica per le attività assegnate o aggiornate",
-	"semantictasks-newtask": "Nuova attività:",
-	"semantictasks-taskassigned": "Attività assegnata:",
-	"semantictasks-taskupdated": "Attività aggiornata:",
-	"semantictasks-taskclosed": "Attività chiusa:",
-	"semantictasks-newtask-msg": "L'attività \"$1\" è stata appena creata.",
-	"semantictasks-taskclosed-msg": "L'attività \"$1\" è stata appena chiusa.",
-	"semantictasks-assignedtoyou-msg2": "L'attività \"$1\" è stata appena assegnata a te.",
-	"semantictasks-updatedtoyou-msg2": "L'attività \"$1\" è stata appena aggiornata.",
-	"semantictasks-reminder": "Promemoria:",
-	"semantictasks-reminder-message2": "Solo per ricordarti che l'attività \"$1\" termina fra $2 {{PLURAL:$2|giorno|giorni}}.\n\n$3",
-	"semantictasks-text-message": "Qui c'è la descrizione dell'attività:",
-	"semantictasks-diff-message": "Qui ci sono le differenze:"
+	"semantictasks-newtask-subject": "Nuova attività:",
+	"semantictasks-newtask-body-1": "L'attività \"$1\" è stata appena creata.",
+	"semantictasks-newtask-body-2": "Qui c'è la descrizione dell'attività:",
+	"semantictasks-taskupdated-subject": "Attività aggiornata:",
+	"semantictasks-taskupdated-body-1": "L'attività \"$1\" è stata appena aggiornata.",
+	"semantictasks-taskupdated-body-2": "Qui ci sono le differenze:",
+	"semantictasks-taskclosed-subject": "Attività chiusa:",
+	"semantictasks-taskclosed-body-1": "L'attività \"$1\" è stata appena chiusa.",
+	"semantictasks-taskassigned-subject": "Attività assegnata:",
+	"semantictasks-taskassigned-body-1": "L'attività \"$1\" è stata appena assegnata a te.",
+	"semantictasks-reminder-subject": "Promemoria:"
 }
