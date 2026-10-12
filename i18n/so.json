@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"semantictasks-desc": "Waxay dirtaa ogeysiisyada iimaylka ee hawlaha loo qoondeeyay ama la cusboonaysiiyay",
+	"semantictasks-newtask-subject": "Hawl cusub:",
+	"semantictasks-newtask-body-1": "Hawlka \"$1\" ayaa hadda la abuuray.",
+	"semantictasks-newtask-body-2": "Halkan waxaa ku qoran sharraxaadda hawsha:",
+	"semantictasks-taskupdated-subject": "Hawsha waa la cusboonaysiiyay:",
+	"semantictasks-taskupdated-body-1": "Hawsha \"$1\" ayaa hadda la cusboonaysiiyay.",
+	"semantictasks-taskupdated-body-2": "Halkan waxaa ku qoran kala duwanaanshaha:",
+	"semantictasks-taskclosed-subject": "Hawsha waa la xiray:",
+	"semantictasks-taskclosed-body-1": "Hawsha \"$1\" ayaa hadda la xiray.",
+	"semantictasks-taskclosed-body-2": "Halkan waxaa ku qoran sharraxaadda hawsha:",
+	"semantictasks-taskunassigned-subject": "Hawsha qoondaynteedii waa laga noqday:",
+	"semantictasks-taskunassigned-body-1": "Waxaa hadda lagaa saaray qoondaynta hawsha \"$1\".",
+	"semantictasks-taskunassigned-body-2": "Halkan waxaa ku qoran sharraxaadda hawsha:",
+	"semantictasks-talkpageoftaskcreated-subject": "Bogga wada hadalka ee maqaalka hawsha waa la abuuray",
+	"semantictasks-talkpageoftaskcreated-body-1": "Bogga wada hadalka ee la xiriira maqaalka hawsha \"$1\" waa la abuuray",
+	"semantictasks-talkpageoftaskedited-subject": "Bogga wada hadalka ee maqaalka hawsha waa la tafatiray",
+	"semantictasks-talkpageoftaskedited-body-1": "Bogga wada hadalka ee la xiriira maqaalka hawsha \"$1\" waa la tafatiray",
+	"semantictasks-taskdeleted-subject": "Maqaalka ay hawlo u qoondeysnaayeen waa la tirtiray",
+	"semantictasks-taskdeleted-body-1": "Maqaalka \"$1\" ee ay hawlo u qoondeysnaayeen waa la tirtiray.",
+	"semantictasks-talkpageoftaskdeleted-subject": "Bogga wada hadalka ee maqaalka ay hawlo u qoondeysnaayeen waa la tirtiray",
+	"semantictasks-talkpageoftaskdeleted-body-1": "Bogga wada hadalka ee maqaalka \"$1\" ee ay hawlo u qoondeysnaayeen waa la tirtiray.",
+	"semantictasks-taskassigned-subject": "Hawl ayaa loo qoondeeyay:",
+	"semantictasks-taskassigned-body-1": "Hawsha \"$1\" ayaa hadda laguu qoondeeyay.",
+	"semantictasks-taskassigned-body-2": "Halkan waxaa ku qoran sharraxaadda hawsha:",
+	"semantictasks-reminder-subject": "Xusuusin:",
+	"semantictasks-reminder-body-1": "Kaliya si aan kuu xusuusiyo in hawsha \"$1\" ay ku egtahay $2 {{PLURAL:$2|maalin|maalmood}}."
+}

@@ -7,7 +7,7 @@
 	},
 	"semantictasks-desc": "Notìfiche e-mail për travaj assignà o modificà",
 	"semantictasks-newtask-subject": "Neuv travaj:",
-	"semantictasks-newtask-body-1": "L'atività \"$1\" a l'é pen-e stàita creà.",
+	"semantictasks-newtask-body-1": "L'atività «$1» a l'é pen-a stàita creà.",
 	"semantictasks-newtask-body-2": "Sì a-i é na descrission dël travaj:",
 	"semantictasks-taskupdated-subject": "Travaj modificà:",
 	"semantictasks-taskupdated-body-1": "Ël travaj \"$1\" a l'é pen-e stàit modificà.",
@@ -15,6 +15,6 @@
 	"semantictasks-taskclosed-subject": "Travaj livrà:",
 	"semantictasks-taskclosed-body-1": "Ël travaj \"$1\" a l'é pen-a stàit livrà.",
 	"semantictasks-taskassigned-subject": "Atività assignà:",
-	"semantictasks-taskassigned-body-1": "Ël travaj \"$1\" a l'é stàit pen-e asignà a ti",
+	"semantictasks-taskassigned-body-1": "Ël travaj «$1» a l'é stàit pen-a assignà a chiel",
 	"semantictasks-reminder-subject": "Da arcordé:"
 }

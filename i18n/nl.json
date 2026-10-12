@@ -16,9 +16,21 @@
 	"semantictasks-taskupdated-body-2": "Hieronder worden de verschillen weergegeven:",
 	"semantictasks-taskclosed-subject": "Taak gesloten:",
 	"semantictasks-taskclosed-body-1": "De taak \"$1\" is zojuist gesloten.",
+	"semantictasks-taskclosed-body-2": "Hier volgt de taakomschrijving:",
 	"semantictasks-taskunassigned-subject": "Toewijzing taak ingetrokken:",
 	"semantictasks-taskunassigned-body-1": "U bent zojuist van de taak \"$1\" verwijderd.",
+	"semantictasks-taskunassigned-body-2": "Hier volgt de taakomschrijving:",
+	"semantictasks-talkpageoftaskcreated-subject": "Er is een overlegpagina voor het taakartikel aangemaakt",
+	"semantictasks-talkpageoftaskcreated-body-1": "Er is een overlegpagina aangemaakt die betrekking heeft op het taakartikel “$1”",
+	"semantictasks-talkpageoftaskedited-subject": "De overlegpagina van het taakartikel is bewerkt",
+	"semantictasks-talkpageoftaskedited-body-1": "De overlegpagina die betrekking heeft op het taakartikel “$1” is bewerkt",
+	"semantictasks-taskdeleted-subject": "Artikel met toegewezen taken verwijderd",
+	"semantictasks-taskdeleted-body-1": "Het artikel “$1” met toegewezen taken is verwijderd.",
+	"semantictasks-talkpageoftaskdeleted-subject": "Overlegpagina van artikel met toegewezen taken verwijderd",
+	"semantictasks-talkpageoftaskdeleted-body-1": "De overlegpagina van het artikel “$1” met toegewezen taken is verwijderd.",
 	"semantictasks-taskassigned-subject": "Taak toegewezen:",
 	"semantictasks-taskassigned-body-1": "De taak \"$1\" is aan u toegewezen.",
-	"semantictasks-reminder-subject": "Herinnering:"
+	"semantictasks-taskassigned-body-2": "Hier volgt de taakomschrijving:",
+	"semantictasks-reminder-subject": "Herinnering:",
+	"semantictasks-reminder-body-1": "Even ter herinnering: de taak “$1” eindigt in $2 {{PLURAL:$2|dag|dagen}}."
 }

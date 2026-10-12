@@ -6,7 +6,8 @@
 			"Nedergard",
 			"Str4nd",
 			"Valtlai",
-			"Valtlait"
+			"Valtlait",
+			"Wikipeedikko"
 		]
 	},
 	"semantictasks-desc": "Sähköposti-ilmoitukset osoitetuista tai päivitetyistä tehtävistä",
@@ -18,7 +19,19 @@
 	"semantictasks-taskupdated-body-2": "Tässä ovat eroavaisuudet:",
 	"semantictasks-taskclosed-subject": "Tehtävä päätetty:",
 	"semantictasks-taskclosed-body-1": "Tehtävä ”$1” on juuri päätetty.",
+	"semantictasks-taskclosed-body-2": "Tehtävän kuvaus:",
+	"semantictasks-taskunassigned-body-2": "Tehtävän kuvaus:",
+	"semantictasks-talkpageoftaskcreated-subject": "Tehtäväartikkelin keskustelusivu on luotu",
+	"semantictasks-talkpageoftaskcreated-body-1": "Tehtäväartikkeliin $1 liittyvä keskustelusivu on luotu",
+	"semantictasks-talkpageoftaskedited-subject": "Tehtäväartikkelin keskustelusivua on muokattu",
+	"semantictasks-talkpageoftaskedited-body-1": "Tehtäväartikkeliin $1 liittyvää keskustelusivua on muokattu",
+	"semantictasks-taskdeleted-subject": "Tehtäviä sisältävä artikkeli poistettu",
+	"semantictasks-taskdeleted-body-1": "Tehtäviä sisältävä artikkeli $1 on poistettu.",
+	"semantictasks-talkpageoftaskdeleted-subject": "Tehtäviä sisältävän artikkelin keskustelusivu on poistettu.",
+	"semantictasks-talkpageoftaskdeleted-body-1": "Tehtäviä sisältävän artikkelin $1 keskustelusivu on poistettu.",
 	"semantictasks-taskassigned-subject": "Kohdistettu tehtävä:",
 	"semantictasks-taskassigned-body-1": "Tehtävä ”$1” on juuri osoitettu sinulle.",
-	"semantictasks-reminder-subject": "Muistutus:"
+	"semantictasks-taskassigned-body-2": "Tehtävän kuvaus:",
+	"semantictasks-reminder-subject": "Muistutus:",
+	"semantictasks-reminder-body-1": "Muistutus: tehtävän $1 on oltava valmis $2 {{PLURAL:$2|päivän}} kuluttua."
 }
