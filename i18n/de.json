@@ -1,30 +1,33 @@
 {
-	"@metadata": {
-		"authors": [
-			"Als-Holder",
-			"Druesenfieber",
-			"Kghbln",
-			"Metalhead64",
-			"Purodha",
-			"Umherirrender"
-		]
-	},
-	"semantictasks-desc": "Versendet E-Mail-Benachrichtigungen für neu zugewiesene oder geänderte Aufgaben",
+    "@metadata": {
+        "authors": [
+        ]
+    },
+	"semantictasks-desc": "Sendet E-Mail-Benachrichtigungen für zugewiesene oder aktualisierte Aufgaben",
+	"semantictasks-name": "Semantic Tasks",
 	"semantictasks-newtask-subject": "Neue Aufgabe:",
-	"semantictasks-newtask-body-1": "Die Aufgabe „$1“ wurde soeben erstellt.",
-	"semantictasks-newtask-body-2": "Dies ist die Aufgabenbeschreibung:",
-	"semantictasks-taskupdated-subject": "Aktualisierte Aufgabe:",
-	"semantictasks-taskupdated-body-1": "Die Aufgabe „$1“ wurde soeben aktualisiert.",
-	"semantictasks-taskupdated-body-2": "Die Unterschiede oder Änderungen sind:",
-	"semantictasks-taskclosed-subject": "Abgeschlossene Aufgabe:",
-	"semantictasks-taskclosed-body-1": "Die Aufgabe „$1“ wurde soeben abgeschlossen.",
-	"semantictasks-taskclosed-body-2": "Dies ist die Aufgabenbeschreibung:",
-	"semantictasks-taskunassigned-subject": "Nicht zugeordnete Aufgabe:",
-	"semantictasks-taskunassigned-body-1": "{{#FORMAL:Deine|Ihre}} Zuweisung zu Aufgabe „$1“ wurde soeben entfernt.",
-	"semantictasks-taskunassigned-body-2": "Dies ist die Aufgabenbeschreibung:",
-	"semantictasks-taskassigned-subject": "Zugewiesene Aufgabe:",
-	"semantictasks-taskassigned-body-1": "Die Aufgabe „$1“ wurde {{#FORMAL:dir|Ihnen}} soeben zugewiesen.",
-	"semantictasks-taskassigned-body-2": "Dies ist die Aufgabenbeschreibung:",
+	"semantictasks-newtask-body-1": "Die Aufgabe „$1“ wurde gerade erstellt.",
+	"semantictasks-newtask-body-2": "Hier ist die Aufgabenbeschreibung:",
+	"semantictasks-taskupdated-subject": "Aufgabe aktualisiert:",
+	"semantictasks-taskupdated-body-1": "Die Aufgabe „$1“ wurde gerade aktualisiert.",
+	"semantictasks-taskupdated-body-2": "Hier sind die Unterschiede:",
+	"semantictasks-taskclosed-subject": "Aufgabe geschlossen:",
+	"semantictasks-taskclosed-body-1": "Die Aufgabe „$1“ wurde gerade geschlossen.",
+	"semantictasks-taskclosed-body-2": "Hier ist die Aufgabenbeschreibung:",
+	"semantictasks-taskunassigned-subject": "Aufgabenzuweisung aufgehoben:",
+	"semantictasks-taskunassigned-body-1": "Die Zuweisung der Aufgabe „$1“ an Sie wurde gerade aufgehoben.",
+	"semantictasks-taskunassigned-body-2": "Hier ist die Aufgabenbeschreibung:",
+	"semantictasks-talkpageoftaskcreated-subject": "Diskussionsseite des Aufgabenartikels wurde erstellt",
+	"semantictasks-talkpageoftaskcreated-body-1": "Die Diskussionsseite zum Aufgabenartikel „$1“ wurde erstellt",
+	"semantictasks-talkpageoftaskedited-subject": "Diskussionsseite des Aufgabenartikels wurde bearbeitet",
+	"semantictasks-talkpageoftaskedited-body-1": "Die Diskussionsseite zum Aufgabenartikel „$1“ wurde bearbeitet",
+	"semantictasks-taskdeleted-subject": "Artikel mit zugewiesenen Aufgaben gelöscht",
+	"semantictasks-taskdeleted-body-1": "Der Artikel „$1“ mit zugewiesenen Aufgaben wurde gelöscht.",
+	"semantictasks-talkpageoftaskdeleted-subject": "Diskussionsseite des Artikels mit zugewiesenen Aufgaben gelöscht",
+	"semantictasks-talkpageoftaskdeleted-body-1": "Die Diskussionsseite des Artikels „$1“ mit zugewiesenen Aufgaben wurde gelöscht.",
+	"semantictasks-taskassigned-subject": "Aufgabe zugewiesen:",
+	"semantictasks-taskassigned-body-1": "Die Aufgabe „$1“ wurde Ihnen gerade zugewiesen.",
+	"semantictasks-taskassigned-body-2": "Hier ist die Aufgabenbeschreibung:",
 	"semantictasks-reminder-subject": "Erinnerung:",
-	"semantictasks-reminder-body-1": "Dies ist eine Erinnerung an die Aufgabe „$1“, die {{PLURAL:$2|bis morgen|in den kommenden $2 Tagen}} beendet werden soll."
+	"semantictasks-reminder-body-1": "Nur zur Erinnerung: Die Aufgabe „$1“ endet in $2 {{PLURAL:$2|Tag|Tagen}}."
 }
