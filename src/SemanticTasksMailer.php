@@ -250,19 +250,19 @@ class SemanticTasksMailer {
 
 		} elseif ( $status == self::TALK_CREATED ) {
 			$subject .= self::getMessage( 'semantictasks-talkpageoftaskcreated-subject', $title_text );
-			$body = self::getMessage( 'semantictasks-talkpageoftaskcreated-body-1', $title_text );
+			$body = self::getMessage( 'semantictasks-talkpageoftaskcreated-body-1', $title_text ) . " " . $link;
 
 		} elseif ( $status == self::TALK_EDITED ) {
 			$subject .= self::getMessage( 'semantictasks-talkpageoftaskedited-subject', $title_text );
-			$body = self::getMessage( 'semantictasks-talkpageoftaskedited-body-1', $title_text );
+			$body = self::getMessage( 'semantictasks-talkpageoftaskedited-body-1', $title_text ) . " " . $link;
 
 		} elseif ( $status == self::DELETED ) {
 			$subject .= self::getMessage( 'semantictasks-taskdeleted-subject', $title_text );
-			$body = self::getMessage( 'semantictasks-taskdeleted-body-1', $title_text );
+			$body = self::getMessage( 'semantictasks-taskdeleted-body-1', $title_text ) . " " . $link;
 
 		} elseif ( $status == self::TALK_DELETED ) {
 			$subject .= self::getMessage( 'semantictasks-talkpageoftaskdeleted-subject', $title_text );
-			$body = self::getMessage( 'semantictasks-talkpageoftaskdeleted-body-1', $title_text );
+			$body = self::getMessage( 'semantictasks-talkpageoftaskdeleted-body-1', $title_text ) . " " . $link;
 
 		} else {
 			// status == ASSIGNED
