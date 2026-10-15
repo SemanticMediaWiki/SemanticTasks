@@ -93,6 +93,10 @@ class Assignees {
 	 * @return array
 	 */
 	public function getCurrentAssignees( WikiPage $article, $revision ) {
+		// saved assignees
+		if ( $this->taskAssignees ) {
+			return $this->taskAssignees;
+		}
 		global $stgPropertyAssignedTo;
 		return $this->getProperties( $stgPropertyAssignedTo, $article, $revision );
 	}
