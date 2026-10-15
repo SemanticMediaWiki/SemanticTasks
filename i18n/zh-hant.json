@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kly",
-			"LNDDYL"
+			"LNDDYL",
+			"Willy1018"
 		]
 	},
 	"semantictasks-desc": "發送已分配或已更新任務的電子郵件通知",
@@ -14,8 +15,13 @@
 	"semantictasks-taskupdated-body-2": "這些是差異之處：",
 	"semantictasks-taskclosed-subject": "已完結的任務：",
 	"semantictasks-taskclosed-body-1": "任務\"$1\"已剛剛完結。",
+	"semantictasks-taskclosed-body-2": "以下是任務說明：",
 	"semantictasks-taskunassigned-subject": "未分配的任務：",
 	"semantictasks-taskunassigned-body-1": "已取消分配給您的任務「$1」。",
+	"semantictasks-taskunassigned-body-2": "以下是任務說明：",
+	"semantictasks-talkpageoftaskcreated-subject": "已建立任務文章的討論頁",
+	"semantictasks-talkpageoftaskedited-subject": "已編輯任務文章的討論頁",
+	"semantictasks-talkpageoftaskedited-body-1": "已編輯與任務文章「 $1 」相關的討論頁面",
 	"semantictasks-taskassigned-subject": "已分配的任務：",
 	"semantictasks-taskassigned-body-1": "已剛剛向您分配了任務\"$1\"。",
 	"semantictasks-reminder-subject": "提醒："
