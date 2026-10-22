@@ -300,18 +300,16 @@ class SemanticTasksMessages {
 		if ( !isset( $messages[$key] ) ) {
 			return null;
 		}
-		
-		$message = $messages[$key];
 
-		// Replace parameters
-		if ( !empty( $args ) ) {
-			$i = 1;
-			foreach ( $args as $arg ) {
-				$message = str_replace( '$' . $i, (string)$arg, $message );
-				$i++;
-			}
-		}
+		// key does not exist in MessageCache at this point 
+		$message = wfMessage( $key, ...$args );
 
-		return $message;
+		// add the message content via a reflection class
+		$reflection = new \ReflectionClass( $message );
+		$property = $reflection->getProperty( 'message' );
+		$property->setAccessible( true );
+		$property->setValue( $message, $messages[$key] );
+
+		return $message->parse();
 	}
 }
