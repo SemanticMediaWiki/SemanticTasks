@@ -15,9 +15,21 @@
 	"semantictasks-taskupdated-body-2": "Toto sú rozdiely:",
 	"semantictasks-taskclosed-subject": "Uzavretá úloha:",
 	"semantictasks-taskclosed-body-1": "Úloha „$1“ bola práve uzavretá.",
+	"semantictasks-taskclosed-body-2": "Tu je popis úlohy:",
 	"semantictasks-taskunassigned-subject": "Odobratá úloha:",
 	"semantictasks-taskunassigned-body-1": "Práve vám bola odobratá úloha „$1“.",
+	"semantictasks-taskunassigned-body-2": "Tu je popis úlohy:",
+	"semantictasks-talkpageoftaskcreated-subject": "Bola vytvorená diskusná stránka článku úlohy",
+	"semantictasks-talkpageoftaskcreated-body-1": "Bola vytvorená diskusná stránka súvisiaca s článkom úlohy „$1“",
+	"semantictasks-talkpageoftaskedited-subject": "Diskusná stránka článku úlohy bola upravená",
+	"semantictasks-talkpageoftaskedited-body-1": "Diskusná stránka súvisiaca s článkom úlohy „$1“ bola upravená",
+	"semantictasks-taskdeleted-subject": "Článok s priradenými úlohami bol zmazaný",
+	"semantictasks-taskdeleted-body-1": "Článok „$1“ s priradenými úlohami bol zmazaný.",
+	"semantictasks-talkpageoftaskdeleted-subject": "Diskusná stránka článku s priradenými úlohami bola zmazaná",
+	"semantictasks-talkpageoftaskdeleted-body-1": "Diskusná stránka článku „$1“ s priradenými úlohami bola zmazaná.",
 	"semantictasks-taskassigned-subject": "Priradená úloha:",
 	"semantictasks-taskassigned-body-1": "Práve vám bola pridelená úloha „$1“.",
-	"semantictasks-reminder-subject": "Pripomienka:"
+	"semantictasks-taskassigned-body-2": "Tu je popis úlohy:",
+	"semantictasks-reminder-subject": "Pripomienka:",
+	"semantictasks-reminder-body-1": "Len pripomíname, že úloha „$1“ končí o $2 {{PLURAL:$2|deň|dni|dní}}."
 }
