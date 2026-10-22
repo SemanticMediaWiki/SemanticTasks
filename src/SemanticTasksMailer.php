@@ -97,11 +97,11 @@ class SemanticTasksMailer {
 	public static function getMessage( $key, ...$argv ) {
 		global $stgMessagesArticle;
 		if ( !$stgMessagesArticle ) {
-			return wfMessage( $key, ...$argv )->text();
+			return wfMessage( $key, ...$argv )->parse();
 		}
 		$title = Title::newFromText( $stgMessagesArticle );
 		if ( !$title || !$title->isKnown() ) {
-			return wfMessage( $key, ...$argv )->text();
+			return wfMessage( $key, ...$argv )->parse();
 		}
 		$semanticTasksMessages = MediaWikiServices::getInstance()->getService( 'SemanticTasksMessages' );
 		return $semanticTasksMessages->getMessage( $key, ...$argv );
