@@ -301,7 +301,7 @@ class SemanticTasksMessages {
 			return null;
 		}
 
-		// key does not exist in MessageCache at this point 
+		// MessageCache reflects the default i18n message at this point
 		$message = wfMessage( $key, ...$args );
 
 		// add the message content via a reflection class
