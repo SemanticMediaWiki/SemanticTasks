@@ -14,9 +14,21 @@
 	"semantictasks-taskupdated-body-2": "دلته يې توپيرونه دي:",
 	"semantictasks-taskclosed-subject": "کاردنده وتړل شوه:",
 	"semantictasks-taskclosed-body-1": "\"$1\" کاردنده همدا اوس وتړل شوه.",
+	"semantictasks-taskclosed-body-2": "دلته د کاردندې څرگنداوی دی:",
 	"semantictasks-taskunassigned-subject": "ناسپارل‌شوې کاردنده:",
 	"semantictasks-taskunassigned-body-1": "تاسو همدا اوس له \"$1\" کاردندې لرې شوئ.",
+	"semantictasks-taskunassigned-body-2": "دلته د کاردندې څرگنداوی دی:",
+	"semantictasks-talkpageoftaskcreated-subject": "د کاردندې د لیکنې د خبرو اترو مخ جوړ شو",
+	"semantictasks-talkpageoftaskcreated-body-1": "د \"$1\" کاردندې د ليکنې پورې اړوند د خبرو اترو مخ جوړ شو",
+	"semantictasks-talkpageoftaskedited-subject": "د کاردندې د ليکنې د خبرو اترو مخ سم شو",
+	"semantictasks-talkpageoftaskedited-body-1": "د \"$1\" کاردندې د ليکنې پورې اړوند د خبرو اترو مخ سم شو",
+	"semantictasks-taskdeleted-subject": "هغه ليکنه چې ټاکل‌شوې کاردندې لري ړنگه شوه",
+	"semantictasks-taskdeleted-body-1": "\"$1\" ليکنه له ټاکلو کاردندو سره ړنگه شوه.",
+	"semantictasks-talkpageoftaskdeleted-subject": "د ليکنې د خبرو اترو مخ له ټاکلو کاردندو سره ړنگ شو",
+	"semantictasks-talkpageoftaskdeleted-body-1": "د \"$1\" ليکنې د خبرو اترو مخ له ټاکلو کاردندو سره ړنگ شو.",
 	"semantictasks-taskassigned-subject": "ورسپارل‌شوې کاردنده:",
 	"semantictasks-taskassigned-body-1": "\"$1\" کاردنده همدا اوس تاسو ته وسپارل شوه.",
-	"semantictasks-reminder-subject": "يادوونکی:"
+	"semantictasks-taskassigned-body-2": "دلته د کاردندې څرگنداوی دی:",
+	"semantictasks-reminder-subject": "يادوونکی:",
+	"semantictasks-reminder-body-1": "يوازې تاسو ته دريادوو چې \"$1\" کاردنده به په $2 {{PLURAL:$2|ورځ|ورځو}} کې پای ته ورسېږي."
 }
