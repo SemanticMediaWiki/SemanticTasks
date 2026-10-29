@@ -4,6 +4,7 @@
 			"Crochet.david",
 			"Derugon",
 			"IAlex",
+			"SleaY",
 			"Urhixidur",
 			"Verdy p",
 			"Wladek92"
@@ -20,6 +21,7 @@
 	"semantictasks-taskclosed-body-1": "La tâche « $1 » vient d’être fermée.",
 	"semantictasks-taskunassigned-subject": "Tâche non affectée :",
 	"semantictasks-taskunassigned-body-1": "Vous venez d'être désassigné de la tâche \"$1\".",
+	"semantictasks-taskunassigned-body-2": "Voici la description de la tâche :",
 	"semantictasks-taskassigned-subject": "Tâche affectée :",
 	"semantictasks-taskassigned-body-1": "La tâche « $1 » vient de vous être affectée.",
 	"semantictasks-reminder-subject": "Rappel :"
