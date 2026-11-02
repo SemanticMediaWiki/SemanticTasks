@@ -29,5 +29,5 @@
 	"semantictasks-taskassigned-body-1": "Pravkar vam je bilo dodeljeno opravilo »$1«.",
 	"semantictasks-taskassigned-body-2": "Tu je opis opravila:",
 	"semantictasks-reminder-subject": "Opomnik:",
-	"semantictasks-reminder-body-1": "Želimo vas spomniti, da se opravilo »$1« konča v $2 {{PLURAL:$2|dnevu|dneh}}.\n\n$3"
+	"semantictasks-reminder-body-1": "Želimo vas spomniti, da se opravilo »$1« konča v $2 {{PLURAL:$2|dnevu|dneh}}."
 }
