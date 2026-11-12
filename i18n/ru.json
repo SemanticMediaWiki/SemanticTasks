@@ -4,6 +4,7 @@
 			"Ferrer",
 			"Kaganer",
 			"Okras",
+			"Yurina Tatiana",
 			"Александр Сигачёв",
 			"Дмитрий"
 		]
@@ -17,9 +18,12 @@
 	"semantictasks-taskupdated-body-2": "Здесь различия:",
 	"semantictasks-taskclosed-subject": "Задача закрыта:",
 	"semantictasks-taskclosed-body-1": "Задача «$1» только что была закрыта.",
+	"semantictasks-taskclosed-body-2": "Вот описание задачи:",
 	"semantictasks-taskunassigned-subject": "Неназначенные задачи:",
 	"semantictasks-taskunassigned-body-1": "Вы только что отказались от определённой вам задачи «$1».",
+	"semantictasks-taskunassigned-body-2": "Вот описание задачи:",
 	"semantictasks-taskassigned-subject": "Установленная задача:",
 	"semantictasks-taskassigned-body-1": "Вам была только что определена задача «$1»",
+	"semantictasks-taskassigned-body-2": "Вот описание задачи:",
 	"semantictasks-reminder-subject": "Напоминание:"
 }
