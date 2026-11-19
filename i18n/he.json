@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A100Star",
 			"Amire80",
 			"Rotemliss",
 			"YaronSh"
@@ -15,9 +16,21 @@
 	"semantictasks-taskupdated-body-2": "להלן ההבדלים:",
 	"semantictasks-taskclosed-subject": "המשימה נסגרה:",
 	"semantictasks-taskclosed-body-1": "המשימה \"$1\" נסגרה זה עתה.",
+	"semantictasks-taskclosed-body-2": "להלן תיאור המשימה:",
 	"semantictasks-taskunassigned-subject": "הקצאת המשימה בוטלה:",
 	"semantictasks-taskunassigned-body-1": "זה עתה בוטלה הקצאתך למשימה \"$1\".",
+	"semantictasks-taskunassigned-body-2": "להלן תיאור המשימה:",
+	"semantictasks-talkpageoftaskcreated-subject": "נוצר דף השיחה של דף המשימה.",
+	"semantictasks-talkpageoftaskcreated-body-1": "נוצר דף השיחה המשויך לדף המשימה \"$1\".",
+	"semantictasks-talkpageoftaskedited-subject": "דף השיחה של דף המשימה נערך.",
+	"semantictasks-talkpageoftaskedited-body-1": "דף השיחה המשויך לדף המשימה \"$1\" נערך.",
+	"semantictasks-taskdeleted-subject": "הדף שבו הוקצו משימות נמחק.",
+	"semantictasks-taskdeleted-body-1": "הדף \"$1\", שבו הוקצו משימות, נמחק.",
+	"semantictasks-talkpageoftaskdeleted-subject": "דף השיחה של הדף שבו הוקצו משימות נמחק.",
+	"semantictasks-talkpageoftaskdeleted-body-1": "דף השיחה של הדף \"$1\", שבו הוקצו משימות, נמחק.",
 	"semantictasks-taskassigned-subject": "המשימה הוקצתה:",
 	"semantictasks-taskassigned-body-1": "המשימה \"$1\" הוקצתה לך הרגע",
-	"semantictasks-reminder-subject": "תזכורת:"
+	"semantictasks-taskassigned-body-2": "להלן תיאור המשימה:",
+	"semantictasks-reminder-subject": "תזכורת:",
+	"semantictasks-reminder-body-1": "תזכורת: המשימה \"$1\" מסתיימת בעוד {{PLURAL:$2|יום אחד|$2 ימים}}."
 }
